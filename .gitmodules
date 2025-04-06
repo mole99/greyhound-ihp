@@ -1,0 +1,26 @@
+[submodule "ip/fabulous_fabric"]
+	path = ip/fabulous_fabric
+	url = ../fabulous_fabric.git
+[submodule "ip/cv32e40x"]
+	path = ip/cv32e40x
+	url = ../cv32e40x.git
+	branch = sv2v
+[submodule "ip/obi"]
+	path = ip/obi
+	url = ../obi.git
+	branch = sv2v
+[submodule "ip/EF_IP_UTIL"]
+	path = ip/EF_IP_UTIL
+	url = ../EF_IP_UTIL.git
+[submodule "ip/EF_QSPI_XIP_CTRL"]
+	path = ip/EF_QSPI_XIP_CTRL
+	url = ../EF_QSPI_XIP_CTRL.git
+[submodule "ip/EF_PSRAM_CTRL"]
+	path = ip/EF_PSRAM_CTRL
+	url = ../EF_PSRAM_CTRL
+[submodule "ip/EF_UART"]
+	path = ip/EF_UART
+	url = ../EF_UART
+[submodule "ip/common_cells"]
+	path = ip/common_cells
+	url = ../common_cells.git
