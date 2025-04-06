@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 
 module greyhound_ihp_top #(

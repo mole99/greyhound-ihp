@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 
 module fabric_extension import cv32e40x_pkg::*;

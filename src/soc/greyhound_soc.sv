@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
+// SPDX-License-Identifier: Apache-2.0
+
 `default_nettype none
 
 module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
@@ -369,7 +372,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     .sbr_port_r_chan_t    ( sbr_obi_r_chan_t ),
     
     .NumSbrPorts ( NumManagers   ),
-    .NumMaxTrans ( 1             ) // TODO was 2
+    .NumMaxTrans ( 1             )
   ) i_obi_mux (
     .clk_i      ( clk_i  ),
     .rst_ni     ( rst_ni ),
@@ -427,7 +430,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     .obi_req_t   ( sbr_obi_req_t ),
     .obi_rsp_t   ( sbr_obi_rsp_t ),
     .NumMgrPorts ( NumPeriphs    ),
-    .NumMaxTrans ( 1             ) // TODO was 2
+    .NumMaxTrans ( 1             )
   ) i_obi_demux (
     .clk_i  ( clk_i  ),
     .rst_ni ( rst_ni ),
@@ -445,7 +448,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     .ObiCfg      ( SbrObiCfg     ),
     .obi_req_t   ( sbr_obi_req_t ),
     .obi_rsp_t   ( sbr_obi_rsp_t ),
-    .NumMaxTrans ( 1             ), // TODO 2 as above?
+    .NumMaxTrans ( 1             ),
     .RspData     ( 32'hBADCAB1E  )
   ) i_periph_err (
     .clk_i      ( clk_i ),
@@ -495,16 +498,16 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
        .data_wdata_i  ( flash_obi_req.a.wdata ), // (I) Write data
        .data_rdata_o  ( flash_obi_rsp.r.rdata ), // (O) Read data
        .data_err_o    ( flash_obi_rsp.r.err ),   // (O) Error
-       .pending_dbus_xfer_i   ( 1'b0 ), // TODO (I) Asserted if data bus is busy from other transactions
+       .pending_dbus_xfer_i   ( 1'b0 ), // (I) Asserted if data bus is busy from other transactions
 
        // Miscellaneous
        .priv_mode_i   ( 1'b1 )       // (I) Privilege mode (from core. 1=machine mode, 0=user mode)
     );
     
-    assign flash_HSEL = periph_idx == PeriphFlash; // TODO
-    assign flash_HREADY = flash_HREADYOUT; //flash_obi_req.req; // TODO
+    assign flash_HSEL = periph_idx == PeriphFlash;
+    assign flash_HREADY = flash_HREADYOUT;
 
-    assign flash_obi_rsp.r.rid = flash_obi_req.a.aid; // TODO passthrough?
+    assign flash_obi_rsp.r.rid = flash_obi_req.a.aid;
     assign flash_obi_rsp.r.r_optional = 1'b0;
     
     EF_QSPI_XIP_CTRL_AHBL 
@@ -658,20 +661,16 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
        .data_wdata_i  ( psram_obi_req.a.wdata ), // (I) Write data
        .data_rdata_o  ( psram_obi_rsp.r.rdata ), // (O) Read data
        .data_err_o    ( psram_obi_rsp.r.err ),   // (O) Error
-       .pending_dbus_xfer_i   ( 1'b0 ), // TODO (I) Asserted if data bus is busy from other transactions
+       .pending_dbus_xfer_i   ( 1'b0 ),
 
        // Miscellaneous
        .priv_mode_i   ( 1'b1 )       // (I) Privilege mode (from core. 1=machine mode, 0=user mode)
     );
     
-    assign psram_HSEL = periph_idx == PeriphPsram; // TODO
-    
-    /*always_ff @(posedge clk_i) begin
-        psram_HREADY <= psram_HREADYOUT; //psram_obi_req.req; // TODO
-    end*/
+    assign psram_HSEL = periph_idx == PeriphPsram;
     assign psram_HREADY = psram_HREADYOUT;
 
-    assign psram_obi_rsp.r.rid = psram_obi_req.a.aid; // TODO passthrough?
+    assign psram_obi_rsp.r.rid = psram_obi_req.a.aid;
     assign psram_obi_rsp.r.r_optional = 1'b0;
     
     // Using EBH Command
@@ -739,16 +738,16 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
        .data_wdata_i  ( uart0_obi_req.a.wdata ), // (I) Write data
        .data_rdata_o  ( uart0_obi_rsp.r.rdata ), // (O) Read data
        .data_err_o    ( uart0_obi_rsp.r.err ),   // (O) Error
-       .pending_dbus_xfer_i   ( 1'b0 ), // TODO (I) Asserted if data bus is busy from other transactions
+       .pending_dbus_xfer_i   ( 1'b0 ), // (I) Asserted if data bus is busy from other transactions
 
        // Miscellaneous
        .priv_mode_i   ( 1'b1 )       // (I) Privilege mode (from core. 1=machine mode, 0=user mode)
     );
     
-    assign uart0_HSEL = periph_idx == PeriphUart0; // TODO write signal on UART is two cycles, depends on HSEL, HREADY
-    assign uart0_HREADY = uart0_HREADYOUT;//uart0_obi_req.req; // TODO
+    assign uart0_HSEL = periph_idx == PeriphUart0;
+    assign uart0_HREADY = uart0_HREADYOUT;
 
-    assign uart0_obi_rsp.r.rid = uart0_obi_req.a.aid; // TODO passthrough?
+    assign uart0_obi_rsp.r.rid = uart0_obi_req.a.aid;
     assign uart0_obi_rsp.r.r_optional = 1'b0;
 
     EF_UART_AHBL i_EF_UART_AHBL (

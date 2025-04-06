@@ -47,7 +47,7 @@ package soc_pkg;
     localparam bit [31:0] Uart0AddrRange            = 32'h0001_0000;
     
     localparam bit [31:0] FabricConfigAddrOffset    = 32'h4000_0000;
-    localparam bit [31:0] FabricConfigAddrRange     = 32'h0000_0100; // TODO
+    localparam bit [31:0] FabricConfigAddrRange     = 32'h0000_0100;
     
     localparam bit [31:0] FabricAddrOffset          = 32'h5000_0000;
     localparam bit [31:0] FabricAddrRange           = 32'h0100_0000; // 24bit
@@ -98,7 +98,7 @@ package soc_pkg;
           AddrWidth:     32,
           DataWidth:     32,
           // One manager
-          IdWidth:        1, // TODO
+          IdWidth:        1,
           Integrity:   1'b0,
           BeFull:      1'b1,
           OptionalCfg:  '0

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: © 2024 Leo Moser <leo.moser@pm.me>
+// SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
 // SPDX-License-Identifier: Apache-2.0
 
 `timescale 1ns/1ps
