@@ -1,4 +1,4 @@
-# Greyhound: a RISC-V SoC with tightly coupled eFPGA on IHP SG13G2
+# Greyhound: A RISC-V SoC with tightly coupled eFPGA on IHP SG13G2
 
 Greyhound's embedded FPGA can be used as a custom instruction extension, as a peripheral or as a completely standalone FPGA with 32 I/Os. Custom tiles were created to enable warmboot functionality and allow communication with the SoC. Thanks to FABulous, the user bitstream for the FPGA can be generated using the upstream yosys and nextpnr toolchain.
 
@@ -29,18 +29,20 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
   - 32x I/Os
   - 784x LUT4 + FF
     - w. carry chain
+  - 98x MUX
+    - Either 1xMUX8, 2xMUX4 or 4xMUX2
   - 7x SRAM
     - 32 bit-wide, 4kB deep
     - individual bit-enable
-  - 7x MULADD
+  - 7x MAC
     - 8bit*8bit + 20bit
     - sign-extend
     - sync/async operands and/or ACC
-  - 14x RegFile
+  - 14x Register file
     - 32x4bit each
     - 1w1r1r
     - sync/async output
-  - 1x global clock network
+  - 1x Global clock network
   - 1x WARMBOOT
     - Trigger a reconfiguration from one of 16 slots
     - Provides a reset signal which is asserted during reconfiguration
@@ -60,7 +62,15 @@ Here are the STA results after PnR for the SoC:
 | nom_typ_1p20V_25C   | 55 MHz    |
 | nom_slow_1p08V_125C | 34 MHz    |
 
+## FPGA Fabric
+
+Here is the tile map of the FPGA fabric:
+
+![fabric_diagram.svg](img/fabric_diagram.svg)
+
 ## Memory Map
+
+This is the memory map of the SoC:
 
 | Base Address | Name               | Description                                                                                      |
 |--------------|--------------------|--------------------------------------------------------------------------------------------------|
