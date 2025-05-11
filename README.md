@@ -64,9 +64,9 @@ Here are the STA results after PnR for the SoC:
 
 ## FPGA Fabric
 
-Here is the tile map of the FPGA fabric:
+This is the tile map of the FPGA fabric:
 
-![fabric_diagram.svg](img/fabric_diagram.svg)
+![fabric_diagram.svg](img/svg/fabric_diagram.svg)
 
 ## Memory Map
 
@@ -117,7 +117,9 @@ Where `a` and `b` are the variables for the operands and `c` is the variable for
 
 ## FPGA Configuration
 
-There are several ways to upload a bitstream into the FPGA fabric. 
+There are several paths for uploading a bitstream into the FPGA fabric.
+
+![fabric_configuration.svg](img/svg/fabric_configuration.svg)
 
 1. Fabric config acts as controller (`fpga_mode` == 0)
 
