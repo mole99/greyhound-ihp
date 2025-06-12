@@ -208,7 +208,7 @@ I would also like to thank the FABulous team for their support in the developmen
 
 |   |   |
 |---|---|
-| ![banner.svg](img/banner.svg)  | ![NGI0Entrust_tag.svg](img/NGI0Entrust_tag.svg)  |
+| ![NLnet](img/nlnet_banner.svg)  | ![NGI0 Entrust](img/NGI0Entrust_tag.svg)  |
 
 ## License
 
