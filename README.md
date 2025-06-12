@@ -196,7 +196,19 @@ make drc
 make zip
 ```
 
-And with this Greyhound is ready for tapeout. 
+And with this Greyhound is ready for tapeout.
+
+## Acknowledgements
+
+Greyhound was created as part of my master's thesis at Graz University of Technology.
+
+I would like to thank my supervisors Tobias Scheipel and Meinhard Kissich.
+
+I would also like to thank the FABulous team for their support in the development of the fabric and NLnet for funding the work of the FABulous team.
+
+|   |   |
+|---|---|
+| ![banner.svg](img/banner.svg)  | ![NGI0Entrust_tag.svg](img/NGI0Entrust_tag.svg)  |
 
 ## License
 
