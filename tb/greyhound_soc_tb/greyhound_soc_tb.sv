@@ -89,10 +89,37 @@ module greyhound_soc_tb;
         // Interrupt requests from fabric
         .fabric_irq_i       ( 4'b0 ),
         
+        // Fabric config is currently
+        // configuring the fabric
+        .fabric_config_busy_i   (1'b0),
+        
+        // Fabric bitstream data
+        .bitstream_valid_o  (),
+        .bitstream_data_o   (),
+        
+        // Trigger fabric reconfiguration
+        .warmboot_boot_o    (),
+        .warmboot_slot_o    (),
+        
+        // Choose functionality of fabric
+        // 0 = custom instruction interface
+        // 1 = bus interface 
+        .xif_or_periph_o    (),
+        
         // Custom instruction interface to fabric
-        .fabric_rs1_o       (),
-        .fabric_rs2_o       (),
-        .fabric_result_i    (32'hDEADBEEF),
+        .fabric_rs1_o   (),
+        .fabric_rs2_o   (),
+        .fabric_result_i (32'hDEADBEEF),
+        
+        // Bus interface to fabric
+        .fabric_gnt_i       (1'b0),
+        .fabric_req_o       (),
+        .fabric_rvalid_i    (1'b0),
+        .fabric_we_o        (),
+        .fabric_be_o        (),
+        .fabric_addr_o      (),
+        .fabric_wdata_o     (),
+        .fabric_rdata_i     (32'hDEADBEEF),
         
         // SRAM
         .bank_rdata_i,

@@ -10,7 +10,6 @@ from cocotb.triggers import ClockCycles
 from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
 from cocotb.regression import TestFactory
 from cocotb.runner import get_runner
-#from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
 
 hello_world = {
@@ -18,7 +17,7 @@ hello_world = {
 }
 
 custom_instruction = {
-    'firmware': '../../../firmware/custom_instruction/custom_instruction.hex'
+    'firmware': '../../../firmware/custom_instruction_dummy/custom_instruction_dummy.hex'
 }
 
 enabled = hello_world
@@ -56,7 +55,7 @@ async def test_hello_world(dut):
     await start_up(dut)
     
     # Wait for UART to get clocked
-    await ClockCycles(dut.clk_i, int(50000*0.8))
+    await ClockCycles(dut.clk_i, int(50000*1.0))
     
     # Send char
     await uart_source.write(b'A')
@@ -67,7 +66,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.clk_i, int(50000*1.6))
+    await ClockCycles(dut.clk_i, int(50000*1.7))
     
     # Read message
     data = uart_sink.read_nowait(-1)
