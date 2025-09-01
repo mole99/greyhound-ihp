@@ -5,8 +5,8 @@ Greyhound's embedded FPGA can be used as a custom instruction extension, as a pe
 Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](https://github.com/IHP-GmbH/IHP-Open-PDK).
 
 <p align="center">
-  <a href="img/greyhound_ihp_top.png">
-    <img src="img/greyhound_ihp_top_small.png" alt="chip layout" width=35%>
+  <a href="img/FMD_QNC_greyhound_ihp.png">
+    <img src="img/FMD_QNC_greyhound_ihp_small.png" alt="chip layout" width=35%>
   </a>
 </p>
 
@@ -14,31 +14,35 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
 
 - SoC
   - [CV32E40X](https://github.com/openhwgroup/cv32e40x) RISC-V core from the OpenHW group
-    - RV32IMA
-    - Zca_Zcb_Zcmp_Zcmt (code-size reduction)
-    - ZBA_ZBB_ZBC_ZBS (bit manipulation)
-    - and more...
-  - 8kB SRAM
+    - RV32IMAC
+    - `Zca_Zcb_Zcmp_Zcmt` (code-size reduction)
+    - `Zba_Zbb_Zbc_Zbs` (bit manipulation)
+    - `Zicntr`, `Zicsr`, `Zihpm`, `Zifencei`
+  - 8 KiB SRAM
   - QSPI Flash Controller for XIP
-    - Cache: 8 lines of 32 bytes, direct mapped
+    - Cache: 16 lines of 32 bytes, direct mapped
   - QSPI PSRAM controller
   - Highly Configurable UART
   - Fabric Config Peripheral
   - Fabric Peripheral
 - [FABulous](https://github.com/FPGA-Research/FABulous) eFPGA
   - 32x I/Os
-  - 784x LUT4 + FF
+  - 1024x LUT4 + FF
     - w. carry chain
-  - 98x MUX
+  - 128x MUX
     - Either 1xMUX8, 2xMUX4 or 4xMUX2
-  - 7x SRAM
+  - 4x SRAM
     - 32 bit-wide, 4kB deep
     - individual bit-enable
-  - 7x MAC
+  - 4x BRAM
+    - 16 bit-wide, 4kB deep
+    - individual bit-enable
+    - two read-write ports
+  - 8x MAC
     - 8bit*8bit + 20bit
     - sign-extend
     - sync/async operands and/or ACC
-  - 14x Register file
+  - 16x Register file
     - 32x4bit each
     - 1w1r1r
     - sync/async output
@@ -48,9 +52,12 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
     - Provides a reset signal which is asserted during reconfiguration
   - 1x CPU_IRQ
     - 4x Interrupt request lines to the CPU
-  - 4x CPU_IF
-    - Interface to the CPU/SoC
-    - Custom instruction extension or peripheral
+  - 1x OBI_PERIPHERAL
+    - Interface to the SoC (Open Bus Interface)
+    - Custom peripheral
+  - 1x CUSTOM_INSTRUCTION
+    - Interface to the CPU
+    - Custom instruction extension
 
 The FPGA can configure itself from an SPI Flash from any of 16 different slots, or receive the bitsream via SPI. The CPU can also trigger a reconfiguration or provide the bitstream directly.
 
@@ -74,7 +81,7 @@ This is the memory map of the SoC:
 
 | Base Address | Name               | Description                                                                                      |
 |--------------|--------------------|--------------------------------------------------------------------------------------------------|
-| 0x00000000   | FLASH_BASE         | QSPI XIP Flash controller with 8 lines of 32 bytes direct mapped cache                           |
+| 0x00000000   | FLASH_BASE         | QSPI XIP Flash controller with 16 lines of 32 bytes direct mapped cache                           |
 | 0x10000000   | SRAM_BASE          | 8kB of SRAM                                                                                      |
 | 0x20000000   | PSRAM_BASE         | QSPI PSRAM controller                                                                            |
 | 0x30000000   | UART0_BASE         | Highly configurable UART with 16-byte TX and RX FIFO, 16-bit prescaler and ten interrupt sources |
@@ -87,22 +94,56 @@ The `FABRIC_CONFIG` peripheral can be accessed by the CPU to configure the FPGA 
 
 | Offset | Register               | Description                                                                                                    |
 |--------|------------------------|----------------------------------------------------------------------------------------------------------------|
-| 0x0    | `REG_XIF_OR_PERIPH`      | [W] Write a 0 or 1. Sets the interface to the fabric as custom instruction interface (0) or as peripheral (1). |
+| 0x0    | `REG_XIF_OR_PERIPH`      | [W] Write a 0 or 1. Sets the interface to the fabric as custom instruction interface (0) or as peripheral (1). (Removed for revision 2 since now both interfaces are active at the same time.) |
 | 0x4    | `REG_FABRIC_CONFIG_BUSY` | [R] Readonly. Returns 1 if the fabric is under configuration, 0 if not.                                        |
 | 0x8    | `REG_BITSTREAM`          | [W] Write bitstream data to this register.                                                                     |
 | 0xC    | `REG_TRIGGER_SLOT`       | [W] Trigger a reconfiguration by writing the slot to this register (0-15).                                     |
 
 ## Fabric Peripheral
 
-The fabric peripheral can be accessed when `REG_XIF_OR_PERIPH` is set to 1. In this case the fabric will be interfaced as a peripheral. It is the responsibility of the user to upload a bitstream that correctly handles bus requests.
+The fabric peripheral can be accessed at address `0x50000000`. It is the responsibility of the user to upload a bitstream that correctly handles bus requests. The `OBI_PERIPHERAL` implements the Open Bus Interface, see: https://github.com/openhwgroup/obi
+
+```Verilog
+    OBI_PERIPHERAL_wrapper i_OBI_PERIPHERAL_wrapper (
+        .REQ,
+        .WE,
+        .BE,
+        .ADDR,
+        .WDATA,
+        
+        .GNT,
+        .RVALID,
+        .RDATA,
+    );
+```
+
+An example design for implementing a custom peripheral in the eFPGA can be found under `ip/fabric/user_designs/peripheral/`.
 
 ## Custom Instruction Extension
 
-The fabric can implement a custom instruction which can be accessed by the CPU when `REG_XIF_OR_PERIPH` is set to 0.
+The fabric can implement a custom instruction via the `CUSTOM_INSTRUCTION` primitive. It implements a simple handshake protocol for the "issue" phase and the "result" phase.
+This is a significant improvement over revision one of Greyhound, since now implementing multiple custom instructions, pipelining and stalling is all automatically supported.
 
-The interface to the fabric is kept simple: the fabric receives the two operands and returns the result. To process more complicated instructions it is possible to specify after how many cycles the result is ready.
+The interface is as follows:
 
-The custom instruction extension implements the `0x5B` opcode that is free to use. The instruction encoding is R-type: `.insn r opcode7, func3, func7, rd, rs1, rs2`. `func7` specifies the number of cycles after which the result is read.
+```Verilog
+    CUSTOM_INSTRUCTION_wrapper xif (
+        .ISSUE_READY    (issue_ready_o),
+        .ISSUE_ACCEPT   (issue_accept_o),
+        .ISSUE_VALID    (issue_valid_i),
+        .ISSUE_INSTR    (issue_instr_i),
+        .ISSUE_OPA      (issue_op0_i),
+        .ISSUE_OPB      (issue_op1_i),
+        .ISSUE_ID       (issue_id_i),
+        
+        .RESULT_VALID   (result_valid_o),
+        .RESULT_ID      (result_id_o),
+        .RESULT_RD      (result_rd_o),
+        .RESULT         (result_o),
+    );
+```
+
+An example design for implementing a custom instruction in the eFPGA can be found under `ip/fabric/user_designs/custom_instruction/`.
 
 You can easily execute a custom instruction directly from your C code using the `.insn` pseudo directive in GCC:
 
@@ -110,7 +151,7 @@ You can easily execute a custom instruction directly from your C code using the 
 int a=42; int b=3; int c;
 
 // Read the result after 13 cycles
-__asm__ volatile (".insn r 0x5b, 0, 13, %0, %1, %2" : "=r" (c) : "r" (a), "r" (b));
+__asm__ volatile (".insn r 0x5b, 0, 0, %0, %1, %2" : "=r" (c) : "r" (a), "r" (b));
 ```
 
 Where `a` and `b` are the variables for the operands and `c` is the variable for the result.
@@ -149,46 +190,72 @@ Approximate times for configuration from simulation:
 
 Example programs are under the `firmware/` directory. These include programs to use the UART, load a bitstream, trigger a bitstream reconfiguration, use a custom instruction of the fabric or access a peripheral of the fabric.
 
-Instructions to compile a bitstream for the eFPGA can be found in the [`ip/fabulous_fabric`](https://github.com/mole99/fabulous_fabric) submodule.
+Instructions to compile a bitstream for the eFPGA can be found under `ip/fabric/user_designs/`.
 
-## Simulation
+in the [`ip/fabulous_fabric`](https://github.com/mole99/fabulous_fabric) submodule.
 
-Testbenches are using [cocotb](https://github.com/cocotb/cocotb). There are separate testbenches just for simulating the SoC or the full chip. To simulate the SoC, take a look at `tb/greyhound_soc_tb`. For the full chip simulation see `tb/greyhound_ihp_top`.
+## Simulation and Verification
+
+Testbenches are made with [cocotb](https://github.com/cocotb/cocotb). There are separate testbenches just for simulating the SoC or the full chip. To simulate the SoC, take a look at `tb/greyhound_soc_tb`. For the full chip simulation see `tb/greyhound_ihp_top`.
+
+To run an RTL simulation, first we need to convert the SystemVerilog into something that Icarus Verilog can read.
+Enable a Nix shell using `nix-shell` and run `make convert-slang`.
+
+Currently, Nix is not used for the testbench environment (sorry!), you need to create a virtual environment in Python and install the dependencies via:
+
+```
+pip3 install -r requirements.txt
+```
 
 To start the full chip simulation simply run:
 
 ```
-python3 greyhound_ihp_top_tb.py
+python3 FMD_QNC_greyhound_ihp.py
 ```
 
 To run a gate level simulation, simply set `GL`:
 
 ```
-GL=1 python3 greyhound_ihp_top_tb.py
+GL=1 python3 FMD_QNC_greyhound_ihp.py
 ```
 
-To select a different test, open `greyhound_ihp_top_tb.py` and set `enabled` to one of the available tests. This is unfortunately necessary since cocotb cannot restart the simulator between test runs.
+To select a different test, open `FMD_QNC_greyhound_ihp.py` and set `enabled` to one of the available tests. This is unfortunately necessary since cocotb cannot restart the simulator between test runs. Maybe there is another way to reload the SPI flash.
 
 ## Building the Chip
 
 > [!NOTE]
-> Greyhound currently relies on forks of [OpenLane 2](https://github.com/mole99/openlane2/tree/greyhound) and the [IHP Open PDK](https://github.com/mole99/IHP-Open-PDK/tree/openlane) since some changes were necessary. I'm planning to upstream all changes to the upstream repositories soon.
+> Greyhound currently relies on forks of [LibreLane](https://github.com/mole99/librelane/tree/greyhound) and the [IHP Open PDK](https://github.com/mole99/IHP-Open-PDK/tree/leo/padring). I'm planning on upstreaming all changes to the upstream repositories soon.
 
-To build the chip with OpenLane:
+First enable a Nix shell using:
 
-```console
-openlane --manual-pdk config.yaml
+```
+nix-shell
 ```
 
 Note: You need to export `PDK_ROOT` and `PDK` to the path of the IHP Open PDK and the name of the PDK.
+
+To build the chip with LibreLane:
+
+```console
+make librelane
+```
+
+After completion you can open Greyhound in OpenROAD GUI:
+
+```console
+make librelane-openroad
+```
+
+Or you can view Greyhound in KLayout:
+
+```console
+make librelane-klayout
+```
 
 The final steps:
 
 ```
 make copy-final
-make extract
-make edit-netlists
-make lvs
 make insert-logo
 make create-image
 make fill
@@ -196,11 +263,11 @@ make drc
 make zip
 ```
 
-And with this Greyhound is ready for tapeout.
+And with this, Greyhound is ready for tapeout.
 
 ## Acknowledgements
 
-Greyhound was created as part of my master's thesis at Graz University of Technology.
+The first revision of Greyhound was created as part of my master's thesis at Graz University of Technology.
 
 I would like to thank my supervisors Tobias Scheipel and Meinhard Kissich.
 

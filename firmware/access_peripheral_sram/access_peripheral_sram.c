@@ -33,7 +33,7 @@ int main()
   int ok = 1;
   
   // For each SRAM
-  for (int j=0; j<7; j++) {
+  for (int j=0; j<4; j++) {
   
     for (int i=0; i<32; i++) {
       *(fabric_peripheral + i + (j * (0x1000>>2))) = 0x21787456 + i + j;

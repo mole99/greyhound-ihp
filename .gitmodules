@@ -1,6 +1,3 @@
-[submodule "ip/fabulous_fabric"]
-	path = ip/fabulous_fabric
-	url = ../fabulous_fabric.git
 [submodule "ip/cv32e40x"]
 	path = ip/cv32e40x
 	url = ../cv32e40x.git

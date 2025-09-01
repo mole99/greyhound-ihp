@@ -50,9 +50,9 @@ for lyp in lv.each_layer():
     
     if layer_datatype in fill_layer:
         lyp.dither_pattern = 0
-        lyp.line_style = 0
-        lyp.frame_color = 0
-        lyp.width = 2
+        #lyp.line_style = 0
+        #lyp.frame_color = 0
+        #lyp.width = 2
 
 lv.update_content()
 

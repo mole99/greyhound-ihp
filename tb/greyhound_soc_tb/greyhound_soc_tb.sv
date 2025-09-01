@@ -75,6 +75,20 @@ module greyhound_soc_tb;
     wire            bank_req_o;
     wire            bank_we_o;
 
+    // Our custom instruction interface    
+    logic        issue_ready_o;
+    logic        issue_accept_o;
+    logic        issue_valid_i;
+    logic [31:0] issue_instr_i;
+    logic [31:0] issue_op0_i;
+    logic [31:0] issue_op1_i;
+    logic [ 3:0] issue_id_i;
+    
+    logic        result_valid_o;
+    logic [ 3:0] result_id_o;
+    logic [ 4:0] result_rd_o;
+    logic [31:0] result_o;
+
     greyhound_soc i_greyhound_soc
     (
         `ifdef USE_POWER_PINS
@@ -93,6 +107,9 @@ module greyhound_soc_tb;
         // configuring the fabric
         .fabric_config_busy_i   (1'b0),
         
+        // Fabric has been configured
+        .fabric_configured_i   (1'b1),
+        
         // Fabric bitstream data
         .bitstream_valid_o  (),
         .bitstream_data_o   (),
@@ -100,26 +117,30 @@ module greyhound_soc_tb;
         // Trigger fabric reconfiguration
         .warmboot_boot_o    (),
         .warmboot_slot_o    (),
-        
-        // Choose functionality of fabric
-        // 0 = custom instruction interface
-        // 1 = bus interface 
-        .xif_or_periph_o    (),
-        
+
         // Custom instruction interface to fabric
-        .fabric_rs1_o   (),
-        .fabric_rs2_o   (),
-        .fabric_result_i (32'hDEADBEEF),
-        
+        .fabric_issue_ready_i   (issue_ready_o),
+        .fabric_issue_accept_i  (issue_accept_o),
+        .fabric_issue_valid_o   (issue_valid_i),
+        .fabric_issue_instr_o   (issue_instr_i),
+        .fabric_issue_op0_o     (issue_op0_i),
+        .fabric_issue_op1_o     (issue_op1_i),
+        .fabric_issue_id_o      (issue_id_i),
+            
+        .fabric_result_valid_i  (result_valid_o),
+        .fabric_result_id_i     (result_id_o),
+        .fabric_result_rd_i     (result_rd_o),
+        .fabric_result_i        (result_o),
+
         // Bus interface to fabric
-        .fabric_gnt_i       (1'b0),
-        .fabric_req_o       (),
-        .fabric_rvalid_i    (1'b0),
-        .fabric_we_o        (),
-        .fabric_be_o        (),
-        .fabric_addr_o      (),
-        .fabric_wdata_o     (),
-        .fabric_rdata_i     (32'hDEADBEEF),
+        .fabric_gnt_i           (1'b0),
+        .fabric_req_o           (),
+        .fabric_rvalid_i        (1'b0),
+        .fabric_we_o            (),
+        .fabric_be_o            (),
+        .fabric_addr_o          (),
+        .fabric_wdata_o         (),
+        .fabric_rdata_i         (32'hDEADBEEF),
         
         // SRAM
         .bank_rdata_i,
@@ -151,6 +172,62 @@ module greyhound_soc_tb;
         .fetch_enable_i,
         .core_sleep_o
     );
+
+    // R-type instruction decoding
+    logic [6:0] opcode;
+    logic [4:0] rs1;
+    logic [4:0] rs2;
+    logic [4:0] rd;
+    logic [2:0] funct3;
+    logic [6:0] funct7;
+
+    assign opcode   = issue_instr_i[6:0];
+    assign rs1      = issue_instr_i[19:15];
+    assign rs2      = issue_instr_i[24:20];
+    assign rd       = issue_instr_i[11:7];
+    assign funct3   = issue_instr_i[14:12];
+    assign funct7   = issue_instr_i[31:25];
+
+    // 0x0B, 0x2B, 0x5B and 0x7B
+    // are free for custom use
+    localparam OPCODE_XIF = 7'h5B;
+
+    // Use GCC .insn pseudo directive:
+    // R type: .insn r opcode7, func3, func7, rd, rs1, rs2
+
+    assign issue_accept_o = opcode == OPCODE_XIF && issue_valid_i;
+    
+    assign issue_ready_o = 1'b1;
+    
+    logic [31:0] op0_d;
+    logic [31:0] op1_d;
+    logic [3:0]  id_d;
+    logic [3:0]  rd_d;
+    logic issue_valid_d;
+    
+    always_ff @(posedge clk_i) begin
+        if (!rst_ni) begin
+            issue_valid_d   <= 1'b0;
+            result_valid_o  <= 1'b0;
+        end else begin
+            issue_valid_d <= issue_valid_i;
+        
+            if (issue_valid_i) begin
+                op0_d <= issue_op0_i;
+                op1_d <= issue_op1_i;
+                id_d  <= issue_id_i;
+                rd_d  <= rd;  
+            end
+            
+            result_valid_o <= 1'b0;
+            if (issue_valid_d) begin
+                result_valid_o  <= 1'b1;
+                result_id_o     <= id_d;
+                result_rd_o     <= rd_d;
+                result_o        <= 32'hDEADBEEF;  
+            end
+        end
+    end
     
     // 8kByte memory
     logic [31:0] sram [2**SramBankAddrWidth];
