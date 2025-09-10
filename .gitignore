@@ -3,6 +3,7 @@ sim_build/
 runs/
 *.vvp
 *.fst
+*.gtkw
 *.a
 *.o
 *.elf
@@ -19,3 +20,4 @@ netgen_lvs.rpt
 out.def
 
 sg13g2_minimal.lyrdb
+drc_run_*

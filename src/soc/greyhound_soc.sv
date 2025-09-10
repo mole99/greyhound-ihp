@@ -6,8 +6,8 @@
 module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
 (
 `ifdef USE_POWER_PINS
-    inout VPWR,    // Common 1.8V supply
-    inout VGND,    // Common digital ground
+    inout wire VPWR,    // Common digital supply
+    inout wire VGND,    // Common digital ground
 `endif
 
     // Clock and reset
@@ -21,6 +21,9 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     // configuring the fabric
     input  logic            fabric_config_busy_i,
     
+    // Fabric has been configured
+    input  logic            fabric_configured_i,
+    
     // Fabric bitstream data
     output logic            bitstream_valid_o,
     output logic [31:0]     bitstream_data_o,
@@ -29,15 +32,19 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     output logic            warmboot_boot_o,
     output logic [3:0]      warmboot_slot_o,
     
-    // Choose functionality of fabric
-    // 0 = custom instruction interface
-    // 1 = bus interface 
-    output logic            xif_or_periph_o,
-    
     // Custom instruction interface to fabric
-    output logic [31:0]     fabric_rs1_o,
-    output logic [31:0]     fabric_rs2_o,
-    input  logic [31:0]     fabric_result_i,
+    input  logic        fabric_issue_ready_i,
+    input  logic        fabric_issue_accept_i,
+    output logic        fabric_issue_valid_o,
+    output logic [31:0] fabric_issue_instr_o,
+    output logic [31:0] fabric_issue_op0_o,
+    output logic [31:0] fabric_issue_op1_o,
+    output logic [3 :0] fabric_issue_id_o,
+    
+    input  logic        fabric_result_valid_i,
+    input  logic [3 :0] fabric_result_id_i,
+    input  logic [4 :0] fabric_result_rd_i,
+    input  logic [31:0] fabric_result_i,
     
     // Bus interface to fabric
     input  logic            fabric_gnt_i,
@@ -94,7 +101,42 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
         .xif_mem            (ext_if.coproc_mem),
         .xif_mem_result     (ext_if.coproc_mem_result),
         .xif_result         (ext_if.coproc_result)
-    );*/
+    );
+    
+    assign fabric_issue_valid_o = '0;
+    assign fabric_issue_instr_o = '0;
+    assign fabric_issue_op0_o   = '0;
+    assign fabric_issue_op1_o   = '0;
+    assign fabric_issue_id_o    = '0;*/
+    
+    // Input signals are only valid when the
+    // fabric has been configured
+    logic        fabric_issue_ready_gated;
+    logic        fabric_issue_accept_gated;
+
+    logic        fabric_result_valid_gated;
+    logic [3 :0] fabric_result_id_gated;
+    logic [4 :0] fabric_result_rd_gated;
+    logic [31:0] fabric_result_gated;
+    
+    always_comb begin
+        fabric_issue_ready_gated    = '1;
+        fabric_issue_accept_gated   = '0;
+        
+        fabric_result_valid_gated   = '0;
+        fabric_result_id_gated      = '0;
+        fabric_result_rd_gated      = '0;
+        fabric_result_gated         = '0;
+        if (fabric_configured_i) begin
+            fabric_issue_ready_gated    = fabric_issue_ready_i;
+            fabric_issue_accept_gated   = fabric_issue_accept_i;
+
+            fabric_result_valid_gated   = fabric_result_valid_i;
+            fabric_result_id_gated      = fabric_result_id_i;
+            fabric_result_rd_gated      = fabric_result_rd_i;
+            fabric_result_gated         = fabric_result_i;
+        end
+    end
     
     fabric_extension fabric_extension
     (
@@ -108,9 +150,18 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
         .xif_mem_result     (ext_if.coproc_mem_result),
         .xif_result         (ext_if.coproc_result),
         
-        .fabric_rs1_o,
-        .fabric_rs2_o,
-        .fabric_result_i,
+        .fabric_issue_ready_i   (fabric_issue_ready_gated),
+        .fabric_issue_accept_i  (fabric_issue_accept_gated),
+        .fabric_issue_valid_o   (fabric_issue_valid_o),
+        .fabric_issue_instr_o   (fabric_issue_instr_o),
+        .fabric_issue_op0_o     (fabric_issue_op0_o),
+        .fabric_issue_op1_o     (fabric_issue_op1_o),
+        .fabric_issue_id_o      (fabric_issue_id_o),
+            
+        .fabric_result_valid_i  (fabric_result_valid_gated),
+        .fabric_result_id_i     (fabric_result_id_gated),
+        .fabric_result_rd_i     (fabric_result_rd_gated),
+        .fabric_result_i        (fabric_result_gated)
     );
 
     logic [63:0] time_counter;
@@ -219,6 +270,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign fabric_obi_req                         = all_periph_obi_req[PeriphFabric];
     assign all_periph_obi_rsp[PeriphFabric]       = fabric_obi_rsp;
 
+    `ifdef DEBUG
     // Instruction memory interface
     logic                          instr_req_o;
     logic                          instr_gnt_i;
@@ -256,6 +308,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign data_wdata_o       = core_data_obi_req.a.wdata;
     assign data_rdata_i       = core_data_obi_rsp.r.rdata;
     assign data_err_i         = core_data_obi_rsp.r.err;
+	`endif
 
     // Interrupt sources
     logic [31:0] irq;
@@ -275,7 +328,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
       .PMA_NUM_REGIONS       ( NumPMARules           ),
       .PMA_CFG               ( pma_cfg               ),
       .X_EXT                 ( 1                     ),
-      .CLIC                  ( 0                     ), // CLINT
+      .CLIC                  ( 0                     ) // CLINT
     ) cv32e40x_core (
       // Clock and reset
       .clk_i                 ( clk_i                 ),
@@ -512,7 +565,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     EF_QSPI_XIP_CTRL_AHBL 
     #(
-        .NUM_LINES      ( 8 ), 
+        .NUM_LINES      ( 16 ), 
         .LINE_SIZE      ( 32 ), 
         .RESET_CYCLES   ( 999 ) 
     )
@@ -772,11 +825,12 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     );
 
     // FabricConfig Peripheral
-    localparam REG_XIF_OR_PERIPH        = 4'd0;
+    //TODO localparam REG_XIF_OR_PERIPH        = 4'd0;
     localparam REG_FABRIC_CONFIG_BUSY   = 4'd4;
     localparam REG_BITSTREAM            = 4'd8;
     localparam REG_TRIGGER_SLOT         = 4'd12;
     
+    `ifdef DEBUG
     logic [  32-1:0] debug_fabric_config_req;
     logic [  32-1:0] debug_fabric_config_addr;
     logic            debug_fabric_config_we;
@@ -806,14 +860,17 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign debug_fabric_config_rid        = fabric_config_obi_rsp.r.rid;
     assign debug_fabric_config_err        = fabric_config_obi_rsp.r.err;
     assign debug_fabric_config_r_optional = fabric_config_obi_rsp.r.r_optional;
+    `endif
     
     always_ff @(posedge clk_i, negedge rst_ni) begin
         if (!rst_ni) begin
-            xif_or_periph_o     <= 1'b0;
             bitstream_valid_o   <= 1'b0;
             bitstream_data_o    <= '0;
             warmboot_boot_o   <= 1'b0;
             warmboot_slot_o   <= '0;
+            
+            fabric_config_obi_rsp.rvalid <= 1'b0;
+            fabric_config_obi_rsp.r.rdata <= '0;
         end else begin
             fabric_config_obi_rsp.rvalid <= 1'b0;
             
@@ -826,10 +883,6 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
                 
                 // Write
                 if (fabric_config_obi_req.a.we) begin
-                    
-                    if (fabric_config_obi_req.a.addr[3:0] == REG_XIF_OR_PERIPH) begin
-                        if (fabric_config_obi_req.a.be[0]) xif_or_periph_o <= fabric_config_obi_req.a.wdata[0];
-                    end
                     
                     if (fabric_config_obi_req.a.addr[3:0] == REG_BITSTREAM) begin
                         if (fabric_config_obi_req.a.be[0]) bitstream_data_o[ 7: 0] <= fabric_config_obi_req.a.wdata[7 : 0];
@@ -864,19 +917,37 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     // Fabric Peripheral
     
-    assign fabric_obi_rsp.gnt            = fabric_gnt_i;
+    // Input signals are only valid when the
+    // fabric has been configured
+    logic            fabric_gnt_gated;
+    logic            fabric_rvalid_gated;
+    logic [31:0]     fabric_rdata_gated;
+    
+    always_comb begin
+        fabric_gnt_gated        = '0;
+        fabric_rvalid_gated     = '0;
+        fabric_rdata_gated      = '0;
+        if (fabric_configured_i) begin
+            fabric_gnt_gated        = fabric_gnt_i;
+            fabric_rvalid_gated     = fabric_rvalid_i;
+            fabric_rdata_gated      = fabric_rdata_i;
+        end
+    end
+    
+    assign fabric_obi_rsp.gnt            = fabric_gnt_gated;
     assign fabric_req_o                  = fabric_obi_req.req;
-    assign fabric_obi_rsp.rvalid         = fabric_rvalid_i;
+    assign fabric_obi_rsp.rvalid         = fabric_rvalid_gated;
     assign fabric_we_o                   = fabric_obi_req.a.we;
     assign fabric_be_o                   = fabric_obi_req.a.be;
     assign fabric_addr_o                 = fabric_obi_req.a.addr[23:0];
     assign fabric_wdata_o                = fabric_obi_req.a.wdata;
-    assign fabric_obi_rsp.r.rdata        = fabric_rdata_i;
+    assign fabric_obi_rsp.r.rdata        = fabric_rdata_gated;
 
     assign fabric_obi_rsp.r.err = 1'b0;
     assign fabric_obi_rsp.r.rid = fabric_obi_req.a.aid;
     assign fabric_obi_rsp.r.r_optional = 1'b0;
     
+    `ifdef DEBUG
     logic [  32-1:0] debug_fabric_req;
     logic [  32-1:0] debug_fabric_addr;
     logic            debug_fabric_we;
@@ -906,5 +977,6 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign debug_fabric_rid        = fabric_obi_rsp.r.rid;
     assign debug_fabric_err        = fabric_obi_rsp.r.err;
     assign debug_fabric_r_optional = fabric_obi_rsp.r.r_optional;
+	`endif
 
 endmodule

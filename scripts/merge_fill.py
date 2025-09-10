@@ -15,11 +15,18 @@ def merge_fill(input_gds, fill_gds, output_gds, offset=(0, 0)):
     layout.read(fill_gds)
 
     # Insert fill
-    fill_pattern = layout.cell("greyhound_ihp_top_fill_pattern")
+    fill_pattern = layout.cell("FMD_QNC_greyhound_ihp_fill_pattern")
     top.insert(pya.DCellInstArray(fill_pattern.cell_index(), pya.DTrans(pya.DTrans.R0, pya.DPoint(offset[0], offset[1]))))
 
-    # Write layout
-    layout.write(output_gds)
+    # Options for tapeout
+    options = pya.SaveLayoutOptions()
+    options.dbu = 0.001
+    options.gds2_write_timestamps = True
+    options.gds2_write_cell_properties = False
+    options.gds2_no_zero_length_paths = True
+        
+    # Write the layout
+    layout.write(output_gds, options)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Insert the fill pattern into the layout.')

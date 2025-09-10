@@ -20,7 +20,7 @@ custom_instruction = {
     'firmware': '../../../firmware/custom_instruction_dummy/custom_instruction_dummy.hex'
 }
 
-enabled = hello_world
+enabled = custom_instruction
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -39,7 +39,7 @@ async def reset(reset, active_low=True, time_ns=1000):
 
 async def start_up(dut):
     """ Startup sequence """
-    dut.fetch_enable_i.value = 1 # TODO Start fetching
+    dut.fetch_enable_i.value = 1 # Start fetching
     await start_clock(dut.clk_i)
     await reset(dut.rst_ni)
 
@@ -95,10 +95,9 @@ async def test_custom_instruction(dut):
 if __name__ == "__main__":
 
     sim         = os.getenv("SIM", "icarus")
-    pdk_root    = os.getenv("PDK_ROOT", "~/.volare")
+    pdk_root    = os.getenv("PDK_ROOT", "~/.ciel")
     pdk         = os.getenv("PDK", "ihp-sg13g2")
     scl         = os.getenv("SCL", "sg13g2_stdcell")
-    gl          = os.getenv("GL", False)
 
     testbench_path = Path(__file__).resolve().parent
     
@@ -108,31 +107,15 @@ if __name__ == "__main__":
     ]
     defines = {}
 
-    if gl:
-        verilog_sources.append(Path(pdk_root).expanduser() / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
-        verilog_sources.append(Path(pdk_root).expanduser() / pdk / "libs.ref" / scl / "verilog" / "primitives.v" )
-        verilog_sources.append(proj_path / '..' / 'gl' / 'cv32e40x_top.nl.v')
-        defines = {'FUNCTIONAL': True, 'UNIT_DELAY': '#0'}
-    else:
-        verilog_sources.extend([
-            testbench_path / '../../src/soc/greyhound_soc.v',
-            testbench_path / '../../ip/cv32e40x/bhv/cv32e40x_sim_clock_gate.sv',
-            
-            testbench_path / '../../ip/EF_QSPI_XIP_CTRL/hdl/rtl/EF_QSPI_XIP_CTRL.v',
-            testbench_path / '../../ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v',
-            testbench_path / '../../ip/EF_QSPI_XIP_CTRL/hdl/rtl/bus_wrappers/EF_QSPI_XIP_CTRL_AHBL.v',
 
-            testbench_path / '../../ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v',
-            testbench_path / '../../ip/EF_PSRAM_CTRL/hdl/rtl/bus_wrapper/EF_PSRAM_CTRL_AHBL.v',
+    # SCL models (for the clock gate)
+    verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
 
-            testbench_path / '../../ip/EF_UART/hdl/rtl/EF_UART.v',
-            testbench_path / '../../ip/EF_UART/hdl/rtl/bus_wrappers/EF_UART_AHBL.v',
+    verilog_sources.append(testbench_path / 'greyhound_soc_slang.sv')
+    verilog_sources.append(testbench_path / '../simlib.v')
 
-            testbench_path / '../../ip/EF_IP_UTIL/hdl/ef_util_lib.v'
         
-        ])
-        
-        defines = {'RTL': True}
+    defines = {'RTL': True}
 
     hdl_toplevel = "greyhound_soc_tb"
 
