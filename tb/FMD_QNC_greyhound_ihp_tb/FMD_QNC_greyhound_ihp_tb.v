@@ -5,12 +5,12 @@
 `default_nettype none
 
 reg [1023:0] firmware_file;
-module greyhound_ihp_top_tb;
+module FMD_QNC_greyhound_ihp_tb;
 
     initial begin
         `ifdef DUMP_WAVEFORMS
-            $dumpfile("greyhound_ihp_top_tb.fst");
-            $dumpvars(0, greyhound_ihp_top_tb);
+            $dumpfile("FMD_QNC_greyhound_ihp_tb.fst");
+            $dumpvars(0, FMD_QNC_greyhound_ihp_tb);
         `endif
     end
 
@@ -75,7 +75,7 @@ module greyhound_ihp_top_tb;
     `endif
 
     // greyhound instance
-    greyhound_ihp_top greyhound_ihp_top (
+    FMD_QNC_greyhound_ihp FMD_QNC_greyhound_ihp (
         .io_clock_PAD,
         .io_reset_PAD,
 
@@ -111,7 +111,4 @@ endmodule
 
 module break_comb_loop(input A, output X);
 assign #0.1 X = A;
-endmodule
-
-module bondpad_70x70 (input pad);
 endmodule

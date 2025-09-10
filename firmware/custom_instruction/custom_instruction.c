@@ -22,8 +22,8 @@ int main()
   // baudrate = clock_f / ((PR+1)*8)
   EF_UART_setPrescaler(UART0_BASE, F_CPU/(BAUDRATE*8)-1);
   
-  #define BITSTREAM_LENGTH_WORDS 0xEA2
-  #define BITSTREAM_FLASH_OFFSET_WORDS (0x10000>>2)
+  #define BITSTREAM_LENGTH_WORDS 0x11D6
+  #define BITSTREAM_FLASH_OFFSET_WORDS (0x100000>>2)
   
   for (int i=0; i<BITSTREAM_LENGTH_WORDS; i++) {
   

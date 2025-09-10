@@ -28,8 +28,6 @@
 // Supported commands:
 //    AB, B9, FF, 03, BB, EB, ED
 //
-// TODO 66 - RSTEN, 99 - RST
-//
 // Well written SPI flash data sheets:
 //    Cypress S25FL064L http://www.cypress.com/file/316661/download
 //    Cypress S25FL128L http://www.cypress.com/file/316171/download
@@ -38,7 +36,7 @@
 //    https://www.winbond.com/resource-files/w25q128jv%20dtr%20revb%2011042016.pdf
 //
 
-module spiflash (
+module spiflash_powered (
 	input csb,
 	input clk,
 	inout io0, // MOSI
@@ -62,7 +60,7 @@ module spiflash (
 	reg [7:0] spi_out;
 	reg spi_io_vld;
 
-	reg powered_up = 0;
+	reg powered_up = 1;
 
 	localparam [3:0] mode_spi         = 1;
 	localparam [3:0] mode_dspi_rd     = 2;
@@ -103,11 +101,11 @@ module spiflash (
 	// 16 MB (128Mb) Flash
 	reg [7:0] memory [0:16*1024*1024-1];
 
-	reg [1023:0] flash0_slot0_file;
-	reg [1023:0] flash0_slot1_file;
+	reg [1023:0] flash1_slot0_file;
+	reg [1023:0] flash1_slot1_file;
 	initial begin
-		if ($value$plusargs("flash0_slot0=%s", flash0_slot0_file)) $readmemh(flash0_slot0_file, memory);
-		if ($value$plusargs("flash0_slot1=%s", flash0_slot1_file)) $readmemh(flash0_slot1_file, memory, 32'h10000);
+		if ($value$plusargs("flash1_slot0=%s", flash1_slot0_file)) $readmemh(flash1_slot0_file, memory);
+		if ($value$plusargs("flash1_slot1=%s", flash1_slot1_file)) $readmemh(flash1_slot1_file, memory, 32'h8000);
 	end
 
 	task spi_action;

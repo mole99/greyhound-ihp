@@ -3,9 +3,16 @@
 
 `default_nettype none
 
-module greyhound_ihp_top #(
+module FMD_QNC_greyhound_ihp #(
     parameter NUM_GPIOS = 32
 )(
+    `ifdef USE_POWER_PINS
+    inout wire VDD,
+    inout wire VSS,
+    inout wire IOVDD,
+    inout wire IOVSS,
+    `endif
+
     inout  wire          io_clock_PAD,
     inout  wire          io_reset_PAD,
 
@@ -31,11 +38,6 @@ module greyhound_ihp_top #(
     inout  wire          io_core_sleep_PAD,
 
     inout  wire [NUM_GPIOS-1:0]   io_gpio_PAD
-    
-    /*inout VDD_PAD,
-    inout VSS_PAD,
-    inout IOVDD_PAD,
-    inout IOVSS_PAD,*/
 );
 
     wire io_clock_p2c;
@@ -82,17 +84,14 @@ module greyhound_ihp_top #(
     wire io_config_busy_c2p;
     wire io_core_sleep_c2p;
 
-    //wire VDD, VSS, IOVDD, IOVSS;
-
-    /*(* keep *)
+    (* keep *)
     sg13g2_IOPadVdd sg13g2_IOPadVdd_east (
         `ifdef USE_POWER_PINS
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (VDD_PAD)
     );
 
     (* keep *)
@@ -101,9 +100,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (VSS_PAD)
     );
 
     (* keep *)
@@ -112,9 +110,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (IOVSS_PAD)
     );
 
     (* keep *)
@@ -123,9 +120,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (IOVDD_PAD)
     );
 
     (* keep *)
@@ -134,9 +130,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (VDD_PAD)
     );
 
     (* keep *)
@@ -145,9 +140,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (VSS_PAD)
     );
 
     (* keep *)
@@ -156,9 +150,8 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (IOVSS_PAD)
     );
 
     (* keep *)
@@ -167,34 +160,9 @@ module greyhound_ihp_top #(
         .vss    (VSS),
         .vdd    (VDD),
         .iovss  (IOVSS),
-        .iovdd  (IOVDD),
+        .iovdd  (IOVDD)
         `endif
-        .pad (IOVDD_PAD)
-    );*/
-    
-    (* keep *)
-    sg13g2_IOPadVdd sg13g2_IOPadVdd_east ();
-
-    (* keep *)
-    sg13g2_IOPadVss sg13g2_IOPadVss_east ();
-
-    (* keep *)
-    sg13g2_IOPadIOVss sg13g2_IOPadIOVss_east ();
-
-    (* keep *)
-    sg13g2_IOPadIOVdd sg13g2_IOPadIOVdd_east ();
-
-    (* keep *)
-    sg13g2_IOPadVdd sg13g2_IOPadVdd_west ();
-
-    (* keep *)
-    sg13g2_IOPadVss sg13g2_IOPadVss_west ();
-
-    (* keep *)
-    sg13g2_IOPadIOVss sg13g2_IOPadIOVss_west ();
-
-    (* keep *)
-    sg13g2_IOPadIOVdd sg13g2_IOPadIOVdd_west ();
+    );
 
     sg13g2_IOPadIn sg13g2_IOPad_io_clock (
         .p2c (io_clock_p2c), //o
@@ -312,6 +280,11 @@ module greyhound_ihp_top #(
     wire [3:0] flash_io_oe_n;
 
     greyhound_ihp i_greyhound_ihp (
+        `ifdef USE_POWER_PINS
+        .VPWR   (VDD),
+        .VGND   (VSS),
+        `endif
+
         .clk_i  (io_clock_p2c),
         .rst_ni (io_reset_p2c),
 

@@ -4,6 +4,10 @@
 `default_nettype none
 
 module greyhound_ihp (
+`ifdef USE_POWER_PINS
+    inout VPWR,    // Common digital supply
+    inout VGND,    // Common digital ground
+`endif
     input  logic          clk_i,
     input  logic          rst_ni,
     
@@ -59,11 +63,10 @@ module greyhound_ihp (
     parameter FrameBitsPerRow = 32;
     parameter MaxFramesPerCol = 20;
 
-    parameter NumColumns = 11;
-    parameter NumRows = 16;
+    parameter NumColumns = 12;
+    parameter NumRows = 18;
 
-    parameter FABRIC_NUM_IO_WEST = 28;
-    parameter FABRIC_NUM_IO_NORTH = 4;
+    parameter FABRIC_NUM_IO_WEST = 32;
     
     // Fabric config is currently
     // configuring the fabric
@@ -82,7 +85,22 @@ module greyhound_ihp (
     // To the fabric
     wire [(FrameBitsPerRow*NumRows)-1:0]    FrameData;
     wire [(MaxFramesPerCol*NumColumns)-1:0] FrameStrobe;
+
+    // Reset with asynchronous assertion and synchronous relase
+    logic [1:0] rst_nd;
+    logic rst_n_sync;
     
+    always_ff @(posedge clk_i, negedge rst_ni) begin
+        if (!rst_ni) begin
+            rst_nd <= '0;
+        end else begin
+            rst_nd[0] <= 1'b1;
+            rst_nd[1] <= rst_nd[0];
+        end
+    end
+    
+    assign rst_n_sync = rst_nd[1];
+
     // Sync fpga_mode_i
     logic [1:0] fpga_mode_d;
     logic fpga_mode_sync;
@@ -117,28 +135,10 @@ module greyhound_ihp (
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_out_o;
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_oe_o;
 
-    // I/O West config
-    wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_config_bit0_o;
-    wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_config_bit1_o;
-    wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_config_bit2_o;
-    wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_config_bit3_o;
-
-    // I/Os North
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_in_i;
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_out_o;
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_oe_o;
-
-    // I/O North config
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_config_bit0_o;
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_config_bit1_o;
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_config_bit2_o;
-    wire [FABRIC_NUM_IO_NORTH-1:0]      fabric_io_north_config_bit3_o;
-
     // Assign fabric IOs
-    assign fabric_io_west_in_i  = fabric_gpio_i[27:0];
-    assign fabric_io_north_in_i = fabric_gpio_i[31:28];
-    assign fabric_gpio_o        = {fabric_io_north_out_o, fabric_io_west_out_o};
-    assign fabric_gpio_oe_o     = {fabric_io_north_oe_o, fabric_io_west_oe_o};
+    assign fabric_io_west_in_i  = fabric_gpio_i;
+    assign fabric_gpio_o        = fabric_io_west_out_o;
+    assign fabric_gpio_oe_o     = fabric_io_west_oe_o;
 
     // WARMBOOT
     wire        fabric_warmboot_boot_o;
@@ -148,15 +148,19 @@ module greyhound_ihp (
     // CPU_IRQ
     wire  [3:0] fabric_irq_o;
     
-    // Choose functionality of fabric
-    // 0 = custom instruction interface
-    // 1 = bus interface
-    wire            xif_or_periph;
-    
     // Custom instruction interface to fabric
-    wire [31:0]     fabric_rs1;
-    wire [31:0]     fabric_rs2;
-    wire [31:0]     fabric_result;
+    logic        fabric_issue_ready;
+    logic        fabric_issue_accept;
+    logic        fabric_issue_valid;
+    logic [31:0] fabric_issue_instr;
+    logic [31:0] fabric_issue_op0;
+    logic [31:0] fabric_issue_op1;
+    logic [3 :0] fabric_issue_id;
+    
+    logic        fabric_result_valid;
+    logic [3 :0] fabric_result_id;
+    logic [4 :0] fabric_result_rd;
+    logic [31:0] fabric_result;
     
     // Bus interface to fabric
     wire            fabric_gnt;
@@ -175,8 +179,8 @@ module greyhound_ihp (
     // At startup, trigger configuration
     // when fpga_mode_sync == 1'b0
     logic startup_trigger;
-    always_ff @(posedge clk_i, negedge rst_ni) begin
-        if (!rst_ni) begin
+    always_ff @(posedge clk_i, negedge rst_n_sync) begin
+        if (!rst_n_sync) begin
             startup_trigger = 1'b1;
         end else begin
             startup_trigger = 1'b0;
@@ -184,65 +188,96 @@ module greyhound_ihp (
     end
     
     always_comb begin
-        // Default output
-        fpga_sclk_o = 1'b0;
-        fpga_cs_n_o = 1'b0;
-        fpga_mosi_o = 1'b0;
-        fpga_miso_o = 1'b0;
+        // On reset, set SPI to tri-state
+        if (!rst_n_sync) begin
+            // Default output
+            fpga_sclk_o = 1'b0;
+            fpga_cs_n_o = 1'b0;
+            fpga_mosi_o = 1'b0;
+            fpga_miso_o = 1'b0;
         
-        // Receiver not selected
-        spi_receiver_sclk_i = 1'b0;
-        spi_receiver_cs_ni  = 1'b1;
-        spi_receiver_mosi_i = 1'b0;
-        
-        // Controller not selected
-        spi_controller_miso_i = 1'b0;
-
-        if (fpga_mode_sync == 1'b0) begin
-            // SPI Controller
-            fpga_sclk_oe_o = 1'b1;
-            fpga_cs_n_oe_o = 1'b1;
-            fpga_mosi_oe_o = 1'b1;
-            fpga_miso_oe_o = 1'b0;
-            
-            fpga_sclk_o = spi_controller_sclk_o;
-            fpga_cs_n_o = spi_controller_cs_no;
-            fpga_mosi_o = spi_controller_mosi_o;
-            spi_controller_miso_i = fpga_miso_i;
-            
-            // Re-route bitstream
-            spi_bitstream_data  = spi_controller_bitstream_data_o;
-            spi_bitstream_valid = spi_controller_bitstream_valid_o;
-            
-            // Slot and trigger
-            spi_controller_start_i  = startup_trigger || ((fabric_warmboot_boot_o || cpu_warmboot_boot_o) && !(fabric_config_busy || fabric_spi_controller_busy));
-            spi_controller_slot_i   = startup_trigger ? '0 : cpu_warmboot_boot_o ? cpu_warmboot_slot_o : fabric_warmboot_slot_o;
-            
-        end else begin
-            // SPI receiver
+            // Tri-state
             fpga_sclk_oe_o = 1'b0;
             fpga_cs_n_oe_o = 1'b0;
             fpga_mosi_oe_o = 1'b0;
-            fpga_miso_oe_o = 1'b1;
+            fpga_miso_oe_o = 1'b0;
             
-            spi_receiver_sclk_i = fpga_sclk_i;
-            spi_receiver_cs_ni  = fpga_cs_n_i;
-            spi_receiver_mosi_i = fpga_mosi_i;
-            fpga_miso_o = spi_receiver_miso_o;
+            // Receiver not selected
+            spi_receiver_sclk_i = 1'b0;
+            spi_receiver_cs_ni  = 1'b1;
+            spi_receiver_mosi_i = 1'b0;
             
-            // Re-route bitstream
-            spi_bitstream_data  = spi_receiver_bitstream_data_o;
-            spi_bitstream_valid = spi_receiver_bitstream_valid_o;
+            // Controller not selected
+            spi_controller_miso_i = 1'b0;
+            
+            // No bitstream
+            spi_bitstream_data  = '0;
+            spi_bitstream_valid = '0;
             
             // Slot and trigger
-            spi_controller_start_i  = '0;
             spi_controller_slot_i   = '0;
+            spi_controller_start_i  = '0;
+        end else begin
+            // Default output
+            fpga_sclk_o = 1'b0;
+            fpga_cs_n_o = 1'b0;
+            fpga_mosi_o = 1'b0;
+            fpga_miso_o = 1'b0;
+            
+            // Receiver not selected
+            spi_receiver_sclk_i = 1'b0;
+            spi_receiver_cs_ni  = 1'b1;
+            spi_receiver_mosi_i = 1'b0;
+            
+            // Controller not selected
+            spi_controller_miso_i = 1'b0;
+
+            if (fpga_mode_sync == 1'b0) begin
+                // SPI Controller
+                fpga_sclk_oe_o = 1'b1;
+                fpga_cs_n_oe_o = 1'b1;
+                fpga_mosi_oe_o = 1'b1;
+                fpga_miso_oe_o = 1'b0;
+                
+                fpga_sclk_o = spi_controller_sclk_o;
+                fpga_cs_n_o = spi_controller_cs_no;
+                fpga_mosi_o = spi_controller_mosi_o;
+                spi_controller_miso_i = fpga_miso_i;
+                
+                // Re-route bitstream
+                spi_bitstream_data  = spi_controller_bitstream_data_o;
+                spi_bitstream_valid = spi_controller_bitstream_valid_o;
+                
+                // Slot and trigger
+                spi_controller_start_i  = startup_trigger || ((fabric_warmboot_boot_o || cpu_warmboot_boot_o) && !(fabric_config_busy || fabric_spi_controller_busy));
+                spi_controller_slot_i   = startup_trigger ? '0 : cpu_warmboot_boot_o ? cpu_warmboot_slot_o : fabric_warmboot_slot_o;
+                
+            end else begin
+                // SPI receiver
+                fpga_sclk_oe_o = 1'b0;
+                fpga_cs_n_oe_o = 1'b0;
+                fpga_mosi_oe_o = 1'b0;
+                fpga_miso_oe_o = 1'b1;
+                
+                spi_receiver_sclk_i = fpga_sclk_i;
+                spi_receiver_cs_ni  = fpga_cs_n_i;
+                spi_receiver_mosi_i = fpga_mosi_i;
+                fpga_miso_o = spi_receiver_miso_o;
+                
+                // Re-route bitstream
+                spi_bitstream_data  = spi_receiver_bitstream_data_o;
+                spi_bitstream_valid = spi_receiver_bitstream_valid_o;
+                
+                // Slot and trigger
+                spi_controller_start_i  = '0;
+                spi_controller_slot_i   = '0;
+            end
         end
     end
     
     fabric_spi_receiver fabric_spi_receiver (
         .clk_i  (clk_i),
-        .rst_ni (rst_ni),
+        .rst_ni (rst_n_sync),
         
         // Bitstream data
         .bitstream_data_o   (spi_receiver_bitstream_data_o),
@@ -258,13 +293,14 @@ module greyhound_ihp (
         .miso_o     (spi_receiver_miso_o)
     );
 
+    // TODO adjust BITSTREAM_LENGTH_WORDS
     fabric_spi_controller #(
-        .BITSTREAM_LENGTH_WORDS (32'hEA2),
-        .SLOT_OFFSET_WORDS      (32'h1000),
+        .BITSTREAM_LENGTH_WORDS (32'h11D6),
+        .SLOT_OFFSET_WORDS      (32'h2000),
         .NUM_SLOTS              (16)
     ) fabric_spi_controller (
         .clk_i  (clk_i),
-        .rst_ni (rst_ni),
+        .rst_ni (rst_n_sync),
         
         // Start reading data at selected slot
         .start_i    (spi_controller_start_i),
@@ -307,7 +343,7 @@ module greyhound_ihp (
 	    .NumRows            (NumRows)
     ) fabric_config (
         .clk_i              (clk_i),
-        .rst_ni             (rst_ni),
+        .rst_ni             (rst_n_sync),
         
         // Bitstream
         .bitstream_valid_i  (bitstream_valid),
@@ -341,23 +377,6 @@ module greyhound_ihp (
         .fabric_io_west_out_o,
         .fabric_io_west_oe_o,
 
-        // I/O West config
-        .fabric_io_west_config_bit0_o,
-        .fabric_io_west_config_bit1_o,
-        .fabric_io_west_config_bit2_o,
-        .fabric_io_west_config_bit3_o,
-        
-        // I/Os North
-        .fabric_io_north_in_i,
-        .fabric_io_north_out_o,
-        .fabric_io_north_oe_o,
-
-        // I/O North config
-        .fabric_io_north_config_bit0_o,
-        .fabric_io_north_config_bit1_o,
-        .fabric_io_north_config_bit2_o,
-        .fabric_io_north_config_bit3_o,
-
         // WARMBOOT
         .fabric_warmboot_boot_o,
         .fabric_warmboot_slot_o,
@@ -365,26 +384,30 @@ module greyhound_ihp (
 
         // CPU_IRQ
         .fabric_irq_o,
-
-        // Choose functionality of fabric
-        // 0 = custom instruction interface
-        // 1 = bus interface
-        .fabric_xif_or_periph_i (xif_or_periph),
         
-        // Custom instruction interface
-        .fabric_rs1_i       (fabric_rs1),
-        .fabric_rs2_i       (fabric_rs2),
-        .fabric_result_o    (fabric_result),
+        // CUSTOM_INSTRUCTION
+        .fabric_issue_ready_o   (fabric_issue_ready),
+        .fabric_issue_accept_o  (fabric_issue_accept),
+        .fabric_issue_valid_i   (fabric_issue_valid),
+        .fabric_issue_instr_i   (fabric_issue_instr),
+        .fabric_issue_op0_i     (fabric_issue_op0),
+        .fabric_issue_op1_i     (fabric_issue_op1),
+        .fabric_issue_id_i      (fabric_issue_id),
+            
+        .fabric_result_valid_o  (fabric_result_valid),
+        .fabric_result_id_o     (fabric_result_id),
+        .fabric_result_rd_o     (fabric_result_rd),
+        .fabric_result_o        (fabric_result),
         
-        // Bus interface
-        .fabric_gnt_o       (fabric_gnt),
-        .fabric_req_i       (fabric_req),
-        .fabric_rvalid_o    (fabric_rvalid),
-        .fabric_we_i        (fabric_we),
-        .fabric_be_i        (fabric_be),
-        .fabric_addr_i      (fabric_addr),
-        .fabric_wdata_i     (fabric_wdata),
-        .fabric_rdata_o     (fabric_rdata)
+        // OBI_PERIPHERAL
+        .fabric_obi_req_i       (fabric_req),
+        .fabric_obi_we_i        (fabric_we),
+        .fabric_obi_be_i        (fabric_be),
+        .fabric_obi_addr_i      (fabric_addr),
+        .fabric_obi_wdata_i     (fabric_wdata),
+        .fabric_obi_gnt_o       (fabric_gnt),
+        .fabric_obi_rvalid_o    (fabric_rvalid),
+        .fabric_obi_rdata_o     (fabric_rdata)
     );
 
     // SoC
@@ -413,9 +436,14 @@ module greyhound_ihp (
 
     greyhound_soc i_greyhound_soc
     (
+        `ifdef USE_POWER_PINS
+        .VPWR   (VPWR),
+        .VGND   (VGND),
+        `endif
+
         // Clock and reset
         .clk_i          ( clk_i  ),
-        .rst_ni         ( rst_ni ),
+        .rst_ni         ( rst_n_sync ),
 
         // Interrupt requests from fabric
         .fabric_irq_i   ( fabric_irq_o ),
@@ -423,6 +451,9 @@ module greyhound_ihp (
         // Fabric config is currently
         // configuring the fabric
         .fabric_config_busy_i   (fabric_config_busy || fabric_spi_controller_busy),
+        
+        // Fabric has been configured
+        .fabric_configured_i   (fabric_config_configured),
         
         // Fabric bitstream data
         .bitstream_valid_o  (bitstream_valid_cpu),
@@ -432,14 +463,18 @@ module greyhound_ihp (
         .warmboot_boot_o    (cpu_warmboot_boot_o),
         .warmboot_slot_o    (cpu_warmboot_slot_o),
         
-        // Choose functionality of fabric
-        // 0 = custom instruction interface
-        // 1 = bus interface 
-        .xif_or_periph_o        (xif_or_periph),
-        
         // Custom instruction interface to fabric
-        .fabric_rs1_o           (fabric_rs1),
-        .fabric_rs2_o           (fabric_rs2),
+        .fabric_issue_ready_i   (fabric_issue_ready),
+        .fabric_issue_accept_i  (fabric_issue_accept),
+        .fabric_issue_valid_o   (fabric_issue_valid),
+        .fabric_issue_instr_o   (fabric_issue_instr),
+        .fabric_issue_op0_o     (fabric_issue_op0),
+        .fabric_issue_op1_o     (fabric_issue_op1),
+        .fabric_issue_id_o      (fabric_issue_id),
+            
+        .fabric_result_valid_i  (fabric_result_valid),
+        .fabric_result_id_i     (fabric_result_id),
+        .fabric_result_rd_i     (fabric_result_rd),
         .fabric_result_i        (fabric_result),
 
         // Bus interface to fabric
@@ -489,34 +524,36 @@ module greyhound_ihp (
     logic [31:0] bank_rdata_sram_0;
     logic [31:0] bank_rdata_sram_1;
 
-    logic sram_0_enable;
-    logic sram_1_enable;
-
-    assign sram_0_enable = bank_word_addr[10] == 1'b0;
-    assign sram_1_enable = bank_word_addr[10] == 1'b1;
+    logic sram_enable;
+    assign sram_enable = bank_word_addr[10];
     
-    logic sram_0_enable_d;
+    logic sram_enable_d;
     
-    always_ff @(posedge clk_i, negedge rst_ni) begin
-        if (!rst_ni) begin
-            sram_0_enable_d <= 1'b0;
+    always_ff @(posedge clk_i, negedge rst_n_sync) begin
+        if (!rst_n_sync) begin
+            sram_enable_d <= '0;
         end else begin
-            sram_0_enable_d <= sram_0_enable;
+            sram_enable_d <= sram_enable;
         end
     end
     
-    assign bank_rdata = sram_0_enable_d ? bank_rdata_sram_0 : bank_rdata_sram_1;
+    always_comb begin
+        case (sram_enable_d)
+            1'd0: bank_rdata = bank_rdata_sram_0;
+            1'd1: bank_rdata = bank_rdata_sram_1;
+        endcase
+    end
 
-    RM_IHPSG13_1P_1024x16_c2_bm_bist i_soc_sram0_0 (
+    RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram0 (
         .A_CLK      (clk_i),
-        .A_MEN      (sram_0_enable && bank_req),
-        .A_WEN      (sram_0_enable && bank_we),
-        .A_REN      (sram_0_enable && !bank_we),
+        .A_MEN      (bank_req && sram_enable == 1'd0),
+        .A_WEN      (bank_we),
+        .A_REN      (!bank_we),
         .A_ADDR     (bank_word_addr[9:0]),
-        .A_DIN      (bank_wdata[15:0]),
-        .A_DLY      (1'b1),
-        .A_DOUT     (bank_rdata_sram_0[15:0]),
-        .A_BM       ({{8{bank_be[1]}}, {8{bank_be[0]}}}),
+        .A_DIN      (bank_wdata),
+        .A_DLY      (1'b1), // tie high!
+        .A_DOUT     (bank_rdata_sram_0),
+        .A_BM       ({{8{bank_be[3]}}, {8{bank_be[2]}}, {8{bank_be[1]}}, {8{bank_be[0]}}}),
 
         .A_BIST_EN      ('0),
         .A_BIST_CLK     ('0),
@@ -527,59 +564,16 @@ module greyhound_ihp (
         .A_BIST_DIN     ('0),
         .A_BIST_BM      ('0)
     );
-
-    RM_IHPSG13_1P_1024x16_c2_bm_bist i_soc_sram0_1 (
+    RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram1 (
         .A_CLK      (clk_i),
-        .A_MEN      (sram_0_enable && bank_req),
-        .A_WEN      (sram_0_enable && bank_we),
-        .A_REN      (sram_0_enable && !bank_we),
+        .A_MEN      (bank_req && sram_enable == 1'd1),
+        .A_WEN      (bank_we),
+        .A_REN      (!bank_we),
         .A_ADDR     (bank_word_addr[9:0]),
-        .A_DIN      (bank_wdata[31:16]),
-        .A_DLY      (1'b1),
-        .A_DOUT     (bank_rdata_sram_0[31:16]),
-        .A_BM       ({{8{bank_be[3]}}, {8{bank_be[2]}}}),
-
-        .A_BIST_EN      ('0),
-        .A_BIST_CLK     ('0),
-        .A_BIST_MEN     ('0),
-        .A_BIST_WEN     ('0),
-        .A_BIST_REN     ('0),
-        .A_BIST_ADDR    ('0),
-        .A_BIST_DIN     ('0),
-        .A_BIST_BM      ('0)
-    );
-
-    RM_IHPSG13_1P_1024x16_c2_bm_bist i_soc_sram1_0 (
-        .A_CLK      (clk_i),
-        .A_MEN      (sram_1_enable && bank_req),
-        .A_WEN      (sram_1_enable && bank_we),
-        .A_REN      (sram_1_enable && !bank_we),
-        .A_ADDR     (bank_word_addr[9:0]),
-        .A_DIN      (bank_wdata[15:0]),
-        .A_DLY      (1'b1),
-        .A_DOUT     (bank_rdata_sram_1[15:0]),
-        .A_BM       ({{8{bank_be[1]}}, {8{bank_be[0]}}}),
-
-        .A_BIST_EN      ('0),
-        .A_BIST_CLK     ('0),
-        .A_BIST_MEN     ('0),
-        .A_BIST_WEN     ('0),
-        .A_BIST_REN     ('0),
-        .A_BIST_ADDR    ('0),
-        .A_BIST_DIN     ('0),
-        .A_BIST_BM      ('0)
-    );
-
-    RM_IHPSG13_1P_1024x16_c2_bm_bist i_soc_sram1_1 (
-        .A_CLK      (clk_i),
-        .A_MEN      (sram_1_enable && bank_req),
-        .A_WEN      (sram_1_enable && bank_we),
-        .A_REN      (sram_1_enable && !bank_we),
-        .A_ADDR     (bank_word_addr[9:0]),
-        .A_DIN      (bank_wdata[31:16]),
-        .A_DLY      (1'b1),
-        .A_DOUT     (bank_rdata_sram_1[31:16]),
-        .A_BM       ({{8{bank_be[3]}}, {8{bank_be[2]}}}),
+        .A_DIN      (bank_wdata),
+        .A_DLY      (1'b1), // tie high!
+        .A_DOUT     (bank_rdata_sram_1),
+        .A_BM       ({{8{bank_be[3]}}, {8{bank_be[2]}}, {8{bank_be[1]}}, {8{bank_be[0]}}}),
 
         .A_BIST_EN      ('0),
         .A_BIST_CLK     ('0),

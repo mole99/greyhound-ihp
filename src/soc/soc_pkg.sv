@@ -80,7 +80,7 @@ package soc_pkg;
 
     // Lowest index has priority
     // No match: main=0, bufferable=0, cacheable=0, atomic=0
-    localparam cv32e40x_pkg::pma_cfg_t [NumPMARules-1:0] pma_cfg = '{
+    localparam cv32e40x_pkg::pma_cfg_t pma_cfg [NumPMARules] = '{
         '{word_addr_low: FlashAddrOffset>>2, word_addr_high: (FlashAddrOffset + FlashAddrRange)>>2, main: 1'b1, bufferable: 1'b1, cacheable: 1'b1, atomic: 1'b1},
         '{word_addr_low: SramAddrOffset>>2,  word_addr_high: (SramAddrOffset + SramAddrRange)>>2,   main: 1'b1, bufferable: 1'b1, cacheable: 1'b1, atomic: 1'b1},
         '{word_addr_low: PsramAddrOffset>>2, word_addr_high: (PsramAddrOffset + PsramAddrRange)>>2, main: 1'b1, bufferable: 1'b1, cacheable: 1'b1, atomic: 1'b1},
