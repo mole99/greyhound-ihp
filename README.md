@@ -202,7 +202,7 @@ Enable a Nix shell using `nix-shell` and run `make convert-slang`.
 Currently, Nix is not used for the testbench environment (sorry!), you need to create a virtual environment in Python and install the dependencies via:
 
 ```
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt --no-cache-dir
 ```
 
 To start the full chip simulation simply run:
@@ -222,7 +222,7 @@ To select a different test, open `FMD_QNC_greyhound_ihp.py` and set `enabled` to
 ## Building the Chip
 
 > [!NOTE]
-> Greyhound currently relies on forks of [LibreLane](https://github.com/mole99/librelane/tree/greyhound) and the [IHP Open PDK](https://github.com/mole99/IHP-Open-PDK/tree/leo/padring). I'm planning on upstreaming all changes to the upstream repositories soon.
+> Greyhound currently relies on forks of [LibreLane](https://github.com/mole99/librelane/tree/greyhound) and the [IHP Open PDK](https://github.com/mole99/IHP-Open-PDK/tree/greyhound-magic-fill). I'm planning on upstreaming all changes to the upstream repositories soon.
 
 First enable a Nix shell using:
 
