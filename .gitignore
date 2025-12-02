@@ -1,4 +1,9 @@
+# Virtual envs
 __pycache__/
+.venv/
+.vscode/
+
+# Simulator 
 sim_build/
 runs/
 *.vvp
@@ -21,3 +26,36 @@ out.def
 
 sg13g2_minimal.lyrdb
 drc_run_*
+
+# Generated files
+tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv
+tb/greyhound_soc_tb/greyhound_soc_slang.sv
+ip/fabric/macro/ihp-sg13g2/metrics.csv
+ip/fabric/macro/ihp-sg13g2/metrics.json
+ip/fabric/macro/ihp-sg13g2/fabulous/geometry.csv
+ip/fabric/macro/ihp-sg13g2/gds/eFPGA.gds
+ip/fabric/macro/ihp-sg13g2/json_h/eFPGA.h.json
+ip/fabric/macro/ihp-sg13g2/klayout_gds/eFPGA.klayout.gds
+ip/fabric/macro/ihp-sg13g2/mag/eFPGA.mag
+ip/fabric/macro/ihp-sg13g2/mag_gds/eFPGA.magic.gds
+ip/fabric/macro/ihp-sg13g2/spef/nom/eFPGA.nom.spef
+ip/tile_library/primitives/CPU_IF/CPU_IF.json
+ip/tile_library/primitives/CPU_IRQ/CPU_IRQ.json
+ip/tile_library/primitives/CUSTOM_INSTRUCTION/CUSTOM_INSTRUCTION.json
+ip/tile_library/primitives/IHP_BRAM_1024x16/IHP_BRAM_1024x16.json
+ip/tile_library/primitives/IHP_SRAM_1024x32/IHP_SRAM_1024x32.json
+ip/tile_library/primitives/IO_1_bidirectional_frame_config_pass/IO_1_bidirectional_frame_config_pass.json
+ip/tile_library/primitives/LUT4c_frame_config_dffesr/LUT4c_frame_config_dffesr.json
+ip/tile_library/primitives/MULADD/MULADD.json
+ip/tile_library/primitives/MUX8LUT_frame_config_mux/MUX8LUT_frame_config_mux.json
+ip/tile_library/primitives/OBI_PERIPHERAL/OBI_PERIPHERAL.json
+ip/tile_library/primitives/RegFile_32x4/RegFile_32x4.json
+ip/tile_library/primitives/WARMBOOT/WARMBOOT.json
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/metrics.csv
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/metrics.json
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/gds/S_term_single.gds
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/json_h/S_term_single.h.json
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/klayout_gds/S_term_single.klayout.gds
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/mag/S_term_single.mag
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/mag_gds/S_term_single.magic.gds
+ip/tile_library/tiles/S_term_single/macro/ihp-sg13g2/spef/nom/S_term_single.nom.spef
