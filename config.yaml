@@ -66,7 +66,51 @@ VERILOG_FILES:
 - dir::ip/common_cells/src/delta_counter.sv
 - dir::ip/common_cells/src/lzc.sv
 # Core and SoC
-- dir::ip/cv32e40x/rtl/*.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_a_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_align_check.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_alignment_buffer.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_alu_b_cpop.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_alu.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_b_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_clic_int_controller.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_compressed_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_controller_bypass.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_controller.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_core.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_cs_registers.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_csr.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_data_obi_interface.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_debug_triggers.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_div.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_ex_stage.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_ff_one.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_i_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_id_stage.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_if_c_obi.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_if_stage.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_if_xif.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_instr_obi_interface.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_int_controller.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_lsu_response_filter.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_m_decoder.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_mpu_if.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_mpu.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_mult.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_pc_target.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_pma.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_popcnt.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_prefetcher.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_prefetch_unit.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_register_file.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_register_file_wrapper.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_sequencer.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_sleep_unit.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_wb_stage.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_wpt.sv
+- dir::ip/cv32e40x/rtl/cv32e40x_write_buffer.sv
 - dir::src/soc/greyhound_soc.sv
 - dir::src/soc/dummy_extension.sv
 - dir::src/soc/fabric_extension.sv
@@ -124,9 +168,6 @@ LINTER_DISABLE_WARNINGS:
 
 # Debugging
 SET_RC_VERBOSE: True
-
-# Select the minimal runset
-KLAYOUT_DRC_RUNSET: pdk_dir::/libs.tech/klayout/tech/drc/sg13g2_minimal.lydrc
 
 # Magic has an offset on the SRAMs
 PRIMARY_GDSII_STREAMOUT_TOOL: klayout
@@ -360,18 +401,18 @@ MACROS:
     
   RM_IHPSG13_1P_1024x32_c2_bm_bist:
     gds:
-      - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds
+      - pdk_dir::/libs.ref/sg13g2_sram/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds
     lef:
-      - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef
+      - pdk_dir::/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef
     nl:
-      - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/verilog/RM_IHPSG13_1P_1024x32_c2_bm_bist.v
+      - pdk_dir::/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_1024x32_c2_bm_bist.v
     lib:
       "nom_typ_1p20V_25C":
-        - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib
       "nom_fast_1p32V_m40C":
-        - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib
       "nom_slow_1p08V_125C":
-        - dir::ip/RM_IHPSG13_1P_1024x32_c2_bm_bist/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_slow_1p08V_125C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_slow_1p08V_125C.lib
     instances:
       i_greyhound_ihp.fabric_wrapper.sram0:
         location: [2861.5, 2416.50]
@@ -396,18 +437,18 @@ MACROS:
 
   RM_IHPSG13_2P_1024x16_c2_bm_bist:
     gds:
-      - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/gds/RM_IHPSG13_2P_1024x16_c2_bm_bist.gds
+      - pdk_dir::/libs.ref/sg13g2_sram/gds/RM_IHPSG13_2P_1024x16_c2_bm_bist.gds
     lef:
-      - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/lef/RM_IHPSG13_2P_1024x16_c2_bm_bist.lef
+      - pdk_dir::/libs.ref/sg13g2_sram/lef/RM_IHPSG13_2P_1024x16_c2_bm_bist.lef
     nl:
-      - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/verilog/RM_IHPSG13_2P_1024x16_c2_bm_bist.v
+      - pdk_dir::/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_2P_1024x16_c2_bm_bist.v
     lib:
       "nom_typ_1p20V_25C":
-        - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_typ_1p20V_25C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_typ_1p20V_25C.lib
       "nom_fast_1p32V_m40C":
-        - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_fast_1p32V_m55C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_fast_1p32V_m55C.lib
       "nom_slow_1p08V_125C":
-        - dir::ip/RM_IHPSG13_2P_1024x16_c2_bm_bist/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_slow_1p08V_125C.lib
+        - pdk_dir::/libs.ref/sg13g2_sram/lib/RM_IHPSG13_2P_1024x16_c2_bm_bist_slow_1p08V_125C.lib
     instances:
       i_greyhound_ihp.fabric_wrapper.bram0:
         location: [2861.5, 4207.20]
@@ -529,8 +570,6 @@ PDN_MACRO_CONNECTIONS:
 #  buffer: sg13g2_buf_1
 #- target: i_greyhound_ihp.i_greyhound_soc/cv32e40x_core/sleep_unit_i.core_clock_gate_i.clk_gate/GCLK
 #  buffer: sg13g2_buf_1
-
-DIODE_CELL: sg13g2_antennanp/A
 
 INSERT_ECO_DIODES:
 - target: i_greyhound_ihp.fabric_wrapper.eFPGA/Tile_X0Y1_A_O_top

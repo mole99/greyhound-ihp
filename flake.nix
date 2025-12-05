@@ -9,7 +9,7 @@
   };
 
   inputs = {
-    librelane.url = github:mole99/librelane/greyhound;
+    librelane.url = github:librelane/librelane/leo/padring;
   };
 
   outputs = {
@@ -49,6 +49,10 @@
           
           # FPGA
           nextpnr
+          
+          # Debug
+          openocd
+          gdb
         ];
         
         extra-python-packages = with pkgs.python3.pkgs; (pkgs.lib.optionals pkgs.stdenv.isLinux [

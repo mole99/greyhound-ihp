@@ -3,7 +3,7 @@ TOP = FMD_QNC_greyhound_ihp
 
 $(echo $RUN_TAG)
 
-PDK_ROOT ?= ${HOME}/Repositories/IHP-Open-PDK
+#PDK_ROOT ?= ${HOME}/Repositories/IHP-Open-PDK
 PDK ?= ihp-sg13g2
 
 CORE_FILES =
@@ -61,15 +61,15 @@ convert-slang:
 .PHONY: convert-slang
 
 librelane:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
+	librelane config.yaml --pdk ${PDK} # --pdk-root ${PDK_ROOT} --manual-pdk
 .PHONY: librelane
 
 librelane-openroad:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInOpenROAD
+	librelane config.yaml --pdk ${PDK} --last-run --flow OpenInOpenROAD
 .PHONY: librelane-openroad
 
 librelane-klayout:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
+	librelane config.yaml --pdk ${PDK} --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
 copy-final:
