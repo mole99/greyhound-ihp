@@ -41,6 +41,8 @@ jobs:
           remove-codeql: "true"
           remove-docker-images: "true"
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Setup Nix
         uses: ./.github/actions/setup_nix
         with:
