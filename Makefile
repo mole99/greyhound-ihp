@@ -3,7 +3,7 @@ TOP = FMD_QNC_greyhound_ihp
 
 $(echo $RUN_TAG)
 
-#PDK_ROOT ?= ${HOME}/Repositories/IHP-Open-PDK
+#PDK_ROOT ?= IHP-Open-PDK
 PDK ?= ihp-sg13g2
 
 CORE_FILES =
@@ -99,10 +99,10 @@ insert-logo:
 	python3 scripts/insert_logo.py final/gds/${TOP}.gds.gz logo/smooth/gds/greyhound_logo.gds final/gds_logo/${TOP}.gds.gz
 .PHONY: insert-logo
 
-create-image:
+render-image:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) klayout -z -r scripts/klayout_image.py -rd input_gds=final/gds_logo/${TOP}.gds.gz -rd output_image=img/${TOP}.png
 	convert img/${TOP}.png -resize 25% img/${TOP}_small.png
-.PHONY: create-image
+.PHONY: create-render
 
 fill:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) $(PDK_ROOT)/$(PDK)/libs.tech/magic/generate_fill.py final/gds_logo/${TOP}.gds.gz -dist

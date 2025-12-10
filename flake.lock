@@ -65,11 +65,11 @@
         "nix-eda": "nix-eda"
       },
       "locked": {
-        "lastModified": 1764146346,
-        "narHash": "sha256-ZtZ5M+1layu2eRfIx+eTamCNkO7sX9+R50H66xJcgs4=",
+        "lastModified": 1765378802,
+        "narHash": "sha256-vr7WOK28Xa5hz/ncLxVY/peXU0gJwhLiJJtBwisoAVE=",
         "owner": "librelane",
         "repo": "librelane",
-        "rev": "80320ea40911a5c7e6b8ec3f0c797b9f3cd33bfa",
+        "rev": "f6ab7ba13b92a9016890a8e555d2d136116ce68b",
         "type": "github"
       },
       "original": {

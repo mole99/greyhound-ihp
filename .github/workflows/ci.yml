@@ -1,0 +1,78 @@
+name: CI
+
+# Events that trigger the workflow
+on:
+  # Runs on all pushes to branches
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "**"
+  # Runs on all PRs
+  pull_request:
+  # Manual Dispatch
+  workflow_dispatch:
+
+concurrency:
+  # Behavior:
+  # - Group all pull requests: latest push cancels previous ones
+  # - Group all branches:
+  #   - If main/version- branches: run serially
+  #   - Else, latest push cancels previous ones
+  group: >
+    ${{
+      (github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number)) ||
+      (github.event_name == 'push' && format('branch-{0}', github.ref_name)) ||
+      ''
+    }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || !(startsWith(github.ref_name, 'version-') || github.ref_name == 'main' || github.ref_name == 'dev') }}
+
+jobs:
+  chip:
+    runs-on: ubuntu-24.04
+    name: Build the Chip
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Check Nix
+        run: |
+          sudo du -hs /nix/store/* | sort -h | tail -n 10
+          sudo tree /nix/store/*-librelane || true
+      - name: Implement the Chip
+        run: |
+          nix develop --command make librelane
+          make copy-final
+          nix develop --command make render-image
+      - name: Create summary
+        run: |
+          echo "# Manufacturability" >> $GITHUB_STEP_SUMMARY
+          cat runs/*/*-misc-reportmanufacturability/manufacturability.rpt >> $GITHUB_STEP_SUMMARY
+      - name: Upload GDS
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.slot }}_gds
+          path: final/gds/*
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.slot }}_image
+          path: |
+            img/FMD_QNC_greyhound_ihp.png
+            img/FMD_QNC_greyhound_ihp_small.png

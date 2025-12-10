@@ -1,0 +1,28 @@
+name: Build LibreLane with Nix
+description: Builds default devShell for a platform, caching the results (if applicable)
+inputs:
+  shell:
+    description: "Shell to use"
+    required: true
+    default: "bash"
+  nix_system:
+    description: "The nix platform string to build for"
+    required: true
+    default: "x86_64-linux"
+runs:
+  using: "composite"
+  steps:
+    - id: Build
+      name: Build
+      shell: ${{ inputs.shell }}
+      run: |
+        echo "#################################################################"
+        outPath=$(nix build\
+          --print-out-paths\
+          --no-link\
+          --accept-flake-config\
+          --option system ${{ inputs.nix_system }}\
+          --extra-platforms ${{ inputs.nix_system }}\
+          .#devShells.${{ inputs.nix_system }}.default)
+        echo "out-path=$outPath" >> $GITHUB_OUTPUT
+        sudo du -hs /nix/store/* | sort -h | tail -n 20

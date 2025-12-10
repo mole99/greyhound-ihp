@@ -1,31 +1,15 @@
 meta:
-  version: 2
-  flow: Classic
+  version: 3
+  flow: Chip
   substituting_steps:
-    # Greyhound uses a padring instead of pins
-    OpenROAD.GlobalPlacementSkipIO: null
-    OpenROAD.IOPlacement: null
-    +Odb.SetPowerConnections: OpenROAD.Padring
-
     # ECO diodes
     #+OpenROAD.DetailedRouting: Odb.InsertECODiodes
-    +OpenROAD.GlobalRouting: Odb.InsertECODiodes
-    
-    # ECO buffers
-    # TODO OpenROAD.ResizerTimingPostGRT
-    +OpenROAD.CTS: Odb.InsertECOBuffers
-    
-    # Add Seal Ring
-    +Checker.XOR: KLayout.SealRing
+    #+OpenROAD.GlobalRouting: Odb.InsertECODiodes
     
     # Save time
     OpenROAD.STAPrePNR: null
     OpenROAD.STAMidPNR*: null
-    
-    # Run Filler insertion
-    # This is done manually for now
-    #+KLayout.SealRing: KLayout.FillerGeneration
-        
+
     # Magic reports some overlaps which can be ignored
     Checker.IllegalOverlap: null
     
@@ -35,15 +19,8 @@ meta:
     
     # Setup violations don't matter (for now)
     Checker.SetupViolations: null
-    
-    # Save time
-    
-    #Magic.SpiceExtraction: null
-    #Netgen.LVS: null
-    
-    Magic.WriteLEF: null
-    Odb.CheckDesignAntennaProperties: null # requires LEF
-    
+
+    # Save time - we run DRC afterwards
     KLayout.DRC: null
     Magic.DRC: null
 
@@ -213,7 +190,9 @@ MAGIC_EXT_ABSTRACT_CELLS:
 # Due to thin core area ring
 GRT_ALLOW_CONGESTION: true
 
-CLOCK_NET: io_clock_p2c
+# Clock
+CLOCK_PORT: io_clock_PAD
+CLOCK_NET: sg13g2_IOPad_io_clock/p2c
 CLOCK_PERIOD: 20
 CTS_OBSTRUCTION_AWARE: true
 
