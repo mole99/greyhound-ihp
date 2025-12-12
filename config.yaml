@@ -6,6 +6,10 @@ meta:
     #+OpenROAD.DetailedRouting: Odb.InsertECODiodes
     #+OpenROAD.GlobalRouting: Odb.InsertECODiodes
     
+    # Disable KLayout antenna check
+    KLayout.Antenna: null
+    Checker.KLayoutAntenna: null
+
     # Save time
     OpenROAD.STAPrePNR: null
     OpenROAD.STAMidPNR*: null
@@ -156,6 +160,9 @@ CTS_SINK_CLUSTERING_ENABLE: True
 #CTS_SINK_CLUSTERING_SIZE: 8 # max is 8
 #CTS_SINK_CLUSTERING_MAX_DIAMETER: 50
 
+# TODO: some issue with access points
+DRT_ANTENNA_REPAIR_ITERS: 0
+
 SIGNAL_WIRE_RC_LAYERS: [Metal2, Metal3, Metal4, Metal5]
 CLOCK_WIRE_RC_LAYERS: [Metal2, Metal3, Metal4, Metal5]
 
@@ -186,9 +193,9 @@ ROUTING_OBSTRUCTIONS:
 # Don't insert buffers between eFPGA and SRAMs
 RSZ_DONT_TOUCH_RX: "fabric_wrapper.fabric_.ram.*"
 
-# Time driven placement ignores don't touch directives
+# Timing driven placement ignores don't touch directives
 # Therefore only enable routability driven
-PL_TIME_DRIVEN: False
+PL_TIMING_DRIVEN: False
 PL_ROUTABILITY_DRIVEN: True
 
 #PL_ROUTABILITY_OVERFLOW_THRESHOLD: 0.2

@@ -65,16 +65,16 @@
         "nix-eda": "nix-eda"
       },
       "locked": {
-        "lastModified": 1765466015,
-        "narHash": "sha256-ghFe2iueCAFawjexObsYj6pBdtaeL2hsUoDNyFpxdW0=",
+        "lastModified": 1765548720,
+        "narHash": "sha256-UuyGqLSq3UyTiC6S8P0gXxyBK6cKJnMQv/ABkjjvHzE=",
         "owner": "librelane",
         "repo": "librelane",
-        "rev": "c928731319ae407174f0bf1db6ab78bf7fe03a69",
+        "rev": "5ae73a6f8e26a50b248549177d8bcf198d9b377c",
         "type": "github"
       },
       "original": {
         "owner": "librelane",
-        "ref": "leo/padring",
+        "ref": "leo/ihp-sg13g2",
         "repo": "librelane",
         "type": "github"
       }

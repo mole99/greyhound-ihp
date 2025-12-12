@@ -165,25 +165,55 @@ module FMD_QNC_greyhound_ihp #(
     );
 
     sg13g2_IOPadIn sg13g2_IOPad_io_clock (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .p2c (io_clock_p2c), //o
         .pad (io_clock_PAD)  //~
     );
     sg13g2_IOPadIn sg13g2_IOPad_io_reset (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .p2c (io_reset_p2c), //o
         .pad (io_reset_PAD)  //~
     );
     
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_flash_clk (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_flash_clk_c2p), //o
         .pad (io_flash_clk_PAD)  //~
     );
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_flash_cs_n (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_flash_cs_n_c2p), //o
         .pad (io_flash_cs_n_PAD)  //~
     );
     generate
         for (genvar i=0; i<4; i++) begin : sg13g2_IOPad_flash
           sg13g2_IOPadInOut30mA sg13g2_IOPad_io_flash_io (
+            `ifdef USE_POWER_PINS
+            .vss    (VSS),
+            .vdd    (VDD),
+            .iovss  (IOVSS),
+            .iovdd  (IOVDD),
+            `endif
             .c2p    (io_flash_io_c2p[i]   ), //i
             .c2p_en (io_flash_io_c2p_en[i]), //i
             .p2c    (io_flash_io_p2c[i]   ), //o
@@ -193,16 +223,34 @@ module FMD_QNC_greyhound_ihp #(
     endgenerate
     
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_psram_clk (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_psram_clk_c2p), //o
         .pad (io_psram_clk_PAD)  //~
     );
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_psram_cs_n (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_psram_cs_n_c2p), //o
         .pad (io_psram_cs_n_PAD)  //~
     );
     generate
         for (genvar i=0; i<4; i++) begin : sg13g2_IOPad_psram
           sg13g2_IOPadInOut30mA sg13g2_IOPad_io_psram_io (
+            `ifdef USE_POWER_PINS
+            .vss    (VSS),
+            .vdd    (VDD),
+            .iovss  (IOVSS),
+            .iovdd  (IOVDD),
+            `endif
             .c2p    (io_psram_io_c2p[i]   ), //i
             .c2p_en (io_psram_io_c2p_en[i]), //i
             .p2c    (io_psram_io_p2c[i]   ), //o
@@ -212,33 +260,69 @@ module FMD_QNC_greyhound_ihp #(
     endgenerate
 
     sg13g2_IOPadIn sg13g2_IOPad_io_ser_rx (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .p2c (io_ser_rx_p2c), //o
         .pad (io_ser_rx_PAD)  //~
     );
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_ser_tx (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_ser_tx_c2p), //o
         .pad (io_ser_tx_PAD)  //~
     );
 
     sg13g2_IOPadInOut30mA sg13g2_IOPad_io_fpga_sclk (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p    (io_fpga_sclk_c2p   ), //i
         .c2p_en (io_fpga_sclk_c2p_en), //i
         .p2c    (io_fpga_sclk_p2c   ), //o
         .pad    (io_fpga_sclk_PAD   )  //~
     );
     sg13g2_IOPadInOut30mA sg13g2_IOPad_io_fpga_cs_n (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p    (io_fpga_cs_n_c2p   ), //i
         .c2p_en (io_fpga_cs_n_c2p_en), //i
         .p2c    (io_fpga_cs_n_p2c   ), //o
         .pad    (io_fpga_cs_n_PAD   )  //~
     );
     sg13g2_IOPadInOut30mA sg13g2_IOPad_io_fpga_mosi (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p    (io_fpga_mosi_c2p   ), //i
         .c2p_en (io_fpga_mosi_c2p_en), //i
         .p2c    (io_fpga_mosi_p2c   ), //o
         .pad    (io_fpga_mosi_PAD   )  //~
     );
     sg13g2_IOPadInOut30mA sg13g2_IOPad_io_fpga_miso (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p    (io_fpga_miso_c2p   ), //i
         .c2p_en (io_fpga_miso_c2p_en), //i
         .p2c    (io_fpga_miso_p2c   ), //o
@@ -246,19 +330,43 @@ module FMD_QNC_greyhound_ihp #(
     );
 
     sg13g2_IOPadIn sg13g2_IOPad_io_fpga_mode (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .p2c (io_fpga_mode_p2c), //o
         .pad (io_fpga_mode_PAD)  //~
     );
     sg13g2_IOPadIn sg13g2_IOPad_io_fetch_enable (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .p2c (io_fetch_enable_p2c), //o
         .pad (io_fetch_enable_PAD)  //~
     );
     
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_config_busy (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_config_busy_c2p), //o
         .pad (io_config_busy_PAD)  //~
     );
     sg13g2_IOPadOut30mA sg13g2_IOPad_io_core_sleep (
+        `ifdef USE_POWER_PINS
+        .vss    (VSS),
+        .vdd    (VDD),
+        .iovss  (IOVSS),
+        .iovdd  (IOVDD),
+        `endif
         .c2p (io_core_sleep_c2p), //o
         .pad (io_core_sleep_PAD)  //~
     );
@@ -267,6 +375,12 @@ module FMD_QNC_greyhound_ihp #(
     
         for (genvar i=0; i<NUM_GPIOS; i++) begin : sg13g2_IOPad
           sg13g2_IOPadInOut30mA sg13g2_IOPad_io_gpio (
+            `ifdef USE_POWER_PINS
+            .vss    (VSS),
+            .vdd    (VDD),
+            .iovss  (IOVSS),
+            .iovdd  (IOVDD),
+            `endif
             .c2p    (io_gpio_c2p[i]   ), //i
             .c2p_en (io_gpio_c2p_en[i]), //i
             .p2c    (io_gpio_p2c[i]   ), //o

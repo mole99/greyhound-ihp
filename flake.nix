@@ -9,7 +9,7 @@
   };
 
   inputs = {
-    librelane.url = github:librelane/librelane/leo/padring;
+    librelane.url = github:librelane/librelane/leo/ihp-sg13g2;
   };
 
   outputs = {
