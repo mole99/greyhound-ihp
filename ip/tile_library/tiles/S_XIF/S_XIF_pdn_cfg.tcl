@@ -15,6 +15,13 @@
 source $::env(SCRIPTS_DIR)/openroad/common/set_global_connections.tcl
 set_global_connections
 
+# This is only an approximation as the distance
+# from die to core area is not considered
+set subtiles_in_supertile 3
+set subtile_width [expr {[lindex $::env(DIE_AREA) 2] / $subtiles_in_supertile}]
+set pdn_straps_per_subtile [expr {int(($subtile_width - $::env(PDN_VOFFSET)) / $::env(PDN_VPITCH)) + 1}]
+
+
 set secondary []
 foreach vdd $::env(VDD_NETS) gnd $::env(GND_NETS) {
     if { $vdd != $::env(VDD_NET)} {
@@ -78,36 +85,19 @@ if { $::env(PDN_MULTILAYER) == 1 } {
         -voltage_domain CORE \
         -pins $::env(PDN_VERTICAL_LAYER)
 
-    add_pdn_stripe \
-        -grid stdcell_grid \
-        -layer $::env(PDN_VERTICAL_LAYER) \
-        -width $::env(PDN_VWIDTH) \
-        -pitch $::env(PDN_VPITCH) \
-        -offset $::env(PDN_VOFFSET) \
-        -spacing $::env(PDN_VSPACING) \
-        -starts_with POWER -extend_to_boundary \
-        -number_of_straps 3
-
-    add_pdn_stripe \
-        -grid stdcell_grid \
-        -layer $::env(PDN_VERTICAL_LAYER) \
-        -width $::env(PDN_VWIDTH) \
-        -pitch $::env(PDN_VPITCH) \
-        -offset [expr $::env(PDN_VOFFSET) + 215.04] \
-        -spacing $::env(PDN_VSPACING) \
-        -starts_with POWER -extend_to_boundary \
-        -number_of_straps 3
-
-    add_pdn_stripe \
-        -grid stdcell_grid \
-        -layer $::env(PDN_VERTICAL_LAYER) \
-        -width $::env(PDN_VWIDTH) \
-        -pitch $::env(PDN_VPITCH) \
-        -offset [expr $::env(PDN_VOFFSET) + 430.08] \
-        -spacing $::env(PDN_VSPACING) \
-        -starts_with POWER -extend_to_boundary \
-        -number_of_straps 3
-
+    set offset $::env(PDN_VOFFSET)
+    for {set subtile_index 0} {$subtile_index < $subtiles_in_supertile} {incr subtile_index} {
+        add_pdn_stripe \
+            -grid stdcell_grid \
+            -layer $::env(PDN_VERTICAL_LAYER) \
+            -width $::env(PDN_VWIDTH) \
+            -pitch $::env(PDN_VPITCH) \
+            -offset $offset \
+            -spacing $::env(PDN_VSPACING) \
+            -starts_with POWER -extend_to_boundary \
+            -number_of_straps $pdn_straps_per_subtile
+        set offset [expr {$offset + $subtile_width}]
+    }
 }
 
 # Adds the standard cell rails if enabled.

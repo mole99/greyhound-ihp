@@ -1,8 +1,12 @@
 # FABulous Tiles
 
-This repository hosts tiles for the [FABulous](https://github.com/FPGA-Research/FABulous) framework and configuration files in order to harden them with the [FABulous LibreLane plugin](https://github.com/mole99/librelane_plugin_fabulous).
+This repository hosts tiles and configuration files for the [FABulous](https://github.com/FPGA-Research/FABulous) framework.
 
-Enable the plugin and harden all tiles using `make` or harden individual tiles using e.g. `make tiles/LUT4AB`.
+In order to implement the tiles, please use version 1.2.0 of [librelane_plugin_fabulous](https://github.com/mole99/librelane_plugin_fabulous/releases/tag/1.2.0).
+
+Enable the Nix shell of the plugin and implement all tiles using `make` or implement individual tiles using e.g. `make tiles/LUT4AB`.
+
+To view the layout of individual tiles, run e.g. `make tiles/LUT4AB-openroad` or `make tiles/LUT4AB-klayout`.
 
 > [!IMPORTANT]
 > For documentation about the primitives of the tiles, please see the [README](docs/README.md) in the docs.

@@ -36,9 +36,9 @@ module OBI_PERIPHERAL #(parameter NoConfigBits = 0)(
     
     (* FABulous, EXTERNAL *) output         GNT_top,
     (* FABulous, EXTERNAL *) output         RVALID_top,
-    (* FABulous, EXTERNAL *) output  [31:0] RDATA_top,
+    (* FABulous, EXTERNAL *) output  [31:0] RDATA_top
 
-    	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
+    //	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
 );
 
     assign REQ   = REQ_top;

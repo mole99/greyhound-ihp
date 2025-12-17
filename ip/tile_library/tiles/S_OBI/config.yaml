@@ -38,4 +38,4 @@ pdk::ihp-sg13g2:
     SYNTH_STRATEGY: "AREA 0" # "AREA 0" "AREA 1" "AREA 2" "AREA 3"
     
     # Custom PDN because of horizontal tiles
-    PDN_CFG: dir::pdn_cfg.tcl
+    PDN_CFG: dir::S_OBI_pdn_cfg.tcl

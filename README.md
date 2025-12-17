@@ -192,8 +192,6 @@ Example programs are under the `firmware/` directory. These include programs to 
 
 Instructions to compile a bitstream for the eFPGA can be found under `ip/fabric/user_designs/`.
 
-in the [`ip/fabulous_fabric`](https://github.com/mole99/fabulous_fabric) submodule.
-
 ## Simulation and Verification
 
 Testbenches are made with [cocotb](https://github.com/cocotb/cocotb). There are separate testbenches just for simulating the SoC or the full chip. To simulate the SoC, take a look at `tb/greyhound_soc_tb`. For the full chip simulation see `tb/greyhound_ihp_top`.

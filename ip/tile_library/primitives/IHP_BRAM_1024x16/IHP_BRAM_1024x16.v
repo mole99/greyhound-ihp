@@ -68,9 +68,9 @@ module IHP_BRAM_1024x16 #(parameter NoConfigBits = 0)(
     (* FABulous, EXTERNAL *) input                 CONFIGURED_top,
     
     // External and shared clock
-    (* FABulous, EXTERNAL, SHARED_PORT *) input UserCLK,
+    (* FABulous, EXTERNAL, SHARED_PORT *) input UserCLK
     
-    	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
+    //	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
 );
     // Port A
 	assign A_ADDR_BRAM    = A_ADDR;

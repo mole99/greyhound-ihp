@@ -42,9 +42,9 @@ module CUSTOM_INSTRUCTION #(parameter NoConfigBits = 0)(
     (* FABulous, EXTERNAL *) output        RESULT_VALID_top,
     (* FABulous, EXTERNAL *) output [ 3:0] RESULT_ID_top,
     (* FABulous, EXTERNAL *) output [ 4:0] RESULT_RD_top,
-    (* FABulous, EXTERNAL *) output [31:0] RESULT_top,
+    (* FABulous, EXTERNAL *) output [31:0] RESULT_top
 
-    	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
+    //	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
 );
 
     assign ISSUE_READY_top  = ISSUE_READY;

@@ -22,9 +22,9 @@ module CPU_IF #(parameter NoConfigBits = 0)(
 
     // Top
     (* FABulous, EXTERNAL *) output [(16 - 1) : 0] I_top,
-    (* FABulous, EXTERNAL *) input  [(16 - 1) : 0] O_top,
+    (* FABulous, EXTERNAL *) input  [(16 - 1) : 0] O_top
 
-    	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
+    //	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
 );
 
 	assign I_top  = I;

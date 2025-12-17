@@ -25,9 +25,9 @@ module CPU_IRQ #(
     // Top
     (* FABulous, EXTERNAL *) output [(NUM_IRQ - 1) : 0] IRQ_top,
     
-    (* FABulous, EXTERNAL *) input                        CONFIGURED_top,
+    (* FABulous, EXTERNAL *) input                        CONFIGURED_top
 
-    	(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
+    	//(* FABulous, GLOBAL *) input [NoConfigBits-1:0] ConfigBits
 );
 
 	// Only trigger IRQs if the fabric is configured
