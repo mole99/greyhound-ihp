@@ -61,8 +61,20 @@ convert-slang:
 .PHONY: convert-slang
 
 librelane:
-	librelane config.yaml --pdk ${PDK} # --pdk-root ${PDK_ROOT} --manual-pdk
+	librelane config.yaml --pdk ${PDK}
 .PHONY: librelane
+
+librelane-nodrc:
+	librelane config.yaml --pdk ${PDK} --skip KLayout.DRC --skip Magic.DRC
+.PHONY: librelane
+
+librelane-klayoutdrc:
+	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --skip Magic.DRC
+.PHONY: librelane-klayoutdrc
+
+librelane-magicdrc:
+	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --skip KLayout.DRC
+.PHONY: librelane-magicdrc
 
 librelane-openroad:
 	librelane config.yaml --pdk ${PDK} --last-run --flow OpenInOpenROAD

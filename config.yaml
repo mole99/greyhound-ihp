@@ -24,6 +24,11 @@ meta:
     # Setup violations don't matter (for now)
     Checker.SetupViolations: null
 
+    # Save time - we run filler generation afterwards
+    KLayout.Filler: null
+    KLayout.Density: null
+    Checker.KLayoutDensity: null
+
     # Save time - we run DRC afterwards
     KLayout.DRC: null
     Magic.DRC: null
