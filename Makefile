@@ -69,11 +69,11 @@ librelane-nodrc:
 .PHONY: librelane
 
 librelane-klayoutdrc:
-	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --skip Magic.DRC
+	librelane config.yaml --pdk ${PDK} --skip Magic.DRC
 .PHONY: librelane-klayoutdrc
 
 librelane-magicdrc:
-	librelane librelane/slots/slot_${SLOT}.yaml librelane/config.yaml --pdk ${PDK} --skip KLayout.DRC
+	librelane config.yaml --pdk ${PDK} --skip KLayout.DRC
 .PHONY: librelane-magicdrc
 
 librelane-openroad:
