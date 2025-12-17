@@ -181,9 +181,9 @@ module greyhound_ihp (
     logic startup_trigger;
     always_ff @(posedge clk_i, negedge rst_n_sync) begin
         if (!rst_n_sync) begin
-            startup_trigger = 1'b1;
+            startup_trigger <= 1'b1;
         end else begin
-            startup_trigger = 1'b0;
+            startup_trigger <= 1'b0;
         end
     end
     
@@ -519,7 +519,6 @@ module greyhound_ihp (
     );
     
     // Connect SRAM to the SoC
-    // Combine two 16bit SRAMs into a 32bit SRAM
     
     logic [31:0] bank_rdata_sram_0;
     logic [31:0] bank_rdata_sram_1;

@@ -140,9 +140,6 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     fabric_extension fabric_extension
     (
-        .clk_i              (clk_i),
-        .rst_ni             (rst_ni),
-
         .xif_compressed     (ext_if.coproc_compressed),
         .xif_issue          (ext_if.coproc_issue),
         .xif_commit         (ext_if.coproc_commit),
