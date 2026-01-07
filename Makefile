@@ -179,8 +179,3 @@ zip:
 
 tapeout: librelane copy-final insert-logo create-image fill oasis
 .PHONY: tapeout
-
-fabric: 
-	make -C ip/tile_library
-	make -C ip/fabric fabric
-.PHONY: fabric
