@@ -277,6 +277,11 @@ I would also like to thank the FABulous team for their support in the developmen
 |---|---|
 | ![NLnet](img/nlnet_banner.svg)  | ![NGI0 Entrust](img/NGI0Entrust_tag.svg)  |
 
+## Citation
+
+Please see the CITATION.cff file in the repository.
+There should be a link with the label "Cite this repository." in the right sidebar.
+
 ## License
 
 Greyhound is licensed under the Apache 2.0 license. This license may *not* apply to the remainder of the repository.

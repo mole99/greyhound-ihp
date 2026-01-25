@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Moser
+    given-names: Leo
+title: 'Greyhound on IHP SG13G2 0.13 μm BiCMOS process'
+license: Apache-2.0
+message: Please cite the following works when using this software.
+preferred-citation:
+  authors:
+    - family-names: Moser
+      given-names: Leo
+    - family-names: Kissich
+      given-names: Meinhard
+    - family-names: Scheipel
+      given-names: Tobias
+    - family-names: Baunach
+      given-names: Marcel
+  title: "Greyhound: A Reconfigurable and Extensible RISC-V SoC and eFPGA on IHP SG13G2"
+  year: 2025
+  journal: 2025 Austrochip Workshop on Microelectronics (Austrochip)
+  start: '5'
+  end: '8'
+  type: conference-paper
+  doi: 10.1109/Austrochip67945.2025.11183709
+  identifiers:
+    - type: doi
+      value: 10.1109/Austrochip67945.2025.11183709
+  keywords:
+    - >-
+      Source coding;Random access memory;Reconfigurable logic;Programmable logic
+      arrays;Logic gates;Open source hardware;Microelectronics;Chip scale
+      packaging;Next generation networking;Physical design;Open source
+      hardware;Reconfigurable logic;Field programmable gate
+      arrays;RISC-V;Application specific integrated circuits;Electronic design
+      automation
