@@ -10,6 +10,11 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
   </a>
 </p>
 
+Previous tapeouts:
+
+- [Greyhound v1](https://github.com/mole99/greyhound-ihp-v1): 07 Apr 2025, SG13G2
+- [Greyhound v2](https://github.com/mole99/greyhound-ihp-v2): 14 Sep 2025, SG13CMOS
+
 ## Feature Overview
 
 - SoC
