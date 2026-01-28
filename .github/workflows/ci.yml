@@ -63,6 +63,7 @@ jobs:
       - name: Implement the Chip
         run: |
           nix develop --command make librelane
+          nix develop --command make insert-logo
           nix develop --command make render-image
       - name: Create summary
         run: |
