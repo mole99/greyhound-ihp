@@ -127,9 +127,9 @@ insert-logo:
 
 render-image: $(PDK_ROOT)/$(PDK) ## Render an image of Greyhound
 	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds_logo/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
-	convert img/${TOP}_white.png -resize 25% img/${TOP}_white_small.png
-	convert img/${TOP}_black.png -resize 25% img/${TOP}_black_small.png
-.PHONY: create-render
+	magick img/${TOP}_white.png -resize 25% img/${TOP}_white_small.png
+	magick img/${TOP}_black.png -resize 25% img/${TOP}_black_small.png
+.PHONY: render-image
 
 fill:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) $(PDK_ROOT)/$(PDK)/libs.tech/magic/generate_fill.py final/gds_logo/${TOP}.gds.gz -dist
@@ -168,5 +168,5 @@ zip:
 	gzip final/gds_fill/${TOP}.gds
 .PHONY: zip
 
-tapeout: librelane insert-logo create-image fill oasis
+tapeout: librelane insert-logo render-image fill oasis
 .PHONY: tapeout

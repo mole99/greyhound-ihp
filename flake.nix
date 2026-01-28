@@ -27,7 +27,20 @@
       system:
         import nixpkgs {
           inherit system;
-          overlays = [nix-eda.overlays.default devshell.overlays.default librelane.overlays.default];
+          overlays = [
+            nix-eda.overlays.default
+            devshell.overlays.default
+            librelane.overlays.default
+            (nix-eda.composePythonOverlay (
+            pkgs': pkgs: pypkgs': pypkgs:
+            let
+              callPythonPackage = lib.callPackageWith (pkgs' // pypkgs');
+            in
+            {
+              cocotbext-spi = callPythonPackage ./nix/cocotbext-spi.nix { };
+            }
+          ))
+          ];
         }
     );
     
@@ -37,8 +50,9 @@
     
     devShells = nix-eda.forAllSystems (system: let
       pkgs = (self.legacyPackages.${system});
+      callPackage = lib.callPackageWith pkgs;
     in {
-      default = lib.callPackageWith pkgs (pkgs.createLibreLaneShell {
+      default = callPackage (pkgs.createLibreLaneShell {
         extra-packages = with pkgs; [
           # Simulation
           iverilog
@@ -53,12 +67,16 @@
           # Debug
           openocd
           gdb
+          
+          # Image scaling
+          imagemagick
         ];
         
-        extra-python-packages = with pkgs.python3.pkgs; (pkgs.lib.optionals pkgs.stdenv.isLinux [
+        extra-python-packages = with pkgs.python3.pkgs; [
           # Verification
           cocotb
-        ]);
+          cocotbext-spi
+        ];
       }) {};
     });
   };
