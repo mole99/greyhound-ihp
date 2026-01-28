@@ -57,6 +57,9 @@ jobs:
         run: |
           sudo du -hs /nix/store/* | sort -h | tail -n 10
           sudo tree /nix/store/*-librelane || true
+      - name: Enable the PDK
+        run: |
+          nix develop --command make clone-pdk
       - name: Implement the Chip
         run: |
           nix develop --command make librelane

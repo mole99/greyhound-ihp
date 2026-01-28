@@ -1,10 +1,11 @@
+MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 RUN_TAG = $(shell ls runs/ -1 | tail -n 1)
 TOP = FMD_QNC_greyhound_ihp
 
-$(echo $RUN_TAG)
-
-#PDK_ROOT ?= IHP-Open-PDK
+PDK_ROOT ?= $(MAKEFILE_DIR)/IHP-Open-PDK
 PDK ?= ihp-sg13g2
+PDK_COMMIT ?= c4b8b4e5e7a05f375cca3815d51b3a37721fbf5c
 
 CORE_FILES =
 # PACKAGES
@@ -54,66 +55,62 @@ CHIP_FILES += ip/fabric_config/fabric_config.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_controller.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_receiver.sv
 
+.DEFAULT_GOAL := help
+
+$(PDK_ROOT)/$(PDK):
+	ciel enable $(PDK_COMMIT) --pdk-root $(PDK_ROOT) --pdk-family $(PDK)
+
+help: ## Show this help message
+	@echo 'Usage: make [target]'
+	@echo ''
+	@echo 'Available targets:'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-20s %s\n", $$1, $$2}'
+.PHONY: help
+
+clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
+.PHONY: clone-pdk
 
 convert-slang:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
 .PHONY: convert-slang
 
-librelane:
-	librelane config.yaml --pdk ${PDK}
+all: librelane ## Build the project (runs LibreLane)
+.PHONY: all
+
+librelane: $(PDK_ROOT)/$(PDK) ## Run LibreLane to implement Greyhound
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/
 .PHONY: librelane
 
-librelane-nodrc:
-	librelane config.yaml --pdk ${PDK} --skip KLayout.DRC --skip Magic.DRC
+librelane-nodrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC
 .PHONY: librelane
 
-librelane-klayoutdrc:
-	librelane config.yaml --pdk ${PDK} --skip Magic.DRC
+librelane-klayoutdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without magic DRC
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip Magic.DRC
 .PHONY: librelane-klayoutdrc
 
-librelane-magicdrc:
-	librelane config.yaml --pdk ${PDK} --skip KLayout.DRC
+librelane-magicdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without KLayout DRC
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC
 .PHONY: librelane-magicdrc
 
-librelane-openroad:
-	librelane config.yaml --pdk ${PDK} --last-run --flow OpenInOpenROAD
+librelane-openroad: $(PDK_ROOT)/$(PDK) ## Open the last run in OpenROAD
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInOpenROAD
 .PHONY: librelane-openroad
 
-librelane-klayout:
-	librelane config.yaml --pdk ${PDK} --last-run --flow OpenInKLayout
+librelane-klayout: $(PDK_ROOT)/$(PDK) ## Open the last run in KLayout
+	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
-
-copy-final:
-	mkdir -p final/pnl/
-	mkdir -p final/spice/
-	mkdir -p final/nl/
-	mkdir -p final/gds/
-	mkdir -p final/odb/
-	mkdir -p final/def/
-	mkdir -p final/spef/nom/
-
-	cp runs/${RUN_TAG}/final/pnl/${TOP}.pnl.v final/pnl/${TOP}.pnl.v
-	cp runs/${RUN_TAG}/final/spice/${TOP}.spice final/spice/${TOP}.spice
-	cp runs/${RUN_TAG}/final/nl/${TOP}.nl.v final/nl/${TOP}.nl.v
-	cp runs/${RUN_TAG}/final/gds/${TOP}.gds final/gds/${TOP}.gds
-	cp runs/${RUN_TAG}/final/odb/${TOP}.odb final/odb/${TOP}.odb
-	cp runs/${RUN_TAG}/final/def/${TOP}.def final/def/${TOP}.def
-	cp runs/${RUN_TAG}/final/spef/nom/${TOP}.nom.spef final/spef/nom/${TOP}.nom.spef
-	
-	gzip --force final/gds/${TOP}.gds
-	gzip --force final/odb/${TOP}.odb
-	
-.PHONY: copy-final
 
 insert-logo:
 	mkdir -p final/gds_logo/
 	python3 scripts/insert_logo.py final/gds/${TOP}.gds.gz logo/smooth/gds/greyhound_logo.gds final/gds_logo/${TOP}.gds.gz
 .PHONY: insert-logo
 
-render-image:
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) klayout -z -r scripts/klayout_image.py -rd input_gds=final/gds_logo/${TOP}.gds.gz -rd output_image=img/${TOP}.png
-	convert img/${TOP}.png -resize 25% img/${TOP}_small.png
+render-image: $(PDK_ROOT)/$(PDK) ## Render an image of Greyhound
+	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds_logo/${TOP}.gds.gz img/${TOP}.png --width 2048 --oversampling 4
+	convert img/${TOP}_white.png -resize 25% img/${TOP}_white_small.png
+	convert img/${TOP}_black.png -resize 25% img/${TOP}_black_small.png
 .PHONY: create-render
 
 fill:
@@ -127,7 +124,7 @@ fill:
 	python3 scripts/merge_fill.py final/gds_logo/${TOP}.gds.gz final/gds_fill/${TOP}_fill_pattern.gds.gz final/gds_fill/${TOP}.gds.gz
 .PHONY: fill
 
-density-check:
+magic-density-check:
 	# Run density check
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) $(PDK_ROOT)/$(PDK)/libs.tech/magic/check_density.py final/gds_fill/${TOP}.gds.gz
 .PHONY: density-check
@@ -149,23 +146,11 @@ lvs:
 	netgen -batch source lvs_script.tcl
 .PHONY: lvs
 
-drc:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_minimal.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_minimal.lyrdb -rd logfile="sg13g2_minimal.log" -rd threads=$(shell nproc)
-.PHONY: drc
-
-drc-full:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_maximal.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_maximal.lyrdb -rd logfile="sg13g2_maximal.log" -rd threads=$(shell nproc)
-.PHONY: drc-full
-
-drc-density:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_density.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_minimal.lyrdb -rd logfile="sg13g2_minimal.log" -rd threads=$(shell nproc)
-.PHONY: drc-density
-
-drc-latest-nodensity:
+klayout-drc-nodensity:
 	python3 ${HOME}/Repositories/IHP-Open-PDK-latest/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py --path final/gds_fill/${TOP}.gds.gz --run_mode=deep --no_density --disable_extra_rules
 .PHONY: drc-latest-nodensity
 
-drc-latest:
+klayout-drc:
 	python3 ${HOME}/Repositories/IHP-Open-PDK-latest/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py --path final/gds_fill/${TOP}.gds.gz --run_mode=deep --disable_extra_rules
 .PHONY: drc-latest
 
@@ -177,5 +162,5 @@ zip:
 	gzip final/gds_fill/${TOP}.gds
 .PHONY: zip
 
-tapeout: librelane copy-final insert-logo create-image fill oasis
+tapeout: librelane insert-logo create-image fill oasis
 .PHONY: tapeout
