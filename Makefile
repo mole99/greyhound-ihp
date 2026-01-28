@@ -75,6 +75,8 @@ convert-slang:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
 .PHONY: convert-slang
 
+# Implementation
+
 all: librelane ## Build the project (runs LibreLane)
 .PHONY: all
 
@@ -102,13 +104,29 @@ librelane-klayout: $(PDK_ROOT)/$(PDK) ## Open the last run in KLayout
 	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
+# Simulation
+
+sim: ## Run RTL simulation with cocotb
+	cd cocotb; PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 chip_top_tb.py
+.PHONY: sim
+
+sim-gl: $(PDK_ROOT)/$(PDK) ## Run gate-level simulation with cocotb
+	cd cocotb; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 chip_top_tb.py
+.PHONY: sim-gl
+
+sim-view: ## View simulation waveforms in GTKWave
+	gtkwave cocotb/sim_build/chip_top.fst
+.PHONY: sim-view
+
+# Finishing
+
 insert-logo:
 	mkdir -p final/gds_logo/
-	python3 scripts/insert_logo.py final/gds/${TOP}.gds.gz logo/smooth/gds/greyhound_logo.gds final/gds_logo/${TOP}.gds.gz
+	python3 scripts/insert_logo.py final/gds/${TOP}.gds logo/smooth/gds/greyhound_logo.gds final/gds_logo/${TOP}.gds
 .PHONY: insert-logo
 
 render-image: $(PDK_ROOT)/$(PDK) ## Render an image of Greyhound
-	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds_logo/${TOP}.gds.gz img/${TOP}.png --width 2048 --oversampling 4
+	PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 scripts/lay2img.py final/gds_logo/${TOP}.gds img/${TOP}.png --width 2048 --oversampling 4
 	convert img/${TOP}_white.png -resize 25% img/${TOP}_white_small.png
 	convert img/${TOP}_black.png -resize 25% img/${TOP}_black_small.png
 .PHONY: create-render
@@ -133,18 +151,6 @@ oasis:
 	mkdir -p final/oas/
 	klayout -rd input_gds=final/gds_fill/${TOP}.gds.gz -rd output_oasis=final/oas/${TOP}.oas -r scripts/convert_oasis.py -zz
 .PHONY: oasis
-
-lvs:
-	@echo "\
-	set circuit1 [readnet spice final/spice/${TOP}.spice]\n\
-	set circuit2 [readnet verilog /dev/null]\n\
-	readnet spice $(PDK_ROOT)/$(PDK)/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice \$$circuit2\n\
-	readnet spice $(PDK_ROOT)/$(PDK)/libs.ref/sg13g2_io/spice/sg13g2_io.spi \$$circuit2\n\
-	readnet verilog final/pnl/${TOP}.pnl.v \$$circuit2\n\
-	lvs \"\$$circuit1 ${TOP}\" \"\$$circuit2 ${TOP}\" $(PDK_ROOT)/$(PDK)/libs.tech/netgen/ihp-sg13g2_setup.tcl netgen_lvs.rpt -blackbox" > lvs_script.tcl
-	
-	netgen -batch source lvs_script.tcl
-.PHONY: lvs
 
 klayout-drc-nodensity:
 	python3 ${HOME}/Repositories/IHP-Open-PDK-latest/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py --path final/gds_fill/${TOP}.gds.gz --run_mode=deep --no_density --disable_extra_rules
