@@ -21,3 +21,6 @@
 [submodule "ip/common_cells"]
 	path = ip/common_cells
 	url = ../common_cells.git
+[submodule "ip/riscv-dbg"]
+	path = ip/riscv-dbg
+	url = git@github.com:pulp-platform/riscv-dbg.git

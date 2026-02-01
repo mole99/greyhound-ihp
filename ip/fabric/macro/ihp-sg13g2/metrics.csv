@@ -55,6 +55,7 @@ design__disconnected_pin__count,0
 design__critical_disconnected_pin__count,0
 route__wirelength__max,2319.74
 design__xor_difference__count,0
+klayout__drc_error__count,0
 magic__illegal_overlap__count,0
 design__lvs_device_difference__count,0
 design__lvs_net_difference__count,0

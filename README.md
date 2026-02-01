@@ -87,6 +87,7 @@ This is the memory map of the SoC:
 | 0x30000000   | UART0_BASE         | Highly configurable UART with 16-byte TX and RX FIFO, 16-bit prescaler and ten interrupt sources |
 | 0x40000000   | FABRIC_CONFIG_BASE | Fabric configuration peripheral                                                                  |
 | 0x50000000   | FABRIC_BASE        | Interface to the fabric when it is configured as peripheral                                      |
+| 0x60000000   | DEBUG_BASE         | Memory mapping of the riscv-dbg module |
 
 ## Fabric Config Peripheral
 

@@ -13,6 +13,8 @@ CORE_FILES += src/soc/soc_pkg.sv
 CORE_FILES += src/soc/cf_math_pkg.sv
 CORE_FILES += ip/cv32e40x/rtl/include/cv32e40x_pkg.sv
 CORE_FILES += ip/obi/src/obi_pkg.sv
+CORE_FILES += ip/riscv-dbg/src/dm_pkg.sv
+CORE_FILES += ip/common_cells/src/cdc_reset_ctrlr_pkg.sv
 # RTL_OBI
 CORE_FILES += ip/obi/src/obi_intf.sv
 CORE_FILES += ip/obi/src/obi_mux.sv
@@ -24,6 +26,12 @@ CORE_FILES += ip/common_cells/src/fifo_v3.sv
 CORE_FILES += ip/common_cells/src/rr_arb_tree.sv
 CORE_FILES += ip/common_cells/src/delta_counter.sv
 CORE_FILES += ip/common_cells/src/lzc.sv
+CORE_FILES += ip/common_cells/src/cdc_2phase_clearable.sv
+CORE_FILES += ip/common_cells/src/deprecated/fifo_v2.sv
+CORE_FILES += ip/common_cells/src/fifo_v3.sv
+CORE_FILES += ip/common_cells/src/cdc_reset_ctrlr.sv
+CORE_FILES += ip/common_cells/src/sync.sv
+CORE_FILES += ip/common_cells/src/cdc_4phase.sv
 # Core and SoC
 CORE_FILES += ip/cv32e40x/rtl/*.sv
 CORE_FILES += src/soc/greyhound_soc.sv
@@ -43,6 +51,18 @@ CORE_FILES += ip/EF_UART/hdl/rtl/EF_UART.v
 CORE_FILES += ip/EF_UART/hdl/rtl/bus_wrappers/EF_UART_AHBL.v
 # Util
 CORE_FILES += ip/EF_IP_UTIL/hdl/ef_util_lib.v
+# Debug
+CORE_FILES += ip/riscv-dbg/src/dmi_jtag.sv
+CORE_FILES += ip/riscv-dbg/src/dmi_jtag_tap.sv
+CORE_FILES += ip/riscv-dbg/src/dmi_cdc.sv
+CORE_FILES += ip/riscv-dbg/src/dm_obi_top.sv
+CORE_FILES += ip/riscv-dbg/src/dm_top.sv
+CORE_FILES += ip/riscv-dbg/src/dm_csrs.sv
+CORE_FILES += ip/riscv-dbg/src/dm_sba.sv
+CORE_FILES += ip/riscv-dbg/src/dm_mem.sv
+CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom.sv
+CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom_one_scratch.sv
+CORE_FILES += src/riscv-dbg/tc_clk_wrapper.sv
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
@@ -73,6 +93,8 @@ clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
 convert-slang:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
+	mkdir -p tb/greyhound_soc_dbg_tb/sim_build
+	cd tb/greyhound_soc_dbg_tb/sim_build && iverilog-vpi ../../../ip/riscv-dbg/tb/remote_bitbang/remote_bitbang.c  ../sim_jtag_wrapper.c --name=remote_bitbang
 .PHONY: convert-slang
 
 # Implementation

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
 // SPDX-License-Identifier: Apache-2.0
+// SPDX-FileContributor: Modified by Stefan Huwar <stefan.huwar@gmail.com>
 
 `default_nettype none
 
@@ -84,7 +85,14 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
 
     // CPU control signals
     input  logic            fetch_enable_i,
-    output logic            core_sleep_o
+    output logic            core_sleep_o,
+
+    // JTAG
+    input  logic      jtag_tck_i,
+    input  logic      jtag_tdi_i,
+    output logic      jtag_tdo_o,
+    input  logic      jtag_tms_i,
+    input  logic      jtag_trst_ni
 );
 
     // Custom instruction interface
@@ -189,6 +197,12 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign core_data_obi_req.a.aid = '0;
     assign core_data_obi_req.a.a_optional = '0;
 
+    // dbg req bus
+    sbr_obi_req_t dbg_req_obi_req;
+    sbr_obi_rsp_t dbg_req_obi_rsp;
+    assign dbg_req_obi_req.a.aid = '0;
+    assign dbg_req_obi_req.a.a_optional = '0;
+
     // ---------------------
     // Mux to Demux bus
     // ---------------------
@@ -208,6 +222,10 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
 
     assign mgrs_mux_obi_req[ManagData] = core_data_obi_req;
     assign core_data_obi_rsp = mgrs_mux_obi_rsp[ManagData];
+
+    // dbg req bus
+    assign mgrs_mux_obi_req[ManagDbg] = dbg_req_obi_req;
+    assign dbg_req_obi_rsp = mgrs_mux_obi_rsp[ManagDbg];
 
     // -----------------
     // Peripheral buses
@@ -245,6 +263,10 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     sbr_obi_req_t fabric_obi_req;
     sbr_obi_rsp_t fabric_obi_rsp;
 
+    // Debug mem bus
+    sbr_obi_req_t dbg_mem_obi_req;
+    sbr_obi_rsp_t dbg_mem_obi_rsp;
+
     // Fanout to individual peripherals
     assign error_obi_req                          = all_periph_obi_req[PeriphError];
     assign all_periph_obi_rsp[PeriphError]        = error_obi_rsp;
@@ -266,6 +288,9 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
 
     assign fabric_obi_req                         = all_periph_obi_req[PeriphFabric];
     assign all_periph_obi_rsp[PeriphFabric]       = fabric_obi_rsp;
+
+    assign dbg_mem_obi_req                        = all_periph_obi_req[PeriphDbg];
+    assign all_periph_obi_rsp[PeriphDbg]          = dbg_mem_obi_rsp;
 
     `ifdef DEBUG
     // Instruction memory interface
@@ -307,6 +332,9 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign data_err_i         = core_data_obi_rsp.r.err;
 	`endif
 
+    // Debug request
+    logic debug_req;
+
     // Interrupt sources
     logic [31:0] irq;
     logic uart0_irq;
@@ -318,10 +346,10 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
       .A_EXT                 ( A                     ),
       .B_EXT                 ( ZBA_ZBB_ZBC_ZBS       ),
       .M_EXT                 ( M                     ),
-      .DEBUG                 ( 0                     ),
-      .DM_REGION_START       ( '0                    ),
-      .DM_REGION_END         ( '0                    ),
-      .DBG_NUM_TRIGGERS      ( 0                     ),
+      .DEBUG                 ( 1                     ),
+      .DM_REGION_START       ( DbgAddrOffset              ),
+      .DM_REGION_END         ( DbgAddrOffset+DbgAddrRange ),
+      .DBG_NUM_TRIGGERS      ( 1                     ),
       .PMA_NUM_REGIONS       ( NumPMARules           ),
       .PMA_CFG               ( pma_cfg               ),
       .X_EXT                 ( 1                     ),
@@ -334,8 +362,8 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
 
       // Static configuration
       .boot_addr_i           ( BootAddr              ),
-      .dm_exception_addr_i   ( '0                    ),
-      .dm_halt_addr_i        ( '0                    ),
+      .dm_exception_addr_i   ( DbgAddrOffset + dm::ExceptionAddress[31:0] ),
+      .dm_halt_addr_i        ( DbgAddrOffset + dm::HaltAddress[31:0]      ),
       .mhartid_i             ( HartId                ),
       .mimpid_patch_i        ( 4'b0                  ),
       .mtvec_addr_i          ( MtvecAddr             ),
@@ -399,7 +427,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
       .fencei_flush_ack_i    ( 1'b1                  ),
 
       // Debug interface
-      .debug_req_i           ( 1'b0                  ),
+      .debug_req_i           ( debug_req             ),
       .debug_havereset_o     (                       ),
       .debug_running_o       (                       ),
       .debug_halted_o        (                       ),
@@ -975,5 +1003,83 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign debug_fabric_err        = fabric_obi_rsp.r.err;
     assign debug_fabric_r_optional = fabric_obi_rsp.r.r_optional;
 	`endif
+
+  // Debug Module
+
+  logic dmi_rst_n, dmi_req_valid, dmi_req_ready, dmi_resp_valid, dmi_resp_ready;
+  dm::dmi_req_t dmi_req;
+  dm::dmi_resp_t dmi_resp;
+
+  dmi_jtag #(
+    .IdcodeValue ( GreyhoundJtagIdCode )
+  ) i_dmi_jtag (
+    .clk_i,
+    .rst_ni,
+    .testmode_i       ( 1'b0           ),
+ 
+    .dmi_rst_no       ( dmi_rst_n      ),
+    .dmi_req_o        ( dmi_req        ),
+    .dmi_req_valid_o  ( dmi_req_valid  ),
+    .dmi_req_ready_i  ( dmi_req_ready  ),
+
+    .dmi_resp_i       ( dmi_resp       ),
+    .dmi_resp_ready_o ( dmi_resp_ready ),
+    .dmi_resp_valid_i ( dmi_resp_valid ),
+
+    .tck_i            ( jtag_tck_i     ),
+    .tms_i            ( jtag_tms_i     ),
+    .trst_ni          ( jtag_trst_ni   ),
+    .td_i             ( jtag_tdi_i     ),
+    .td_o             ( jtag_tdo_o     ),
+    .tdo_oe_o         ()
+  );
+
+  dm_obi_top #(
+    .BusWidth   ( SbrObiCfg.DataWidth ),
+    .IdWidth    ( SbrObiCfg.IdWidth   )
+  ) i_dm_top (
+    .clk_i,
+    .rst_ni,
+    .testmode_i           ( 1'b0       ),
+    .ndmreset_o           (),
+    .dmactive_o           (),
+    .debug_req_o          ( debug_req  ),
+    .unavailable_i        ( 1'b0       ),
+    .hartinfo_i           ( HARTINFO   ),
+
+    .slave_req_i          ( dbg_mem_obi_req.req     ),
+    .slave_we_i           ( dbg_mem_obi_req.a.we    ),
+    .slave_addr_i         ( dbg_mem_obi_req.a.addr  ),
+    .slave_be_i           ( dbg_mem_obi_req.a.be    ),
+    .slave_wdata_i        ( dbg_mem_obi_req.a.wdata ),
+    .slave_aid_i          ( dbg_mem_obi_req.a.aid   ),
+    .slave_gnt_o          ( dbg_mem_obi_rsp.gnt     ),
+    .slave_rvalid_o       ( dbg_mem_obi_rsp.rvalid  ),
+    .slave_rdata_o        ( dbg_mem_obi_rsp.r.rdata ),
+    .slave_rid_o          ( dbg_mem_obi_rsp.r.rid   ),
+
+    .master_req_o         ( dbg_req_obi_req.req     ),
+    .master_addr_o        ( dbg_req_obi_req.a.addr  ),
+    .master_we_o          ( dbg_req_obi_req.a.we    ),
+    .master_wdata_o       ( dbg_req_obi_req.a.wdata ),
+    .master_be_o          ( dbg_req_obi_req.a.be    ),
+    .master_gnt_i         ( dbg_req_obi_rsp.gnt     ),
+    .master_rvalid_i      ( dbg_req_obi_rsp.rvalid  ),
+    .master_rdata_i       ( dbg_req_obi_rsp.r.rdata ),
+    .master_err_i         ( dbg_req_obi_rsp.r.err   ),
+    .master_other_err_i   ( 1'b0                    ),
+
+    .dmi_rst_ni           ( dmi_rst_n      ),
+    .dmi_req_valid_i      ( dmi_req_valid  ),
+    .dmi_req_ready_o      ( dmi_req_ready  ),
+    .dmi_req_i            ( dmi_req        ),
+
+    .dmi_resp_valid_o     ( dmi_resp_valid ),
+    .dmi_resp_ready_i     ( dmi_resp_ready ),
+    .dmi_resp_o           ( dmi_resp       )
+  );
+  // unused
+  assign dbg_mem_obi_rsp.r.r_optional = 1'b0;
+  assign dbg_mem_obi_rsp.r.err        = 1'b0;
 
 endmodule

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: © 2025 Leo Moser <leo.moser@pm.me>
 // SPDX-License-Identifier: Apache-2.0
+// SPDX-FileContributor: Modified by Stefan Huwar <stefan.huwar@gmail.com>
 
 `timescale 1ns/1ps
 `default_nettype none
@@ -170,7 +171,14 @@ module greyhound_soc_tb;
 
         // CPU control signals
         .fetch_enable_i,
-        .core_sleep_o
+        .core_sleep_o,
+
+        // JTAG TODO
+        .jtag_tck_i     (  ),
+        .jtag_tdi_i     (  ),
+        .jtag_tdo_o     (  ),
+        .jtag_tms_i     (  ),
+        .jtag_trst_ni   ( rst_ni )
     );
 
     // R-type instruction decoding

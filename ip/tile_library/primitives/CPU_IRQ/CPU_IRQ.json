@@ -5,7 +5,7 @@
       "attributes": {
         "dynports": 1,
         "cells_not_processed": 1,
-        "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:16.1-36.10"
+        "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:16.1-36.10"
       },
       "parameter_default_values": {
         "NUM_IRQ": 4,
@@ -32,7 +32,7 @@
         }
       },
       "cells": {
-        "$and$/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34$1": {
+        "$and$/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34$1": {
           "hide_name": 1,
           "type": "$and",
           "parameters": {
@@ -43,7 +43,7 @@
             "Y_WIDTH": 4
           },
           "attributes": {
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34.20-34.51"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34.20-34.51"
           },
           "port_directions": {
             "A": "input",
@@ -58,11 +58,11 @@
         }
       },
       "netnames": {
-        "$and$/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34$1_Y": {
+        "$and$/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34$1_Y": {
           "hide_name": 1,
           "bits": [ 6, 7, 8, 9 ],
           "attributes": {
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34.20-34.51"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:34.20-34.51"
           }
         },
         "CONFIGURED_top": {
@@ -71,7 +71,7 @@
           "attributes": {
             "EXTERNAL": 1,
             "FABulous": 1,
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:28.59-28.73"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:28.59-28.73"
           }
         },
         "ConfigBits": {
@@ -82,14 +82,14 @@
           "attributes": {
             "FABulous": 1,
             "GLOBAL": 1,
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:30.54-30.64"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:30.54-30.64"
           }
         },
         "IRQ": {
           "hide_name": 0,
           "bits": [ 2, 3, 4, 5 ],
           "attributes": {
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:23.32-23.35"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:23.32-23.35"
           }
         },
         "IRQ_top": {
@@ -98,7 +98,7 @@
           "attributes": {
             "EXTERNAL": 1,
             "FABulous": 1,
-            "src": "/home/leo/Repositories/greyhound-ihp-librelane/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:26.57-26.64"
+            "src": "/home/ma2025/Public/greyhound-ihp/ip/fabric/../tile_library/tiles/S_CPU_IRQ/../../primitives/CPU_IRQ/CPU_IRQ.v:26.57-26.64"
           }
         }
       }

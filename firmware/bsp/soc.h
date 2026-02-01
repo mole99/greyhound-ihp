@@ -7,6 +7,7 @@
 #define UART0_BASE      0x30000000
 
 #define FABRIC_CONFIG_BASE      0x40000000
+#define DEBUG_BASE      0x60000000
 
 
 #define REG_XIF_OR_PERIPH       (volatile int*)(FABRIC_CONFIG_BASE + 0)

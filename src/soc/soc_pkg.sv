@@ -11,12 +11,13 @@ package soc_pkg;
     // Managers         ///
     ///////////////////////
 
-    localparam int unsigned NumManagers = 2; // Instr, data
+    localparam int unsigned NumManagers = 3; // Instr, data, debug
 
     // Enum for bus indices
     typedef enum int {
         ManagInstr     = 0,
-        ManagData      = 1
+        ManagData      = 1,
+        ManagDbg       = 2
     } manage_outputs_e;
 
     ///////////////////////
@@ -52,7 +53,11 @@ package soc_pkg;
     localparam bit [31:0] FabricAddrOffset          = 32'h5000_0000;
     localparam bit [31:0] FabricAddrRange           = 32'h0100_0000; // 24bit
 
-    localparam int unsigned NumPeriphRules  = 6;
+    localparam bit [31:0] DbgAddrOffset             = 32'h6000_0000;
+    localparam bit [31:0] DbgAddrRange              = 32'h0000_1000; // ROM starts at 0x800 and is 160 byte
+
+
+    localparam int unsigned NumPeriphRules  = 7;
     localparam int unsigned NumPeriphs      = NumPeriphRules + 1; // additional OBI error
 
     // Enum for bus indices
@@ -63,16 +68,19 @@ package soc_pkg;
         PeriphPsram         = 3,
         PeriphUart0         = 4,
         PeriphFabricConfig  = 5,
-        PeriphFabric        = 6
+        PeriphFabric        = 6,
+        PeriphDbg           = 7
     } periph_outputs_e;
 
     localparam addr_map_rule_t [NumPeriphRules-1:0] periph_addr_map = '{                                  // 0: OBI Error (default)
-        '{ idx: PeriphFlash,  start_addr: FlashAddrOffset,  end_addr: FlashAddrOffset + FlashAddrRange }, // 1: Flash
-        '{ idx: PeriphSram,   start_addr: SramAddrOffset,   end_addr: SramAddrOffset  + SramAddrRange  }, // 2: Sram
-        '{ idx: PeriphPsram,  start_addr: PsramAddrOffset,  end_addr: PsramAddrOffset + PsramAddrRange }, // 3: Psram
-        '{ idx: PeriphUart0,  start_addr: Uart0AddrOffset,  end_addr: Uart0AddrOffset + Uart0AddrRange }, // 4: Uart0
-        '{ idx: PeriphFabricConfig,  start_addr: FabricConfigAddrOffset,  end_addr: FabricConfigAddrOffset + FabricConfigAddrRange}, // 5: FabricConfig
-        '{ idx: PeriphFabric, start_addr: FabricAddrOffset, end_addr: FabricAddrOffset + FabricAddrRange} // 6: Fabric
+        '{ idx: PeriphDbg,    start_addr: DbgAddrOffset,    end_addr: DbgAddrOffset  + DbgAddrRange},     // 1: Dbg
+        '{ idx: PeriphFlash,  start_addr: FlashAddrOffset,  end_addr: FlashAddrOffset + FlashAddrRange }, // 2: Flash
+        '{ idx: PeriphSram,   start_addr: SramAddrOffset,   end_addr: SramAddrOffset  + SramAddrRange  }, // 3: Sram
+        '{ idx: PeriphPsram,  start_addr: PsramAddrOffset,  end_addr: PsramAddrOffset + PsramAddrRange }, // 4: Psram
+        '{ idx: PeriphUart0,  start_addr: Uart0AddrOffset,  end_addr: Uart0AddrOffset + Uart0AddrRange }, // 5: Uart0
+        '{ idx: PeriphFabricConfig,  start_addr: FabricConfigAddrOffset,  end_addr: FabricConfigAddrOffset + FabricConfigAddrRange}, // 6: FabricConfig
+        '{ idx: PeriphFabric, start_addr: FabricAddrOffset, end_addr: FabricAddrOffset + FabricAddrRange}// 7: Fabric
+        
     };
 
     // PMA configuration
@@ -86,7 +94,8 @@ package soc_pkg;
         '{word_addr_low: PsramAddrOffset>>2, word_addr_high: (PsramAddrOffset + PsramAddrRange)>>2, main: 1'b1, bufferable: 1'b1, cacheable: 1'b1, atomic: 1'b1},
         '{word_addr_low: Uart0AddrOffset>>2, word_addr_high: (Uart0AddrOffset + Uart0AddrRange)>>2, main: 1'b0, bufferable: 1'b0, cacheable: 1'b0, atomic: 1'b0},
         '{word_addr_low: FabricConfigAddrOffset>>2, word_addr_high: (FabricConfigAddrOffset + FabricConfigAddrRange)>>2, main: 1'b0, bufferable: 1'b0, cacheable: 1'b0, atomic: 1'b0},
-        '{word_addr_low: FabricAddrOffset>>2, word_addr_high: (FabricAddrOffset + FabricAddrRange)>>2, main: 1'b1, bufferable: 1'b0, cacheable: 1'b0, atomic: 1'b0}
+        '{word_addr_low: FabricAddrOffset>>2, word_addr_high: (FabricAddrOffset + FabricAddrRange)>>2, main: 1'b1, bufferable: 1'b0, cacheable: 1'b0, atomic: 1'b0},
+        '{word_addr_low: DbgAddrOffset>>2,   word_addr_high: (DbgAddrOffset + DbgAddrRange)>>2,     main: 1'b1, bufferable: 1'b0, cacheable: 1'b0, atomic: 1'b0}
     };
 
     // ---------------------------------------------
@@ -135,5 +144,34 @@ package soc_pkg;
         logic            gnt;
         logic            rvalid;
     } sbr_obi_rsp_t;
+
+    /// JTAG <-> OBI hardware info 
+    localparam dm::hartinfo_t HARTINFO = '{
+        zero1: '0,
+        nscratch: 2,
+        zero0: '0,
+        dataaccess: 1'b1,
+        datasize: dm::DataCount,
+        dataaddr: dm::DataAddr
+    };
+
+    // Default JTAG ID code type
+    typedef struct packed {
+        bit [ 3:0]  version;
+        bit [15:0]  part_num;
+        bit [10:0]  manufacturer;
+        bit         _one;
+    } jtag_idcode_t;
+
+    // JTAG IDCODE TODO
+    localparam bit [10:0] JtagGreyhoundManufacturer = 11'h0;
+    localparam bit [15:0] JtagGreyhoundPartNum      = 16'h0;
+    localparam bit [ 3:0] JtagGreyhoundVersion      = 4'h2;
+    localparam jtag_idcode_t GreyhoundJtagIdCode = '{
+        _one          : 1,
+        manufacturer  : JtagGreyhoundManufacturer,
+        part_num      : JtagGreyhoundPartNum,
+        version       : JtagGreyhoundVersion
+    };
 
 endpackage
