@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: © 2025 Leo Moser <leomoser99@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileContributor: Modified by Stefan Huwar <stefan.huwar@gmail.com>
 
 import os
 import random
@@ -146,7 +147,7 @@ jtag_cpu = {
     'dump_waveforms': True,
 }
 
-enabled = jtag_cpu
+enabled = hello_world
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -211,7 +212,7 @@ async def test_hello_world(dut):
     dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Wait for UART to get clocked
-    await ClockCycles(dut.io_clock_PAD, int(50000*1))
+    await ClockCycles(dut.io_clock_PAD, int(50000*2.5))
     
     # Send char
     await uart_source.write(b'A')
@@ -222,7 +223,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.io_clock_PAD, int(50000*1.8))
+    await ClockCycles(dut.io_clock_PAD, int(50000*2.0))
     
     # Read message
     data = uart_sink.read_nowait(-1)
@@ -967,7 +968,7 @@ async def test_jtag_isc(dut):
     await ClockCycles(dut.io_clock_PAD, 10)
 
 @cocotb.test(skip=enabled!=jtag_cpu)
-async def test_jtag_spi_cpu(dut):
+async def test_jtag_cpu(dut):
     """Program fabric with jtag and cpu"""
     jtag = await setup_for_jtag(dut)
 

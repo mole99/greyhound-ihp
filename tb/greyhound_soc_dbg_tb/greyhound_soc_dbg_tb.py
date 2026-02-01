@@ -63,7 +63,7 @@ async def test_hello_world(dut):
     await start_up(dut)
 
     # Wait for UART to get clocked, OpenOCD to connect to JTAG interface and GDB to startup
-    await ClockCycles(dut.clk_i, int(50000*3.2))
+    await ClockCycles(dut.clk_i, int(50000*5.5))
 
     # Send char
     await uart_source.write(b'A')
@@ -74,7 +74,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.clk_i, int(50000*3.0))
+    await ClockCycles(dut.clk_i, int(50000*2.0))
     
     # Read message
     data = uart_sink.read_nowait(-1)

@@ -266,10 +266,9 @@ module greyhound_ihp (
                 // Run init sequence through jtag interface
                 jtag_tms = fpga_cs_n_i;
                 jtag_tdi = fpga_mosi_i;
-                // TODO test if one can disable this output until fully configured
                 // Enable tdo output in this case
-                // fpga_miso_oe_o = 1'b1;
-                // fpga_miso_o = jtag_tdo;
+                fpga_miso_oe_o = 1'b1;
+                fpga_miso_o = jtag_tdo;
             end
         end else begin
             // Default output

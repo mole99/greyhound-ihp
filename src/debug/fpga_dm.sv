@@ -126,7 +126,6 @@ module fpga_dm import soc_pkg::*; #(
     logic boundary_scan_tdi, boundary_scan_tdo;
     logic capture_bsr_select, shift_bsr_select, update_bsr_select;
 
-    // TODO use raw_pld driver in openocd-> need to create raw bitfile with commands first....
     // ----------------
     // TAP
     // ----------------
@@ -236,9 +235,15 @@ module fpga_dm import soc_pkg::*; #(
     // Sync fabric_configured_i and fabric_busy_i as single pulse
     logic [2:0] isc_ext_prog_d;
     logic [2:0] isc_ext_conf_d;
-    always_ff @(posedge tck_i) begin
-        isc_ext_prog_d <= {isc_ext_prog_d[1:0], fabric_busy_i};
-        isc_ext_conf_d <= {isc_ext_conf_d[1:0], fabric_configured_i};
+    always_ff @(posedge tck_i, negedge trst_ni) begin
+        if (!trst_ni) begin
+            isc_ext_prog_d <= '0;
+            isc_ext_conf_d <= '0;
+        end
+        else begin
+            isc_ext_prog_d <= {isc_ext_prog_d[1:0], fabric_busy_i};
+            isc_ext_conf_d <= {isc_ext_conf_d[1:0], fabric_configured_i}; 
+        end
     end
     assign isc_ext_prog = ~isc_ext_prog_d[2] & isc_ext_prog_d[1];
     assign isc_ext_conf = ~isc_ext_conf_d[2] & isc_ext_conf_d[1];

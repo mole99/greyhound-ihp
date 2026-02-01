@@ -590,7 +590,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     EF_QSPI_XIP_CTRL_AHBL 
     #(
-        .NUM_LINES      ( (EnabledBSRLength == None || EnabledBSRLength == External) ? 8 : 2  ),
+        .NUM_LINES      ( (EnabledBSRLength == None || EnabledBSRLength == External) ? 4 : 2  ),
         .LINE_SIZE      ( 32 ), 
         .RESET_CYCLES   ( 999 ) 
     )

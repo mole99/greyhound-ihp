@@ -197,50 +197,50 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire [3:0] _055_;
   wire [3:0] _056_;
   wire [4:0] _057_;
-  wire [31:0] _058_;
-  wire [31:0] _059_;
+  wire [3:0] _058_;
+  wire [6:0] _059_;
+  wire [3:0] _060_;
   (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _060_;
-  wire _061_;
+  wire [31:0] _061_;
   wire _062_;
-  wire [7:0] _063_;
+  wire _063_;
   wire [7:0] _064_;
-  wire _065_;
-  wire [31:0] _066_;
-  (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [7:0] _065_;
+  wire _066_;
   wire [31:0] _067_;
-  wire _068_;
-  wire [31:0] _069_;
   (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _068_;
+  wire _069_;
   wire [31:0] _070_;
-  wire _071_;
-  wire [7:0] _072_;
+  (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _071_;
+  wire _072_;
   wire [7:0] _073_;
-  wire _074_;
+  wire [7:0] _074_;
   wire _075_;
   wire _076_;
   wire _077_;
-  wire [31:0] _078_;
-  wire _079_;
+  wire _078_;
+  wire [31:0] _079_;
   wire _080_;
   wire _081_;
   wire _082_;
   wire _083_;
-  wire [31:0] _084_;
-  wire _085_;
+  wire _084_;
+  wire [31:0] _085_;
   wire _086_;
   wire _087_;
-  wire [3:0] _088_;
-  wire _089_;
-  wire [3:0] _090_;
-  wire _091_;
-  wire [3:0] _092_;
-  wire _093_;
-  wire [3:0] _094_;
-  wire _095_;
-  wire [3:0] _096_;
-  wire _097_;
-  wire [3:0] _098_;
+  wire _088_;
+  wire [3:0] _089_;
+  wire _090_;
+  wire [3:0] _091_;
+  wire _092_;
+  wire [3:0] _093_;
+  wire _094_;
+  wire [3:0] _095_;
+  wire _096_;
+  wire [3:0] _097_;
+  wire _098_;
   wire [3:0] _099_;
   wire [3:0] _100_;
   wire [3:0] _101_;
@@ -249,31 +249,31 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire [3:0] _104_;
   wire [3:0] _105_;
   wire [3:0] _106_;
-  wire [15:0] _107_;
-  wire [7:0] _108_;
-  wire [3:0] _109_;
-  wire [1:0] _110_;
-  wire _111_;
-  wire [15:0] _112_;
-  wire [7:0] _113_;
-  wire [3:0] _114_;
-  wire [1:0] _115_;
-  wire _116_;
-  wire [3:0] _117_;
-  wire [1:0] _118_;
-  wire _119_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *)
+  wire [3:0] _107_;
+  wire [15:0] _108_;
+  wire [7:0] _109_;
+  wire [3:0] _110_;
+  wire [1:0] _111_;
+  wire _112_;
+  wire [15:0] _113_;
+  wire [7:0] _114_;
+  wire [3:0] _115_;
+  wire [1:0] _116_;
+  wire _117_;
+  wire [3:0] _118_;
+  wire [1:0] _119_;
   wire _120_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *)
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *)
   wire _121_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *)
+  wire _122_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *)
-  wire [7:0] _122_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *)
   wire [7:0] _123_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *)
+  wire [7:0] _124_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *)
-  wire _124_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *)
   wire _125_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *)
   wire _126_;
   wire _127_;
   wire _128_;
@@ -281,6 +281,7 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire _130_;
   wire _131_;
   wire _132_;
+  wire _133_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:40.29" *)
   input [23:0] addr;
   wire [23:0] addr;
@@ -303,7 +304,7 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:42.29" *)
   output [31:0] data_o;
   wire [31:0] data_o;
-  wire [6:0] data_start;
+  wire [5:0] data_start;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:55.29" *)
   input [3:0] din;
   wire [3:0] din;
@@ -378,9 +379,9 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign data_o[23:16] = data[2'h2];
   assign data_o[31:24] = data[2'h3];
   assign _041_ = data[byte_index];
-  assign _000_ = _085_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.45-133.61" *) _086_ : 1'hx;
+  assign _000_ = _086_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.45-133.61" *) _087_ : 1'hx;
   assign _001_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.26-133.37" *) 4'h8;
-  assign dout_qspi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.25-148.32" *) { 3'h0, _000_ } : _106_;
+  assign dout_qspi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.25-148.32" *) { 3'h0, _000_ } : _107_;
   assign _002_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:165.26-165.39" *) 4'hf;
   assign _003_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:165.25-166.32" *) data_i[27:24] : 4'h0;
   assign _004_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:164.26-164.39" *) 4'he;
@@ -416,11 +417,11 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign dout_qpi = _033_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:150.25-166.32" *) cmd[7:4] : _032_;
   assign _034_ = qspi ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:169.25-170.33" *) dout_qspi : { 3'h0, dout_spi };
   assign dout = qpi ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:168.25-170.33" *) dout_qpi : _034_;
-  assign _035_ = counter - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:173.31-173.51" *) data_start;
+  assign _035_ = counter - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:173.31-173.51" *) { _059_[6], data_start };
   assign _036_ = qpi | (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:173.58-173.68" *) qspi;
   assign _037_ = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:173.57-173.77" *) 2'h1 : 2'h3;
   assign byte_index = _035_ >> (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:173.30-173.78" *) _037_;
-  assign _038_ = counter >= (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.12-175.33" *) { 1'h0, data_start };
+  assign _038_ = counter >= (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.12-175.33" *) { 1'h0, _059_[6], data_start };
   assign _039_ = counter <= (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.37-175.59" *) final_count;
   assign _040_ = _038_ && (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.12-175.59" *) _039_;
   assign _043_[7] = _042_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.69" *) 1'h1 : 1'h0;
@@ -428,7 +429,7 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign _046_ = | (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:187.36-187.52" *) wait_states;
   assign has_wait_states = _046_ & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:187.35-187.61" *) rd_wr;
   assign _047_ = rd_wr ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:192.29-193.36" *) 4'h0 : 4'hf;
-  assign _048_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:191.31-191.51" *) data_start;
+  assign _048_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:191.31-191.51" *) { _059_[6], data_start };
   assign _049_ = _048_ & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:191.30-191.70" *) has_wait_states;
   assign _050_ = _049_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:191.29-193.36" *) 4'h0 : _047_;
   assign _051_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:190.30-190.42" *) 4'he;
@@ -442,157 +443,157 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign _056_ = qpi ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:101.32-101.44" *) 4'h2 : 4'h8;
   assign _057_ = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:102.32-102.53" *) 5'h06 : 5'h18;
   assign wait_start = _056_ + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:101.31-102.54" *) _057_;
-  assign _058_[3:0] = rd_wr ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.45-103.68" *) wait_states : 4'h0;
-  assign data_start = wait_start + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.31-103.69" *) _058_[3:0];
-  assign _059_[3:0] = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.32-104.52" *) 4'h2 : 4'h8;
-  assign data_count = _059_[3:0] * (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.31-104.60" *) size;
-  assign _060_[7:0] = { 1'h0, data_start } + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.47-105.70" *) data_count;
-  assign final_count = short_cmd ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.31-105.70" *) 8'h08 : _060_[7:0];
+  assign _058_ = rd_wr ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.45-103.68" *) wait_states : 4'h0;
+  assign { _059_[6], data_start } = wait_start + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.31-103.69" *) _058_;
+  assign _060_ = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.32-104.52" *) 4'h2 : 4'h8;
+  assign data_count = _060_ * (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.31-104.60" *) size;
+  assign _061_[7:0] = { 1'h0, _059_[6], data_start } + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.47-105.70" *) data_count;
+  assign final_count = short_cmd ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.31-105.70" *) 8'h08 : _061_[7:0];
   assign done = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:107.24-107.46" *) final_count;
-  assign _061_ = ~ (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.23-112.28" *) done;
-  assign _062_ = sck & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.17-112.28" *) _061_;
-  assign _063_ = counter + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.24-113.38" *) 1'h1;
-  assign _064_ = 7'h57 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.57-125.71" *) counter;
-  assign _065_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.38-125.50" *) 7'h40;
-  assign _066_[7:0] = _065_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.37-126.38" *) _064_ : 8'h00;
-  assign _067_[7:0] = 7'h47 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.57-124.71" *) counter;
-  assign _068_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.38-124.50" *) 6'h38;
-  assign _069_[7:0] = _068_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.37-126.38" *) _067_[7:0] : _066_[7:0];
-  assign _070_[7:0] = 6'h37 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.57-123.71" *) counter;
-  assign _071_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.38-123.50" *) 6'h30;
-  assign _072_ = _071_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.37-126.38" *) _070_[7:0] : _069_[7:0];
-  assign _073_ = 6'h27 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.57-122.71" *) counter;
-  assign _074_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.38-122.50" *) 6'h28;
-  assign spi_bit_index = _074_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.37-126.38" *) _073_ : _072_;
-  assign _075_ = spi_bit_index < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) 6'h20;
-  assign _077_ = _075_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _076_ : 1'hx;
-  assign { _078_[31], _078_[7:0] } = 5'h1f - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.50-129.62" *) counter;
-  assign _079_ = { _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 6'h20;
-  assign _081_ = _079_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _080_ : 1'hx;
-  assign _082_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.26-129.38" *) 6'h20;
-  assign _083_ = _082_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.25-130.46" *) _081_ : _077_;
-  assign { _084_[31], _084_[7:0] } = 3'h7 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.49-128.60" *) counter;
-  assign _085_ = { _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) 4'h8;
-  assign dout_spi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.25-130.46" *) _000_ : _083_;
-  assign _087_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.26-147.39" *) 5'h15;
-  assign _088_ = _087_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.25-148.32" *) data_i[27:24] : 4'h0;
-  assign _089_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.26-146.39" *) 5'h14;
-  assign _090_ = _089_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.25-148.32" *) data_i[31:28] : _088_;
-  assign _091_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.26-145.39" *) 5'h13;
-  assign _092_ = _091_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.25-148.32" *) data_i[19:16] : _090_;
-  assign _093_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.26-144.39" *) 5'h12;
-  assign _094_ = _093_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.25-148.32" *) data_i[23:20] : _092_;
-  assign _095_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.26-143.39" *) 5'h11;
-  assign _096_ = _095_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.25-148.32" *) data_i[11:8] : _094_;
-  assign _097_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.26-142.39" *) 5'h10;
-  assign _098_ = _097_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.25-148.32" *) data_i[15:12] : _096_;
-  assign _099_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:141.25-148.32" *) data_i[3:0] : _098_;
-  assign _100_ = _004_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:140.25-148.32" *) data_i[7:4] : _099_;
-  assign _101_ = _006_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:139.25-148.32" *) addr[3:0] : _100_;
-  assign _102_ = _008_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:138.25-148.32" *) addr[7:4] : _101_;
-  assign _103_ = _010_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:137.25-148.32" *) addr[11:8] : _102_;
-  assign _104_ = _012_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:136.25-148.32" *) addr[15:12] : _103_;
-  assign _105_ = _014_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:135.25-148.32" *) addr[19:16] : _104_;
-  assign _106_ = _016_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:134.25-148.32" *) addr[23:20] : _105_;
-  assign _107_[0] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[1] : data_i[0];
-  assign _107_[1] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[3] : data_i[2];
-  assign _107_[2] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[5] : data_i[4];
-  assign _107_[3] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[7] : data_i[6];
-  assign _107_[4] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[9] : data_i[8];
-  assign _107_[5] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[11] : data_i[10];
-  assign _107_[6] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[13] : data_i[12];
-  assign _107_[7] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[15] : data_i[14];
-  assign _107_[8] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[17] : data_i[16];
-  assign _107_[9] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[19] : data_i[18];
-  assign _107_[10] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[21] : data_i[20];
-  assign _107_[11] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[23] : data_i[22];
-  assign _107_[12] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[25] : data_i[24];
-  assign _107_[13] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[27] : data_i[26];
-  assign _107_[14] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[29] : data_i[28];
-  assign _107_[15] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[31] : data_i[30];
-  assign _108_[0] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[1] : _107_[0];
-  assign _108_[1] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[3] : _107_[2];
-  assign _108_[2] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[5] : _107_[4];
-  assign _108_[3] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[7] : _107_[6];
-  assign _108_[4] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[9] : _107_[8];
-  assign _108_[5] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[11] : _107_[10];
-  assign _108_[6] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[13] : _107_[12];
-  assign _108_[7] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[15] : _107_[14];
-  assign _109_[0] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[1] : _108_[0];
-  assign _109_[1] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[3] : _108_[2];
-  assign _109_[2] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[5] : _108_[4];
-  assign _109_[3] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[7] : _108_[6];
-  assign _110_[0] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[1] : _109_[0];
-  assign _110_[1] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[3] : _109_[2];
-  assign _111_ = spi_bit_index[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[1] : _110_[0];
-  assign _112_[0] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[1] : addr[0];
-  assign _112_[1] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[3] : addr[2];
-  assign _112_[2] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[5] : addr[4];
-  assign _112_[3] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[7] : addr[6];
-  assign _112_[4] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[9] : addr[8];
-  assign _112_[5] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[11] : addr[10];
-  assign _112_[6] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[13] : addr[12];
-  assign _112_[7] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[15] : addr[14];
-  assign _112_[8] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[17] : addr[16];
-  assign _112_[9] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[19] : addr[18];
-  assign _112_[10] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[21] : addr[20];
-  assign _112_[11] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[23] : addr[22];
-  assign _112_[12] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[13] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[14] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[15] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _113_[0] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[1] : _112_[0];
-  assign _113_[1] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[3] : _112_[2];
-  assign _113_[2] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[5] : _112_[4];
-  assign _113_[3] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[7] : _112_[6];
-  assign _113_[4] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[9] : _112_[8];
-  assign _113_[5] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[11] : _112_[10];
-  assign _113_[6] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[13] : _112_[12];
-  assign _113_[7] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[15] : _112_[14];
-  assign _114_[0] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[1] : _113_[0];
-  assign _114_[1] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[3] : _113_[2];
-  assign _114_[2] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[5] : _113_[4];
-  assign _114_[3] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[7] : _113_[6];
-  assign _115_[0] = _078_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[1] : _114_[0];
-  assign _115_[1] = _078_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[3] : _114_[2];
-  assign _116_ = _078_[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[1] : _115_[0];
-  assign _117_[0] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[1] : cmd[0];
-  assign _117_[1] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[3] : cmd[2];
-  assign _117_[2] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[5] : cmd[4];
-  assign _117_[3] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[7] : cmd[6];
-  assign _118_[0] = _084_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _117_[1] : _117_[0];
-  assign _118_[1] = _084_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _117_[3] : _117_[2];
-  assign _119_ = _084_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[1] : _118_[0];
+  assign _062_ = ~ (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.23-112.28" *) done;
+  assign _063_ = sck & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.17-112.28" *) _062_;
+  assign _064_ = counter + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.24-113.38" *) 1'h1;
+  assign _065_ = 7'h57 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.57-125.71" *) counter;
+  assign _066_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.38-125.50" *) 7'h40;
+  assign _067_[7:0] = _066_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.37-126.38" *) _065_ : 8'h00;
+  assign _068_[7:0] = 7'h47 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.57-124.71" *) counter;
+  assign _069_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.38-124.50" *) 6'h38;
+  assign _070_[7:0] = _069_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.37-126.38" *) _068_[7:0] : _067_[7:0];
+  assign _071_[7:0] = 6'h37 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.57-123.71" *) counter;
+  assign _072_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.38-123.50" *) 6'h30;
+  assign _073_ = _072_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.37-126.38" *) _071_[7:0] : _070_[7:0];
+  assign _074_ = 6'h27 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.57-122.71" *) counter;
+  assign _075_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.38-122.50" *) 6'h28;
+  assign spi_bit_index = _075_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.37-126.38" *) _074_ : _073_;
+  assign _076_ = spi_bit_index < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) 6'h20;
+  assign _078_ = _076_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _077_ : 1'hx;
+  assign { _079_[31], _079_[7:0] } = 5'h1f - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.50-129.62" *) counter;
+  assign _080_ = { _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 6'h20;
+  assign _082_ = _080_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _081_ : 1'hx;
+  assign _083_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.26-129.38" *) 6'h20;
+  assign _084_ = _083_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.25-130.46" *) _082_ : _078_;
+  assign { _085_[31], _085_[7:0] } = 3'h7 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.49-128.60" *) counter;
+  assign _086_ = { _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) 4'h8;
+  assign dout_spi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.25-130.46" *) _000_ : _084_;
+  assign _088_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.26-147.39" *) 5'h15;
+  assign _089_ = _088_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.25-148.32" *) data_i[27:24] : 4'h0;
+  assign _090_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.26-146.39" *) 5'h14;
+  assign _091_ = _090_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.25-148.32" *) data_i[31:28] : _089_;
+  assign _092_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.26-145.39" *) 5'h13;
+  assign _093_ = _092_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.25-148.32" *) data_i[19:16] : _091_;
+  assign _094_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.26-144.39" *) 5'h12;
+  assign _095_ = _094_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.25-148.32" *) data_i[23:20] : _093_;
+  assign _096_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.26-143.39" *) 5'h11;
+  assign _097_ = _096_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.25-148.32" *) data_i[11:8] : _095_;
+  assign _098_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.26-142.39" *) 5'h10;
+  assign _099_ = _098_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.25-148.32" *) data_i[15:12] : _097_;
+  assign _100_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:141.25-148.32" *) data_i[3:0] : _099_;
+  assign _101_ = _004_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:140.25-148.32" *) data_i[7:4] : _100_;
+  assign _102_ = _006_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:139.25-148.32" *) addr[3:0] : _101_;
+  assign _103_ = _008_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:138.25-148.32" *) addr[7:4] : _102_;
+  assign _104_ = _010_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:137.25-148.32" *) addr[11:8] : _103_;
+  assign _105_ = _012_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:136.25-148.32" *) addr[15:12] : _104_;
+  assign _106_ = _014_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:135.25-148.32" *) addr[19:16] : _105_;
+  assign _107_ = _016_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:134.25-148.32" *) addr[23:20] : _106_;
+  assign _108_[0] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[1] : data_i[0];
+  assign _108_[1] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[3] : data_i[2];
+  assign _108_[2] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[5] : data_i[4];
+  assign _108_[3] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[7] : data_i[6];
+  assign _108_[4] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[9] : data_i[8];
+  assign _108_[5] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[11] : data_i[10];
+  assign _108_[6] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[13] : data_i[12];
+  assign _108_[7] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[15] : data_i[14];
+  assign _108_[8] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[17] : data_i[16];
+  assign _108_[9] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[19] : data_i[18];
+  assign _108_[10] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[21] : data_i[20];
+  assign _108_[11] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[23] : data_i[22];
+  assign _108_[12] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[25] : data_i[24];
+  assign _108_[13] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[27] : data_i[26];
+  assign _108_[14] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[29] : data_i[28];
+  assign _108_[15] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[31] : data_i[30];
+  assign _109_[0] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[1] : _108_[0];
+  assign _109_[1] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[3] : _108_[2];
+  assign _109_[2] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[5] : _108_[4];
+  assign _109_[3] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[7] : _108_[6];
+  assign _109_[4] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[9] : _108_[8];
+  assign _109_[5] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[11] : _108_[10];
+  assign _109_[6] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[13] : _108_[12];
+  assign _109_[7] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[15] : _108_[14];
+  assign _110_[0] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[1] : _109_[0];
+  assign _110_[1] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[3] : _109_[2];
+  assign _110_[2] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[5] : _109_[4];
+  assign _110_[3] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[7] : _109_[6];
+  assign _111_[0] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[1] : _110_[0];
+  assign _111_[1] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[3] : _110_[2];
+  assign _112_ = spi_bit_index[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _111_[1] : _111_[0];
+  assign _113_[0] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[1] : addr[0];
+  assign _113_[1] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[3] : addr[2];
+  assign _113_[2] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[5] : addr[4];
+  assign _113_[3] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[7] : addr[6];
+  assign _113_[4] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[9] : addr[8];
+  assign _113_[5] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[11] : addr[10];
+  assign _113_[6] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[13] : addr[12];
+  assign _113_[7] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[15] : addr[14];
+  assign _113_[8] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[17] : addr[16];
+  assign _113_[9] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[19] : addr[18];
+  assign _113_[10] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[21] : addr[20];
+  assign _113_[11] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[23] : addr[22];
+  assign _113_[12] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[13] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[14] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[15] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _114_[0] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[1] : _113_[0];
+  assign _114_[1] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[3] : _113_[2];
+  assign _114_[2] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[5] : _113_[4];
+  assign _114_[3] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[7] : _113_[6];
+  assign _114_[4] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[9] : _113_[8];
+  assign _114_[5] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[11] : _113_[10];
+  assign _114_[6] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[13] : _113_[12];
+  assign _114_[7] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[15] : _113_[14];
+  assign _115_[0] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[1] : _114_[0];
+  assign _115_[1] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[3] : _114_[2];
+  assign _115_[2] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[5] : _114_[4];
+  assign _115_[3] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[7] : _114_[6];
+  assign _116_[0] = _079_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[1] : _115_[0];
+  assign _116_[1] = _079_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[3] : _115_[2];
+  assign _117_ = _079_[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _116_[1] : _116_[0];
+  assign _118_[0] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[1] : cmd[0];
+  assign _118_[1] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[3] : cmd[2];
+  assign _118_[2] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[5] : cmd[4];
+  assign _118_[3] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[7] : cmd[6];
+  assign _119_[0] = _085_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[1] : _118_[0];
+  assign _119_[1] = _085_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[3] : _118_[2];
+  assign _120_ = _085_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _119_[1] : _119_[0];
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:90.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) ce_n <= 1'h1;
-    else ce_n <= _121_;
+    else ce_n <= _122_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:109.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) counter <= 8'h00;
-    else counter <= _123_;
+    else counter <= _124_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:80.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) sck <= 1'h0;
-    else sck <= _127_;
+    else sck <= _128_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:75.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) state <= 1'h0;
     else state <= nstate;
-  assign _122_ = state ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:115.13-115.29|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *) counter : 8'h00;
-  assign _123_ = _062_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.13-113.39|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *) _063_ : _122_;
-  assign _120_ = state ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:96.13-96.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *) 1'h0 : 1'h1;
-  assign _121_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:94.13-94.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *) 1'h1 : _120_;
-  assign _126_ = ce_n ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:86.13-86.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:85.14-86.26" *) sck : _019_;
-  assign _127_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:84.13-84.25|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:83.14-86.26" *) 1'h0 : _126_;
-  assign _128_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h0 : 1'h1;
-  assign _129_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _128_ : 1'h0;
-  assign _044_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _129_ : 1'h0;
-  assign _130_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h1 : 1'h0;
-  assign _131_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _130_ : 1'h0;
-  assign _042_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _131_ : 1'h0;
-  assign _125_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.28-72.42|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *) 1'h0 : 1'h1;
-  function [0:0] _335_;
+  assign _123_ = state ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:115.13-115.29|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *) counter : 8'h00;
+  assign _124_ = _063_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.13-113.39|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *) _064_ : _123_;
+  assign _121_ = state ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:96.13-96.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *) 1'h0 : 1'h1;
+  assign _122_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:94.13-94.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *) 1'h1 : _121_;
+  assign _127_ = ce_n ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:86.13-86.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:85.14-86.26" *) sck : _019_;
+  assign _128_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:84.13-84.25|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:83.14-86.26" *) 1'h0 : _127_;
+  assign _129_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h0 : 1'h1;
+  assign _130_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _129_ : 1'h0;
+  assign _044_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _130_ : 1'h0;
+  assign _131_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h1 : 1'h0;
+  assign _132_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _131_ : 1'h0;
+  assign _042_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _132_ : 1'h0;
+  assign _126_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.28-72.42|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *) 1'h0 : 1'h1;
+  function [0:0] _336_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -601,30 +602,29 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _335_ = b[0:0];
+        _336_ = b[0:0];
       2'b1?:
-        _335_ = b[1:1];
+        _336_ = b[1:1];
       default:
-        _335_ = a;
+        _336_ = a;
     endcase
   endfunction
-  assign nstate = _335_(1'hx, { _124_, _125_ }, { _132_, state });
-  assign _132_ = ~ (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:70.9-73.16" *) state;
-  assign _124_ = start ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.29-71.43|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *) 1'h1 : 1'h0;
+  assign nstate = _336_(1'hx, { _125_, _126_ }, { _133_, state });
+  assign _133_ = ~ (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:70.9-73.16" *) state;
+  assign _125_ = start ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.29-71.43|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *) 1'h1 : 1'h0;
   assign _043_[6:0] = { _043_[7], _043_[7], _043_[7], _043_[7], _043_[7], _043_[7], _043_[7] };
   assign _045_[6:0] = { _045_[7], _045_[7], _045_[7], _045_[7], _045_[7], _045_[7], _045_[7] };
-  assign _058_[31:4] = 28'h0000000;
-  assign _059_[31:4] = 28'h0000000;
-  assign _066_[31:8] = 24'hxxxxxx;
-  assign _067_[30:8] = { _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31], _067_[31] };
-  assign _069_[31:8] = 24'hxxxxxx;
-  assign _070_[30:8] = { _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31] };
-  assign _078_[30:8] = { _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31] };
-  assign _084_[30:8] = { _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31] };
+  assign _059_[5:0] = data_start;
+  assign _067_[31:8] = 24'hxxxxxx;
+  assign _068_[30:8] = { _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31], _068_[31] };
+  assign _070_[31:8] = 24'hxxxxxx;
+  assign _071_[30:8] = { _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31] };
+  assign _079_[30:8] = { _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31] };
+  assign _085_[30:8] = { _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31] };
   assign douten_spi = 4'h1;
-  assign _076_ = _111_;
-  assign _080_ = _116_;
-  assign _086_ = _119_;
+  assign _077_ = _112_;
+  assign _081_ = _117_;
+  assign _087_ = _120_;
 endmodule
 
 (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/bus_wrapper/EF_PSRAM_CTRL_AHBL.v:37.8" *)
@@ -3584,8 +3584,7 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   wire [31:0] _005_;
   wire _006_;
   wire _007_;
-  (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _008_;
+  wire [3:0] _008_;
   wire _009_;
   wire _010_;
   wire _011_;
@@ -3720,7 +3719,7 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   assign { _005_[31], _005_[3:0] } = data_size - (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:519.43-519.56" *) 1'h1;
   assign _006_ = count_reg == (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:519.28-519.57" *) { _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[3:0] };
   assign _007_ = ! (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.32-520.53" *) parity_type;
-  assign _008_[3:0] = count_reg + (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:525.42-525.55" *) 1'h1;
+  assign _008_ = count_reg + (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:525.42-525.55" *) 1'h1;
   assign _009_ = ~^ (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:535.35-535.42" *) pdata;
   assign _010_ = ^ (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:537.35-537.41" *) pdata;
   assign _011_ = | { _054_, _043_, _040_ };
@@ -3784,7 +3783,7 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   assign _015_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) 4'h0 : _002_;
   assign _052_ = current_state == (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:513.22-529.16|ip/EF_UART/hdl/rtl/EF_UART.v:491.9-577.16" *) 2'h2;
   assign _028_ = _007_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:521.33-521.55|ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56" *) 3'h4 : 3'h3;
-  assign _020_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) count_reg : _008_[3:0];
+  assign _020_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) count_reg : _008_;
   assign _029_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) _028_ : current_state;
   assign _023_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) { 1'h0, data_reg[8:1] } : data_reg;
   assign _021_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) _020_ : count_reg;
@@ -13751,230 +13750,230 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   wire [6:0] _0218_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *)
   wire [1:0] _0219_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
-  wire [2:0] _0220_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *)
-  wire [2:0] _0221_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
-  wire [2:0] _0222_;
+  wire [13:0] _0220_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [2:0] _0223_;
+  wire [13:0] _0221_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire [13:0] _0222_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  wire [10:0] _0223_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
   wire [2:0] _0224_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *)
   wire [2:0] _0225_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  wire [2:0] _0226_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [10:0] _0226_;
+  wire [2:0] _0227_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [10:0] _0227_;
+  wire [2:0] _0228_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [10:0] _0228_;
+  wire [2:0] _0229_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  wire [10:0] _0230_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire [10:0] _0231_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire [10:0] _0232_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:756.20-762.14" *)
-  wire [1:0] _0229_;
+  wire [1:0] _0233_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *)
-  wire _0230_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
-  wire _0231_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
-  wire _0232_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
-  wire _0233_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
   wire _0234_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
   wire _0235_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
   wire _0236_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
   wire _0237_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
   wire _0238_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
   wire _0239_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
   wire _0240_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
   wire _0241_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
   wire _0242_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
   wire _0243_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
   wire _0244_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
   wire _0245_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
   wire _0246_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.11-1041.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
   wire _0247_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
   wire _0248_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *)
   wire _0249_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *)
   wire _0250_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.11-1041.14" *)
   wire _0251_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
   wire _0252_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
   wire _0253_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
   wire _0254_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
   wire _0255_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
   wire _0256_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
   wire _0257_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
   wire _0258_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
   wire _0259_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
   wire _0260_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
-  wire [1:0] _0261_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *)
-  wire [1:0] _0262_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
-  wire [1:0] _0263_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [1:0] _0264_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  wire _0261_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  wire _0262_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire _0263_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire _0264_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
   wire [1:0] _0265_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [1:0] _0266_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [1:0] _0267_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [1:0] _0268_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *)
-  wire [1:0] _0269_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
-  wire [1:0] _0270_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *)
-  wire [32:0] _0271_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [3:0] _0272_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
-  wire [3:0] _0273_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [3:0] _0274_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [3:0] _0275_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [3:0] _0276_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
-  wire [2:0] _0277_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
-  wire [2:0] _0278_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
-  wire [2:0] _0279_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
-  wire [2:0] _0280_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
-  wire [2:0] _0281_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
-  wire [2:0] _0282_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
-  wire [1:0] _0283_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *)
-  wire _0284_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *)
-  wire _0285_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
-  wire _0286_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
-  wire _0287_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [10:0] _0288_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [10:0] _0289_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [10:0] _0290_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
-  wire _0291_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
-  wire _0292_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *)
-  wire [3:0] _0293_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *)
-  wire [3:0] _0294_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
-  wire [3:0] _0295_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
-  wire [6:0] _0296_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
-  wire [6:0] _0297_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
-  wire [6:0] _0298_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
-  wire [6:0] _0299_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
-  wire [6:0] _0300_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
-  wire [6:0] _0301_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
-  wire _0302_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
-  wire [7:0] _0303_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [7:0] _0304_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
-  wire [7:0] _0305_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [7:0] _0306_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [7:0] _0307_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [7:0] _0308_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
-  wire [1:0] _0309_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *)
-  wire [1:0] _0310_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
-  wire _0311_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
-  wire _0312_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
-  wire [3:0] _0313_;
+  wire [1:0] _0266_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
-  wire [3:0] _0314_;
+  wire [1:0] _0267_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [3:0] _0315_;
+  wire [1:0] _0268_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
-  wire [3:0] _0316_;
+  wire [1:0] _0269_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [3:0] _0317_;
+  wire [1:0] _0270_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [3:0] _0318_;
+  wire [1:0] _0271_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [3:0] _0319_;
+  wire [1:0] _0272_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *)
+  wire [1:0] _0273_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
+  wire [1:0] _0274_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *)
+  wire [32:0] _0275_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  wire [3:0] _0276_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  wire [3:0] _0277_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  wire [3:0] _0278_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire [3:0] _0279_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire [3:0] _0280_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
+  wire [2:0] _0281_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
+  wire [2:0] _0282_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
-  wire [2:0] _0320_;
+  wire [2:0] _0283_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
-  wire [2:0] _0321_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [1:0] _0322_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
-  wire _0323_;
+  wire [2:0] _0284_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
-  wire _0324_;
+  wire [2:0] _0285_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
-  wire _0325_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.11-1046.14" *)
-  wire _0326_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
-  wire [13:0] _0327_;
+  wire [2:0] _0286_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
+  wire [1:0] _0287_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *)
+  wire _0288_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *)
+  wire _0289_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
+  wire _0290_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
+  wire _0291_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
-  wire [13:0] _0328_;
+  wire [10:0] _0292_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
-  wire [13:0] _0329_;
+  wire [10:0] _0293_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
-  wire [13:0] _0330_;
+  wire [10:0] _0294_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
+  wire _0295_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
+  wire _0296_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *)
+  wire [3:0] _0297_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *)
+  wire [3:0] _0298_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *)
+  wire [3:0] _0299_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *)
+  wire [6:0] _0300_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *)
+  wire [6:0] _0301_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *)
+  wire [6:0] _0302_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
+  wire [6:0] _0303_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
+  wire [6:0] _0304_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
+  wire [6:0] _0305_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *)
+  wire _0306_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
+  wire [7:0] _0307_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
-  wire [10:0] _0331_;
+  wire [7:0] _0308_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  wire [7:0] _0309_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  wire [7:0] _0310_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire [7:0] _0311_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire [7:0] _0312_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *)
+  wire [1:0] _0313_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *)
+  wire [1:0] _0314_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
+  wire _0315_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *)
+  wire _0316_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
+  wire [3:0] _0317_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
+  wire [3:0] _0318_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  wire [3:0] _0319_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
+  wire [3:0] _0320_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *)
+  wire [3:0] _0321_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *)
+  wire [3:0] _0322_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire [3:0] _0323_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *)
+  wire [2:0] _0324_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
+  wire [2:0] _0325_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
+  wire [1:0] _0326_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *)
+  wire _0327_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *)
+  wire _0328_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *)
+  wire _0329_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.11-1046.14" *)
+  wire _0330_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *)
+  wire [13:0] _0331_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *)
   wire _0332_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *)
@@ -14243,8 +14242,7 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   wire [9:0] exc_cause;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:196.9" *)
   wire exception_allowed;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:173.16" *)
-  wire [10:0] exception_cause_wb;
+  wire [4:0] exception_cause_wb;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:172.9" *)
   wire exception_in_wb;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:177.9" *)
@@ -14617,9 +14615,9 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign _0117_ = _0110_ || (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:336.29-337.61" *) ex_wb_pipe_i[61];
   assign _0111_ = clic_ptr_in_id && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.15-1039.43" *) id_valid_i;
   assign _0112_ = _0111_ && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.15-1039.57" *) ex_ready_i;
-  assign _0113_ = ! (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.29-1044.48" *) _0272_[0];
+  assign _0113_ = ! (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.29-1044.48" *) _0276_[0];
   assign _0114_ = mret_in_wb && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.15-1044.48" *) _0113_;
-  assign _0115_ = ! (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.52-1044.71" *) _0315_[0];
+  assign _0115_ = ! (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.52-1044.71" *) _0319_[0];
   assign _0116_ = _0114_ && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.15-1044.71" *) _0115_;
   assign _0118_ = _0117_ || (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:336.29-338.55" *) ex_wb_pipe_i[52];
   assign _0119_ = ex_wb_pipe_i[49] && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:339.30-339.80" *) ex_wb_pipe_i[46];
@@ -14717,7 +14715,7 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign _0208_ = _0187_ && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:276.64-276.106" *) _0202_;
   assign _0203_[3:0] = ex_wb_pipe_i[52] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:350.31-357.148" *) 4'h2 : _0201_[3:0];
   assign _0204_[4:0] = ex_wb_pipe_i[61] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:349.31-357.148" *) 5'h18 : { 1'h0, _0203_[3:0] };
-  assign exception_cause_wb = _0110_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:348.31-357.148" *) 11'h001 : { 6'h00, _0204_[4:0] };
+  assign exception_cause_wb = _0110_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:348.31-357.148" *) 5'h01 : _0204_[4:0];
   assign _0205_ = ex_wb_pipe_i[49] && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:370.22-370.70" *) ex_wb_pipe_i[42];
   assign wfi_in_wb = _0205_ && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:370.22-370.98" *) ex_wb_pipe_i[53];
   assign _0206_ = ex_wb_pipe_i[49] && (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:373.22-373.70" *) ex_wb_pipe_i[41];
@@ -14749,7 +14747,7 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1364.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) clic_ptr_in_progress_id <= 1'h0;
-    else clic_ptr_in_progress_id <= _0246_;
+    else clic_ptr_in_progress_id <= _0250_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1234.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) csr_flush_ack_q <= 1'h0;
@@ -14822,46 +14820,46 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) \x_ext.commit_valid_q  <= 1'h0;
     else \x_ext.commit_valid_q  <= _0436_;
-  assign _0308_[7] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0307_[7];
+  assign _0312_[7] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0311_[7];
   assign _0385_ = ctrl_fsm_cs == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 1'h1;
-  assign _0308_[5:4] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0307_[5:4];
-  assign _0306_[5:4] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0305_[5:4];
-  assign _0247_ = _0112_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1040.13-1040.50|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.11-1041.14" *) 1'h1 : 1'h0;
-  assign _0304_[7] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0303_[7];
-  assign _0304_[5:4] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 2'h0 : _0303_[5:4];
-  assign _0293_ = branch_taken_q ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.36-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *) 4'h0 : 4'he;
-  assign _0284_ = branch_taken_q ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.36-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *) 1'h0 : 1'h1;
-  assign _0294_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) 4'h0 : _0293_;
-  assign _0285_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) 1'h0 : _0284_;
-  assign _0230_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) branch_taken_q : 1'h1;
-  assign _0286_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0285_ : 1'h0;
-  assign _0295_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0294_ : 4'h0;
-  assign _0231_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0230_ : branch_taken_q;
-  assign _0287_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0286_;
-  assign _0296_[5:4] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[5:4] : 2'h0;
-  assign _0232_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0231_;
+  assign _0312_[5:4] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0311_[5:4];
+  assign _0310_[5:4] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0309_[5:4];
+  assign _0251_ = _0112_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1040.13-1040.50|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1039.11-1041.14" *) 1'h1 : 1'h0;
+  assign _0308_[7] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0307_[7];
+  assign _0308_[5:4] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 2'h0 : _0307_[5:4];
+  assign _0297_ = branch_taken_q ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.36-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *) 4'h0 : 4'he;
+  assign _0288_ = branch_taken_q ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.36-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18" *) 1'h0 : 1'h1;
+  assign _0298_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) 4'h0 : _0297_;
+  assign _0289_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) 1'h0 : _0288_;
+  assign _0234_ = _0107_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1026.15-1031.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16" *) branch_taken_q : 1'h1;
+  assign _0290_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0289_ : 1'h0;
+  assign _0299_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0298_ : 4'h0;
+  assign _0235_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0234_ : branch_taken_q;
+  assign _0291_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0290_;
+  assign _0300_[5:4] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[5:4] : 2'h0;
+  assign _0236_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0235_;
   assign _0218_[4] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 1'h0 : _0103_;
   assign _0218_[5] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0219_[0] : 1'h0;
   assign _0218_[3:0] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 4'h1 : _0104_;
   assign _0219_[0] = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h1 : 1'h0;
   assign _0386_ = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h0 : single_step_halt_if_q;
   assign _0387_ = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0386_ : single_step_halt_if_q;
-  assign _0296_[3:0] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[3:0] : _0295_;
+  assign _0300_[3:0] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[3:0] : _0299_;
   assign _0388_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0387_ : single_step_halt_if_q;
-  assign _0297_[5:4] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 2'h0 : _0296_[5:4];
-  assign _0283_[0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0297_[3:0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 4'h5 : _0296_[3:0];
-  assign _0233_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0232_;
+  assign _0301_[5:4] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 2'h0 : _0300_[5:4];
+  assign _0287_[0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0301_[3:0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 4'h5 : _0300_[3:0];
+  assign _0237_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0236_;
   assign _0389_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) single_step_halt_if_q : _0388_;
-  assign _0298_[5:4] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h0 : _0297_[5:4];
-  assign _0283_[1] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0287_;
-  assign _0278_[2:1] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h3 : _0283_;
-  assign _0278_[0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0298_[3:0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 4'h6 : _0297_[3:0];
+  assign _0302_[5:4] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h0 : _0301_[5:4];
+  assign _0287_[1] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0291_;
+  assign _0282_[2:1] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h3 : _0287_;
+  assign _0282_[0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0302_[3:0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 4'h6 : _0301_[3:0];
   assign _0374_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) _0371_ : 2'h3;
-  assign _0234_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) branch_taken_q : _0233_;
+  assign _0238_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) branch_taken_q : _0237_;
   assign _0390_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) single_step_halt_if_q : _0389_;
-  assign _0391_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 7'h00 : _0298_;
+  assign _0391_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 7'h00 : _0302_;
   assign _0392_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 7'hxx : _0391_;
   assign _0393_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 7'hxx : _0392_;
   assign _0394_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 7'hxx : _0393_;
@@ -14870,163 +14868,163 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign _0397_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 7'hxx : _0396_;
   assign _0398_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 7'hxx : _0397_;
   assign _0399_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 7'hxx : _0398_;
-  assign _0299_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0399_ : 7'hxx;
-  assign _0320_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h7 : { single_step_halt_if_q, _0080_, _0086_ };
-  assign _0279_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h0 : _0278_;
-  assign _0252_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0303_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0399_ : 7'hxx;
+  assign _0324_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h7 : { single_step_halt_if_q, _0080_, _0086_ };
+  assign _0283_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h0 : _0282_;
+  assign _0256_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 1'h1 : 1'h0;
   assign _0375_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 2'h3 : _0374_;
-  assign _0235_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) branch_taken_q : _0234_;
+  assign _0239_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) branch_taken_q : _0238_;
   assign _0400_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) single_step_halt_if_q : _0390_;
-  assign _0300_[5:4] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h0 : _0299_[5:4];
-  assign _0298_[6] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : _0283_[1];
-  assign _0280_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 3'h7 : _0279_;
+  assign _0304_[5:4] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h0 : _0303_[5:4];
+  assign _0302_[6] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : _0287_[1];
+  assign _0284_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 3'h7 : _0283_;
   assign _0401_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0400_;
-  assign _0300_[3:0] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 4'h2 : _0299_[3:0];
-  assign _0323_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0321_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0320_;
-  assign _0253_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0252_;
+  assign _0304_[3:0] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 4'h2 : _0303_[3:0];
+  assign _0327_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0325_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0324_;
+  assign _0257_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0256_;
   assign _0376_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h3 : _0375_;
-  assign _0236_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) branch_taken_q : _0235_;
+  assign _0240_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) branch_taken_q : _0239_;
   assign _0343_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : debug_mode_q;
-  assign _0301_[5:4] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 2'h0 : _0300_[5:4];
-  assign _0300_[6] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : _0299_[6];
-  assign _0313_[3:1] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 3'h7 : _0321_;
-  assign _0313_[0] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0292_ : 1'h0;
+  assign _0305_[5:4] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 2'h0 : _0304_[5:4];
+  assign _0304_[6] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : _0303_[6];
+  assign _0317_[3:1] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 3'h7 : _0325_;
+  assign _0317_[0] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0296_ : 1'h0;
   assign _0377_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0373_ : _0376_;
-  assign _0302_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 1'h1 : 1'h0;
+  assign _0306_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 1'h1 : 1'h0;
   assign _0217_[2:0] = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 3'h6 : 3'h0;
-  assign _0292_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 1'h0 : 1'h1;
-  assign _0277_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 3'h7 : 3'h0;
+  assign _0296_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 1'h0 : 1'h1;
+  assign _0281_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 3'h7 : 3'h0;
   assign _0373_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) _0371_ : 2'h3;
   assign _0360_ = _0098_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.68-918.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:895.13-918.16" *) 1'h0 : _0097_;
-  assign _0301_[3:0] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) { 1'h0, _0217_[2:0] } : _0300_[3:0];
-  assign _0324_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 1'h0 : _0323_;
-  assign _0281_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0277_ : _0280_;
-  assign _0254_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 1'h0 : _0253_;
-  assign _0351_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0302_ : 1'h1;
+  assign _0305_[3:0] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) { 1'h0, _0217_[2:0] } : _0304_[3:0];
+  assign _0328_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 1'h0 : _0327_;
+  assign _0285_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0281_ : _0284_;
+  assign _0258_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 1'h0 : _0257_;
+  assign _0351_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0306_ : 1'h1;
   assign _0361_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0360_ : 1'h0;
-  assign _0237_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) branch_taken_q : _0236_;
+  assign _0241_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) branch_taken_q : _0240_;
   assign _0402_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) single_step_halt_if_q : _0401_;
   assign _0344_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) debug_mode_q : _0343_;
-  assign _0303_[7] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : 1'h1;
-  assign _0303_[6:0] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 7'h00 : _0301_;
-  assign _0301_[6] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0302_ : _0300_[6];
-  assign _0325_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0324_;
-  assign _0314_[0] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h1 : _0313_[0];
-  assign _0282_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 3'h0 : _0281_;
-  assign _0255_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0254_;
+  assign _0307_[7] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : 1'h1;
+  assign _0307_[6:0] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 7'h00 : _0305_;
+  assign _0305_[6] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0306_ : _0304_[6];
+  assign _0329_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0328_;
+  assign _0318_[0] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h1 : _0317_[0];
+  assign _0286_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 3'h0 : _0285_;
+  assign _0259_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0258_;
   assign _0378_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 2'h3 : _0377_;
   assign _0352_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h1 : _0351_;
   assign _0362_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0361_;
-  assign _0238_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) branch_taken_q : _0237_;
+  assign _0242_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) branch_taken_q : _0241_;
   assign _0403_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) single_step_halt_if_q : _0402_;
   assign _0345_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) debug_mode_q : _0344_;
-  assign _0263_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 2'h2 : ctrl_fsm_cs;
-  assign _0304_[6] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0303_[6];
-  assign _0314_[3:1] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0313_[3:1];
-  assign _0322_[1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0325_;
-  assign _0322_[0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) _0000_ : 1'h0;
+  assign _0267_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 2'h2 : ctrl_fsm_cs;
+  assign _0308_[6] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0307_[6];
+  assign _0318_[3:1] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0317_[3:1];
+  assign _0326_[1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0329_;
+  assign _0326_[0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) _0000_ : 1'h0;
   assign _0404_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'hx : 1'h0;
   assign _0405_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'hx : _0404_;
   assign _0406_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'hx : _0405_;
   assign _0407_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'hx : _0406_;
-  assign _0272_[0] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0407_ : 1'hx;
-  assign _0304_[3:0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { 2'h2, _0092_ } : _0303_[3:0];
+  assign _0276_[0] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0407_ : 1'hx;
+  assign _0308_[3:0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { 2'h2, _0092_ } : _0307_[3:0];
   assign _0332_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) _0093_ : 1'h0;
-  assign _0331_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) exception_cause_wb : 11'h000;
-  assign _0272_[3:1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 3'h7 : _0282_;
-  assign _0408_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0314_;
+  assign _0223_[4:0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) exception_cause_wb : 5'h00;
+  assign _0276_[3:1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 3'h7 : _0286_;
+  assign _0408_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0318_;
   assign _0409_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hx : _0408_;
   assign _0410_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'hx : _0409_;
   assign _0411_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'hx : _0410_;
   assign _0412_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hx : _0411_;
-  assign _0315_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0412_ : 4'hx;
+  assign _0319_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0412_ : 4'hx;
   assign _0379_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 2'h3 : _0378_;
-  assign _0256_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0255_;
+  assign _0260_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0259_;
   assign _0353_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0352_;
   assign _0363_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0362_;
-  assign _0239_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) branch_taken_q : _0238_;
+  assign _0243_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) branch_taken_q : _0242_;
   assign _0413_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) single_step_halt_if_q : _0403_;
   assign _0346_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) debug_mode_q : _0345_;
-  assign _0264_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) ctrl_fsm_cs : _0263_;
-  assign _0316_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hf : _0315_;
-  assign _0265_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 2'h3 : _0264_;
-  assign _0305_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 8'h80 : _0304_;
+  assign _0268_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) ctrl_fsm_cs : _0267_;
+  assign _0320_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hf : _0319_;
+  assign _0269_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 2'h3 : _0268_;
+  assign _0309_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 8'h80 : _0308_;
   assign _0333_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0332_;
-  assign _0327_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 14'h0000 : { _0331_, _0326_, _0322_ };
-  assign _0273_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'h0 : _0272_;
-  assign _0248_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0247_;
-  assign _0257_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0256_;
+  assign _0220_[7:0] = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 8'h00 : { _0223_[4:0], _0330_, _0326_ };
+  assign _0277_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'h0 : _0276_;
+  assign _0252_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0251_;
+  assign _0261_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0260_;
   assign _0380_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 2'h3 : _0379_;
   assign _0354_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h1 : _0353_;
   assign _0364_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0363_;
-  assign _0222_[1:0] = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) sync_debug_cause : 2'h0;
-  assign _0240_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) branch_taken_q : _0239_;
+  assign _0226_[1:0] = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) sync_debug_cause : 2'h0;
+  assign _0244_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) branch_taken_q : _0243_;
   assign _0414_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) single_step_halt_if_q : _0413_;
   assign _0347_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) debug_mode_q : _0346_;
-  assign _0306_[6] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0305_[6];
-  assign _0328_[13:3] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) { 1'h0, irq_id_ctrl_i } : _0327_[13:3];
+  assign _0310_[6] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0309_[6];
+  assign _0221_[12:3] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) irq_id_ctrl_i : { 5'h00, _0220_[7:3] };
   assign _0334_[1] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : 1'h0;
-  assign _0328_[2:1] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0327_[2:1];
-  assign _0326_ = _0116_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1045.13-1045.58|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.11-1046.14" *) _0000_ : 1'h0;
-  assign _0274_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'hf : _0273_;
+  assign _0221_[2:1] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0220_[2:1];
+  assign _0330_ = _0116_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1045.13-1045.58|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1044.11-1046.14" *) _0000_ : 1'h0;
+  assign _0278_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'hf : _0277_;
   assign _0381_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) _0372_ : _0380_;
-  assign _0229_[0] = if_id_pipe_i[190] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:819.13-819.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:818.20-824.14" *) 1'h1 : 1'h0;
-  assign _0371_ = id_ex_pipe_i[42] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:817.13-817.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:816.20-824.14" *) 2'h2 : { 1'h0, _0229_[0] };
+  assign _0233_[0] = if_id_pipe_i[190] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:819.13-819.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:818.20-824.14" *) 1'h1 : 1'h0;
+  assign _0371_ = id_ex_pipe_i[42] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:817.13-817.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:816.20-824.14" *) 2'h2 : { 1'h0, _0233_[0] };
   assign _0372_ = ex_wb_pipe_i[53] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:815.13-815.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:814.11-824.14" *) 2'h3 : _0371_;
-  assign _0306_[3:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'h9 : _0305_[3:0];
-  assign _0288_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) { 1'h1, irq_id_ctrl_i } : 11'h000;
+  assign _0310_[3:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'h9 : _0309_[3:0];
+  assign _0292_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) { 1'h1, irq_id_ctrl_i } : 11'h000;
   assign _0334_[0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0333_;
-  assign _0328_[0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0327_[0];
-  assign _0317_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0316_;
-  assign _0249_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0248_;
-  assign _0258_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0257_;
+  assign _0221_[0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0220_[0];
+  assign _0321_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0320_;
+  assign _0253_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0252_;
+  assign _0262_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0261_;
   assign _0355_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0354_;
   assign _0365_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h0 : _0364_;
-  assign _0226_[9:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) irq_id_ctrl_i : 10'h000;
-  assign _0223_[1:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0222_[1:0];
-  assign _0241_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) branch_taken_q : _0240_;
+  assign _0230_[9:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) irq_id_ctrl_i : 10'h000;
+  assign _0227_[1:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0226_[1:0];
+  assign _0245_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) branch_taken_q : _0244_;
   assign _0415_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) single_step_halt_if_q : _0414_;
   assign _0348_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) debug_mode_q : _0347_;
-  assign _0266_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) ctrl_fsm_cs : _0265_;
-  assign _0318_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'hf : _0317_;
-  assign _0224_[1:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h3 : _0223_[1:0];
-  assign _0267_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h3 : _0266_;
-  assign _0307_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 8'h80 : _0306_;
-  assign _0289_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 11'h000 : _0288_;
+  assign _0270_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) ctrl_fsm_cs : _0269_;
+  assign _0322_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'hf : _0321_;
+  assign _0228_[1:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h3 : _0227_[1:0];
+  assign _0271_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h3 : _0270_;
+  assign _0311_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 8'h80 : _0310_;
+  assign _0293_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 11'h000 : _0292_;
   assign _0335_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h0 : _0334_;
-  assign _0329_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 14'h0000 : _0328_;
-  assign _0275_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'h0 : _0274_;
-  assign _0250_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0249_;
-  assign _0259_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0258_;
+  assign _0222_[12:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 13'h0000 : _0221_[12:0];
+  assign _0279_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'h0 : _0278_;
+  assign _0254_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0253_;
+  assign _0263_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0262_;
   assign _0382_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 2'h3 : _0381_;
   assign _0356_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h1 : _0355_;
   assign _0366_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0365_;
-  assign _0227_[9:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 10'h000 : _0226_[9:0];
-  assign _0242_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) branch_taken_q : _0241_;
+  assign _0231_[9:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 10'h000 : _0230_[9:0];
+  assign _0246_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) branch_taken_q : _0245_;
   assign _0416_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) single_step_halt_if_q : _0415_;
   assign _0349_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) debug_mode_q : _0348_;
-  assign _0308_[6] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0307_[6];
-  assign _0330_[13:3] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) { 10'h200, _0088_ } : _0329_[13:3];
+  assign _0312_[6] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0311_[6];
+  assign _0331_[13:3] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) { 10'h200, _0088_ } : { 1'h0, _0222_[12:3] };
   assign _0336_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h2 : _0335_;
-  assign _0330_[2:1] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0329_[2:1];
-  assign _0306_[7] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0305_[7];
-  assign _0276_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hf : _0275_;
+  assign _0331_[2:1] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0222_[2:1];
+  assign _0310_[7] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0309_[7];
+  assign _0280_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hf : _0279_;
   assign _0383_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) _0372_ : _0382_;
-  assign _0308_[3:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hc : _0307_[3:0];
-  assign _0290_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 11'h000 : _0289_;
-  assign _0330_[0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0329_[0];
-  assign _0319_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0318_;
-  assign _0251_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0250_;
-  assign _0260_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0259_;
+  assign _0312_[3:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hc : _0311_[3:0];
+  assign _0294_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 11'h000 : _0293_;
+  assign _0331_[0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0222_[0];
+  assign _0323_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0322_;
+  assign _0255_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0254_;
+  assign _0264_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0263_;
   assign _0357_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0356_;
   assign _0367_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0366_;
-  assign _0228_[9:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 10'h000 : _0227_[9:0];
-  assign _0225_[1:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0224_[1:0];
-  assign _0243_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) branch_taken_q : _0242_;
+  assign _0232_[9:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 10'h000 : _0231_[9:0];
+  assign _0229_[1:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0228_[1:0];
+  assign _0247_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) branch_taken_q : _0246_;
   assign _0417_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) single_step_halt_if_q : _0416_;
   assign _0350_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) debug_mode_q : _0349_;
-  assign _0268_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) ctrl_fsm_cs : _0267_;
+  assign _0272_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) ctrl_fsm_cs : _0271_;
   function [0:0] _0938_;
     input [0:0] a;
     input [2:0] b;
@@ -15046,9 +15044,9 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _0938_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[199] = _0938_(1'h1, { _0310_[1], _0308_[7], 1'h0 }, { _0418_, _0385_, _0017_ });
+  assign ctrl_fsm_o[199] = _0938_(1'h1, { _0314_[1], _0312_[7], 1'h0 }, { _0418_, _0385_, _0017_ });
   assign _0418_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:710.14-727.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) ctrl_fsm_cs;
-  assign ctrl_fsm_o[197:196] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0308_[5:4] : 2'h0;
+  assign ctrl_fsm_o[197:196] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0312_[5:4] : 2'h0;
   function [3:0] _0941_;
     input [3:0] a;
     input [7:0] b;
@@ -15066,15 +15064,15 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _0941_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[195:192] = _0941_(4'h0, { _0308_[3:0], 4'ha }, { _0385_, _0419_ });
+  assign ctrl_fsm_o[195:192] = _0941_(4'h0, { _0312_[3:0], 4'ha }, { _0385_, _0419_ });
   assign _0419_ = ctrl_fsm_cs == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 2'h3;
-  assign _0311_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : 1'h0;
-  assign _0309_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h1 : 2'h3;
-  assign _0261_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h1;
-  assign _0220_[1:0] = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h0;
-  assign _0310_ = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0309_ : 2'h0;
-  assign _0221_[1:0] = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0220_[1:0] : 2'h0;
-  assign _0262_ = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0261_ : ctrl_fsm_cs;
+  assign _0315_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : 1'h0;
+  assign _0313_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h1 : 2'h3;
+  assign _0265_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h1;
+  assign _0224_[1:0] = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h0;
+  assign _0314_ = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0313_ : 2'h0;
+  assign _0225_[1:0] = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0224_[1:0] : 2'h0;
+  assign _0266_ = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0265_ : ctrl_fsm_cs;
   function [1:0] _0950_;
     input [1:0] a;
     input [7:0] b;
@@ -15096,15 +15094,15 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _0950_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_ns = _0950_(2'hx, { _0262_, _0269_, _0270_, 2'h1 }, { _0418_, _0385_, _0017_, _0419_ });
-  assign ctrl_fsm_o[171:161] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0290_ : 11'h000;
+  assign ctrl_fsm_ns = _0950_(2'hx, { _0266_, _0273_, _0274_, 2'h1 }, { _0418_, _0385_, _0017_, _0419_ });
+  assign ctrl_fsm_o[171:161] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0294_ : 11'h000;
   assign ctrl_fsm_o[149] = _0419_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 1'h1 : 1'h0;
-  assign ctrl_fsm_o[143:110] = _0419_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) { 1'h1, _0271_ } : 34'h000000000;
+  assign ctrl_fsm_o[143:110] = _0419_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) { 1'h1, _0275_ } : 34'h000000000;
   assign ctrl_fsm_o[72:71] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0336_ : 2'h0;
   assign _0216_[2:0] = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) { 2'h3, _0132_ } : 3'h0;
   assign _0337_ = etrigger_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1068.15-1068.49|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1067.13-1071.16" *) 3'h2 : 3'h4;
-  assign clic_ptr_in_progress_id_clear = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0251_ : 1'h0;
-  assign csr_flush_ack_n = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0260_ : 1'h0;
+  assign clic_ptr_in_progress_id_clear = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0255_ : 1'h0;
+  assign csr_flush_ack_n = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0264_ : 1'h0;
   function [1:0] _0959_;
     input [1:0] a;
     input [3:0] b;
@@ -15125,7 +15123,7 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign pipe_pc_mux_ctrl = _0959_(2'h3, { _0383_, _0384_ }, { _0385_, _0419_ });
   assign fence_req_clr = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0357_ : 1'h1;
   assign fence_req_set = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0367_ : 1'h0;
-  assign exc_cause = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0228_[9:0] : 10'h000;
+  assign exc_cause = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0232_[9:0] : 10'h000;
   function [2:0] _0963_;
     input [2:0] a;
     input [5:0] b;
@@ -15143,8 +15141,8 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _0963_ = a;
     endcase
   endfunction
-  assign debug_cause_n = _0963_(3'h0, { 1'h0, _0221_[1:0], _0338_ }, { _0418_, _0385_ });
-  assign _0244_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0243_ : branch_taken_q;
+  assign debug_cause_n = _0963_(3'h0, { 1'h0, _0225_[1:0], _0338_ }, { _0418_, _0385_ });
+  assign _0248_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0247_ : branch_taken_q;
   function [0:0] _0965_;
     input [0:0] a;
     input [1:0] b;
@@ -15250,11 +15248,11 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign _0369_ = _0152_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1227.9-1227.31|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1226.16-1228.10" *) 1'h0 : nmi_pending_q;
   assign _0370_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) 1'h1 : _0369_;
   assign _0368_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) lsu_err_wb_i[0] : nmi_is_store_q;
-  assign _0245_ = clic_ptr_in_progress_id_clear ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1375.11-1375.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *) 1'h0 : 1'h1;
-  assign _0246_ = clic_ptr_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1369.9-1371.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *) _0245_ : 1'h0;
-  assign branch_taken_n = _0144_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1181.7-1181.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1180.5-1182.8" *) 1'h0 : _0244_;
+  assign _0249_ = clic_ptr_in_progress_id_clear ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1375.11-1375.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *) 1'h0 : 1'h1;
+  assign _0250_ = clic_ptr_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1369.9-1371.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *) _0249_ : 1'h0;
+  assign branch_taken_n = _0144_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1181.7-1181.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1180.5-1182.8" *) 1'h0 : _0248_;
   assign single_step_halt_if_n = _0140_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1176.7-1176.36|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1175.5-1177.8" *) 1'h1 : _0420_;
-  assign ctrl_fsm_o[51:39] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0330_[13:1] : 13'h0000;
+  assign ctrl_fsm_o[51:39] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0331_[13:1] : 13'h0000;
   function [0:0] _1002_;
     input [0:0] a;
     input [1:0] b;
@@ -15272,10 +15270,10 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _1002_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[38] = _1002_(1'h0, { _0330_[0], _0125_ }, { _0385_, _0419_ });
+  assign ctrl_fsm_o[38] = _1002_(1'h0, { _0331_[0], _0125_ }, { _0385_, _0419_ });
   assign _0384_ = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) _0372_ : 2'h0;
-  assign _0271_ = _0126_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.49-1120.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *) { _0128_, 1'h1 } : 33'h000000000;
-  assign ctrl_fsm_o[200] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0311_ : 1'h1;
+  assign _0275_ = _0126_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.49-1120.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *) { _0128_, 1'h1 } : 33'h000000000;
+  assign ctrl_fsm_o[200] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0315_ : 1'h1;
   function [0:0] _1006_;
     input [0:0] a;
     input [2:0] b;
@@ -15295,7 +15293,7 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _1006_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[198] = _1006_(1'h0, { _0310_[0], _0308_[6], 1'h1 }, { _0418_, _0385_, _0419_ });
+  assign ctrl_fsm_o[198] = _1006_(1'h0, { _0314_[0], _0312_[6], 1'h1 }, { _0418_, _0385_, _0419_ });
   function [0:0] _1007_;
     input [0:0] a;
     input [1:0] b;
@@ -15313,13 +15311,13 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _1007_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[20] = _1007_(_0080_, { _0319_[2], _0312_ }, { _0385_, _0017_ });
-  assign ctrl_fsm_o[19:18] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0319_[1:0] : { _0086_, 1'h0 };
-  assign _0312_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : _0080_;
-  assign _0291_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h0 : 1'h1;
-  assign _0270_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 2'h1 : ctrl_fsm_cs;
-  assign ctrl_fsm_o[21] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0319_[3] : single_step_halt_if_q;
-  assign ctrl_fsm_o[17] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0291_ : 1'h0;
+  assign ctrl_fsm_o[20] = _1007_(_0080_, { _0323_[2], _0316_ }, { _0385_, _0017_ });
+  assign ctrl_fsm_o[19:18] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0323_[1:0] : { _0086_, 1'h0 };
+  assign _0316_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : _0080_;
+  assign _0295_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h0 : 1'h1;
+  assign _0274_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 2'h1 : ctrl_fsm_cs;
+  assign ctrl_fsm_o[21] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0323_[3] : single_step_halt_if_q;
+  assign ctrl_fsm_o[17] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0295_ : 1'h0;
   function [3:0] _1014_;
     input [3:0] a;
     input [7:0] b;
@@ -15337,9 +15335,9 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
         _1014_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[16:13] = _1014_(4'h0, { _0276_, 1'h1, _0216_[2:0] }, { _0385_, _0419_ });
-  assign _0338_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) _0337_ : { 1'h0, _0225_[1:0] };
-  assign _0269_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) 2'h3 : _0268_;
+  assign ctrl_fsm_o[16:13] = _1014_(4'h0, { _0280_, 1'h1, _0216_[2:0] }, { _0385_, _0419_ });
+  assign _0338_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) _0337_ : { 1'h0, _0229_[1:0] };
+  assign _0273_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) 2'h3 : _0272_;
   assign _0201_[10:4] = 7'h00;
   assign _0203_[10:4] = 7'h00;
   assign _0204_[10:5] = 6'h00;
@@ -15347,21 +15345,25 @@ module \cv32e40x_controller_fsm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhoun
   assign _0217_[3] = 1'h0;
   assign _0218_[6] = 1'h1;
   assign _0219_[1] = 1'h1;
-  assign _0220_[2] = 1'h0;
-  assign _0221_[2] = 1'h0;
-  assign _0222_[2] = 1'h0;
-  assign _0223_[2] = 1'h0;
+  assign _0220_[13:8] = 6'h00;
+  assign _0221_[13] = 1'h0;
+  assign _0222_[13] = 1'h0;
+  assign _0223_[10:5] = 6'h00;
   assign _0224_[2] = 1'h0;
   assign _0225_[2] = 1'h0;
-  assign _0226_[10] = 1'h0;
-  assign _0227_[10] = 1'h0;
-  assign _0228_[10] = 1'h0;
-  assign _0229_[1] = 1'h0;
-  assign _0296_[6] = _0287_;
-  assign _0297_[6] = _0283_[1];
+  assign _0226_[2] = 1'h0;
+  assign _0227_[2] = 1'h0;
+  assign _0228_[2] = 1'h0;
+  assign _0229_[2] = 1'h0;
+  assign _0230_[10] = 1'h0;
+  assign _0231_[10] = 1'h0;
+  assign _0232_[10] = 1'h0;
+  assign _0233_[1] = 1'h0;
+  assign _0300_[6] = _0291_;
+  assign _0301_[6] = _0287_[1];
   assign clic_ptr_in_pipeline = 1'h0;
   assign clic_ptr_in_progress_id_set = 1'h0;
-  assign { ctrl_fsm_o[186:176], ctrl_fsm_o[160:150], ctrl_fsm_o[148:144], ctrl_fsm_o[108:106], ctrl_fsm_o[70:52], ctrl_fsm_o[37:36], ctrl_fsm_o[31], ctrl_fsm_o[22], ctrl_fsm_o[11:0] } = { exc_cause, 12'h000, debug_mode_n, debug_mode_q, debug_cause_q, debug_fsm_cs[0], debug_fsm_cs[1], debug_fsm_cs[2], 19'h00000, nmi_pending_q, wb_counter_event_gated, ctrl_fsm_o[171], data_stall_wb_i, exception_in_wb, exception_cause_wb };
+  assign { ctrl_fsm_o[186:176], ctrl_fsm_o[160:150], ctrl_fsm_o[148:144], ctrl_fsm_o[108:106], ctrl_fsm_o[70:52], ctrl_fsm_o[37:36], ctrl_fsm_o[31], ctrl_fsm_o[22], ctrl_fsm_o[11:0] } = { exc_cause, 12'h000, debug_mode_n, debug_mode_q, debug_cause_q, debug_fsm_cs[0], debug_fsm_cs[1], debug_fsm_cs[2], 19'h00000, nmi_pending_q, wb_counter_event_gated, ctrl_fsm_o[171], data_stall_wb_i, exception_in_wb, 6'h00, exception_cause_wb };
   assign exception_allowed = 1'h1;
   assign pending_interrupt = irq_req_ctrl_i;
   assign pending_nmi = nmi_pending_q;
@@ -26202,7 +26204,7 @@ module \cv32e40x_mpu$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv32e
   assign _10_ = mpu_err && (* src = "ip/cv32e40x/rtl/cv32e40x_mpu.sv:110.13-110.42" *) core_trans_valid_i;
   assign _11_ = core_one_txn_pend_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_mpu.sv:121.25-121.80" *) 3'h3 : 3'h4;
   assign _12_ = core_one_txn_pend_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_mpu.sv:125.25-125.80" *) 2'h1 : 2'h2;
-  assign _13_ = | { _22_[1], _16_[1], _01_, _03_ };
+  assign _13_ = | { _22_[1], _16_[1], _03_, _01_ };
   (* src = "ip/cv32e40x/rtl/cv32e40x_mpu.sv:159.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) state_q <= 3'h0;
@@ -26407,7 +26409,7 @@ module \cv32e40x_mpu_if$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv
   assign core_trans_ready_o = _09_ || (* src = "ip/cv32e40x/rtl/cv32e40x_mpu_if.sv:186.35-186.96" *) mpu_err_trans_ready;
   assign _10_ = mpu_err && (* src = "ip/cv32e40x/rtl/cv32e40x_mpu_if.sv:110.13-110.42" *) core_trans_valid_i;
   assign _11_ = core_one_txn_pend_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_mpu_if.sv:125.25-125.80" *) 2'h1 : 2'h2;
-  assign _12_ = | { _20_[1], _15_[1], _01_, _03_ };
+  assign _12_ = | { _20_[1], _15_[1], _03_, _01_ };
   (* src = "ip/cv32e40x/rtl/cv32e40x_mpu_if.sv:159.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) state_q <= 3'h0;
@@ -29464,101 +29466,103 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   (* unused_bits = "0 1 2 3 4 5 6 7 8 9 10 11 21" *)
   wire [31:0] _127_;
   wire [31:0] _128_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:99.36" *)
+  wire [31:0] _129_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *)
-  wire _129_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *)
   wire _130_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *)
-  wire _131_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *)
-  wire _132_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *)
-  wire _133_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *)
-  wire _134_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
-  wire _135_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:300.11-309.14" *)
-  wire _136_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
-  wire _137_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:328.13-330.16" *)
-  wire [2:0] _138_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *)
-  wire [2:0] _139_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *)
-  wire [2:0] _140_;
+  wire _131_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *)
-  wire [2:0] _141_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:382.15-384.18" *)
-  wire [2:0] _142_;
+  wire _132_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *)
-  wire [2:0] _143_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:405.11-412.14" *)
-  wire [2:0] _144_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
-  wire [2:0] _145_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *)
-  wire [2:0] _146_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
-  wire [2:0] _147_;
+  wire _133_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *)
-  wire [31:0] _148_;
+  wire _134_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *)
+  wire _135_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
-  wire [31:0] _149_;
+  wire _136_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:300.11-309.14" *)
+  wire _137_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
-  wire [31:0] _150_;
+  wire _138_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:328.13-330.16" *)
+  wire [2:0] _139_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *)
+  wire [2:0] _140_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *)
+  wire [2:0] _141_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *)
+  wire [2:0] _142_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:382.15-384.18" *)
+  wire [2:0] _143_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *)
-  wire [63:0] _151_;
+  wire [2:0] _144_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:405.11-412.14" *)
+  wire [2:0] _145_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
-  wire [63:0] _152_;
+  wire [2:0] _146_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *)
-  wire [63:0] _153_;
+  wire [2:0] _147_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
-  wire [63:0] _154_;
+  wire [2:0] _148_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *)
+  wire [31:0] _149_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
-  wire [31:0] _155_;
+  wire [31:0] _150_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
+  wire [31:0] _151_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *)
+  wire [63:0] _152_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
+  wire [63:0] _153_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *)
+  wire [63:0] _154_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
+  wire [63:0] _155_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *)
+  wire [31:0] _156_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *)
   (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29" *)
-  wire [31:0] _156_;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
   wire [31:0] _157_;
-  wire [1:0] _158_;
-  wire [31:0] _159_;
-  wire _160_;
-  wire [31:0] _161_;
+  (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *)
+  wire [31:0] _158_;
+  wire [1:0] _159_;
+  wire [31:0] _160_;
+  wire _161_;
   wire [31:0] _162_;
   wire [31:0] _163_;
   wire [31:0] _164_;
   wire [31:0] _165_;
   wire [31:0] _166_;
-  wire _167_;
-  wire [21:0] _168_;
-  wire [31:0] _169_;
-  wire [21:0] _170_;
-  wire [1:0] _171_;
-  wire _172_;
-  wire [1:0] _173_;
-  wire [255:0] _174_;
-  wire _175_;
+  wire [31:0] _167_;
+  wire _168_;
+  wire [21:0] _169_;
+  wire [31:0] _170_;
+  wire [21:0] _171_;
+  wire [1:0] _172_;
+  wire _173_;
+  wire [1:0] _174_;
+  wire [255:0] _175_;
   wire _176_;
-  wire [1:0] _177_;
-  wire [255:0] _178_;
-  wire _179_;
-  wire [63:0] _180_;
-  wire [31:0] _181_;
-  wire [1:0] _182_;
-  wire _183_;
-  wire [1:0] _184_;
-  wire [31:0] _185_;
-  wire [1:0] _186_;
-  wire [31:0] _187_;
-  wire _188_;
-  wire [33:0] _189_;
-  wire _190_;
-  wire [255:0] _191_;
-  wire [63:0] _192_;
+  wire _177_;
+  wire [1:0] _178_;
+  wire [255:0] _179_;
+  wire _180_;
+  wire [63:0] _181_;
+  wire [31:0] _182_;
+  wire [1:0] _183_;
+  wire _184_;
+  wire [1:0] _185_;
+  wire [31:0] _186_;
+  wire [1:0] _187_;
+  wire [31:0] _188_;
+  wire _189_;
+  wire [33:0] _190_;
+  wire _191_;
+  wire [255:0] _192_;
   wire [63:0] _193_;
+  wire [63:0] _194_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:171.23" *)
   wire [31:0] abstractauto_d;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:171.39" *)
@@ -29670,8 +29674,7 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   wire [31:0] haltsum0;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:99.26" *)
   wire [31:0] haltsum1;
-  (* src = "ip/riscv-dbg/src/dm_csrs.sv:99.36" *)
-  wire [31:0] haltsum2;
+  wire [29:0] haltsum2;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:99.46" *)
   wire [31:0] haltsum3;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:209.39" *)
@@ -29837,13 +29840,13 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign _036_ = _034_ && (* src = "ip/riscv-dbg/src/dm_csrs.sv:376.15-376.81" *) _035_;
   assign _037_ = _036_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:376.15-376.81" *) 32'd4294967295 : 32'd0;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:376.15-376.81" *)
-  \$bwmux  _231_ (
+  \$bwmux  _232_ (
     .A(data_q),
     .B({ dmi_req_i[31:0], dmi_req_i[31:0] }),
     .S(_039_),
     .Y(_040_)
   );
-  defparam _231_.WIDTH = 32'd64;
+  defparam _232_.WIDTH = 32'd64;
   assign _041_ = autoexecdata_idx < (* src = "ip/riscv-dbg/src/dm_csrs.sv:378.29-378.74" *) 5'h10;
   assign _043_ = _041_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:378.29-378.74" *) _042_ : 1'hx;
   assign _044_ = dmi_req_i[40:34] == 5'h10;
@@ -29860,13 +29863,13 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign _055_ = _054_ && (* src = "ip/riscv-dbg/src/dm_csrs.sv:445.13-445.84" *) _009_;
   assign _056_ = _055_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:445.13-445.84" *) 32'd4294967295 : 32'd0;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:445.13-445.84" *)
-  \$bwmux  _247_ (
+  \$bwmux  _248_ (
     .A(progbuf_q),
     .B({ dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0], dmi_req_i[31:0] }),
     .S(_057_),
     .Y(_058_)
   );
-  defparam _247_.WIDTH = 32'd256;
+  defparam _248_.WIDTH = 32'd256;
   assign _014_ = _012_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:450.27-450.86" *) _013_ : 1'hx;
   assign autoexecdata_idx = dmi_req_i[37:34] - (* src = "ip/riscv-dbg/src/dm_csrs.sv:225.32-225.59" *) 3'h4;
   assign _059_ = ~ (* src = "ip/riscv-dbg/src/dm_csrs.sv:468.56-468.73" *) dmi_req_i[22];
@@ -29877,7 +29880,7 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign dmstatus[19] = _000_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:239.29-239.63" *) _063_ : 1'hx;
   assign _076_ = _053_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:117.18-117.48" *) { 31'h00000000, halted_i } : 32'hxxxxxxxx;
   assign _064_ = ! (* src = "ip/riscv-dbg/src/dm_csrs.sv:550.9-550.31" *) dmcontrol_q[30];
-  assign _065_ = _064_ && (* src = "ip/riscv-dbg/src/dm_csrs.sv:550.9-550.56" *) _156_[30];
+  assign _065_ = _064_ && (* src = "ip/riscv-dbg/src/dm_csrs.sv:550.9-550.56" *) _157_[30];
   assign _066_ = dmcontrol_q[30] && (* src = "ip/riscv-dbg/src/dm_csrs.sv:553.9-553.45" *) resumeack_i;
   assign _067_ = dmcontrol_q[16] <= (* src = "ip/riscv-dbg/src/dm_csrs.sv:576.9-576.48" *) 1'h0;
   assign _068_ = dmcontrol_q[16] < (* src = "ip/riscv-dbg/src/dm_csrs.sv:577.7-577.55" *) 1'h1;
@@ -29990,79 +29993,79 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) cmd_valid_q <= 1'h0;
-    else cmd_valid_q <= _137_;
+    else cmd_valid_q <= _138_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) cmderr_q <= 3'h0;
-    else cmderr_q <= _147_;
+    else cmderr_q <= _148_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) command_q[31:24] <= 8'h00;
-    else command_q[31:24] <= _150_[31:24];
+    else command_q[31:24] <= _151_[31:24];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) command_q[23:0] <= 24'h000000;
-    else command_q[23:0] <= _150_[23:0];
+    else command_q[23:0] <= _151_[23:0];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) data_q[31:0] <= 32'd0;
-    else data_q[31:0] <= _154_[31:0];
+    else data_q[31:0] <= _155_[31:0];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) data_q[63:32] <= 32'd0;
-    else data_q[63:32] <= _154_[63:32];
+    else data_q[63:32] <= _155_[63:32];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[28] <= 1'h0;
-    else dmcontrol_q[28] <= _157_[28];
+    else dmcontrol_q[28] <= _158_[28];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[2] <= 1'h0;
-    else dmcontrol_q[2] <= _157_[2];
+    else dmcontrol_q[2] <= _158_[2];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[0] <= 1'h0;
-    else dmcontrol_q[0] <= _157_[0];
+    else dmcontrol_q[0] <= _158_[0];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[31] <= 1'h0;
-    else dmcontrol_q[31] <= _157_[31];
+    else dmcontrol_q[31] <= _158_[31];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[29] <= 1'h0;
-    else dmcontrol_q[29] <= _157_[29];
+    else dmcontrol_q[29] <= _158_[29];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[15:6] <= 10'h000;
-    else dmcontrol_q[15:6] <= _157_[15:6];
+    else dmcontrol_q[15:6] <= _158_[15:6];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[25:16] <= 10'h000;
-    else dmcontrol_q[25:16] <= _157_[25:16];
+    else dmcontrol_q[25:16] <= _158_[25:16];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[26] <= 1'h0;
-    else dmcontrol_q[26] <= _157_[26];
+    else dmcontrol_q[26] <= _158_[26];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[1] <= 1'h0;
-    else dmcontrol_q[1] <= _157_[1];
+    else dmcontrol_q[1] <= _158_[1];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[30] <= 1'h0;
-    else dmcontrol_q[30] <= _157_[30];
+    else dmcontrol_q[30] <= _158_[30];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[3] <= 1'h0;
-    else dmcontrol_q[3] <= _157_[3];
+    else dmcontrol_q[3] <= _158_[3];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[5:4] <= 2'h0;
-    else dmcontrol_q[5:4] <= _157_[5:4];
+    else dmcontrol_q[5:4] <= _158_[5:4];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) dmcontrol_q[27] <= 1'h0;
-    else dmcontrol_q[27] <= _157_[27];
+    else dmcontrol_q[27] <= _158_[27];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) havereset_q <= 1'h1;
@@ -30070,39 +30073,39 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[31:0] <= 32'd0;
-    else progbuf_q[31:0] <= _191_[31:0];
+    else progbuf_q[31:0] <= _192_[31:0];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[63:32] <= 32'd0;
-    else progbuf_q[63:32] <= _191_[63:32];
+    else progbuf_q[63:32] <= _192_[63:32];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[95:64] <= 32'd0;
-    else progbuf_q[95:64] <= _191_[95:64];
+    else progbuf_q[95:64] <= _192_[95:64];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[127:96] <= 32'd0;
-    else progbuf_q[127:96] <= _191_[127:96];
+    else progbuf_q[127:96] <= _192_[127:96];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[159:128] <= 32'd0;
-    else progbuf_q[159:128] <= _191_[159:128];
+    else progbuf_q[159:128] <= _192_[159:128];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[191:160] <= 32'd0;
-    else progbuf_q[191:160] <= _191_[191:160];
+    else progbuf_q[191:160] <= _192_[191:160];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[223:192] <= 32'd0;
-    else progbuf_q[223:192] <= _191_[223:192];
+    else progbuf_q[223:192] <= _192_[223:192];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) progbuf_q[255:224] <= 32'd0;
-    else progbuf_q[255:224] <= _191_[255:224];
+    else progbuf_q[255:224] <= _192_[255:224];
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) sbaddr_q <= 64'h0000000000000000;
-    else sbaddr_q <= _193_;
+    else sbaddr_q <= _194_;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) sbcs_q[19:17] <= 3'h2;
@@ -30166,24 +30169,24 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) sbdata_q <= 64'h0000000000000000;
-    else sbdata_q <= _192_;
-  assign dmcontrol_d[30] = _066_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:554.7-554.36|ip/riscv-dbg/src/dm_csrs.sv:553.5-555.8" *) 1'h0 : _156_[30];
+    else sbdata_q <= _193_;
+  assign dmcontrol_d[30] = _066_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:554.7-554.36|ip/riscv-dbg/src/dm_csrs.sv:553.5-555.8" *) 1'h0 : _157_[30];
   assign clear_resumeack_o = _065_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:551.7-551.32|ip/riscv-dbg/src/dm_csrs.sv:550.5-552.8" *) 1'h1 : 1'h0;
-  assign sbdata_d = sbdata_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:536.7-536.32|ip/riscv-dbg/src/dm_csrs.sv:535.5-537.8" *) { 32'h00000000, sbdata_i } : _180_;
+  assign sbdata_d = sbdata_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:536.7-536.32|ip/riscv-dbg/src/dm_csrs.sv:535.5-537.8" *) { 32'h00000000, sbdata_i } : _181_;
   assign sbcs_d[14:12] = sberror_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:532.7-532.34|ip/riscv-dbg/src/dm_csrs.sv:531.5-533.8" *) sberror_i : _127_[14:12];
   assign havereset_d = ndmreset_ack_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:525.7-525.45|ip/riscv-dbg/src/dm_csrs.sv:524.5-526.8" *) 1'h1 : _124_[0];
-  assign data_d = data_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:520.7-520.23|ip/riscv-dbg/src/dm_csrs.sv:519.5-521.8" *) data_i : _153_;
-  assign cmderr_d = cmderror_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:515.7-515.29|ip/riscv-dbg/src/dm_csrs.sv:514.5-516.8" *) cmderror_i : _146_;
-  assign _158_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) 2'h3 : _189_[1:0];
-  assign _159_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) sbdata_q[63:32] : dmi_req_i[31:0];
-  assign _160_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) 1'h1 : _190_;
-  assign _161_ = _026_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _159_ : sbdata_q[63:32];
-  assign _162_ = _023_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _163_ : sbdata_q[31:0];
-  assign _163_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.47-496.14|ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14" *) sbdata_q[31:0] : dmi_req_i[31:0];
-  assign _164_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:484.47-487.14|ip/riscv-dbg/src/dm_csrs.sv:484.11-489.14" *) 32'd0 : dmi_req_i[31:0];
-  assign _165_ = _022_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:484.11-489.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _164_ : 32'd0;
-  assign _166_ = _021_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _169_ : sbaddress_i;
-  function [0:0] _420_;
+  assign data_d = data_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:520.7-520.23|ip/riscv-dbg/src/dm_csrs.sv:519.5-521.8" *) data_i : _154_;
+  assign cmderr_d = cmderror_valid_i ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:515.7-515.29|ip/riscv-dbg/src/dm_csrs.sv:514.5-516.8" *) cmderror_i : _147_;
+  assign _159_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) 2'h3 : _190_[1:0];
+  assign _160_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) sbdata_q[63:32] : dmi_req_i[31:0];
+  assign _161_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.47-506.14|ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14" *) 1'h1 : _191_;
+  assign _162_ = _026_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:503.11-508.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _160_ : sbdata_q[63:32];
+  assign _163_ = _023_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _164_ : sbdata_q[31:0];
+  assign _164_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.47-496.14|ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14" *) sbdata_q[31:0] : dmi_req_i[31:0];
+  assign _165_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:484.47-487.14|ip/riscv-dbg/src/dm_csrs.sv:484.11-489.14" *) 32'd0 : dmi_req_i[31:0];
+  assign _166_ = _022_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:484.11-489.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _165_ : 32'd0;
+  assign _167_ = _021_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _170_ : sbaddress_i;
+  function [0:0] _421_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -30193,36 +30196,36 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _420_ = b[0:0];
+        _421_ = b[0:0];
       2'b1?:
-        _420_ = b[1:1];
+        _421_ = b[1:1];
       default:
-        _420_ = a;
+        _421_ = a;
     endcase
   endfunction
-  assign _167_ = _420_(_190_, { _172_, _160_ }, { _020_, _116_ });
-  assign _168_ = _020_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _170_ : sbcs_q[21:0];
-  assign _169_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.47-477.14|ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14" *) sbaddress_i : dmi_req_i[31:0];
+  assign _168_ = _421_(_191_, { _173_, _161_ }, { _020_, _116_ });
+  assign _169_ = _020_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _171_ : sbcs_q[21:0];
+  assign _170_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.47-477.14|ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14" *) sbaddress_i : dmi_req_i[31:0];
   assign _125_[5:0] = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) sbcs_q[28:23] : dmi_req_i[28:23];
-  assign _170_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) sbcs_q[21:0] : { dmi_req_i[21:15], _062_, dmi_req_i[11:0] };
-  assign _171_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) 2'h3 : _189_[1:0];
-  assign _172_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) 1'h1 : _060_;
-  assign _142_ = _015_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:455.15-455.41|ip/riscv-dbg/src/dm_csrs.sv:454.13-456.16" *) 3'h1 : _141_;
-  assign _173_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) 2'h3 : _189_[1:0];
-  assign _174_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) progbuf_q : _058_;
-  assign _134_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) _131_ : _014_;
-  assign _143_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) _142_ : _141_;
+  assign _171_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) sbcs_q[21:0] : { dmi_req_i[21:15], _062_, dmi_req_i[11:0] };
+  assign _172_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) 2'h3 : _190_[1:0];
+  assign _173_ = sbbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.25-464.14|ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14" *) 1'h1 : _060_;
+  assign _143_ = _015_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:455.15-455.41|ip/riscv-dbg/src/dm_csrs.sv:454.13-456.16" *) 3'h1 : _142_;
+  assign _174_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) 2'h3 : _190_[1:0];
+  assign _175_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) progbuf_q : _058_;
+  assign _135_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) _132_ : _014_;
+  assign _144_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.27-452.14|ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14" *) _143_ : _142_;
   assign _090_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:431.27-435.14|ip/riscv-dbg/src/dm_csrs.sv:431.11-440.14" *) { abstractauto_q[31:16], 4'h0, abstractauto_q[11:0] } : { 8'h00, dmi_req_i[23:16], 14'h0000, dmi_req_i[1:0] };
-  assign _133_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.27-421.14|ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *) _131_ : 1'h1;
-  assign _148_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.27-421.14|ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *) command_q : dmi_req_i[31:0];
-  assign _144_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:406.13-406.71|ip/riscv-dbg/src/dm_csrs.sv:405.11-412.14" *) _142_ : _051_;
+  assign _134_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.27-421.14|ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *) _132_ : 1'h1;
+  assign _149_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.27-421.14|ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14" *) command_q : dmi_req_i[31:0];
+  assign _145_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:406.13-406.71|ip/riscv-dbg/src/dm_csrs.sv:405.11-412.14" *) _143_ : _051_;
   assign _122_[0] = dmi_req_i[28] ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:392.13-392.55|ip/riscv-dbg/src/dm_csrs.sv:391.11-393.14" *) _049_ : havereset_q;
-  assign _151_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.29-380.16|ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *) data_q : _040_;
-  assign _132_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.29-380.16|ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *) _131_ : _043_;
-  assign _175_ = _023_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _179_ : 1'h0;
-  assign _176_ = _021_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _179_ : 1'h0;
+  assign _152_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.29-380.16|ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *) data_q : _040_;
+  assign _133_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:375.29-380.16|ip/riscv-dbg/src/dm_csrs.sv:375.13-385.16" *) _132_ : _043_;
+  assign _176_ = _023_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _180_ : 1'h0;
+  assign _177_ = _021_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:474.11-480.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _180_ : 1'h0;
   assign _123_[0] = _044_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:388.24-394.12|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _122_[0] : havereset_q;
-  function [1:0] _442_;
+  function [1:0] _443_;
     input [1:0] a;
     input [5:0] b;
     input [2:0] s;
@@ -30232,22 +30235,22 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       3'b??1:
-        _442_ = b[1:0];
+        _443_ = b[1:0];
       3'b?1?:
-        _442_ = b[3:2];
+        _443_ = b[3:2];
       3'b1??:
-        _442_ = b[5:4];
+        _443_ = b[5:4];
       default:
-        _442_ = a;
+        _443_ = a;
     endcase
   endfunction
-  assign _177_ = _442_(_189_[1:0], { _173_, _171_, _158_ }, { _117_, _020_, _116_ });
-  assign _152_ = _033_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:373.11-386.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _151_ : data_q;
-  assign _178_ = _008_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _174_ : progbuf_q;
-  assign _179_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.47-496.14|ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14" *) 1'h0 : _025_;
+  assign _178_ = _443_(_190_[1:0], { _174_, _172_, _159_ }, { _117_, _020_, _116_ });
+  assign _153_ = _033_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:373.11-386.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _152_ : data_q;
+  assign _179_ = _008_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:444.11-457.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _175_ : progbuf_q;
+  assign _180_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:493.47-496.14|ip/riscv-dbg/src/dm_csrs.sv:493.11-499.14" *) 1'h0 : _025_;
   assign _126_[5:0] = _020_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:461.11-470.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _125_[5:0] : sbcs_q[28:23];
   assign _091_ = _004_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:431.11-440.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _090_ : { abstractauto_q[31:16], 4'h0, abstractauto_q[11:0] };
-  function [0:0] _448_;
+  function [0:0] _449_;
     input [0:0] a;
     input [2:0] b;
     input [2:0] s;
@@ -30257,18 +30260,18 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       3'b??1:
-        _448_ = b[0:0];
+        _449_ = b[0:0];
       3'b?1?:
-        _448_ = b[1:1];
+        _449_ = b[1:1];
       3'b1??:
-        _448_ = b[2:2];
+        _449_ = b[2:2];
       default:
-        _448_ = a;
+        _449_ = a;
     endcase
   endfunction
-  assign _135_ = _448_(_131_, { _132_, _133_, _134_ }, { _033_, _052_, _008_ });
-  assign _149_ = _052_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _148_ : command_q;
-  function [2:0] _450_;
+  assign _136_ = _449_(_132_, { _133_, _134_, _135_ }, { _033_, _052_, _008_ });
+  assign _150_ = _052_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:416.11-426.14|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) _149_ : command_q;
+  function [2:0] _451_;
     input [2:0] a;
     input [5:0] b;
     input [1:0] s;
@@ -30278,30 +30281,30 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _450_ = b[2:0];
+        _451_ = b[2:0];
       2'b1?:
-        _450_ = b[5:3];
+        _451_ = b[5:3];
       default:
-        _450_ = a;
+        _451_ = a;
     endcase
   endfunction
-  assign _145_ = _450_(_141_, { _144_, _143_ }, { _003_, _118_ });
-  assign _155_ = _044_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:388.24-394.12|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) dmi_req_i[31:0] : dmcontrol_q;
-  assign sbdata_write_valid_o = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _175_ : 1'h0;
-  assign sbaddress_write_valid_o = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _176_ : 1'h0;
+  assign _146_ = _451_(_142_, { _145_, _144_ }, { _003_, _118_ });
+  assign _156_ = _044_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:388.24-394.12|ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14" *) dmi_req_i[31:0] : dmcontrol_q;
+  assign sbdata_write_valid_o = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _176_ : 1'h0;
+  assign sbaddress_write_valid_o = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _177_ : 1'h0;
   assign _124_[0] = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _123_[0] : havereset_q;
-  assign resp_queue_inp[1:0] = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _177_ : _189_[1:0];
-  assign _153_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _152_ : data_q;
-  assign progbuf_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _178_ : progbuf_q;
-  assign _180_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _161_, _162_ } : sbdata_q;
-  assign sbaddr_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _165_, _166_ } : { 32'h00000000, sbaddress_i };
-  assign { sbcs_d[28:22], _127_[21], sbcs_d[20:15], _127_[14:0] } = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _126_[5:0], _167_, _168_ } : { sbcs_q[28:23], _190_, sbcs_q[21:0] };
+  assign resp_queue_inp[1:0] = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _178_ : _190_[1:0];
+  assign _154_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _153_ : data_q;
+  assign progbuf_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _179_ : progbuf_q;
+  assign _181_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _162_, _163_ } : sbdata_q;
+  assign sbaddr_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _166_, _167_ } : { 32'h00000000, sbaddress_i };
+  assign { sbcs_d[28:22], _127_[21], sbcs_d[20:15], _127_[14:0] } = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) { _126_[5:0], _168_, _169_ } : { sbcs_q[28:23], _191_, sbcs_q[21:0] };
   assign abstractauto_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _091_ : { abstractauto_q[31:16], 4'h0, abstractauto_q[11:0] };
-  assign cmd_valid_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _135_ : _131_;
-  assign command_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _149_ : command_q;
-  assign _146_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _145_ : _141_;
-  assign { dmcontrol_d[31], _156_[30:2], dmcontrol_d[1:0] } = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _155_ : dmcontrol_q;
-  function [31:0] _466_;
+  assign cmd_valid_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _136_ : _132_;
+  assign command_d = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _150_ : command_q;
+  assign _147_ = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _146_ : _142_;
+  assign { dmcontrol_d[31], _157_[30:2], dmcontrol_d[1:0] } = _030_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:371.7-511.14|ip/riscv-dbg/src/dm_csrs.sv:370.5-512.8" *) _156_ : dmcontrol_q;
+  function [31:0] _467_;
     input [31:0] a;
     input [543:0] b;
     input [16:0] s;
@@ -30311,47 +30314,47 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       17'b????????????????1:
-        _466_ = b[31:0];
+        _467_ = b[31:0];
       17'b???????????????1?:
-        _466_ = b[63:32];
+        _467_ = b[63:32];
       17'b??????????????1??:
-        _466_ = b[95:64];
+        _467_ = b[95:64];
       17'b?????????????1???:
-        _466_ = b[127:96];
+        _467_ = b[127:96];
       17'b????????????1????:
-        _466_ = b[159:128];
+        _467_ = b[159:128];
       17'b???????????1?????:
-        _466_ = b[191:160];
+        _467_ = b[191:160];
       17'b??????????1??????:
-        _466_ = b[223:192];
+        _467_ = b[223:192];
       17'b?????????1???????:
-        _466_ = b[255:224];
+        _467_ = b[255:224];
       17'b????????1????????:
-        _466_ = b[287:256];
+        _467_ = b[287:256];
       17'b???????1?????????:
-        _466_ = b[319:288];
+        _467_ = b[319:288];
       17'b??????1??????????:
-        _466_ = b[351:320];
+        _467_ = b[351:320];
       17'b?????1???????????:
-        _466_ = b[383:352];
+        _467_ = b[383:352];
       17'b????1????????????:
-        _466_ = b[415:384];
+        _467_ = b[415:384];
       17'b???1?????????????:
-        _466_ = b[447:416];
+        _467_ = b[447:416];
       17'b??1??????????????:
-        _466_ = b[479:448];
+        _467_ = b[479:448];
       17'b?1???????????????:
-        _466_ = b[511:480];
+        _467_ = b[511:480];
       17'b1????????????????:
-        _466_ = b[543:512];
+        _467_ = b[543:512];
       default:
-        _466_ = a;
+        _467_ = a;
     endcase
   endfunction
-  assign _181_ = _466_(32'd0, { _086_, dmcontrol_q, 12'h000, dmstatus[19], dmstatus[19], dmstatus[17], dmstatus[17], dmstatus[15], dmstatus[15], dmstatus[13], dmstatus[13], dmstatus[11], dmstatus[11], dmstatus[9], dmstatus[9], 8'h82, _002_, 19'h04000, cmdbusy_i, 1'h0, cmderr_q, 8'h02, abstractauto_q, next_dm_addr_i, _011_, haltsum0, haltsum1, haltsum2, 31'h00000000, halted_i, sbcs_q, sbaddr_q[31:0], sbaddr_q[63:32], _187_, _185_ }, { _033_, _044_, _087_, _088_, _003_, _004_, _005_, _008_, _016_, _017_, _018_, _019_, _020_, _021_, _022_, _023_, _026_ });
-  assign _182_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 2'h3 : 2'h0;
-  assign _183_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 1'h1 : sbcs_q[22];
-  function [1:0] _469_;
+  assign _182_ = _467_(32'd0, { _086_, dmcontrol_q, 12'h000, dmstatus[19], dmstatus[19], dmstatus[17], dmstatus[17], dmstatus[15], dmstatus[15], dmstatus[13], dmstatus[13], dmstatus[11], dmstatus[11], dmstatus[9], dmstatus[9], 8'h82, _002_, 19'h04000, cmdbusy_i, 1'h0, cmderr_q, 8'h02, abstractauto_q, next_dm_addr_i, _011_, haltsum0, haltsum1, _129_[31:30], haltsum2, 31'h00000000, halted_i, sbcs_q, sbaddr_q[31:0], sbaddr_q[63:32], _188_, _186_ }, { _033_, _044_, _087_, _088_, _003_, _004_, _005_, _008_, _016_, _017_, _018_, _019_, _020_, _021_, _022_, _023_, _026_ });
+  assign _183_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 2'h3 : 2'h0;
+  assign _184_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 1'h1 : sbcs_q[22];
+  function [1:0] _470_;
     input [1:0] a;
     input [3:0] b;
     input [1:0] s;
@@ -30361,23 +30364,23 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _469_ = b[1:0];
+        _470_ = b[1:0];
       2'b1?:
-        _469_ = b[3:2];
+        _470_ = b[3:2];
       default:
-        _469_ = a;
+        _470_ = a;
     endcase
   endfunction
-  assign _184_ = _469_(2'h0, { _186_, _182_ }, { _120_, _119_ });
-  assign _185_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 32'd0 : sbdata_q[63:32];
-  assign _186_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) 2'h3 : 2'h0;
-  assign _129_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) 1'h0 : _014_;
-  assign _139_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) _138_ : cmderr_q;
-  assign _187_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:348.47-351.14|ip/riscv-dbg/src/dm_csrs.sv:348.11-354.14" *) 32'd0 : sbdata_q[31:0];
-  assign _138_ = _015_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:329.15-329.41|ip/riscv-dbg/src/dm_csrs.sv:328.13-330.16" *) 3'h1 : cmderr_q;
-  assign _136_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:302.13-302.73|ip/riscv-dbg/src/dm_csrs.sv:300.11-309.14" *) 1'h0 : _043_;
-  assign _188_ = _119_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14|ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *) _183_ : sbcs_q[22];
-  function [0:0] _478_;
+  assign _185_ = _470_(2'h0, { _187_, _183_ }, { _120_, _119_ });
+  assign _186_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.47-361.14|ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14" *) 32'd0 : sbdata_q[63:32];
+  assign _187_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) 2'h3 : 2'h0;
+  assign _130_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) 1'h0 : _014_;
+  assign _140_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:323.13-323.87|ip/riscv-dbg/src/dm_csrs.sv:320.11-331.14" *) _139_ : cmderr_q;
+  assign _188_ = _024_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:348.47-351.14|ip/riscv-dbg/src/dm_csrs.sv:348.11-354.14" *) 32'd0 : sbdata_q[31:0];
+  assign _139_ = _015_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:329.15-329.41|ip/riscv-dbg/src/dm_csrs.sv:328.13-330.16" *) 3'h1 : cmderr_q;
+  assign _137_ = cmdbusy_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:302.13-302.73|ip/riscv-dbg/src/dm_csrs.sv:300.11-309.14" *) 1'h0 : _043_;
+  assign _189_ = _119_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:358.11-363.14|ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *) _184_ : sbcs_q[22];
+  function [0:0] _479_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -30387,33 +30390,33 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _478_ = b[0:0];
+        _479_ = b[0:0];
       2'b1?:
-        _478_ = b[1:1];
+        _479_ = b[1:1];
       default:
-        _478_ = a;
+        _479_ = a;
     endcase
   endfunction
-  assign _130_ = _478_(1'h0, { _136_, _129_ }, { _033_, _008_ });
-  assign _140_ = _120_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:318.38-332.12|ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *) _139_ : cmderr_q;
-  assign sbdata_read_valid_o = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _175_ : 1'h0;
-  assign { resp_queue_inp[33:2], _189_[1:0] } = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) { _181_, _184_ } : 34'h000000000;
-  assign _190_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _188_ : sbcs_q[22];
-  assign _131_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _130_ : 1'h0;
-  assign _141_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _140_ : cmderr_q;
-  assign _154_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) data_d : 64'h0000000000000000;
-  assign _191_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) progbuf_d : 256'h0000000000000000000000000000000000000000000000000000000000000000;
-  assign _192_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) sbdata_d : 64'h0000000000000000;
-  assign _193_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) sbaddr_d : 64'h0000000000000000;
+  assign _131_ = _479_(1'h0, { _137_, _130_ }, { _033_, _008_ });
+  assign _141_ = _120_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:318.38-332.12|ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14" *) _140_ : cmderr_q;
+  assign sbdata_read_valid_o = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _176_ : 1'h0;
+  assign { resp_queue_inp[33:2], _190_[1:0] } = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) { _182_, _185_ } : 34'h000000000;
+  assign _191_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _189_ : sbcs_q[22];
+  assign _132_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _131_ : 1'h0;
+  assign _142_ = _083_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:297.7-366.14|ip/riscv-dbg/src/dm_csrs.sv:296.5-367.8" *) _141_ : cmderr_q;
+  assign _155_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) data_d : 64'h0000000000000000;
+  assign _192_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) progbuf_d : 256'h0000000000000000000000000000000000000000000000000000000000000000;
+  assign _193_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) sbdata_d : 64'h0000000000000000;
+  assign _194_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) sbaddr_d : 64'h0000000000000000;
   assign _128_[29:0] = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) { 1'h1, sbcs_d[28:22], sbbusy_i, sbcs_d[20:12], 12'h407 } : 30'h00040000;
   assign _092_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) abstractauto_d : 32'd0;
-  assign _137_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) cmd_valid_d : 1'h0;
-  assign _150_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) command_d : 32'd0;
-  assign _147_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) cmderr_d : 3'h0;
-  assign _157_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) { dmcontrol_d[31:30], 28'h0000000, dmcontrol_d[1:0] } : { 31'h00000000, dmcontrol_d[0] };
+  assign _138_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) cmd_valid_d : 1'h0;
+  assign _151_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) command_d : 32'd0;
+  assign _148_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) cmderr_d : 3'h0;
+  assign _158_ = dmcontrol_q[0] ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_csrs.sv:630.34-654.10|ip/riscv-dbg/src/dm_csrs.sv:630.7-665.10" *) { dmcontrol_d[31:30], 28'h0000000, dmcontrol_d[1:0] } : { 31'h00000000, dmcontrol_d[0] };
   assign resumereq_o = _067_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:576.50-579.8|ip/riscv-dbg/src/dm_csrs.sv:576.5-579.8" *) _072_ : 1'h0;
   assign haltreq_o = _067_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:576.50-579.8|ip/riscv-dbg/src/dm_csrs.sv:576.5-579.8" *) _071_ : 1'h0;
-  assign haltsum2 = _027_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:151.7-151.57|ip/riscv-dbg/src/dm_csrs.sv:150.5-152.8" *) _038_ : 32'd0;
+  assign { _129_[31:30], haltsum2 } = _027_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:151.7-151.57|ip/riscv-dbg/src/dm_csrs.sv:150.5-152.8" *) _038_ : 32'd0;
   assign haltsum1 = _081_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:134.7-134.49|ip/riscv-dbg/src/dm_csrs.sv:133.5-135.8" *) _089_ : 32'd0;
   assign haltsum0 = _053_ ? (* src = "ip/riscv-dbg/src/dm_csrs.sv:117.7-117.49|ip/riscv-dbg/src/dm_csrs.sv:116.5-118.8" *) _076_ : 32'd0;
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:596.5" *)
@@ -30436,8 +30439,9 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign _126_[8:6] = 3'hx;
   assign { _127_[31:22], _127_[20:15] } = { 3'hx, sbcs_d[28:22], sbcs_d[20:15] };
   assign _128_[31:30] = 2'h0;
-  assign { _156_[31], _156_[1:0] } = { dmcontrol_d[31], dmcontrol_d[1:0] };
-  assign _189_[33:2] = resp_queue_inp[33:2];
+  assign _129_[29:0] = haltsum2;
+  assign { _157_[31], _157_[1:0] } = { dmcontrol_d[31], dmcontrol_d[1:0] };
+  assign _190_[33:2] = resp_queue_inp[33:2];
   assign abstractcs = { cmdbusy_i, 1'h0, cmderr_q, 8'h02 };
   assign cmd_o = command_q;
   assign cmd_valid_o = cmd_valid_q;
@@ -30559,18 +30563,22 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   wire _073_;
   (* unused_bits = "1" *)
   wire [1:0] _074_;
-  wire _075_;
+  (* unused_bits = "1" *)
+  wire [1:0] _075_;
   wire _076_;
   wire _077_;
   wire _078_;
   wire _079_;
   wire _080_;
   wire [1:0] _081_;
-  wire _082_;
+  (* unused_bits = "1" *)
+  wire [1:0] _082_;
   wire _083_;
   wire _084_;
-  wire _085_;
-  wire _086_;
+  (* unused_bits = "1" *)
+  wire [1:0] _085_;
+  (* unused_bits = "1" *)
+  wire [1:0] _086_;
   wire _087_;
   wire [14:0] _088_;
   wire [126:0] _089_;
@@ -30944,12 +30952,12 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign _074_[1] = _110_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:243.7-243.41" *) _072_ : 1'h0;
   assign _081_[0] = _111_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:251.13-251.49" *) _079_ : 1'h0;
   assign _081_[1] = _112_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:251.13-251.49" *) _079_ : 1'h0;
-  assign _085_ = halted_q & _114_;
+  assign _085_[0] = halted_q & _114_;
   assign _114_ = ~ _081_[0];
-  assign _075_ = resuming_q & _115_;
+  assign _075_[0] = resuming_q & _115_;
   assign _115_ = ~ _074_[0];
-  assign _082_ = halted_q | _081_[0];
-  assign _086_ = _162_[0] | _081_[0];
+  assign _082_[0] = halted_q | _081_[0];
+  assign _086_[0] = _162_[0] | _081_[0];
   assign _043_ = { resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go } & _041_[15:0];
   assign _113_ = | { _168_, _166_, _164_ };
   (* src = "ip/riscv-dbg/src/dm_mem.sv:522.3" *)
@@ -31043,7 +31051,7 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign _131_ = _000_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:270.17-280.20|ip/riscv-dbg/src/dm_mem.sv:269.15-281.18" *) { _132_, _130_, _129_, _138_ } : data_i[31:0];
   assign _139_ = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:266.39-283.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) 1'h1 : 1'h0;
   assign _127_ = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:266.39-283.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) { _136_, _131_ } : data_i;
-  assign _158_[0] = _084_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:257.25-262.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _086_ : _162_[0];
+  assign _158_[0] = _084_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:257.25-262.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _086_[0] : _162_[0];
   assign _146_ = _076_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:250.23-253.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _081_ : 2'h0;
   function [0:0] _337_;
     input [0:0] a;
@@ -31062,7 +31070,7 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
         _337_ = a;
     endcase
   endfunction
-  assign _116_[0] = _337_(halted_q, { _082_, _085_ }, { _076_, _084_ });
+  assign _116_[0] = _337_(halted_q, { _082_[0], _085_[0] }, { _076_, _084_ });
   assign _141_ = _087_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:264.26-264.43|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) 1'h1 : 1'h0;
   assign _144_ = _083_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:255.13-255.26|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) 1'h1 : 1'h0;
   assign _140_ = we_i ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:249.9-285.16|ip/riscv-dbg/src/dm_mem.sv:248.7-340.10" *) _139_ : 1'h0;
@@ -31081,7 +31089,7 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign rdata_d = req_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:248.7-340.10|ip/riscv-dbg/src/dm_mem.sv:246.5-341.8" *) _160_ : rdata_q;
   assign exception = req_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:248.7-340.10|ip/riscv-dbg/src/dm_mem.sv:246.5-341.8" *) _142_ : 1'h0;
   assign going = req_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:248.7-340.10|ip/riscv-dbg/src/dm_mem.sv:246.5-341.8" *) _145_ : 1'h0;
-  assign _162_[0] = clear_resumeack_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:243.7-243.42|ip/riscv-dbg/src/dm_mem.sv:242.5-244.8" *) _075_ : resuming_q;
+  assign _162_[0] = clear_resumeack_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:243.7-243.42|ip/riscv-dbg/src/dm_mem.sv:242.5-244.8" *) _075_[0] : resuming_q;
   assign state_d = ndmreset_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:206.21-211.8|ip/riscv-dbg/src/dm_mem.sv:206.5-211.8" *) 2'h0 : _170_;
   assign go = ndmreset_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:206.21-211.8|ip/riscv-dbg/src/dm_mem.sv:206.5-211.8" *) 1'h0 : _143_;
   assign resume = ndmreset_i ? (* src = "ip/riscv-dbg/src/dm_mem.sv:206.21-211.8|ip/riscv-dbg/src/dm_mem.sv:206.5-211.8" *) 1'h0 : _173_;
@@ -31553,7 +31561,7 @@ module \dm_sba$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign be_idx_masked = sbaddress_i[1:0] & (* src = "ip/riscv-dbg/src/dm_sba.sv:201.28-201.63" *) sbaccess_mask[1:0];
   assign _017_ = 4'h8 * (* src = "ip/riscv-dbg/src/dm_sba.sv:205.55-205.72" *) be_idx_masked;
   assign master_wdata_o = sbdata_i << (* src = "ip/riscv-dbg/src/dm_sba.sv:205.28-205.73" *) _017_;
-  assign sbdata_o = master_r_rdata_i >> (* src = "ip/riscv-dbg/src/dm_sba.sv:209.28-209.81" *) _017_;
+  assign sbdata_o = master_r_rdata_i >> (* src = "ip/riscv-dbg/src/dm_sba.sv:209.28-209.81" *) { 26'h0000000, _017_ };
   assign _020_ = sbaddress_i[1:0] == (* src = "ip/riscv-dbg/src/dm_sba.sv:77.9-77.29" *) 2'h0;
   assign _021_ = sbaddress_i[1:0] == (* src = "ip/riscv-dbg/src/dm_sba.sv:77.9-77.29" *) 2'h1;
   assign _022_ = sbaddress_i[1:0] == (* src = "ip/riscv-dbg/src/dm_sba.sv:77.9-77.29" *) 2'h2;
@@ -33991,10 +33999,10 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   wire _00_;
   wire [17:0] _01_;
   wire _02_;
-  wire [4:0] _03_;
+  (* unused_bits = "5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _03_;
   wire _04_;
-  (* unused_bits = "22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _05_;
+  wire [21:0] _05_;
   wire [17:0] _06_;
   wire [18:0] _07_;
   wire _08_;
@@ -34081,8 +34089,8 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   assign _04_ = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:73.21-73.36" *) shift_cnt;
   assign _01_ = 14'h2000 * (* src = "ip/fabric_config/fabric_spi_controller.sv:110.50-110.76" *) slot_i;
   assign _02_ = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:122.31-122.38" *) sclk_o;
-  assign _03_ = shift_cnt - (* src = "ip/fabric_config/fabric_spi_controller.sv:126.38-126.49" *) 1'h1;
-  assign _05_[21:0] = address_counter_words + (* src = "ip/fabric_config/fabric_spi_controller.sv:146.46-146.71" *) 1'h1;
+  assign _03_[4:0] = shift_cnt - (* src = "ip/fabric_config/fabric_spi_controller.sv:126.38-126.49" *) 1'h1;
+  assign _05_ = address_counter_words + (* src = "ip/fabric_config/fabric_spi_controller.sv:146.46-146.71" *) 1'h1;
   assign cs_no = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:159.20-159.43" *) busy_o;
   assign _06_ = 14'h2000 * (* src = "ip/fabric_config/fabric_spi_controller.sv:75.46-75.68" *) slot;
   assign _07_ = _06_ + (* src = "ip/fabric_config/fabric_spi_controller.sv:75.46-75.91" *) 13'h11d6;
@@ -34122,7 +34130,7 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) slot <= 4'h0;
     else slot <= _26_;
-  assign _20_ = sclk_o ? (* src = "ip/fabric_config/fabric_spi_controller.sv:140.33-143.24|ip/fabric_config/fabric_spi_controller.sv:140.21-143.24" *) _03_ : shift_cnt;
+  assign _20_ = sclk_o ? (* src = "ip/fabric_config/fabric_spi_controller.sv:140.33-143.24|ip/fabric_config/fabric_spi_controller.sv:140.21-143.24" *) _03_[4:0] : shift_cnt;
   assign _21_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:136.31-144.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 3'h4;
   assign _23_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:121.31-129.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 2'h2;
   assign _22_ = sclk_o ? (* src = "ip/fabric_config/fabric_spi_controller.sv:125.33-128.24|ip/fabric_config/fabric_spi_controller.sv:125.21-128.24" *) { shift_register[30:0], miso_i } : shift_register;
@@ -34145,7 +34153,7 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
         _63_ = a;
     endcase
   endfunction
-  assign _10_ = _63_(address_counter_words, { _09_, _05_[21:0] }, { _25_, _27_ });
+  assign _10_ = _63_(address_counter_words, { _09_, _05_ }, { _25_, _27_ });
   assign _27_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 3'h5;
   function [4:0] _65_;
     input [4:0] a;
@@ -36428,12 +36436,13 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_mux.
   wire _02_;
   wire [1:0] _03_;
   wire _04_;
-  (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _05_;
+  wire [1:0] _05_;
   wire _06_;
   wire _07_;
-  wire _08_;
-  wire [1:0] _09_;
+  (* unused_bits = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _08_;
+  (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _09_;
   wire _10_;
   wire _11_;
   wire _12_;
@@ -36513,11 +36522,11 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_mux.
   );
   defparam _30_.WIDTH = 32'd2;
   assign _04_ = write_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:83.35-83.54" *) 1'h1;
-  assign _05_[1:0] = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
+  assign _05_ = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
   assign _06_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:88.22-88.30" *) empty_o;
   assign _07_ = pop_i && (* src = "ip/common_cells/src/fifo_v3.sv:88.13-88.30" *) _06_;
-  assign _08_ = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
-  assign _09_ = status_cnt_q - (* src = "ip/common_cells/src/fifo_v3.sv:97.30-97.46" *) 1'h1;
+  assign _08_[0] = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
+  assign _09_[1:0] = status_cnt_q - (* src = "ip/common_cells/src/fifo_v3.sv:97.30-97.46" *) 1'h1;
   assign _10_ = push_i && (* src = "ip/common_cells/src/fifo_v3.sv:101.13-101.28" *) pop_i;
   assign _11_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:101.33-101.40" *) full_o;
   assign _12_ = _10_ && (* src = "ip/common_cells/src/fifo_v3.sv:101.13-101.40" *) _11_;
@@ -36546,11 +36555,11 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_mux.
   assign _18_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : write_pointer_n;
   assign _19_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : read_pointer_n;
   assign status_cnt_n = _13_ ? (* src = "ip/common_cells/src/fifo_v3.sv:102.13-102.43|ip/common_cells/src/fifo_v3.sv:101.9-102.43" *) status_cnt_q : _21_;
-  assign _20_ = read_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:93.17-93.37|ip/common_cells/src/fifo_v3.sv:92.13-95.53" *) _08_ : 1'h0;
-  assign _21_ = _07_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _09_ : _23_;
+  assign _20_ = read_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:93.17-93.37|ip/common_cells/src/fifo_v3.sv:92.13-95.53" *) _08_[0] : 1'h0;
+  assign _21_ = _07_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _09_[1:0] : _23_;
   assign read_pointer_n = _07_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _20_ : read_pointer_q;
   assign _22_ = write_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:81.17-81.38|ip/common_cells/src/fifo_v3.sv:80.13-83.55" *) _04_ : 1'h0;
-  assign _23_ = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _05_[1:0] : status_cnt_q;
+  assign _23_ = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _05_ : status_cnt_q;
   assign write_pointer_n = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _22_ : write_pointer_q;
   assign usage_o = status_cnt_q[0];
 endmodule
@@ -36562,11 +36571,11 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_periph_e
   wire _02_;
   wire _03_;
   wire _04_;
-  (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _05_;
+  wire [1:0] _05_;
   wire _06_;
   wire _07_;
-  wire _08_;
+  (* unused_bits = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _08_;
   (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] _09_;
   wire _10_;
@@ -36648,10 +36657,10 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_periph_e
   );
   defparam _30_.WIDTH = 32'd1;
   assign _04_ = write_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:83.35-83.54" *) 1'h1;
-  assign _05_[1:0] = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
+  assign _05_ = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
   assign _06_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:88.22-88.30" *) empty_o;
   assign _07_ = pop_i && (* src = "ip/common_cells/src/fifo_v3.sv:88.13-88.30" *) _06_;
-  assign _08_ = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
+  assign _08_[0] = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
   assign _09_[1:0] = status_cnt_q - (* src = "ip/common_cells/src/fifo_v3.sv:97.30-97.46" *) 1'h1;
   assign _10_ = push_i && (* src = "ip/common_cells/src/fifo_v3.sv:101.13-101.28" *) pop_i;
   assign _11_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:101.33-101.40" *) full_o;
@@ -36681,11 +36690,11 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_periph_e
   assign _18_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : write_pointer_n;
   assign _19_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : read_pointer_n;
   assign status_cnt_n = _13_ ? (* src = "ip/common_cells/src/fifo_v3.sv:102.13-102.43|ip/common_cells/src/fifo_v3.sv:101.9-102.43" *) status_cnt_q : _21_;
-  assign _20_ = read_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:93.17-93.37|ip/common_cells/src/fifo_v3.sv:92.13-95.53" *) _08_ : 1'h0;
+  assign _20_ = read_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:93.17-93.37|ip/common_cells/src/fifo_v3.sv:92.13-95.53" *) _08_[0] : 1'h0;
   assign _21_ = _07_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _09_[1:0] : _23_;
   assign read_pointer_n = _07_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _20_ : read_pointer_q;
   assign _22_ = write_pointer_q ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:81.17-81.38|ip/common_cells/src/fifo_v3.sv:80.13-83.55" *) _04_ : 1'h0;
-  assign _23_ = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _05_[1:0] : status_cnt_q;
+  assign _23_ = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _05_ : status_cnt_q;
   assign write_pointer_n = _14_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _22_ : write_pointer_q;
   assign usage_o = status_cnt_q[0];
 endmodule
@@ -57635,26 +57644,26 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   wire _01_;
   wire _02_;
   wire _03_;
-  (* src = "src/debug/fpga_dm.sv:205.13-207.16" *)
+  (* src = "src/debug/fpga_dm.sv:204.13-206.16" *)
   wire _04_;
   wire _05_;
   wire _06_;
   wire [31:0] _07_;
   wire [202:0] boundary_scan_custom_instr_in_packed;
-  (* src = "src/debug/fpga_dm.sv:334.10" *)
+  (* src = "src/debug/fpga_dm.sv:339.10" *)
   wire [101:0] boundary_scan_custom_instr_in_td;
   wire [88:0] boundary_scan_custom_instr_out_packed;
-  (* src = "src/debug/fpga_dm.sv:371.10" *)
+  (* src = "src/debug/fpga_dm.sv:376.10" *)
   wire [44:0] boundary_scan_custom_instr_out_td;
-  (* src = "src/debug/fpga_dm.sv:255.10" *)
+  (* src = "src/debug/fpga_dm.sv:260.10" *)
   wire [32:0] boundary_scan_io_west_td;
-  (* src = "src/debug/fpga_dm.sv:297.10" *)
+  (* src = "src/debug/fpga_dm.sv:302.10" *)
   wire [4:0] boundary_scan_irq_td;
   wire [124:0] boundary_scan_obi_periph_in_packed;
-  (* src = "src/debug/fpga_dm.sv:410.10" *)
+  (* src = "src/debug/fpga_dm.sv:415.10" *)
   wire [62:0] boundary_scan_obi_periph_in_td;
   wire [68:0] boundary_scan_obi_periph_out_packed;
-  (* src = "src/debug/fpga_dm.sv:447.10" *)
+  (* src = "src/debug/fpga_dm.sv:452.10" *)
   wire [34:0] boundary_scan_obi_periph_out_td;
   (* src = "src/debug/fpga_dm.sv:126.11" *)
   wire boundary_scan_tdi;
@@ -57680,7 +57689,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   reg ejtag_q;
   (* src = "src/debug/fpga_dm.sv:116.29" *)
   wire ejtag_valid;
-  (* src = "src/debug/fpga_dm.sv:212.17" *)
+  (* src = "src/debug/fpga_dm.sv:211.17" *)
   reg [1:0] en_jtag_receiver_d;
   (* src = "src/debug/fpga_dm.sv:21.25" *)
   output en_jtag_receiver_o;
@@ -57837,11 +57846,11 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   wire fabric_result_valid_o;
   (* src = "src/debug/fpga_dm.sv:118.49" *)
   wire isc_ext_conf;
-  (* src = "src/debug/fpga_dm.sv:238.17" *)
+  (* src = "src/debug/fpga_dm.sv:237.17" *)
   reg [2:0] isc_ext_conf_d;
   (* src = "src/debug/fpga_dm.sv:118.35" *)
   wire isc_ext_prog;
-  (* src = "src/debug/fpga_dm.sv:237.17" *)
+  (* src = "src/debug/fpga_dm.sv:236.17" *)
   reg [2:0] isc_ext_prog_d;
   (* src = "src/debug/fpga_dm.sv:119.18" *)
   wire [31:0] isc_pdata;
@@ -57895,41 +57904,43 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   wire usercode_valid_d;
   (* src = "src/debug/fpga_dm.sv:122.36" *)
   reg usercode_valid_q;
-  assign _00_ = fabric_bitstream_data_i == (* src = "src/debug/fpga_dm.sv:172.59-172.99" *) 24'haaff01;
-  assign usercode_valid_d = fabric_bitstream_valid_i & (* src = "src/debug/fpga_dm.sv:172.31-172.100" *) _00_;
-  assign _01_ = ~ (* src = "src/debug/fpga_dm.sv:243.27-243.45" *) isc_ext_prog_d[2];
-  assign isc_ext_prog = _01_ & (* src = "src/debug/fpga_dm.sv:243.27-243.65" *) isc_ext_prog_d[1];
-  assign _02_ = ~ (* src = "src/debug/fpga_dm.sv:244.27-244.45" *) isc_ext_conf_d[2];
-  assign isc_ext_conf = _02_ & (* src = "src/debug/fpga_dm.sv:244.27-244.65" *) isc_ext_conf_d[1];
-  assign _03_ = usercode_valid_q & (* src = "src/debug/fpga_dm.sv:178.17-178.60" *) fabric_bitstream_valid_i;
-  (* src = "src/debug/fpga_dm.sv:201.5" *)
+  assign _00_ = fabric_bitstream_data_i == (* src = "src/debug/fpga_dm.sv:171.59-171.99" *) 24'haaff01;
+  assign usercode_valid_d = fabric_bitstream_valid_i & (* src = "src/debug/fpga_dm.sv:171.31-171.100" *) _00_;
+  assign _01_ = ~ (* src = "src/debug/fpga_dm.sv:248.27-248.45" *) isc_ext_prog_d[2];
+  assign isc_ext_prog = _01_ & (* src = "src/debug/fpga_dm.sv:248.27-248.65" *) isc_ext_prog_d[1];
+  assign _02_ = ~ (* src = "src/debug/fpga_dm.sv:249.27-249.45" *) isc_ext_conf_d[2];
+  assign isc_ext_conf = _02_ & (* src = "src/debug/fpga_dm.sv:249.27-249.65" *) isc_ext_conf_d[1];
+  assign _03_ = usercode_valid_q & (* src = "src/debug/fpga_dm.sv:177.17-177.60" *) fabric_bitstream_valid_i;
+  (* src = "src/debug/fpga_dm.sv:200.5" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) ejtag_q <= 1'h0;
     else ejtag_q <= _04_;
-  (* src = "src/debug/fpga_dm.sv:213.5" *)
+  (* src = "src/debug/fpga_dm.sv:212.5" *)
   always_ff @(posedge clk_i)
     en_jtag_receiver_d <= { en_jtag_receiver_d[0], ejtag_q };
-  (* src = "src/debug/fpga_dm.sv:239.5" *)
-  always_ff @(posedge tck_i)
-    isc_ext_conf_d <= { isc_ext_conf_d[1:0], fabric_configured_i };
-  (* src = "src/debug/fpga_dm.sv:239.5" *)
-  always_ff @(posedge tck_i)
-    isc_ext_prog_d <= { isc_ext_prog_d[1:0], fabric_busy_i };
-  (* src = "src/debug/fpga_dm.sv:194.5" *)
+  (* src = "src/debug/fpga_dm.sv:238.5" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) isc_ext_conf_d <= 3'h0;
+    else isc_ext_conf_d <= { isc_ext_conf_d[1:0], fabric_configured_i };
+  (* src = "src/debug/fpga_dm.sv:238.5" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) isc_ext_prog_d <= 3'h0;
+    else isc_ext_prog_d <= { isc_ext_prog_d[1:0], fabric_busy_i };
+  (* src = "src/debug/fpga_dm.sv:193.5" *)
   always_ff @(posedge tck_i)
     jtag_usercode_q <= usercode_q;
-  (* src = "src/debug/fpga_dm.sv:173.5" *)
+  (* src = "src/debug/fpga_dm.sv:172.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) usercode_q <= 32'd0;
     else usercode_q <= _07_;
-  (* src = "src/debug/fpga_dm.sv:173.5" *)
+  (* src = "src/debug/fpga_dm.sv:172.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) usercode_valid_q <= 1'h0;
     else usercode_valid_q <= _05_;
-  assign _04_ = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:206.17-206.36|src/debug/fpga_dm.sv:205.13-207.16" *) ejtag_d : ejtag_q;
-  assign _05_ = usercode_valid_d ? (* src = "src/debug/fpga_dm.sv:187.17-187.42|src/debug/fpga_dm.sv:186.13-188.16" *) 1'h1 : _06_;
-  assign _06_ = fabric_bitstream_valid_i ? (* src = "src/debug/fpga_dm.sv:183.17-183.42|src/debug/fpga_dm.sv:182.13-184.16" *) 1'h0 : usercode_valid_q;
-  assign _07_ = _03_ ? (* src = "src/debug/fpga_dm.sv:179.17-179.55|src/debug/fpga_dm.sv:178.13-180.16" *) fabric_bitstream_data_i : usercode_q;
+  assign _04_ = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:205.17-205.36|src/debug/fpga_dm.sv:204.13-206.16" *) ejtag_d : ejtag_q;
+  assign _05_ = usercode_valid_d ? (* src = "src/debug/fpga_dm.sv:186.17-186.42|src/debug/fpga_dm.sv:185.13-187.16" *) 1'h1 : _06_;
+  assign _06_ = fabric_bitstream_valid_i ? (* src = "src/debug/fpga_dm.sv:182.17-182.42|src/debug/fpga_dm.sv:181.13-183.16" *) 1'h0 : usercode_valid_q;
+  assign _07_ = _03_ ? (* src = "src/debug/fpga_dm.sv:178.17-178.55|src/debug/fpga_dm.sv:177.13-179.16" *) fabric_bitstream_data_i : usercode_q;
   (* src = "src/debug/fpga_dm.sv:108.23" *)
   \tc_clk_gating$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk1.i_clk_gate  \genblk1.i_clk_gate  (
     .clk_i(clk_fabric_m),
@@ -57943,7 +57954,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .clk_o(clk_fabric_m),
     .clk_sel_i(testmode)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[0].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[0].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -57958,7 +57969,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[10].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[10].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -57973,7 +57984,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[11].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[11].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -57988,7 +57999,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[12].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[12].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58003,7 +58014,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[13].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[13].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58018,7 +58029,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[14].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[14].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58033,7 +58044,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[15].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[15].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58048,7 +58059,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[16].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[16].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58063,7 +58074,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[17].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[17].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58078,7 +58089,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[18].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[18].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58093,7 +58104,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[19].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[19].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58108,7 +58119,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[1].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[1].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58123,7 +58134,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[20].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[20].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58138,7 +58149,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[21].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[21].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58153,7 +58164,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[22].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[22].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58168,7 +58179,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[23].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[23].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58183,7 +58194,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[24].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[24].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58198,7 +58209,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[25].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[25].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58213,7 +58224,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[26].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[26].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58228,7 +58239,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[27].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[27].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58243,7 +58254,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[28].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[28].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58258,7 +58269,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[29].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[29].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58273,7 +58284,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[2].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[2].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58288,7 +58299,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[30].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[30].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58303,7 +58314,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[31].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[31].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58318,7 +58329,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[32].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[32].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58333,7 +58344,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[33].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[33].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58348,7 +58359,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[3].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[3].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58363,7 +58374,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[4].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[4].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58378,7 +58389,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[5].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[5].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58393,7 +58404,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[6].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[6].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58408,7 +58419,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[7].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[7].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58423,7 +58434,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[8].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[8].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58438,7 +58449,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:455.39" *)
+  (* src = "src/debug/fpga_dm.sv:460.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk10.BSR_OBI_PERIPHERAL_OUTPUT[9].fpga_boundary_cell_out_custom_instruction  \genblk10.BSR_OBI_PERIPHERAL_OUTPUT[9].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -58453,7 +58464,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[0].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[0].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[0]),
@@ -58474,7 +58485,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[10].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[10].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[10]),
@@ -58495,7 +58506,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[11].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[11].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[11]),
@@ -58516,7 +58527,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[12].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[12].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[12]),
@@ -58537,7 +58548,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[13].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[13].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[13]),
@@ -58558,7 +58569,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[14].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[14].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[14]),
@@ -58579,7 +58590,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[15].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[15].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[15]),
@@ -58600,7 +58611,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[16].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[16].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[16]),
@@ -58621,7 +58632,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[17].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[17].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[17]),
@@ -58642,7 +58653,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[18].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[18].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[18]),
@@ -58663,7 +58674,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[19].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[19].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[19]),
@@ -58684,7 +58695,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[1].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[1].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[1]),
@@ -58705,7 +58716,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[20].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[20].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[20]),
@@ -58726,7 +58737,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[21].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[21].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[21]),
@@ -58747,7 +58758,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[22].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[22].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[22]),
@@ -58768,7 +58779,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[23].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[23].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[23]),
@@ -58789,7 +58800,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[24].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[24].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[24]),
@@ -58810,7 +58821,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[25].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[25].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[25]),
@@ -58831,7 +58842,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[26].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[26].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[26]),
@@ -58852,7 +58863,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[27].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[27].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[27]),
@@ -58873,7 +58884,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[28].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[28].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[28]),
@@ -58894,7 +58905,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[29].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[29].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[29]),
@@ -58915,7 +58926,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[2].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[2].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[2]),
@@ -58936,7 +58947,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[30].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[30].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[30]),
@@ -58957,7 +58968,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[31].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[31].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[31]),
@@ -58978,7 +58989,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[3].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[3].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[3]),
@@ -58999,7 +59010,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[4].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[4].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[4]),
@@ -59020,7 +59031,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[5].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[5].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[5]),
@@ -59041,7 +59052,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[6].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[6].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[6]),
@@ -59062,7 +59073,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[7].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[7].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[7]),
@@ -59083,7 +59094,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[8].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[8].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[8]),
@@ -59104,7 +59115,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:259.38" *)
+  (* src = "src/debug/fpga_dm.sv:264.38" *)
   \fpga_boundary_cell_inout$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk2.BSR_IO_WEST[9].fpga_boundary_cell_io_west  \genblk2.BSR_IO_WEST[9].fpga_boundary_cell_io_west  (
     .capture_bsr_select_i(capture_bsr_select),
     .enable_pin_o(fabric_enable_pin_o[9]),
@@ -59125,7 +59136,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:308.39" *)
+  (* src = "src/debug/fpga_dm.sv:313.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk6.BSR_CPU_IRQ[0].fpga_boundary_cell_out_irq  \genblk6.BSR_CPU_IRQ[0].fpga_boundary_cell_out_irq  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -59140,7 +59151,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:308.39" *)
+  (* src = "src/debug/fpga_dm.sv:313.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk6.BSR_CPU_IRQ[1].fpga_boundary_cell_out_irq  \genblk6.BSR_CPU_IRQ[1].fpga_boundary_cell_out_irq  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -59155,7 +59166,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:308.39" *)
+  (* src = "src/debug/fpga_dm.sv:313.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk6.BSR_CPU_IRQ[2].fpga_boundary_cell_out_irq  \genblk6.BSR_CPU_IRQ[2].fpga_boundary_cell_out_irq  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -59170,7 +59181,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:308.39" *)
+  (* src = "src/debug/fpga_dm.sv:313.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk6.BSR_CPU_IRQ[3].fpga_boundary_cell_out_irq  \genblk6.BSR_CPU_IRQ[3].fpga_boundary_cell_out_irq  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -59185,7 +59196,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[0].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[0].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_id_o[0]),
@@ -59200,7 +59211,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[100].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[100].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_valid_o),
@@ -59215,7 +59226,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[10].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[10].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[6]),
@@ -59230,7 +59241,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[11].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[11].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[7]),
@@ -59245,7 +59256,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[12].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[12].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[8]),
@@ -59260,7 +59271,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[13].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[13].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[9]),
@@ -59275,7 +59286,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[14].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[14].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[10]),
@@ -59290,7 +59301,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[15].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[15].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[11]),
@@ -59305,7 +59316,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[16].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[16].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[12]),
@@ -59320,7 +59331,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[17].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[17].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[13]),
@@ -59335,7 +59346,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[18].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[18].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[14]),
@@ -59350,7 +59361,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[19].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[19].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[15]),
@@ -59365,7 +59376,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[1].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[1].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_id_o[1]),
@@ -59380,7 +59391,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[20].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[20].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[16]),
@@ -59395,7 +59406,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[21].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[21].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[17]),
@@ -59410,7 +59421,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[22].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[22].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[18]),
@@ -59425,7 +59436,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[23].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[23].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[19]),
@@ -59440,7 +59451,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[24].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[24].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[20]),
@@ -59455,7 +59466,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[25].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[25].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[21]),
@@ -59470,7 +59481,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[26].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[26].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[22]),
@@ -59485,7 +59496,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[27].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[27].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[23]),
@@ -59500,7 +59511,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[28].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[28].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[24]),
@@ -59515,7 +59526,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[29].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[29].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[25]),
@@ -59530,7 +59541,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[2].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[2].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_id_o[2]),
@@ -59545,7 +59556,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[30].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[30].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[26]),
@@ -59560,7 +59571,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[31].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[31].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[27]),
@@ -59575,7 +59586,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[32].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[32].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[28]),
@@ -59590,7 +59601,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[33].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[33].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[29]),
@@ -59605,7 +59616,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[34].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[34].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[30]),
@@ -59620,7 +59631,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[35].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[35].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[31]),
@@ -59635,7 +59646,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[36].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[36].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[0]),
@@ -59650,7 +59661,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[37].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[37].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[1]),
@@ -59665,7 +59676,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[38].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[38].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[2]),
@@ -59680,7 +59691,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[39].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[39].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[3]),
@@ -59695,7 +59706,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[3].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[3].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_id_o[3]),
@@ -59710,7 +59721,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[40].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[40].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[4]),
@@ -59725,7 +59736,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[41].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[41].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[5]),
@@ -59740,7 +59751,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[42].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[42].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[6]),
@@ -59755,7 +59766,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[43].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[43].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[7]),
@@ -59770,7 +59781,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[44].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[44].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[8]),
@@ -59785,7 +59796,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[45].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[45].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[9]),
@@ -59800,7 +59811,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[46].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[46].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[10]),
@@ -59815,7 +59826,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[47].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[47].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[11]),
@@ -59830,7 +59841,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[48].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[48].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[12]),
@@ -59845,7 +59856,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[49].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[49].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[13]),
@@ -59860,7 +59871,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[4].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[4].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[0]),
@@ -59875,7 +59886,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[50].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[50].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[14]),
@@ -59890,7 +59901,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[51].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[51].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[15]),
@@ -59905,7 +59916,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[52].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[52].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[16]),
@@ -59920,7 +59931,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[53].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[53].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[17]),
@@ -59935,7 +59946,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[54].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[54].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[18]),
@@ -59950,7 +59961,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[55].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[55].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[19]),
@@ -59965,7 +59976,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[56].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[56].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[20]),
@@ -59980,7 +59991,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[57].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[57].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[21]),
@@ -59995,7 +60006,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[58].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[58].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[22]),
@@ -60010,7 +60021,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[59].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[59].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[23]),
@@ -60025,7 +60036,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[5].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[5].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[1]),
@@ -60040,7 +60051,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[60].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[60].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[24]),
@@ -60055,7 +60066,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[61].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[61].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[25]),
@@ -60070,7 +60081,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[62].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[62].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[26]),
@@ -60085,7 +60096,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[63].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[63].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[27]),
@@ -60100,7 +60111,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[64].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[64].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[28]),
@@ -60115,7 +60126,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[65].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[65].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[29]),
@@ -60130,7 +60141,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[66].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[66].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[30]),
@@ -60145,7 +60156,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[67].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[67].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op0_o[31]),
@@ -60160,7 +60171,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[68].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[68].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[0]),
@@ -60175,7 +60186,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[69].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[69].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[1]),
@@ -60190,7 +60201,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[6].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[6].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[2]),
@@ -60205,7 +60216,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[70].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[70].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[2]),
@@ -60220,7 +60231,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[71].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[71].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[3]),
@@ -60235,7 +60246,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[72].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[72].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[4]),
@@ -60250,7 +60261,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[73].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[73].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[5]),
@@ -60265,7 +60276,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[74].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[74].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[6]),
@@ -60280,7 +60291,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[75].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[75].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[7]),
@@ -60295,7 +60306,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[76].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[76].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[8]),
@@ -60310,7 +60321,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[77].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[77].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[9]),
@@ -60325,7 +60336,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[78].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[78].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[10]),
@@ -60340,7 +60351,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[79].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[79].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[11]),
@@ -60355,7 +60366,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[7].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[7].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[3]),
@@ -60370,7 +60381,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[80].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[80].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[12]),
@@ -60385,7 +60396,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[81].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[81].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[13]),
@@ -60400,7 +60411,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[82].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[82].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[14]),
@@ -60415,7 +60426,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[83].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[83].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[15]),
@@ -60430,7 +60441,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[84].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[84].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[16]),
@@ -60445,7 +60456,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[85].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[85].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[17]),
@@ -60460,7 +60471,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[86].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[86].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[18]),
@@ -60475,7 +60486,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[87].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[87].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[19]),
@@ -60490,7 +60501,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[88].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[88].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[20]),
@@ -60505,7 +60516,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[89].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[89].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[21]),
@@ -60520,7 +60531,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[8].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[8].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[4]),
@@ -60535,7 +60546,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[90].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[90].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[22]),
@@ -60550,7 +60561,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[91].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[91].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[23]),
@@ -60565,7 +60576,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[92].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[92].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[24]),
@@ -60580,7 +60591,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[93].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[93].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[25]),
@@ -60595,7 +60606,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[94].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[94].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[26]),
@@ -60610,7 +60621,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[95].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[95].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[27]),
@@ -60625,7 +60636,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[96].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[96].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[28]),
@@ -60640,7 +60651,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[97].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[97].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[29]),
@@ -60655,7 +60666,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[98].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[98].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[30]),
@@ -60670,7 +60681,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[99].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[99].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_instr_o[31]),
@@ -60685,7 +60696,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:342.38" *)
+  (* src = "src/debug/fpga_dm.sv:347.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[9].fpga_boundary_cell_in_custom_instruction  \genblk7.BSR_CUSTOM_INSTRUCTION_INPUT[9].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_issue_op1_o[5]),
@@ -60700,7 +60711,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[0].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[0].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60715,7 +60726,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[10].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[10].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60730,7 +60741,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[11].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[11].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60745,7 +60756,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[12].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[12].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60760,7 +60771,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[13].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[13].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60775,7 +60786,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[14].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[14].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60790,7 +60801,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[15].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[15].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60805,7 +60816,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[16].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[16].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60820,7 +60831,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[17].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[17].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60835,7 +60846,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[18].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[18].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60850,7 +60861,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[19].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[19].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60865,7 +60876,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[1].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[1].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60880,7 +60891,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[20].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[20].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60895,7 +60906,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[21].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[21].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60910,7 +60921,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[22].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[22].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60925,7 +60936,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[23].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[23].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60940,7 +60951,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[24].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[24].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60955,7 +60966,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[25].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[25].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60970,7 +60981,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[26].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[26].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -60985,7 +60996,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[27].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[27].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61000,7 +61011,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[28].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[28].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61015,7 +61026,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[29].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[29].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61030,7 +61041,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[2].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[2].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61045,7 +61056,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[30].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[30].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61060,7 +61071,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[31].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[31].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61075,7 +61086,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[32].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[32].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61090,7 +61101,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[33].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[33].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61105,7 +61116,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[34].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[34].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61120,7 +61131,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[35].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[35].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61135,7 +61146,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[36].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[36].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61150,7 +61161,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[37].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[37].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61165,7 +61176,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[38].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[38].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61180,7 +61191,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[39].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[39].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61195,7 +61206,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[3].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[3].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61210,7 +61221,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[40].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[40].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61225,7 +61236,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[41].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[41].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61240,7 +61251,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[42].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[42].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61255,7 +61266,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[43].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[43].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61270,7 +61281,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[4].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[4].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61285,7 +61296,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[5].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[5].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61300,7 +61311,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[6].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[6].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61315,7 +61326,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[7].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[7].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61330,7 +61341,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[8].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[8].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61345,7 +61356,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:379.39" *)
+  (* src = "src/debug/fpga_dm.sv:384.39" *)
   \fpga_boundary_cell_output$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[9].fpga_boundary_cell_out_custom_instruction  \genblk8.BSR_CUSTOM_INSTRUCTION_OUTPUT[9].fpga_boundary_cell_out_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .mode1_i(mode1),
@@ -61360,7 +61371,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[0].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[0].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[0]),
@@ -61375,7 +61386,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[10].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[10].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[10]),
@@ -61390,7 +61401,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[11].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[11].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[11]),
@@ -61405,7 +61416,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[12].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[12].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[12]),
@@ -61420,7 +61431,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[13].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[13].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[13]),
@@ -61435,7 +61446,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[14].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[14].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[14]),
@@ -61450,7 +61461,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[15].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[15].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[15]),
@@ -61465,7 +61476,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[16].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[16].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[16]),
@@ -61480,7 +61491,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[17].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[17].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[17]),
@@ -61495,7 +61506,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[18].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[18].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[18]),
@@ -61510,7 +61521,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[19].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[19].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[19]),
@@ -61525,7 +61536,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[1].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[1].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[1]),
@@ -61540,7 +61551,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[20].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[20].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[20]),
@@ -61555,7 +61566,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[21].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[21].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[21]),
@@ -61570,7 +61581,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[22].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[22].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[22]),
@@ -61585,7 +61596,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[23].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[23].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[23]),
@@ -61600,7 +61611,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[24].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[24].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[24]),
@@ -61615,7 +61626,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[25].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[25].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[25]),
@@ -61630,7 +61641,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[26].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[26].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[26]),
@@ -61645,7 +61656,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[27].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[27].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[27]),
@@ -61660,7 +61671,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[28].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[28].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[28]),
@@ -61675,7 +61686,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[29].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[29].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[29]),
@@ -61690,7 +61701,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[2].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[2].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[2]),
@@ -61705,7 +61716,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[30].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[30].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[30]),
@@ -61720,7 +61731,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[31].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[31].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[31]),
@@ -61735,7 +61746,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[32].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[32].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[0]),
@@ -61750,7 +61761,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[33].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[33].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[1]),
@@ -61765,7 +61776,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[34].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[34].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[2]),
@@ -61780,7 +61791,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[35].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[35].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[3]),
@@ -61795,7 +61806,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[36].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[36].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[4]),
@@ -61810,7 +61821,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[37].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[37].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[5]),
@@ -61825,7 +61836,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[38].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[38].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[6]),
@@ -61840,7 +61851,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[39].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[39].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[7]),
@@ -61855,7 +61866,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[3].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[3].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[3]),
@@ -61870,7 +61881,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[40].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[40].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[8]),
@@ -61885,7 +61896,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[41].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[41].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[9]),
@@ -61900,7 +61911,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[42].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[42].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[10]),
@@ -61915,7 +61926,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[43].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[43].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[11]),
@@ -61930,7 +61941,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[44].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[44].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[12]),
@@ -61945,7 +61956,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[45].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[45].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[13]),
@@ -61960,7 +61971,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[46].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[46].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[14]),
@@ -61975,7 +61986,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[47].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[47].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[15]),
@@ -61990,7 +62001,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[48].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[48].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[16]),
@@ -62005,7 +62016,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[49].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[49].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[17]),
@@ -62020,7 +62031,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[4].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[4].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[4]),
@@ -62035,7 +62046,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[50].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[50].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[18]),
@@ -62050,7 +62061,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[51].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[51].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[19]),
@@ -62065,7 +62076,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[52].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[52].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[20]),
@@ -62080,7 +62091,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[53].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[53].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[21]),
@@ -62095,7 +62106,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[54].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[54].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[22]),
@@ -62110,7 +62121,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[55].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[55].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_addr_o[23]),
@@ -62125,7 +62136,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[56].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[56].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_be_o[0]),
@@ -62140,7 +62151,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[57].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[57].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_be_o[1]),
@@ -62155,7 +62166,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[58].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[58].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_be_o[2]),
@@ -62170,7 +62181,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[59].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[59].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_be_o[3]),
@@ -62185,7 +62196,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[5].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[5].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[5]),
@@ -62200,7 +62211,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[60].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[60].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_we_o),
@@ -62215,7 +62226,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[61].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[61].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_req_o),
@@ -62230,7 +62241,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[6].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[6].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[6]),
@@ -62245,7 +62256,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[7].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[7].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[7]),
@@ -62260,7 +62271,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[8].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[8].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[8]),
@@ -62275,7 +62286,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:418.38" *)
+  (* src = "src/debug/fpga_dm.sv:423.38" *)
   \fpga_boundary_cell_input$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.genblk9.BSR_OBI_PERIPHERAL_INPUT[9].fpga_boundary_cell_in_custom_instruction  \genblk9.BSR_OBI_PERIPHERAL_INPUT[9].fpga_boundary_cell_in_custom_instruction  (
     .capture_bsr_select_i(capture_bsr_select),
     .input_data_o(fabric_obi_wdata_o[9]),
@@ -62290,7 +62301,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .trst_ni(trst_ni),
     .update_bsr_select_i(update_bsr_select)
   );
-  (* src = "src/debug/fpga_dm.sv:221.46" *)
+  (* src = "src/debug/fpga_dm.sv:220.46" *)
   \cdc_2phase_clearable$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_cdc_jtag_out  i_cdc_jtag_out (
     .dst_clear_i(1'h0),
     .dst_clk_i(clk_i),
@@ -62304,7 +62315,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .src_rst_ni(trst_ni),
     .src_valid_i(isc_pdata_valid)
   );
-  (* src = "src/debug/fpga_dm.sv:135.7" *)
+  (* src = "src/debug/fpga_dm.sv:134.7" *)
   \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap  i_dm_jtag_tap (
     .boundary_scan_i(boundary_scan_tdi),
     .boundary_scan_o(boundary_scan_tdo),
@@ -62687,8 +62698,8 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag
   assign _034_ = | { _097_, _096_ };
   assign _035_ = | { _016_, _015_ };
   assign _036_ = | { _085_, _078_ };
-  assign _037_ = | { _103_, _097_, _096_, _095_, _026_, _016_, _015_ };
-  assign _033_ = | { _026_, _016_, _015_ };
+  assign _037_ = | { _103_, _097_, _096_, _095_, _016_, _015_, _026_ };
+  assign _033_ = | { _016_, _015_, _026_ };
   assign _038_ = | { _092_, _085_, _078_ };
   assign _039_ = | { _083_, _082_ };
   assign _040_ = | { _090_, _089_ };
@@ -62985,33 +62996,33 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire _011_;
   wire _012_;
   wire _013_;
-  (* src = "src/greyhound_ihp.sv:494.18-498.12" *)
+  (* src = "src/greyhound_ihp.sv:493.18-497.12" *)
   wire [31:0] _014_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:288.13-327.16" *)
   wire _015_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:288.13-327.16" *)
   wire _016_;
-  (* src = "src/greyhound_ihp.sv:235.9-329.12" *)
+  (* src = "src/greyhound_ihp.sv:235.9-328.12" *)
   wire _017_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:264.13-272.16" *)
   wire _018_;
-  (* src = "src/greyhound_ihp.sv:235.9-329.12" *)
+  (* src = "src/greyhound_ihp.sv:288.13-327.16" *)
   wire _019_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:235.9-328.12" *)
   wire _020_;
-  (* src = "src/greyhound_ihp.sv:235.9-329.12" *)
+  (* src = "src/greyhound_ihp.sv:264.13-272.16" *)
   wire _021_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:288.13-327.16" *)
   wire _022_;
-  (* src = "src/greyhound_ihp.sv:289.13-328.16" *)
+  (* src = "src/greyhound_ihp.sv:288.13-327.16" *)
   wire _023_;
-  (* src = "src/greyhound_ihp.sv:264.13-273.16" *)
+  (* src = "src/greyhound_ihp.sv:264.13-272.16" *)
   wire _024_;
-  (* src = "src/greyhound_ihp.sv:235.9-329.12" *)
+  (* src = "src/greyhound_ihp.sv:235.9-328.12" *)
   wire _025_;
-  (* src = "src/greyhound_ihp.sv:264.13-273.16" *)
+  (* src = "src/greyhound_ihp.sv:264.13-272.16" *)
   wire _026_;
-  (* src = "src/greyhound_ihp.sv:235.9-329.12" *)
+  (* src = "src/greyhound_ihp.sv:235.9-328.12" *)
   wire _027_;
   wire [3:0] _028_;
   wire _029_;
@@ -63033,27 +63044,27 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire [575:0] FrameData;
   (* src = "src/greyhound_ihp.sv:88.45" *)
   wire [239:0] FrameStrobe;
-  (* src = "src/greyhound_ihp.sv:589.22" *)
-  wire [3:0] bank_be;
-  (* src = "src/greyhound_ihp.sv:587.22" *)
-  wire [31:0] bank_rdata;
-  (* src = "src/greyhound_ihp.sv:696.18" *)
-  wire [31:0] bank_rdata_sram_0;
-  (* src = "src/greyhound_ihp.sv:697.18" *)
-  wire [31:0] bank_rdata_sram_1;
-  (* src = "src/greyhound_ihp.sv:591.22" *)
-  wire bank_req;
-  (* src = "src/greyhound_ihp.sv:590.22" *)
-  wire [31:0] bank_wdata;
-  (* src = "src/greyhound_ihp.sv:592.22" *)
-  wire bank_we;
   (* src = "src/greyhound_ihp.sv:588.22" *)
+  wire [3:0] bank_be;
+  (* src = "src/greyhound_ihp.sv:586.22" *)
+  wire [31:0] bank_rdata;
+  (* src = "src/greyhound_ihp.sv:695.18" *)
+  wire [31:0] bank_rdata_sram_0;
+  (* src = "src/greyhound_ihp.sv:696.18" *)
+  wire [31:0] bank_rdata_sram_1;
+  (* src = "src/greyhound_ihp.sv:590.22" *)
+  wire bank_req;
+  (* src = "src/greyhound_ihp.sv:589.22" *)
+  wire [31:0] bank_wdata;
+  (* src = "src/greyhound_ihp.sv:591.22" *)
+  wire bank_we;
+  (* src = "src/greyhound_ihp.sv:587.22" *)
   wire [10:0] bank_word_addr;
-  (* src = "src/greyhound_ihp.sv:379.18" *)
+  (* src = "src/greyhound_ihp.sv:378.18" *)
   wire [31:0] bitstream_data;
   (* src = "src/greyhound_ihp.sv:84.21" *)
   wire [31:0] bitstream_data_cpu;
-  (* src = "src/greyhound_ihp.sv:380.18" *)
+  (* src = "src/greyhound_ihp.sv:379.18" *)
   wire bitstream_valid;
   (* src = "src/greyhound_ihp.sv:83.21" *)
   wire bitstream_valid_cpu;
@@ -63181,12 +63192,12 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire fabric_we_dm;
   (* src = "src/greyhound_ihp.sv:187.21" *)
   wire fabric_we_soc;
-  (* src = "src/greyhound_ihp.sv:595.17" *)
+  (* src = "src/greyhound_ihp.sv:594.17" *)
   reg [1:0] fetch_enable_d;
   (* src = "src/greyhound_ihp.sv:59.18" *)
   input fetch_enable_i;
   wire fetch_enable_i;
-  (* src = "src/greyhound_ihp.sv:596.11" *)
+  (* src = "src/greyhound_ihp.sv:595.11" *)
   wire fetch_enable_sync;
   (* src = "src/greyhound_ihp.sv:44.18" *)
   output flash_clk_o;
@@ -63200,7 +63211,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:47.24" *)
   output [3:0] flash_io_o;
   wire [3:0] flash_io_o;
-  (* src = "src/greyhound_ihp.sv:581.16" *)
+  (* src = "src/greyhound_ihp.sv:580.16" *)
   wire [3:0] flash_io_oe;
   (* src = "src/greyhound_ihp.sv:48.24" *)
   output [3:0] flash_io_oe_no;
@@ -63214,7 +63225,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:27.18" *)
   output fpga_cs_n_oe_o;
   wire fpga_cs_n_oe_o;
-  (* src = "src/greyhound_ihp.sv:381.10" *)
+  (* src = "src/greyhound_ihp.sv:380.10" *)
   wire fpga_jtag_tdi;
   (* src = "src/greyhound_ihp.sv:33.18" *)
   input fpga_miso_i;
@@ -63280,7 +63291,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:53.24" *)
   output [3:0] psram_io_o;
   wire [3:0] psram_io_o;
-  (* src = "src/greyhound_ihp.sv:581.29" *)
+  (* src = "src/greyhound_ihp.sv:580.29" *)
   wire [3:0] psram_io_oe;
   (* src = "src/greyhound_ihp.sv:54.24" *)
   output [3:0] psram_io_oe_no;
@@ -63330,31 +63341,31 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire spi_receiver_mosi_i;
   (* src = "src/greyhound_ihp.sv:130.11" *)
   wire spi_receiver_sclk_i;
-  (* src = "src/greyhound_ihp.sv:699.11" *)
+  (* src = "src/greyhound_ihp.sv:698.11" *)
   wire sram_enable;
-  (* src = "src/greyhound_ihp.sv:702.11" *)
+  (* src = "src/greyhound_ihp.sv:701.11" *)
   reg sram_enable_d;
   (* src = "src/greyhound_ihp.sv:207.11" *)
   reg startup_trigger;
-  assign _000_ = fabric_warmboot_boot_o || (* src = "src/greyhound_ihp.sv:306.64-306.109" *) cpu_warmboot_boot_o;
-  assign _001_ = fabric_config_busy || (* src = "src/greyhound_ihp.sv:306.116-306.164" *) fabric_spi_controller_busy;
-  assign _002_ = ! (* src = "src/greyhound_ihp.sv:306.114-306.165" *) _001_;
-  assign _003_ = _000_ && (* src = "src/greyhound_ihp.sv:306.63-306.165" *) _002_;
-  assign _004_ = startup_trigger || (* src = "src/greyhound_ihp.sv:306.43-306.166" *) _003_;
-  assign _005_ = cpu_warmboot_boot_o ? (* src = "src/greyhound_ihp.sv:307.66-307.132" *) cpu_warmboot_slot_o : fabric_warmboot_slot_o;
-  assign _006_ = startup_trigger ? (* src = "src/greyhound_ihp.sv:307.43-307.132" *) 4'h0 : _005_;
+  assign _000_ = fabric_warmboot_boot_o || (* src = "src/greyhound_ihp.sv:305.64-305.109" *) cpu_warmboot_boot_o;
+  assign _001_ = fabric_config_busy || (* src = "src/greyhound_ihp.sv:305.116-305.164" *) fabric_spi_controller_busy;
+  assign _002_ = ! (* src = "src/greyhound_ihp.sv:305.114-305.165" *) _001_;
+  assign _003_ = _000_ && (* src = "src/greyhound_ihp.sv:305.63-305.165" *) _002_;
+  assign _004_ = startup_trigger || (* src = "src/greyhound_ihp.sv:305.43-305.166" *) _003_;
+  assign _005_ = cpu_warmboot_boot_o ? (* src = "src/greyhound_ihp.sv:306.66-306.132" *) cpu_warmboot_slot_o : fabric_warmboot_slot_o;
+  assign _006_ = startup_trigger ? (* src = "src/greyhound_ihp.sv:306.43-306.132" *) 4'h0 : _005_;
   assign _008_ = ! (* src = "src/greyhound_ihp.sv:222.60-222.71" *) rst_nd[1];
-  assign _007_ = bitstream_valid_cpu || (* src = "src/greyhound_ihp.sv:501.30-501.72" *) spi_bitstream_valid;
-  assign bitstream_valid = _007_ || (* src = "src/greyhound_ihp.sv:501.30-501.96" *) jtag_bitstream_valid;
-  assign flash_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:583.29-583.41" *) flash_io_oe;
-  assign psram_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:584.29-584.41" *) psram_io_oe;
-  assign _012_ = en_jtag_receiver | (* src = "src/greyhound_ihp.sv:222.41-222.71" *) _008_;
-  assign _009_ = ~ (* src = "src/greyhound_ihp.sv:721.34-721.53" *) bank_word_addr[10];
-  assign _010_ = bank_req && (* src = "src/greyhound_ihp.sv:721.22-721.53" *) _009_;
-  assign _011_ = ! (* src = "src/greyhound_ihp.sv:723.22-723.30" *) bank_we;
-  assign jtag_trst_n_module_sync_d = _012_ ? (* src = "src/greyhound_ihp.sv:222.40-222.99" *) fpga_mode_d[1] : 1'h1;
-  assign _013_ = bank_req && (* src = "src/greyhound_ihp.sv:741.22-741.53" *) bank_word_addr[10];
-  (* src = "src/greyhound_ihp.sv:597.5" *)
+  assign _007_ = bitstream_valid_cpu || (* src = "src/greyhound_ihp.sv:500.30-500.72" *) spi_bitstream_valid;
+  assign bitstream_valid = _007_ || (* src = "src/greyhound_ihp.sv:500.30-500.96" *) jtag_bitstream_valid;
+  assign _010_ = en_jtag_receiver | (* src = "src/greyhound_ihp.sv:222.41-222.71" *) _008_;
+  assign flash_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:582.29-582.41" *) flash_io_oe;
+  assign psram_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:583.29-583.41" *) psram_io_oe;
+  assign _009_ = ~ (* src = "src/greyhound_ihp.sv:720.34-720.53" *) bank_word_addr[10];
+  assign jtag_trst_n_module_sync_d = _010_ ? (* src = "src/greyhound_ihp.sv:222.40-222.99" *) fpga_mode_d[1] : 1'h1;
+  assign _011_ = bank_req && (* src = "src/greyhound_ihp.sv:720.22-720.53" *) _009_;
+  assign _012_ = ! (* src = "src/greyhound_ihp.sv:722.22-722.30" *) bank_we;
+  assign _013_ = bank_req && (* src = "src/greyhound_ihp.sv:740.22-740.53" *) bank_word_addr[10];
+  (* src = "src/greyhound_ihp.sv:596.5" *)
   always_ff @(posedge clk_i)
     fetch_enable_d <= { fetch_enable_d[0], fetch_enable_i };
   (* src = "src/greyhound_ihp.sv:111.5" *)
@@ -63367,7 +63378,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) rst_nd <= 2'h0;
     else rst_nd <= { rst_nd[0], 1'h1 };
-  (* src = "src/greyhound_ihp.sv:704.5" *)
+  (* src = "src/greyhound_ihp.sv:703.5" *)
   always_ff @(posedge clk_i, negedge rst_nd[1])
     if (!rst_nd[1]) sram_enable_d <= 1'h0;
     else sram_enable_d <= bank_word_addr[10];
@@ -63375,58 +63386,58 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   always_ff @(posedge clk_i, negedge rst_nd[1])
     if (!rst_nd[1]) startup_trigger <= 1'h1;
     else startup_trigger <= 1'h0;
-  assign _014_ = jtag_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:495.13-495.50|src/greyhound_ihp.sv:494.18-498.12" *) jtag_bitstream_data : bitstream_data_cpu;
-  assign bitstream_data = spi_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:493.13-493.49|src/greyhound_ihp.sv:492.9-498.12" *) spi_bitstream_data : _014_;
-  assign fpga_miso_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h1 : _021_;
-  assign fpga_miso_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) jtag_tdo : _019_;
-  assign fpga_mosi_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _017_;
-  assign spi_controller_slot_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 4'h0 : _035_;
-  assign spi_controller_start_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _036_;
-  assign spi_controller_miso_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _037_;
-  assign spi_receiver_mosi_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _038_;
-  assign spi_receiver_cs_ni = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h1 : _039_;
-  assign spi_receiver_sclk_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _040_;
-  assign jtag_tms = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) fpga_cs_n_i : _027_;
-  assign jtag_tdi = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) fpga_mosi_i : _025_;
-  assign spi_bitstream_valid = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 1'h0 : _041_;
-  assign spi_bitstream_data = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:331.31-358.12|src/greyhound_ihp.sv:331.9-358.12" *) 32'd0 : _042_;
-  assign _020_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h1 : 1'h0;
-  assign _016_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : 1'h1;
-  assign _028_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 4'h0 : _006_;
-  assign _029_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : _004_;
-  assign _030_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) spi_receiver_bitstream_valid_o : spi_controller_bitstream_valid_o;
-  assign _031_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) spi_receiver_bitstream_data_o : spi_controller_bitstream_data_o;
-  assign _018_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) spi_receiver_miso_o : 1'h0;
-  assign _022_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : spi_controller_mosi_o;
-  assign _015_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : spi_controller_cs_no;
-  assign _023_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : spi_controller_sclk_o;
-  assign _032_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) 1'h0 : fpga_miso_i;
-  assign _024_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) fpga_mosi_i : 1'h0;
-  assign _033_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) fpga_cs_n_i : 1'h1;
-  assign _034_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:289.41-309.16|src/greyhound_ihp.sv:289.13-328.16" *) fpga_sclk_i : 1'h0;
-  assign _021_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _020_ : 1'h0;
-  assign _019_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _018_ : 1'h0;
-  assign _017_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _016_ : 1'h0;
-  assign fpga_mosi_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _022_ : 1'h0;
-  assign fpga_cs_n_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _015_ : 1'h0;
-  assign fpga_sclk_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _023_ : 1'h0;
-  assign _035_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _028_ : 4'h0;
-  assign _036_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _029_ : 1'h0;
-  assign _037_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _032_ : 1'h0;
-  assign _038_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _024_ : 1'h0;
-  assign _039_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _033_ : 1'h1;
-  assign _040_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _034_ : 1'h0;
-  assign _041_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _030_ : 1'h0;
-  assign _042_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) _031_ : 32'd0;
-  assign _026_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:264.36-273.16|src/greyhound_ihp.sv:264.13-273.16" *) fpga_cs_n_i : 1'h0;
-  assign _027_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) 1'h0 : _026_;
-  assign _025_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-274.12|src/greyhound_ihp.sv:235.9-329.12" *) 1'h0 : _024_;
+  assign _014_ = jtag_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:494.13-494.50|src/greyhound_ihp.sv:493.18-497.12" *) jtag_bitstream_data : bitstream_data_cpu;
+  assign bitstream_data = spi_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:492.13-492.49|src/greyhound_ihp.sv:491.9-497.12" *) spi_bitstream_data : _014_;
+  assign fpga_miso_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h1 : _021_;
+  assign fpga_miso_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) jtag_tdo : _020_;
+  assign fpga_mosi_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _017_;
+  assign spi_controller_slot_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 4'h0 : _035_;
+  assign spi_controller_start_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _036_;
+  assign spi_controller_miso_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _037_;
+  assign spi_receiver_mosi_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _038_;
+  assign spi_receiver_cs_ni = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h1 : _039_;
+  assign spi_receiver_sclk_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _040_;
+  assign jtag_tms = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) fpga_cs_n_i : _027_;
+  assign jtag_tdi = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) fpga_mosi_i : _025_;
+  assign spi_bitstream_valid = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 1'h0 : _041_;
+  assign spi_bitstream_data = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:330.31-357.12|src/greyhound_ihp.sv:330.9-357.12" *) 32'd0 : _042_;
+  assign _021_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h1 : 1'h0;
+  assign _016_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : 1'h1;
+  assign _028_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 4'h0 : _006_;
+  assign _029_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : _004_;
+  assign _030_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) spi_receiver_bitstream_valid_o : spi_controller_bitstream_valid_o;
+  assign _031_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) spi_receiver_bitstream_data_o : spi_controller_bitstream_data_o;
+  assign _019_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) spi_receiver_miso_o : 1'h0;
+  assign _022_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : spi_controller_mosi_o;
+  assign _015_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : spi_controller_cs_no;
+  assign _023_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : spi_controller_sclk_o;
+  assign _032_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) 1'h0 : fpga_miso_i;
+  assign _024_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) fpga_mosi_i : 1'h0;
+  assign _033_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) fpga_cs_n_i : 1'h1;
+  assign _034_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:288.41-308.16|src/greyhound_ihp.sv:288.13-327.16" *) fpga_sclk_i : 1'h0;
+  assign _020_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _019_ : _018_;
+  assign _017_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _016_ : 1'h0;
+  assign fpga_mosi_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _022_ : 1'h0;
+  assign fpga_cs_n_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _015_ : 1'h0;
+  assign fpga_sclk_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _023_ : 1'h0;
+  assign _035_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _028_ : 4'h0;
+  assign _036_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _029_ : 1'h0;
+  assign _037_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _032_ : 1'h0;
+  assign _038_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _024_ : 1'h0;
+  assign _039_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _033_ : 1'h1;
+  assign _040_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _034_ : 1'h0;
+  assign _041_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _030_ : 1'h0;
+  assign _042_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) _031_ : 32'd0;
+  assign _018_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:264.36-272.16|src/greyhound_ihp.sv:264.13-272.16" *) jtag_tdo : 1'h0;
+  assign _026_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:264.36-272.16|src/greyhound_ihp.sv:264.13-272.16" *) fpga_cs_n_i : 1'h0;
+  assign _027_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) 1'h0 : _026_;
+  assign _025_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:235.26-273.12|src/greyhound_ihp.sv:235.9-328.12" *) 1'h0 : _024_;
   function [31:0] _114_;
     input [31:0] a;
     input [63:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
-    (* src = "src/greyhound_ihp.sv:715.19-715.50|src/greyhound_ihp.sv:713.9-716.16" *)
+    (* src = "src/greyhound_ihp.sv:714.19-714.50|src/greyhound_ihp.sv:712.9-715.16" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
@@ -63438,8 +63449,8 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     endcase
   endfunction
   assign bank_rdata = _114_(32'hxxxxxxxx, { bank_rdata_sram_0, bank_rdata_sram_1 }, { _043_, sram_enable_d });
-  assign _043_ = ~ (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:714.19-714.50|src/greyhound_ihp.sv:713.9-716.16" *) sram_enable_d;
-  (* src = "src/greyhound_ihp.sv:509.7" *)
+  assign _043_ = ~ (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:713.19-713.50|src/greyhound_ihp.sv:712.9-715.16" *) sram_enable_d;
+  (* src = "src/greyhound_ihp.sv:508.7" *)
   \fabric_config$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_config  fabric_config (
     .FrameData_o(FrameData),
     .FrameStrobe_o(FrameStrobe),
@@ -63450,7 +63461,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .configured_o(fabric_config_configured),
     .rst_ni(rst_nd[1])
   );
-  (* src = "src/greyhound_ihp.sv:468.7" *)
+  (* src = "src/greyhound_ihp.sv:467.7" *)
   \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_controller  fabric_spi_controller (
     .bitstream_data_o(spi_controller_bitstream_data_o),
     .bitstream_valid_o(spi_controller_bitstream_valid_o),
@@ -63464,7 +63475,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .slot_i(spi_controller_slot_i),
     .start_i(spi_controller_start_i)
   );
-  (* src = "src/greyhound_ihp.sv:361.25" *)
+  (* src = "src/greyhound_ihp.sv:360.25" *)
   \fabric_spi_receiver$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_receiver  fabric_spi_receiver (
     .bitstream_data_o(spi_receiver_bitstream_data_o),
     .bitstream_valid_o(spi_receiver_bitstream_valid_o),
@@ -63477,7 +63488,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .sclk_i(spi_receiver_sclk_i)
   );
   (* keep = 1'h1 *)
-  (* src = "src/greyhound_ihp.sv:530.31" *)
+  (* src = "src/greyhound_ihp.sv:529.31" *)
   \fabric_wrapper$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wrapper  fabric_wrapper (
     .FrameData_i(FrameData),
     .FrameStrobe_i(FrameStrobe),
@@ -63510,7 +63521,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .fabric_warmboot_reset_i(fabric_config_busy),
     .fabric_warmboot_slot_o(fabric_warmboot_slot_o)
   );
-  (* src = "src/greyhound_ihp.sv:384.7" *)
+  (* src = "src/greyhound_ihp.sv:383.7" *)
   \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm  fpga_dm (
     .clk_i(clk_i),
     .clk_o(clk),
@@ -63574,7 +63585,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .tms_i(jtag_tms),
     .trst_ni(jtag_trst_n_module_sync)
   );
-  (* src = "src/greyhound_ihp.sv:602.19" *)
+  (* src = "src/greyhound_ihp.sv:601.19" *)
   \greyhound_soc$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc  i_greyhound_soc (
     .bank_be_o(bank_be),
     .bank_rdata_i(bank_rdata),
@@ -63630,7 +63641,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .warmboot_boot_o(cpu_warmboot_boot_o),
     .warmboot_slot_o(cpu_warmboot_slot_o)
   );
-  (* src = "src/greyhound_ihp.sv:719.38" *)
+  (* src = "src/greyhound_ihp.sv:718.38" *)
   RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram0 (
     .A_ADDR(bank_word_addr[9:0]),
     .A_BIST_ADDR(10'h000),
@@ -63646,11 +63657,11 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .A_DIN(bank_wdata),
     .A_DLY(1'h1),
     .A_DOUT(bank_rdata_sram_0),
-    .A_MEN(_010_),
-    .A_REN(_011_),
+    .A_MEN(_011_),
+    .A_REN(_012_),
     .A_WEN(bank_we)
   );
-  (* src = "src/greyhound_ihp.sv:739.38" *)
+  (* src = "src/greyhound_ihp.sv:738.38" *)
   RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram1 (
     .A_ADDR(bank_word_addr[9:0]),
     .A_BIST_ADDR(10'h000),
@@ -63667,7 +63678,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .A_DLY(1'h1),
     .A_DOUT(bank_rdata_sram_1),
     .A_MEN(_013_),
-    .A_REN(_011_),
+    .A_REN(_012_),
     .A_WEN(bank_we)
   );
   assign config_busy_o = fabric_config_busy;
@@ -65339,7 +65350,7 @@ module \obi_demux$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_de
   wire _011_;
   (* unused_bits = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71" *)
   wire [71:0] _012_;
-  wire [71:0] _013_;
+  wire _013_;
   wire _014_;
   wire _015_;
   wire [36:0] _016_;
@@ -65430,9 +65441,9 @@ module \obi_demux$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_de
   );
   defparam _056_.WIDTH = 32'd576;
   assign _017_ = ~ (* src = "ip/obi/src/obi_demux.sv:56.44-56.59" *) in_flight;
-  assign _013_[0] = _005_ ? (* src = "ip/obi/src/obi_demux.sv:63.9-63.43" *) _012_[0] : 1'hx;
+  assign _013_ = _005_ ? (* src = "ip/obi/src/obi_demux.sv:63.9-63.43" *) _012_[0] : 1'hx;
   assign _010_ = _005_ ? (* src = "ip/obi/src/obi_demux.sv:63.51-63.85" *) _009_[1:0] : 2'hx;
-  assign _014_ = _013_[0] && (* src = "ip/obi/src/obi_demux.sv:63.9-63.89" *) _010_[1];
+  assign _014_ = _013_ && (* src = "ip/obi/src/obi_demux.sv:63.9-63.89" *) _010_[1];
   assign _015_ = select_q < (* src = "ip/obi/src/obi_demux.sv:70.34-70.59" *) 4'h8;
   assign _020_ = _011_ || (* src = "ip/obi/src/obi_demux.sv:56.11-56.59" *) _017_;
   assign { sbr_port_rsp_o[36:2], _018_[1], cnt_down } = _015_ ? (* src = "ip/obi/src/obi_demux.sv:70.34-70.59" *) _016_ : 37'hxxxxxxxxxx;
@@ -65516,7 +65527,6 @@ module \obi_demux$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_de
     .q_o(in_flight),
     .rst_ni(rst_ni)
   );
-  assign _013_[71:1] = 71'hxxxxxxxxxxxxxxxxxx;
   assign { _018_[36:2], _018_[0] } = { sbr_port_rsp_o[36:2], cnt_down };
   assign sbr_port_rready = 1'h1;
   assign sbr_port_rsp_o[1:0] = { sbr_port_gnt, cnt_down };

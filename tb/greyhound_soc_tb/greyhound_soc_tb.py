@@ -55,7 +55,7 @@ async def test_hello_world(dut):
     await start_up(dut)
     
     # Wait for UART to get clocked
-    await ClockCycles(dut.clk_i, int(50000*1.0))
+    await ClockCycles(dut.clk_i, int(50000*2.5))
     
     # Send char
     await uart_source.write(b'A')
@@ -66,7 +66,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.clk_i, int(50000*1.7))
+    await ClockCycles(dut.clk_i, int(50000*2.0))
     
     # Read message
     data = uart_sink.read_nowait(-1)
@@ -85,7 +85,7 @@ async def test_custom_instruction(dut):
     await start_up(dut)
 
     # Wait for message
-    await ClockCycles(dut.clk_i, int(50000*3))
+    await ClockCycles(dut.clk_i, int(50000*5.2))
     
     # Read message
     data = uart_sink.read_nowait(-1)
