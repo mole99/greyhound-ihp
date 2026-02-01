@@ -65,6 +65,7 @@ CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom_one_scratch.sv
 CORE_FILES += src/debug/tc_clk_wrapper.sv
 CORE_FILES += src/debug/fpga_dm_jtag_tap.sv
 CORE_FILES += src/debug/fpga_dm.sv
+CORE_FILES += src/debug/fpga_boundary_cell.sv
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
@@ -95,9 +96,12 @@ clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
 convert-slang:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
+.PHONY: convert-slang
+
+sim-jtag-wrapper:
 	mkdir -p tb/greyhound_soc_dbg_tb/sim_build
 	cd tb/greyhound_soc_dbg_tb/sim_build && iverilog-vpi ../../../ip/riscv-dbg/tb/remote_bitbang/remote_bitbang.c  ../sim_jtag_wrapper.c --name=remote_bitbang
-.PHONY: convert-slang
+.PHONY: sim-jtag-wrapper
 
 # Implementation
 

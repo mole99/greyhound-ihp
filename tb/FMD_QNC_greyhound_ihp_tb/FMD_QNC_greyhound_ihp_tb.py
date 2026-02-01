@@ -97,16 +97,77 @@ fpga_blinky = {
     'dump_waveforms': False,
 }
 
-hello_world_jtag = {
-    'flash0_slot0': '../../../firmware/hello_world_dbg/hello_world.hex',
+jtag_enable = {
+    'flash0_slot0': '',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
+    'enable':'',
 }
 
-enabled = hello_world_jtag
+jtag_sample = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'sample':'',
+}
+
+jtag_preload = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'preload':'',
+}
+
+jtag_extest = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'extest':'',
+}
+
+jtag_intest = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'intest':'',
+}
+
+jtag_isc = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'isc':'',
+}
+
+jtag_commands = {
+    'flash0_slot0': '',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+    'commands':'',
+}
+
+enabled = jtag_commands
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -451,6 +512,11 @@ class JTAGFPGA(JTAGDevice):
     def __init__(self, name="jtagfpga", idcode=0x2_4646_001, ir_len=5):
         super().__init__(name, idcode, ir_len)
         self.add_jtag_reg("IDCODE", 32, 0x1)
+        self.add_jtag_reg("USERCODE", 32,0x2)
+        self.add_jtag_reg("SAMPLE", 64, 0x3)
+        self.add_jtag_reg("PRELOAD", 64, 0x3)
+        self.add_jtag_reg("EXTEST", 64, 0x4)
+        self.add_jtag_reg("INTEST", 64, 0x5)
         self.add_jtag_reg("EJTAG", 1, 0x10)
         self.add_jtag_reg("ISC_ENABLE", 1, 0x14)
         self.add_jtag_reg("ISC_DISABLE", 1,0x15)
@@ -459,13 +525,10 @@ class JTAGFPGA(JTAGDevice):
 
         self.idle_delay = 10
 
-@cocotb.test(skip=enabled!=hello_world_jtag)
-async def test_hello_world_jtag(dut):
-    # TODO needs env COCOTB_RESOLVE_X=ZEROS to startup until tdo is set to output
-    """Run the "Hello World!" program with JTAG"""
-    # Setup UART
-    uart_source = UartSource(dut.io_ser_rx_PAD, baud=115200, bits=8)
-    uart_sink = UartSink(dut.io_ser_tx_PAD, baud=115200, bits=8)
+async def setup_for_jtag(dut):
+    """Setup soc for jtag"""
+    # Setup env
+    # os.environ['COCOTB_RESOLVE_X'] = "RANDOM"
 
     # Setup JTAG
     jtag_signals:dict = {"tck" :"io_fpga_sclk_PAD",
@@ -476,11 +539,8 @@ async def test_hello_world_jtag(dut):
 
     bus = JTAGBus(dut, signals=jtag_signals)
     jtag = JTAGDriver(bus)
-    # jtag.log.setLevel(logging.CRITICAL) TODO ???
     jtag.add_device(JTAGCore())
     jtag.add_device(JTAGFPGA())
-    # jtag.log.setLevel(logging.INFO)
-
     jtag.devices[0].print_regs()
     jtag.devices[1].print_regs()
 
@@ -499,12 +559,86 @@ async def test_hello_world_jtag(dut):
 
     # All jtag operations have to be one after the other, else jtag lib runs into issues
     # Test perm enable of JTAG interface
-    # TODO Check if interface was enabled
     await jtag.write("EJTAG", 0x1, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
     dut.io_reset_PAD.value = 1
     cocotb.log.info("JTAG interface enabled.")
+    return jtag
+
+@cocotb.test(skip=enabled!=jtag_enable)
+async def test_jtag_enable(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Test interface enabled
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x1)
+
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("EJTAG", 0x0, device=1)
+    cocotb.log.info("JTAG interface disabled.")
+    # Test interface disable
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x0)
+    await ClockCycles(dut.io_clock_PAD, 100)
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_sample)
+async def test_jtag_sample(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_preload)
+async def test_jtag_preload(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_extest)
+async def test_jtag_extest(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Change Fabric GPIO 1,3,4,6
+    dut.io_gpio_PAD[1]
+    dut.io_gpio_PAD[3]
+    dut.io_gpio_PAD[4]
+    dut.io_gpio_PAD[6]
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_intest)
+async def test_jtag_intest(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_isc)
+async def test_jtag_isc(dut):
+    jtag = await setup_for_jtag(dut)
+
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
+
+@cocotb.test(skip=enabled!=jtag_commands)
+async def test_jtag_commands(dut):
+    # TODO needs env COCOTB_RESOLVE_X=ZEROS to startup until tdo is set to output
+    """Run the JTAG command test"""
+    jtag = await setup_for_jtag(dut)
+
+    # Test jtag boundary scan functions
+    # TODO check pattern in boundary reg
+    await jtag.write("USERCODE", 0xa5a5a5a5, device=1)        # Need rom downloaded
+    await jtag.write("SAMPLE", 0xaaaaaaaa_55555555, device=1) # Better sample test (need fpga rom downloaded)
+    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1) # Works
+    await jtag.write("EXTEST", 0x1c0ffee1_deadbeef, device=1) # Works
+    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1) 
+    await jtag.write("INTEST", 0xdeadbeef_1c0ffee1, device=1)
+    await jtag.write("SAMPLE", 0x55555555_aaaaaaaa, device=1)
 
     # Test ics functions with simple device programming
     # TODO check pattern from fig 6 page 26 IEEE1532 after writing JTAG instr. 
@@ -515,37 +649,11 @@ async def test_hello_world_jtag(dut):
     await jtag.write("ISC_DISABLE", 0x1, device=1)
     await jtag.write("ISC_ENABLE", 0x1, device=1)
 
-    # Test interface disable
-    # TODO check if interface was disabled
-    await jtag.write("BYPASS", 0x1, device=1)
-    await jtag.write("EJTAG", 0x0, device=1)
-    cocotb.log.info("JTAG interface disabled.")
+    # TODO Check sample, usercode and intest after programming
 
     await ClockCycles(dut.io_clock_PAD, 100)
-
-    return
-
-    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
-    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
-
-    # Wait for UART to get clocked
-    await ClockCycles(dut.io_clock_PAD, int(50000*1))
-    
-    # Send char
-    await uart_source.write(b'A')
-    
-    # Read char
-    data = await uart_sink.read(1)
-    print(data)
-    assert data == b'A'
-
-    # Wait for message
-    await ClockCycles(dut.io_clock_PAD, int(50000*1.8))
-    
-    # Read message
-    data = uart_sink.read_nowait(-1)
-    print(data)
-    assert data == b'Hello World!\n'
+    # Unset env var
+    os.environ.pop("COCOTB_RESOLVE_X")
 
 if __name__ == "__main__":
 

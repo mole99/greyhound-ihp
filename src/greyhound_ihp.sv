@@ -120,6 +120,13 @@ module greyhound_ihp (
     logic [31:0] jtag_bitstream_data;
     logic        jtag_bitstream_valid;
 
+    // JTAG boundary scan
+    logic jtag_dm_clear, jtag_tck_n;
+    logic jtag_mode2, jtag_mode5, jtag_mode6;
+    logic jtag_boundary_scan_tdi, jtag_boundary_scan_tdo;
+    logic jtag_capture_bsr_select, jtag_shift_bsr_select, jtag_update_bsr_select, jtag_shift_dr;
+    logic jtag_tck, jtag_tdi, jtag_tdo, jtag_tms;
+
     // SPI receiver
     logic spi_receiver_sclk_i;
     logic spi_receiver_cs_ni;
@@ -141,9 +148,95 @@ module greyhound_ihp (
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_oe_o;
 
     // Assign fabric IOs
-    assign fabric_io_west_in_i  = fabric_gpio_i;
-    assign fabric_gpio_o        = fabric_io_west_out_o;
-    assign fabric_gpio_oe_o     = fabric_io_west_oe_o;
+    // TODO change fabric clk to tclk when running INTEST
+    // TODO test if working
+    // TODO glitch free rst, rstgen.v?
+    wire boundary_scan_td [FABRIC_NUM_IO_WEST-2:0];
+    generate
+        for (genvar i = 0; i<FABRIC_NUM_IO_WEST; i++) begin
+            if (i==0) begin
+                fpga_boundary_cell fpga_boundary_cell (
+                    .tclk_i  ( jtag_tck       ),
+                    .tclk_ni ( jtag_tck_n     ),
+                    .trst_ni ( ~jtag_dm_clear ),
+                    // Gated clk signals
+                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
+                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
+                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
+                    .shift_dr_i           ( jtag_shift_dr           ),
+                    // System logic connection
+                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
+                    .output_data_i   ( fabric_io_west_out_o[i] ),
+                    .input_data_o    ( fabric_io_west_in_i[i]  ),
+                    // Mode configuration
+                    .mode2_i ( jtag_mode2 ),
+                    .mode5_i ( jtag_mode5 ),
+                    .mode6_i ( jtag_mode6 ),
+                    // Daisy chain connection
+                    .td_i ( jtag_boundary_scan_tdo ),
+                    .td_o ( boundary_scan_td[i]    ),
+                    // System pin connection
+                    .pin_i        ( fabric_gpio_i[i]    ),
+                    .pin_o        ( fabric_gpio_o[i]    ),
+                    .enable_pin_o ( fabric_gpio_oe_o[i] )
+                );
+            end
+            else if (i==(FABRIC_NUM_IO_WEST-1)) begin
+                fpga_boundary_cell fpga_boundary_cell (
+                    .tclk_i  ( jtag_tck       ),
+                    .tclk_ni ( jtag_tck_n     ),
+                    .trst_ni ( ~jtag_dm_clear ),
+                    // Gated clk signals
+                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
+                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
+                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
+                    .shift_dr_i           ( jtag_shift_dr           ),
+                    // System logic connection
+                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
+                    .output_data_i   ( fabric_io_west_out_o[i] ),
+                    .input_data_o    ( fabric_io_west_in_i[i]  ),
+                    // Mode configuration
+                    .mode2_i ( jtag_mode2 ),
+                    .mode5_i ( jtag_mode5 ),
+                    .mode6_i ( jtag_mode6 ),
+                    // Daisy chain connection
+                    .td_i ( boundary_scan_td[i-1]  ),
+                    .td_o ( jtag_boundary_scan_tdi ),
+                    // System pin connection
+                    .pin_i        ( fabric_gpio_i[i]    ),
+                    .pin_o        ( fabric_gpio_o[i]    ),
+                    .enable_pin_o ( fabric_gpio_oe_o[i] )
+                );
+            end
+            else begin
+                fpga_boundary_cell fpga_boundary_cell (
+                    .tclk_i  ( jtag_tck       ),
+                    .tclk_ni ( jtag_tck_n     ),
+                    .trst_ni ( ~jtag_dm_clear ),
+                    // Gated clk signals
+                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
+                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
+                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
+                    .shift_dr_i           ( jtag_shift_dr           ),
+                    // System logic connection
+                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
+                    .output_data_i   ( fabric_io_west_out_o[i] ),
+                    .input_data_o    ( fabric_io_west_in_i[i]  ),
+                    // Mode configuration
+                    .mode2_i ( jtag_mode2 ),
+                    .mode5_i ( jtag_mode5 ),
+                    .mode6_i ( jtag_mode6 ),
+                    // Daisy chain connection
+                    .td_i ( boundary_scan_td[i-1] ),
+                    .td_o ( boundary_scan_td[i]   ),
+                    // System pin connection
+                    .pin_i        ( fabric_gpio_i[i]    ),
+                    .pin_o        ( fabric_gpio_o[i]    ),
+                    .enable_pin_o ( fabric_gpio_oe_o[i] )
+                );
+            end
+        end
+    endgenerate
 
     // WARMBOOT
     wire        fabric_warmboot_boot_o;
@@ -205,7 +298,6 @@ module greyhound_ihp (
         end
     end
 
-    logic jtag_tck, jtag_tdi, jtag_tdo, jtag_tms;
     always_comb begin
         jtag_tck         = 1'b0;
         jtag_tms         = 1'b0;
@@ -244,8 +336,6 @@ module greyhound_ihp (
 
             if (jtag_trst_n_sync) begin
                 // srst pulled, trst not -> do special init (configure for jtag input instead of spi)
-
-                // TODO implement a power on reset to prevent non working soc
                 // Run init sequence through jtag interface
                 jtag_tck = fpga_sclk_i;
                 jtag_tms = fpga_cs_n_i;
@@ -312,7 +402,6 @@ module greyhound_ihp (
             end
         end
 
-        // TODO connect to jtag bitstream
         if (en_jtag_receiver) begin
             // JTAG receiver is enabled
             fpga_sclk_oe_o = 1'b0;
@@ -362,19 +451,32 @@ module greyhound_ihp (
         .miso_o     (spi_receiver_miso_o)
     );
 
-    logic fpga_jtag_tdi;
+    // TODO allow tap isc case change when loading rom over spi
+    logic fpga_jtag_tdi, clk_fabric;
     fpga_dm fpga_dm (
-        .clk_i                  ( clk_i                ),
-        .rst_ni                 ( rst_ni               ),
-        .tck_i                  ( jtag_tck             ),
-        .tms_i                  ( jtag_tms             ),
-        .trst_ni                ( jtag_trst_n_module   ),
-        .td_i                   ( fpga_jtag_tdi        ),
-        .td_o                   ( jtag_tdo             ),
+        .clk_i                  ( clk_i                   ),
+        .rst_ni                 ( rst_ni                  ),
+        .clk_fabric_o           ( clk_fabric              ),
+        .tck_i                  ( jtag_tck                ),
+        .tms_i                  ( jtag_tms                ),
+        .trst_ni                ( jtag_trst_n_module      ),
+        .td_i                   ( fpga_jtag_tdi           ),
+        .td_o                   ( jtag_tdo                ),
         .tdo_oe_o               (  ),
-        .en_jtag_receiver_o     ( en_jtag_receiver     ),
-        .jtag_bitstream_o       ( jtag_bitstream_data  ),
-        .jtag_bitstream_valid_o ( jtag_bitstream_valid )
+        .en_jtag_receiver_o     ( en_jtag_receiver        ),
+        .jtag_bitstream_o       ( jtag_bitstream_data     ),
+        .jtag_bitstream_valid_o ( jtag_bitstream_valid    ),
+        .dm_clear_o             ( jtag_dm_clear           ),
+        .shift_dr_o             ( jtag_shift_dr           ),
+        .tck_no                 ( jtag_tck_n              ),
+        .mode2_o                ( jtag_mode2              ),
+        .mode5_o                ( jtag_mode5              ),
+        .mode6_o                ( jtag_mode6              ),
+        .boundary_scan_o        ( jtag_boundary_scan_tdo  ),
+        .boundary_scan_i        ( jtag_boundary_scan_tdi  ),
+        .capture_bsr_select_o   ( jtag_capture_bsr_select ),
+        .shift_bsr_select_o     ( jtag_shift_bsr_select   ),
+        .update_bsr_select_o    ( jtag_update_bsr_select  )
     );
 
     // TODO adjust BITSTREAM_LENGTH_WORDS
@@ -449,7 +551,7 @@ module greyhound_ihp (
     assign fabric_warmboot_reset_i = fabric_config_busy;
 
     (* keep *) fabric_wrapper fabric_wrapper (
-        .clk_i,
+        .clk_i          (clk_fabric),
         
         // Configuration
         .FrameData_i    (FrameData),

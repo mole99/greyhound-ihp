@@ -33,9 +33,7 @@ module fpga_dm_jtag_tap #(
   input  logic        td_i,     // JTAG test data input pad
   output logic        td_o,     // JTAG test data output pad
   output logic        tdo_oe_o, // Data out output enable
-  input  logic        testmode_i,
-  // JTAG is interested in writing the DTM CSR register
-  output logic        tck_o,
+  output logic        tck_no,
   // Synchronous reset of the dmi module triggered by JTAG TAP
   output logic        dm_rst_o,
   output logic        update_o,
@@ -46,9 +44,22 @@ module fpga_dm_jtag_tap #(
   output logic        ejtag_o,
   output logic        ejtag_valid_o,
   input  logic        ejtag_i,
+  // Usercode derived from FPGA program
+  input  logic [31:0] usercode_i,
   // Fabric program bitstream register
   output logic        isc_pdata_valid_o,
-  output logic [31:0] isc_pdata_o
+  output logic [31:0] isc_pdata_o,
+  // Boundary scan
+  output logic        mode2_o,
+  output logic        mode5_o,
+  output logic        mode6_o,
+  output logic        boundary_scan_o,
+  input  logic        boundary_scan_i,
+  output logic        capture_bsr_select_o,
+  output logic        shift_bsr_select_o,
+  output logic        update_bsr_select_o,
+  output logic        testmode_o, 
+  output logic        testmode_clk_pulse_o
 );
 
   typedef enum logic [3:0] {
@@ -73,22 +84,20 @@ module fpga_dm_jtag_tap #(
   logic isc_disable_completing_q, isc_disable_completing_d;
 
   typedef enum logic [IrLength-1:0] {
-    BYPASS0     = 'h0,
-    IDCODE      = 'h1,
-    // TODO make them run... IEEE1149.1
-    USERCODE    = 'h2,
-    SAMPLE      = 'h3,
-    PRELOAD     = 'h4,
-    EXTEST      = 'h5, // TODO test mode?
-    // TODO maybe add recommended?
-
-    EJTAG       = 'h10, // Enable JTAG pin functionality, set register to enable/disable jtag functionality
+    BYPASS0        = 'h0,
+    IDCODE         = 'h1,
+    // TODO test them IEEE1149.1
+    USERCODE       = 'h2,
+    SAMPLE_PRELOAD = 'h3,
+    EXTEST         = 'h4,
+    INTEST         = 'h5,
+    EJTAG          = 'h10, // Enable JTAG pin functionality, set register to enable/disable jtag functionality
     // TODO verify (need 1149.1) IEEE1532
-    ISC_ENABLE  = 'h14,
-    ISC_DISABLE = 'h15,
-    ISC_PROGRAM = 'h16,
-    ISC_NOOP    = 'h17,
-    BYPASS1     = 'h1f
+    ISC_ENABLE     = 'h14,
+    ISC_DISABLE    = 'h15,
+    ISC_PROGRAM    = 'h16,
+    ISC_NOOP       = 'h17,
+    BYPASS1        = 'h1f
   } ir_reg_e;
 
   // ----------------
@@ -98,7 +107,7 @@ module fpga_dm_jtag_tap #(
   logic [IrLength-1:0]  jtag_ir_shift_d, jtag_ir_shift_q;
   // IR register -> this gets captured from shift register upon update_ir
   ir_reg_e              jtag_ir_d, jtag_ir_q;
-  logic capture_ir, shift_ir, update_ir, test_logic_reset; // pause_ir
+  logic capture_ir, shift_ir, update_ir, test_logic_reset, run_test_idle_d, run_test_idle_q;
 
   always_comb begin : p_jtag
     jtag_ir_shift_d = jtag_ir_shift_q;
@@ -141,11 +150,15 @@ module fpga_dm_jtag_tap #(
   // ----------------
   // - Bypass
   // - IDCODE
+  // - USERCODE
+  // - BOUNDARY SCAN
   // - EJTAG
   // - ISC_Default is implemented as the bypass reg as per IEEE1532
   // - ISC_PData
   logic [31:0] idcode_d, idcode_q;
   logic        idcode_select;
+  logic        usercode_select;
+  logic        boundary_scan_select;
   logic        bypass_select;
   logic        ejtag_select;
   logic [31:0] isc_pdata_d, isc_pdata_q;
@@ -162,31 +175,36 @@ module fpga_dm_jtag_tap #(
     isc_pdata_d       = isc_pdata_q;
     isc_pdata_valid_o = 1'b0;
     ejtag_valid_o     = 1'b0;
+    boundary_scan_o   = boundary_scan_i;
 
     if (capture_dr) begin
-      if (idcode_select)    idcode_d    = IdcodeValue;
-      if (bypass_select)    bypass_d    = 1'b0;
-      if (ejtag_select)     bypass_d    = ejtag_i;
-      if (isc_pdata_select) isc_pdata_d = '0;
+      if (idcode_select)        idcode_d        = IdcodeValue;
+      if (usercode_select)      idcode_d        = usercode_i;
+      if (bypass_select)        bypass_d        = 1'b0;
+      if (ejtag_select)         bypass_d        = ejtag_i;
+      if (isc_pdata_select)     isc_pdata_d     = '0;
     end
 
     if (shift_dr) begin
-      if (idcode_select)    idcode_d    = {td_i, 31'(idcode_q >> 1)};
-      if (bypass_select)    bypass_d    = td_i;
-      if (ejtag_select)     bypass_d    = td_i;
-      if (isc_pdata_select) isc_pdata_d = {td_i, 31'(isc_pdata_q >> 1)};
+      if (idcode_select)        idcode_d        = {td_i, 31'(idcode_q >> 1)};
+      if (usercode_select)      idcode_d        = {td_i, 31'(idcode_q >> 1)};
+      if (bypass_select)        bypass_d        = td_i;
+      if (ejtag_select)         bypass_d        = td_i;
+      if (isc_pdata_select)     isc_pdata_d     = {td_i, 31'(isc_pdata_q >> 1)};
+      if (boundary_scan_select) boundary_scan_o = td_i;
     end
 
     if (update_dr) begin
       if (isc_pdata_select) isc_pdata_valid_o = isc_enabled_q; // Corresponds to sate IscAccessed
-      if (ejtag_select)     ejtag_valid_o = 1'b1;
+      if (ejtag_select)     ejtag_valid_o     = 1'b1;
     end
 
     if (test_logic_reset) begin
       // Bring all TAP state to the initial value.
-      idcode_d    = IdcodeValue;
-      bypass_d    = 1'b0;
-      isc_pdata_d = '0;
+      idcode_d        = IdcodeValue;
+      bypass_d        = 1'b0;
+      isc_pdata_d     = '0;
+      boundary_scan_o = '0;
     end
   end
 
@@ -194,17 +212,30 @@ module fpga_dm_jtag_tap #(
   // Data reg select
   // ----------------
   always_comb begin : p_data_reg_sel
-    idcode_select  = 1'b0;
-    bypass_select  = 1'b0;
-    ejtag_select   = 1'b0;
-    isc_enable_select  = 1'b0;
-    isc_disable_select = 1'b0;
-    isc_pdata_select   = 1'b0;
+    idcode_select        = 1'b0;
+    usercode_select      = 1'b0;
+    bypass_select        = 1'b0;
+    ejtag_select         = 1'b0;
+    isc_enable_select    = 1'b0;
+    isc_disable_select   = 1'b0;
+    isc_pdata_select     = 1'b0;
+    boundary_scan_select = 1'b0;
+    testmode_o           = 1'b0;
 
     unique case (jtag_ir_q)
-      BYPASS0:    bypass_select = 1'b1;
-      IDCODE:     idcode_select = 1'b1;
-      EJTAG:      ejtag_select  = 1'b1;
+      BYPASS0:        bypass_select        = 1'b1;
+      IDCODE:         idcode_select        = 1'b1;
+      USERCODE:       usercode_select      = 1'b1;
+      SAMPLE_PRELOAD: boundary_scan_select = 1'b1;
+      EXTEST: begin
+        boundary_scan_select = 1'b1;
+        testmode_o           = 1'b1;
+      end
+      INTEST: begin
+        boundary_scan_select = 1'b1;
+        testmode_o           = 1'b1;
+      end
+      EJTAG: ejtag_select = 1'b1;
       ISC_ENABLE: begin
         bypass_select     = 1'b1;
         isc_enable_select = 1'b1;
@@ -214,10 +245,46 @@ module fpga_dm_jtag_tap #(
         isc_disable_select = 1'b1;
       end
       ISC_PROGRAM: isc_pdata_select = 1'b1;
-      ISC_NOOP:    bypass_select = 1'b1;
-      BYPASS1:     bypass_select = 1'b1;
-      default:     bypass_select = 1'b1;
+      ISC_NOOP:    bypass_select    = 1'b1;
+      BYPASS1:     bypass_select    = 1'b1;
+      default:     bypass_select    = 1'b1;
     endcase
+  end
+
+  // ----------------
+  // Mode select
+  // ---------------
+  assign clk_bsr_select_o = boundary_scan_select;
+  assign capture_bsr_select_o = boundary_scan_select & capture_dr;
+  assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
+  assign update_bsr_select_o  = boundary_scan_select & update_dr;
+
+  always_comb begin
+    mode2_o              = '0;
+    mode5_o              = '0;
+    mode6_o              = '0;
+    testmode_clk_pulse_o = 1'b1;
+
+    unique case (jtag_ir_q)
+      INTEST: begin
+        mode2_o              = 1;
+        testmode_clk_pulse_o = run_test_idle_d & ~run_test_idle_q;
+      end
+      EXTEST: begin
+        mode5_o = 1;
+        mode6_o = 1;
+      end
+      default: mode6_o = 1;
+    endcase
+  end
+
+  logic tck_n;
+  always_ff @(posedge tck_i, negedge trst_ni) begin
+    if (!trst_ni) begin
+      run_test_idle_q <= '0;
+    end else begin
+      run_test_idle_q <= run_test_idle_d;
+    end
   end
 
   // ----------------
@@ -233,6 +300,10 @@ module fpga_dm_jtag_tap #(
     end else begin
       unique case (jtag_ir_q)
         IDCODE:         tdo_mux = idcode_q[0];   // Reading ID code
+        USERCODE:       tdo_mux = idcode_q[0];   // Reading user code
+        SAMPLE_PRELOAD: tdo_mux = boundary_scan_i;
+        EXTEST:         tdo_mux = boundary_scan_i;
+        INTEST:         tdo_mux = boundary_scan_i;
         ISC_PROGRAM:    tdo_mux = isc_pdata_q[0];
         default:        tdo_mux = bypass_q;      // BYPASS instruction
       endcase
@@ -242,18 +313,9 @@ module fpga_dm_jtag_tap #(
   // ----------------
   // DFT
   // ----------------
-  logic tck_n, tck_ni;
-
   tc_clk_inverter i_tck_inv (
-    .clk_i ( tck_i  ),
-    .clk_o ( tck_ni )
-  );
-
-  tc_clk_mux2 i_dft_tck_mux (
-    .clk0_i    ( tck_ni     ),
-    .clk1_i    ( tck_i      ), // bypass the inverted clock for testing
-    .clk_sel_i ( testmode_i ),
-    .clk_o     ( tck_n      )
+    .clk_i ( tck_i ),
+    .clk_o ( tck_n )
   );
 
   // TDO changes state at negative edge of TCK
@@ -270,7 +332,7 @@ module fpga_dm_jtag_tap #(
   // ----------------
   // ISC IR logic
   // ----------------
-  always_ff @(posedge tck_n or negedge trst_ni) begin : isc_state
+  always_ff @(posedge tck_n, negedge trst_ni) begin : isc_state
     if (!trst_ni) begin
       isc_enabled_q            <= '0;
       isc_done_q               <= '0;
@@ -334,6 +396,7 @@ module fpga_dm_jtag_tap #(
   // Determination of next state; purely combinatorial
   always_comb begin : p_tap_fsm
     test_logic_reset   = 1'b0;
+    run_test_idle_d    = 1'b0;
 
     capture_dr         = 1'b0;
     shift_dr           = 1'b0;
@@ -341,7 +404,6 @@ module fpga_dm_jtag_tap #(
 
     capture_ir         = 1'b0;
     shift_ir           = 1'b0;
-    // pause_ir           = 1'b0; unused
     update_ir          = 1'b0;
 
     unique case (tap_state_q)
@@ -351,6 +413,7 @@ module fpga_dm_jtag_tap #(
       end
       RunTestIdle: begin
         tap_state_d = (tms_i) ? SelectDrScan : RunTestIdle;
+        run_test_idle_d = 1'b1;
       end
       // DR Path
       SelectDrScan: begin
@@ -435,7 +498,7 @@ module fpga_dm_jtag_tap #(
 
   // Pass through JTAG signals to debug custom DR logic.
   // In case of a single TAP those are just feed-through.
-  assign tck_o = tck_i;
+  assign tck_no = tck_n;
   assign tdi_o = td_i;
   assign update_o = update_dr;
   assign shift_o = shift_dr;

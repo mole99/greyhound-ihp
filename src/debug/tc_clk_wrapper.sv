@@ -28,3 +28,16 @@ module tc_clk_mux2 (
     .X  ( clk_o     )
   );
 endmodule
+
+module tc_clk_gating (
+  input  logic clk_i,
+  input  logic en_i,
+  output logic clk_o
+);
+  (* keep, dont_touch *)
+  sg13g2_lgcp_1 clk_gate (
+    .CLK  (clk_i),
+    .GATE (en_i),
+    .GCLK (clk_o)
+  );
+endmodule

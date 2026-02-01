@@ -30572,7 +30572,7 @@ module \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (testmode_i, tck_i,
     else bypass_q <= bypass_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) idcode_q <= 32'd623206401;
+    if (!trst_ni) idcode_q <= 32'd86335489;
     else idcode_q <= idcode_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:104.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
@@ -30622,13 +30622,13 @@ module \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (testmode_i, tck_i,
   assign dtmcs_select_o = _028_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:158.18-158.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign idcode_select = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:157.18-157.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign bypass_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 1'h0 : _018_;
-  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd623206401 : _022_;
+  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd86335489 : _022_;
   assign _017_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:137.27-137.43|ip/riscv-dbg/src/dmi_jtag_tap.sv:137.7-137.43" *) _016_ : td_i;
   assign _021_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:136.27-136.65|ip/riscv-dbg/src/dmi_jtag_tap.sv:136.7-136.65" *) { td_i, idcode_q[31:1] } : _020_;
   assign _018_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _017_ : _016_;
   assign _022_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _021_ : _020_;
   assign _015_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:132.26-132.42|ip/riscv-dbg/src/dmi_jtag_tap.sv:132.7-132.42" *) bypass_q : 1'h0;
-  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd623206401 : idcode_q;
+  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd86335489 : idcode_q;
   assign _016_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _015_ : bypass_q;
   assign _020_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _019_ : idcode_q;
   function [3:0] _086_;

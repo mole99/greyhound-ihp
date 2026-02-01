@@ -314,50 +314,48 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire [3:0] _055_;
   wire [3:0] _056_;
   wire [4:0] _057_;
-  wire [31:0] _058_;
+  wire [5:0] _058_;
   wire [31:0] _059_;
-  (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] _060_;
-  wire _061_;
+  wire [31:0] _061_;
   wire _062_;
-  wire [7:0] _063_;
+  wire _063_;
   wire [7:0] _064_;
-  wire _065_;
-  wire [31:0] _066_;
+  wire [7:0] _065_;
+  wire _066_;
   wire [7:0] _067_;
-  wire _068_;
-  wire [31:0] _069_;
-  (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [7:0] _068_;
+  wire _069_;
   wire [31:0] _070_;
-  wire _071_;
-  wire [31:0] _072_;
   (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] _073_;
-  wire _074_;
+  wire [31:0] _071_;
+  wire _072_;
+  wire [7:0] _073_;
+  wire [7:0] _074_;
   wire _075_;
   wire _076_;
   wire _077_;
-  wire [31:0] _078_;
-  wire _079_;
+  wire _078_;
+  wire [31:0] _079_;
   wire _080_;
   wire _081_;
   wire _082_;
-  wire [3:0] _083_;
-  wire [31:0] _084_;
-  wire _085_;
+  wire _083_;
+  wire [3:0] _084_;
+  wire [31:0] _085_;
   wire _086_;
   wire _087_;
-  wire [3:0] _088_;
-  wire _089_;
-  wire [3:0] _090_;
-  wire _091_;
-  wire [3:0] _092_;
-  wire _093_;
-  wire [3:0] _094_;
-  wire _095_;
-  wire [3:0] _096_;
-  wire _097_;
-  wire [3:0] _098_;
+  wire _088_;
+  wire [3:0] _089_;
+  wire _090_;
+  wire [3:0] _091_;
+  wire _092_;
+  wire [3:0] _093_;
+  wire _094_;
+  wire [3:0] _095_;
+  wire _096_;
+  wire [3:0] _097_;
+  wire _098_;
   wire [3:0] _099_;
   wire [3:0] _100_;
   wire [3:0] _101_;
@@ -366,31 +364,31 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire [3:0] _104_;
   wire [3:0] _105_;
   wire [3:0] _106_;
-  wire [15:0] _107_;
-  wire [7:0] _108_;
-  wire [3:0] _109_;
-  wire [1:0] _110_;
-  wire _111_;
-  wire [15:0] _112_;
-  wire [7:0] _113_;
-  wire [3:0] _114_;
-  wire [1:0] _115_;
-  wire _116_;
-  wire [3:0] _117_;
-  wire [1:0] _118_;
-  wire _119_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *)
+  wire [3:0] _107_;
+  wire [15:0] _108_;
+  wire [7:0] _109_;
+  wire [3:0] _110_;
+  wire [1:0] _111_;
+  wire _112_;
+  wire [15:0] _113_;
+  wire [7:0] _114_;
+  wire [3:0] _115_;
+  wire [1:0] _116_;
+  wire _117_;
+  wire [3:0] _118_;
+  wire [1:0] _119_;
   wire _120_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *)
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *)
   wire _121_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *)
+  wire _122_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *)
-  wire [7:0] _122_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *)
   wire [7:0] _123_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *)
+  wire [7:0] _124_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *)
-  wire _124_;
-  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *)
   wire _125_;
+  (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *)
   wire _126_;
   wire _127_;
   wire _128_;
@@ -398,6 +396,7 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire _130_;
   wire _131_;
   wire _132_;
+  wire _133_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:40.29" *)
   input [23:0] addr;
   wire [23:0] addr;
@@ -478,7 +477,7 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   wire start;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:62.17" *)
   reg state;
-  wire [5:0] wait_start;
+  wire [3:0] wait_start;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:46.29" *)
   input [3:0] wait_states;
   wire [3:0] wait_states;
@@ -495,9 +494,9 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign data_o[23:16] = data[2'h2];
   assign data_o[31:24] = data[2'h3];
   assign _041_ = data[byte_index];
-  assign _000_ = _085_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.45-133.61" *) _086_ : 1'hx;
+  assign _000_ = _086_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.45-133.61" *) _087_ : 1'hx;
   assign _001_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.26-133.37" *) 4'h8;
-  assign dout_qspi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.25-148.32" *) { 3'h0, _000_ } : _106_;
+  assign dout_qspi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:133.25-148.32" *) { 3'h0, _000_ } : _107_;
   assign _002_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:165.26-165.39" *) 4'hf;
   assign _003_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:165.25-166.32" *) data_i[27:24] : 4'h0;
   assign _004_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:164.26-164.39" *) 4'he;
@@ -558,158 +557,158 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
   assign douten = qpi ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:200.29-202.39" *) douten_qpi : _055_;
   assign _056_ = qpi ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:101.32-101.44" *) 4'h2 : 4'h8;
   assign _057_ = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:102.32-102.53" *) 5'h06 : 5'h18;
-  assign wait_start = _056_ + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:101.31-102.54" *) _057_;
-  assign _058_[3:0] = rd_wr ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.45-103.68" *) wait_states : 4'h0;
-  assign data_start = wait_start + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.31-103.69" *) _058_[3:0];
-  assign _059_[3:0] = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.32-104.52" *) 4'h2 : 4'h8;
-  assign data_count = _059_[3:0] * (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.31-104.60" *) size;
-  assign _060_[7:0] = data_start + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.47-105.70" *) data_count;
-  assign final_count = short_cmd ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.31-105.70" *) 8'h08 : _060_[7:0];
+  assign { _058_[5:4], wait_start } = _056_ + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:101.31-102.54" *) _057_;
+  assign _059_[3:0] = rd_wr ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.45-103.68" *) wait_states : 4'h0;
+  assign data_start = { _058_[5:4], wait_start } + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:103.31-103.69" *) _059_[3:0];
+  assign _060_[3:0] = _036_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.32-104.52" *) 4'h2 : 4'h8;
+  assign data_count = _060_[3:0] * (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:104.31-104.60" *) size;
+  assign _061_[7:0] = data_start + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.47-105.70" *) data_count;
+  assign final_count = short_cmd ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:105.31-105.70" *) 8'h08 : _061_[7:0];
   assign done = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:107.24-107.46" *) final_count;
-  assign _061_ = ~ (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.23-112.28" *) done;
-  assign _062_ = sck & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.17-112.28" *) _061_;
-  assign _063_ = counter + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.24-113.38" *) 1'h1;
-  assign _064_ = 7'h57 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.57-125.71" *) counter;
-  assign _065_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.38-125.50" *) 7'h40;
-  assign _066_[7:0] = _065_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.37-126.38" *) _064_ : 8'h00;
-  assign _067_ = 7'h47 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.57-124.71" *) counter;
-  assign _068_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.38-124.50" *) 6'h38;
-  assign _069_[7:0] = _068_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.37-126.38" *) _067_ : _066_[7:0];
-  assign _070_[7:0] = 6'h37 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.57-123.71" *) counter;
-  assign _071_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.38-123.50" *) 6'h30;
-  assign _072_[7:0] = _071_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.37-126.38" *) _070_[7:0] : _069_[7:0];
-  assign _073_[7:0] = 6'h27 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.57-122.71" *) counter;
-  assign _074_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.38-122.50" *) 6'h28;
-  assign spi_bit_index = _074_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.37-126.38" *) _073_[7:0] : _072_[7:0];
-  assign _075_ = spi_bit_index < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) 6'h20;
-  assign _077_ = _075_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _076_ : 1'hx;
-  assign { _078_[31], _078_[7:0] } = 5'h1f - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.50-129.62" *) counter;
-  assign _079_ = { _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 6'h20;
-  assign _081_ = _079_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _080_ : 1'hx;
-  assign _082_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.26-129.38" *) 6'h20;
-  assign _083_[0] = _082_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.25-130.46" *) _081_ : _077_;
-  assign { _084_[31], _084_[7:0] } = 3'h7 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.49-128.60" *) counter;
-  assign _085_ = { _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) 4'h8;
-  assign dout_spi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.25-130.46" *) _000_ : _083_[0];
-  assign _087_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.26-147.39" *) 5'h15;
-  assign _088_ = _087_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.25-148.32" *) data_i[27:24] : 4'h0;
-  assign _089_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.26-146.39" *) 5'h14;
-  assign _090_ = _089_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.25-148.32" *) data_i[31:28] : _088_;
-  assign _091_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.26-145.39" *) 5'h13;
-  assign _092_ = _091_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.25-148.32" *) data_i[19:16] : _090_;
-  assign _093_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.26-144.39" *) 5'h12;
-  assign _094_ = _093_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.25-148.32" *) data_i[23:20] : _092_;
-  assign _095_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.26-143.39" *) 5'h11;
-  assign _096_ = _095_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.25-148.32" *) data_i[11:8] : _094_;
-  assign _097_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.26-142.39" *) 5'h10;
-  assign _098_ = _097_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.25-148.32" *) data_i[15:12] : _096_;
-  assign _099_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:141.25-148.32" *) data_i[3:0] : _098_;
-  assign _100_ = _004_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:140.25-148.32" *) data_i[7:4] : _099_;
-  assign _101_ = _006_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:139.25-148.32" *) addr[3:0] : _100_;
-  assign _102_ = _008_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:138.25-148.32" *) addr[7:4] : _101_;
-  assign _103_ = _010_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:137.25-148.32" *) addr[11:8] : _102_;
-  assign _104_ = _012_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:136.25-148.32" *) addr[15:12] : _103_;
-  assign _105_ = _014_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:135.25-148.32" *) addr[19:16] : _104_;
-  assign _106_ = _016_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:134.25-148.32" *) addr[23:20] : _105_;
-  assign _107_[0] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[1] : data_i[0];
-  assign _107_[1] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[3] : data_i[2];
-  assign _107_[2] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[5] : data_i[4];
-  assign _107_[3] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[7] : data_i[6];
-  assign _107_[4] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[9] : data_i[8];
-  assign _107_[5] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[11] : data_i[10];
-  assign _107_[6] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[13] : data_i[12];
-  assign _107_[7] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[15] : data_i[14];
-  assign _107_[8] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[17] : data_i[16];
-  assign _107_[9] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[19] : data_i[18];
-  assign _107_[10] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[21] : data_i[20];
-  assign _107_[11] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[23] : data_i[22];
-  assign _107_[12] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[25] : data_i[24];
-  assign _107_[13] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[27] : data_i[26];
-  assign _107_[14] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[29] : data_i[28];
-  assign _107_[15] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[31] : data_i[30];
-  assign _108_[0] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[1] : _107_[0];
-  assign _108_[1] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[3] : _107_[2];
-  assign _108_[2] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[5] : _107_[4];
-  assign _108_[3] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[7] : _107_[6];
-  assign _108_[4] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[9] : _107_[8];
-  assign _108_[5] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[11] : _107_[10];
-  assign _108_[6] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[13] : _107_[12];
-  assign _108_[7] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _107_[15] : _107_[14];
-  assign _109_[0] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[1] : _108_[0];
-  assign _109_[1] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[3] : _108_[2];
-  assign _109_[2] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[5] : _108_[4];
-  assign _109_[3] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[7] : _108_[6];
-  assign _110_[0] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[1] : _109_[0];
-  assign _110_[1] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[3] : _109_[2];
-  assign _111_ = spi_bit_index[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[1] : _110_[0];
-  assign _112_[0] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[1] : addr[0];
-  assign _112_[1] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[3] : addr[2];
-  assign _112_[2] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[5] : addr[4];
-  assign _112_[3] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[7] : addr[6];
-  assign _112_[4] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[9] : addr[8];
-  assign _112_[5] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[11] : addr[10];
-  assign _112_[6] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[13] : addr[12];
-  assign _112_[7] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[15] : addr[14];
-  assign _112_[8] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[17] : addr[16];
-  assign _112_[9] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[19] : addr[18];
-  assign _112_[10] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[21] : addr[20];
-  assign _112_[11] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[23] : addr[22];
-  assign _112_[12] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[13] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[14] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _112_[15] = _078_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
-  assign _113_[0] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[1] : _112_[0];
-  assign _113_[1] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[3] : _112_[2];
-  assign _113_[2] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[5] : _112_[4];
-  assign _113_[3] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[7] : _112_[6];
-  assign _113_[4] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[9] : _112_[8];
-  assign _113_[5] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[11] : _112_[10];
-  assign _113_[6] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[13] : _112_[12];
-  assign _113_[7] = _078_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _112_[15] : _112_[14];
-  assign _114_[0] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[1] : _113_[0];
-  assign _114_[1] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[3] : _113_[2];
-  assign _114_[2] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[5] : _113_[4];
-  assign _114_[3] = _078_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[7] : _113_[6];
-  assign _115_[0] = _078_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[1] : _114_[0];
-  assign _115_[1] = _078_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[3] : _114_[2];
-  assign _116_ = _078_[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[1] : _115_[0];
-  assign _117_[0] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[1] : cmd[0];
-  assign _117_[1] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[3] : cmd[2];
-  assign _117_[2] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[5] : cmd[4];
-  assign _117_[3] = _084_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[7] : cmd[6];
-  assign _118_[0] = _084_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _117_[1] : _117_[0];
-  assign _118_[1] = _084_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _117_[3] : _117_[2];
-  assign _119_ = _084_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[1] : _118_[0];
+  assign _062_ = ~ (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.23-112.28" *) done;
+  assign _063_ = sck & (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.17-112.28" *) _062_;
+  assign _064_ = counter + (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.24-113.38" *) 1'h1;
+  assign _065_ = 7'h57 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.57-125.71" *) counter;
+  assign _066_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.38-125.50" *) 7'h40;
+  assign _067_ = _066_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:125.37-126.38" *) _065_ : 8'h00;
+  assign _068_ = 7'h47 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.57-124.71" *) counter;
+  assign _069_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.38-124.50" *) 6'h38;
+  assign _070_[7:0] = _069_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:124.37-126.38" *) _068_ : _067_;
+  assign _071_[7:0] = 6'h37 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.57-123.71" *) counter;
+  assign _072_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.38-123.50" *) 6'h30;
+  assign _073_ = _072_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:123.37-126.38" *) _071_[7:0] : _070_[7:0];
+  assign _074_ = 6'h27 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.57-122.71" *) counter;
+  assign _075_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.38-122.50" *) 6'h28;
+  assign spi_bit_index = _075_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:122.37-126.38" *) _074_ : _073_;
+  assign _076_ = spi_bit_index < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) 6'h20;
+  assign _078_ = _076_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _077_ : 1'hx;
+  assign { _079_[31], _079_[7:0] } = 5'h1f - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.50-129.62" *) counter;
+  assign _080_ = { _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 6'h20;
+  assign _082_ = _080_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _081_ : 1'hx;
+  assign _083_ = counter < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.26-129.38" *) 6'h20;
+  assign _084_[0] = _083_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.25-130.46" *) _082_ : _078_;
+  assign { _085_[31], _085_[7:0] } = 3'h7 - (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.49-128.60" *) counter;
+  assign _086_ = { _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[7:0] } < (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) 4'h8;
+  assign dout_spi = _001_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.25-130.46" *) _000_ : _084_[0];
+  assign _088_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.26-147.39" *) 5'h15;
+  assign _089_ = _088_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:147.25-148.32" *) data_i[27:24] : 4'h0;
+  assign _090_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.26-146.39" *) 5'h14;
+  assign _091_ = _090_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:146.25-148.32" *) data_i[31:28] : _089_;
+  assign _092_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.26-145.39" *) 5'h13;
+  assign _093_ = _092_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:145.25-148.32" *) data_i[19:16] : _091_;
+  assign _094_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.26-144.39" *) 5'h12;
+  assign _095_ = _094_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:144.25-148.32" *) data_i[23:20] : _093_;
+  assign _096_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.26-143.39" *) 5'h11;
+  assign _097_ = _096_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:143.25-148.32" *) data_i[11:8] : _095_;
+  assign _098_ = counter == (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.26-142.39" *) 5'h10;
+  assign _099_ = _098_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:142.25-148.32" *) data_i[15:12] : _097_;
+  assign _100_ = _002_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:141.25-148.32" *) data_i[3:0] : _099_;
+  assign _101_ = _004_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:140.25-148.32" *) data_i[7:4] : _100_;
+  assign _102_ = _006_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:139.25-148.32" *) addr[3:0] : _101_;
+  assign _103_ = _008_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:138.25-148.32" *) addr[7:4] : _102_;
+  assign _104_ = _010_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:137.25-148.32" *) addr[11:8] : _103_;
+  assign _105_ = _012_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:136.25-148.32" *) addr[15:12] : _104_;
+  assign _106_ = _014_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:135.25-148.32" *) addr[19:16] : _105_;
+  assign _107_ = _016_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:134.25-148.32" *) addr[23:20] : _106_;
+  assign _108_[0] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[1] : data_i[0];
+  assign _108_[1] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[3] : data_i[2];
+  assign _108_[2] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[5] : data_i[4];
+  assign _108_[3] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[7] : data_i[6];
+  assign _108_[4] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[9] : data_i[8];
+  assign _108_[5] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[11] : data_i[10];
+  assign _108_[6] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[13] : data_i[12];
+  assign _108_[7] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[15] : data_i[14];
+  assign _108_[8] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[17] : data_i[16];
+  assign _108_[9] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[19] : data_i[18];
+  assign _108_[10] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[21] : data_i[20];
+  assign _108_[11] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[23] : data_i[22];
+  assign _108_[12] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[25] : data_i[24];
+  assign _108_[13] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[27] : data_i[26];
+  assign _108_[14] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[29] : data_i[28];
+  assign _108_[15] = spi_bit_index[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) data_i[31] : data_i[30];
+  assign _109_[0] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[1] : _108_[0];
+  assign _109_[1] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[3] : _108_[2];
+  assign _109_[2] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[5] : _108_[4];
+  assign _109_[3] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[7] : _108_[6];
+  assign _109_[4] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[9] : _108_[8];
+  assign _109_[5] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[11] : _108_[10];
+  assign _109_[6] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[13] : _108_[12];
+  assign _109_[7] = spi_bit_index[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _108_[15] : _108_[14];
+  assign _110_[0] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[1] : _109_[0];
+  assign _110_[1] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[3] : _109_[2];
+  assign _110_[2] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[5] : _109_[4];
+  assign _110_[3] = spi_bit_index[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _109_[7] : _109_[6];
+  assign _111_[0] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[1] : _110_[0];
+  assign _111_[1] = spi_bit_index[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _110_[3] : _110_[2];
+  assign _112_ = spi_bit_index[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:130.25-130.46" *) _111_[1] : _111_[0];
+  assign _113_[0] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[1] : addr[0];
+  assign _113_[1] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[3] : addr[2];
+  assign _113_[2] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[5] : addr[4];
+  assign _113_[3] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[7] : addr[6];
+  assign _113_[4] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[9] : addr[8];
+  assign _113_[5] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[11] : addr[10];
+  assign _113_[6] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[13] : addr[12];
+  assign _113_[7] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[15] : addr[14];
+  assign _113_[8] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[17] : addr[16];
+  assign _113_[9] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[19] : addr[18];
+  assign _113_[10] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[21] : addr[20];
+  assign _113_[11] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) addr[23] : addr[22];
+  assign _113_[12] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[13] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[14] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _113_[15] = _079_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) 1'hx : 1'hx;
+  assign _114_[0] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[1] : _113_[0];
+  assign _114_[1] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[3] : _113_[2];
+  assign _114_[2] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[5] : _113_[4];
+  assign _114_[3] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[7] : _113_[6];
+  assign _114_[4] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[9] : _113_[8];
+  assign _114_[5] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[11] : _113_[10];
+  assign _114_[6] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[13] : _113_[12];
+  assign _114_[7] = _079_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _113_[15] : _113_[14];
+  assign _115_[0] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[1] : _114_[0];
+  assign _115_[1] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[3] : _114_[2];
+  assign _115_[2] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[5] : _114_[4];
+  assign _115_[3] = _079_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _114_[7] : _114_[6];
+  assign _116_[0] = _079_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[1] : _115_[0];
+  assign _116_[1] = _079_[3] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _115_[3] : _115_[2];
+  assign _117_ = _079_[4] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:129.45-129.63" *) _116_[1] : _116_[0];
+  assign _118_[0] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[1] : cmd[0];
+  assign _118_[1] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[3] : cmd[2];
+  assign _118_[2] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[5] : cmd[4];
+  assign _118_[3] = _085_[0] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) cmd[7] : cmd[6];
+  assign _119_[0] = _085_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[1] : _118_[0];
+  assign _119_[1] = _085_[1] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _118_[3] : _118_[2];
+  assign _120_ = _085_[2] ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:128.45-128.61" *) _119_[1] : _119_[0];
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:90.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) ce_n <= 1'h1;
-    else ce_n <= _121_;
+    else ce_n <= _122_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:109.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) counter <= 8'h00;
-    else counter <= _123_;
+    else counter <= _124_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:80.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) sck <= 1'h0;
-    else sck <= _127_;
+    else sck <= _128_;
   (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:75.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) state <= 1'h0;
     else state <= nstate;
-  assign _122_ = state ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:115.13-115.29|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *) counter : 8'h00;
-  assign _123_ = _062_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.13-113.39|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *) _063_ : _122_;
-  assign _120_ = state ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:96.13-96.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *) 1'h0 : 1'h1;
-  assign _121_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:94.13-94.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *) 1'h1 : _120_;
-  assign _126_ = ce_n ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:86.13-86.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:85.14-86.26" *) sck : _019_;
-  assign _127_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:84.13-84.25|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:83.14-86.26" *) 1'h0 : _126_;
-  assign _128_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h0 : 1'h1;
-  assign _129_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _128_ : 1'h0;
-  assign _044_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _129_ : 1'h0;
-  assign _130_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h1 : 1'h0;
-  assign _131_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _130_ : 1'h0;
-  assign _042_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _131_ : 1'h0;
-  assign _125_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.28-72.42|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *) 1'h0 : 1'h1;
-  function [0:0] _335_;
+  assign _123_ = state ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:115.13-115.29|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:114.14-115.29" *) counter : 8'h00;
+  assign _124_ = _063_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:113.13-113.39|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:112.14-115.29" *) _064_ : _123_;
+  assign _121_ = state ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:96.13-96.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:95.14-98.26" *) 1'h0 : 1'h1;
+  assign _122_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:94.13-94.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:93.14-98.26" *) 1'h1 : _121_;
+  assign _127_ = ce_n ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:86.13-86.26|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:85.14-86.26" *) sck : _019_;
+  assign _128_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:84.13-84.25|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:83.14-86.26" *) 1'h0 : _127_;
+  assign _129_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h0 : 1'h1;
+  assign _130_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _129_ : 1'h0;
+  assign _044_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _130_ : 1'h0;
+  assign _131_ = _036_ ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:178.21-178.70|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73" *) 1'h1 : 1'h0;
+  assign _132_ = sck ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:177.17-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73" *) _131_ : 1'h0;
+  assign _042_ = _040_ ? (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:176.13-180.73|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:175.9-180.73" *) _132_ : 1'h0;
+  assign _126_ = done ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.28-72.42|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:72.19-72.62" *) 1'h0 : 1'h1;
+  function [0:0] _336_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -718,32 +717,31 @@ module \EF_PSRAM_CTRL$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _335_ = b[0:0];
+        _336_ = b[0:0];
       2'b1?:
-        _335_ = b[1:1];
+        _336_ = b[1:1];
       default:
-        _335_ = a;
+        _336_ = a;
     endcase
   endfunction
-  assign nstate = _335_(1'hx, { _124_, _125_ }, { _132_, state });
-  assign _132_ = ~ (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:70.9-73.16" *) state;
-  assign _124_ = start ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.29-71.43|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *) 1'h1 : 1'h0;
+  assign nstate = _336_(1'hx, { _125_, _126_ }, { _133_, state });
+  assign _133_ = ~ (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:70.9-73.16" *) state;
+  assign _125_ = start ? (* full_case = 32'd1 *) (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.29-71.43|ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:71.19-71.63" *) 1'h1 : 1'h0;
   assign _043_[6:0] = { _043_[7], _043_[7], _043_[7], _043_[7], _043_[7], _043_[7], _043_[7] };
   assign _045_[6:0] = { _045_[7], _045_[7], _045_[7], _045_[7], _045_[7], _045_[7], _045_[7] };
-  assign _058_[31:4] = 28'h0000000;
+  assign _058_[3:0] = wait_start;
   assign _059_[31:4] = 28'h0000000;
-  assign _066_[31:8] = 24'hxxxxxx;
-  assign _069_[31:8] = 24'hxxxxxx;
-  assign _070_[30:8] = { _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31], _070_[31] };
-  assign _072_[31:8] = 24'hxxxxxx;
-  assign _073_[30:8] = { _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31], _073_[31] };
-  assign _078_[30:8] = { _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31], _078_[31] };
-  assign _083_[3:1] = 3'h0;
-  assign _084_[30:8] = { _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31], _084_[31] };
+  assign _060_[31:4] = 28'h0000000;
+  assign _061_[31:8] = 24'h000000;
+  assign _070_[31:8] = 24'hxxxxxx;
+  assign _071_[30:8] = { _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31], _071_[31] };
+  assign _079_[30:8] = { _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31], _079_[31] };
+  assign _084_[3:1] = 3'h0;
+  assign _085_[30:8] = { _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31], _085_[31] };
   assign douten_spi = 4'h1;
-  assign _076_ = _111_;
-  assign _080_ = _116_;
-  assign _086_ = _119_;
+  assign _077_ = _112_;
+  assign _081_ = _117_;
+  assign _087_ = _120_;
 endmodule
 
 (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/bus_wrapper/EF_PSRAM_CTRL_AHBL.v:37.8" *)
@@ -3703,7 +3701,8 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   wire [31:0] _005_;
   wire _006_;
   wire _007_;
-  wire [3:0] _008_;
+  (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _008_;
   wire _009_;
   wire _010_;
   wire _011_;
@@ -3838,7 +3837,7 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   assign { _005_[31], _005_[3:0] } = data_size - (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:519.43-519.56" *) 1'h1;
   assign _006_ = count_reg == (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:519.28-519.57" *) { _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[31], _005_[3:0] };
   assign _007_ = ! (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.32-520.53" *) parity_type;
-  assign _008_ = count_reg + (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:525.42-525.55" *) 1'h1;
+  assign _008_[3:0] = count_reg + (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:525.42-525.55" *) 1'h1;
   assign _009_ = ~^ (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:535.35-535.42" *) pdata;
   assign _010_ = ^ (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:537.35-537.41" *) pdata;
   assign _011_ = | { _054_, _043_, _040_ };
@@ -3902,7 +3901,7 @@ module \UART_TX$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_UART_
   assign _015_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) 4'h0 : _002_;
   assign _052_ = current_state == (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:513.22-529.16|ip/EF_UART/hdl/rtl/EF_UART.v:491.9-577.16" *) 2'h2;
   assign _028_ = _007_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:521.33-521.55|ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56" *) 3'h4 : 3'h3;
-  assign _020_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) count_reg : _008_;
+  assign _020_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) count_reg : _008_[3:0];
   assign _029_ = _006_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:520.29-523.56|ip/EF_UART/hdl/rtl/EF_UART.v:519.25-525.56" *) _028_ : current_state;
   assign _023_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) { 1'h0, data_reg[8:1] } : data_reg;
   assign _021_ = _003_ ? (* full_case = 32'd1 *) (* src = "ip/EF_UART/hdl/rtl/EF_UART.v:516.52-526.24|ip/EF_UART/hdl/rtl/EF_UART.v:516.21-528.44" *) _020_ : count_reg;
@@ -12514,7 +12513,7 @@ module \cv32e40x_b_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
 endmodule
 
 (* src = "src/soc/cv32e40x_clock_gate.sv:15.8" *)
-module \cv32e40x_clock_gate$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv32e40x_core.sleep_unit_i.core_clock_gate_i (clk_i, scan_cg_en_i, clk_o, en_i);
+module \cv32e40x_clock_gate$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv32e40x_core.sleep_unit_i.core_clock_gate_i (clk_i, clk_o, en_i, scan_cg_en_i);
   wire _0_;
   (* src = "src/soc/cv32e40x_clock_gate.sv:20.18" *)
   input clk_i;
@@ -17393,12 +17392,12 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
   assign _087_[959:928] = _163_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1787.9-1787.52" *) _086_ : 32'd0;
   assign _087_[991:960] = _164_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1787.9-1787.52" *) _086_ : 32'd0;
   assign _087_[1023:992] = _165_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1787.9-1787.52" *) _086_ : 32'd0;
-  assign _166_ = | { _285_, _284_, _283_, _282_, _281_, _280_, _279_, _278_, _277_, _275_, _274_, _273_, _272_, _271_, _270_, _269_, _268_, _267_, _266_, _265_, _264_, _263_, _262_, _261_, _256_, _255_, _254_, _253_, _252_, _251_ };
-  assign _167_ = | { _260_, _259_, _258_, _257_ };
-  assign _168_ = | { _231_, _016_ };
-  assign _169_ = | ctrl_fsm_i[40:38];
-  assign _170_ = | ctrl_fsm_i[40:39];
-  assign _171_ = | { _270_, _269_, _254_, _253_, _252_, _251_ };
+  assign _166_ = | { _270_, _269_, _254_, _253_, _252_, _251_ };
+  assign _167_ = | { _231_, _016_ };
+  assign _168_ = | ctrl_fsm_i[40:38];
+  assign _169_ = | ctrl_fsm_i[40:39];
+  assign _170_ = | { _285_, _284_, _283_, _282_, _281_, _280_, _279_, _278_, _277_, _275_, _274_, _273_, _272_, _271_, _270_, _269_, _268_, _267_, _266_, _265_, _264_, _263_, _262_, _261_, _256_, _255_, _254_, _253_, _252_, _251_ };
+  assign _171_ = | { _260_, _259_, _258_, _257_ };
   assign _172_ = | { _269_, _253_, _251_ };
   assign _173_ = | { _270_, _254_, _252_ };
   reg \hpm_events_reg[10] ;
@@ -17553,7 +17552,7 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
         _632_ = a;
     endcase
   endfunction
-  assign _174_ = _632_(32'hxxxxxxxx, { _011_, _013_, ex_wb_pipe_i[191:160] }, { _017_, _019_, _168_ });
+  assign _174_ = _632_(32'hxxxxxxxx, { _011_, _013_, ex_wb_pipe_i[191:160] }, { _017_, _019_, _167_ });
   assign _231_ = ! (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1203.22-1206.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1198.7-1208.14" *) ex_wb_pipe_i[205:204];
   assign _175_ = _231_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1203.22-1206.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1198.7-1208.14" *) 1'h0 : 1'h1;
   assign csr_we_int = csr_en_gated ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1192.23-1195.8|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1192.5-1209.8" *) _175_ : 1'h0;
@@ -17569,7 +17568,7 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
   assign _176_ = ctrl_fsm_i[143] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.40-1083.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12" *) { dcsr_q[31:28], 12'h000, dcsr_q[15], 2'h0, dcsr_q[12:10], 1'h0, ctrl_fsm_i[146:144], 1'h0, dcsr_q[4], 1'h0, dcsr_q[2], 2'h3 } : { 16'h4000, csr_wdata_int[15], 3'h0, csr_wdata_int[11:10], 1'h0, dcsr_q[8:6], 3'h2, csr_wdata_int[2], 2'h3 };
   assign _205_ = ctrl_fsm_i[143] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.40-1083.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12" *) _204_ : 1'h1;
   assign _202_ = ctrl_fsm_i[143] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.40-1083.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12" *) { csr_wdata_int[31:1], 1'h0 } : ctrl_fsm_i[104:73];
-  assign priv_lvl_we = _169_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1160.36-1178.10|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1059.5-1181.12" *) 1'h1 : 1'h0;
+  assign priv_lvl_we = _168_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1160.36-1178.10|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1059.5-1181.12" *) 1'h1 : 1'h0;
   assign mcause_we = ctrl_fsm_i[38] ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1059.5-1181.12" *) _201_ : _200_;
   assign mcause_n[31] = ctrl_fsm_i[38] ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1059.5-1181.12" *) _198_ : csr_wdata_int[31];
   assign mcause_n[10:0] = ctrl_fsm_i[38] ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1061.9-1129.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1059.5-1181.12" *) _197_ : csr_wdata_int[10:0];
@@ -17590,7 +17589,7 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
         _652_ = a;
     endcase
   endfunction
-  assign mstatus_we = _652_(_228_, { _229_, 1'h1 }, { ctrl_fsm_i[38], _170_ });
+  assign mstatus_we = _652_(_228_, { _229_, 1'h1 }, { ctrl_fsm_i[38], _169_ });
   function [31:0] _653_;
     input [31:0] a;
     input [95:0] b;
@@ -17907,7 +17906,9 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
   assign _280_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:370.17-370.44|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 10'h301;
   assign _281_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:362.20-367.10|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 10'h300;
   assign _282_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:353.9-358.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 5'h17;
-  function [0:0] _884_;
+  assign csr_hz_o[26] = _264_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:485.9-491.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 1'h1 : 1'h0;
+  assign csr_counter_read_o = _166_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:654.9-660.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 1'h1 : 1'h0;
+  function [0:0] _886_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -17916,19 +17917,17 @@ module \cv32e40x_cs_registers$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _884_ = b[0:0];
+        _886_ = b[0:0];
       2'b1?:
-        _884_ = b[1:1];
+        _886_ = b[1:1];
       default:
-        _884_ = a;
+        _886_ = a;
     endcase
   endfunction
-  assign illegal_csr_read = _884_(1'h1, { _089_, 1'h0 }, { _167_, _166_ });
+  assign illegal_csr_read = _886_(1'h1, { _089_, 1'h0 }, { _171_, _170_ });
   assign _283_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:676.23-676.56|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 12'hf15;
   assign _284_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:420.18-420.46|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 10'h343;
   assign _285_ = csr_raddr == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:391.21-391.52|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 10'h310;
-  assign csr_hz_o[26] = _264_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:485.9-491.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 1'h1 : 1'h0;
-  assign csr_counter_read_o = _171_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:654.9-660.12|ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:350.5-682.12" *) 1'h1 : 1'h0;
   (* src = "ip/cv32e40x/rtl/cv32e40x_cs_registers.sv:1437.7" *)
   \cv32e40x_csr$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv32e40x_core.cs_registers_i.basic_mode_csrs.mcause_csr_i  \basic_mode_csrs.mcause_csr_i  (
     .clk(clk),
@@ -22681,12 +22680,12 @@ module \cv32e40x_ff_one$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv
   assign sel_nodes[0] = sel_nodes[1] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[2];
   assign index_nodes[19:15] = sel_nodes[7] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[39:35] : index_nodes[44:40];
   assign sel_nodes[4] = sel_nodes[9] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[10];
-  assign index_nodes[24:20] = sel_nodes[9] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[49:45] : { 3'h3, index_nodes[51:50] };
+  assign index_nodes[24:20] = sel_nodes[9] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[49:45] : index_nodes[54:50];
   assign sel_nodes[5] = sel_nodes[11] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[12];
-  assign index_nodes[29:25] = sel_nodes[11] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[59:55] : { 3'h5, index_nodes[61:60] };
+  assign index_nodes[29:25] = sel_nodes[11] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[59:55] : index_nodes[64:60];
   assign sel_nodes[6] = sel_nodes[13] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[14];
   assign first_one_o = sel_nodes[1] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[9:5] : index_nodes[14:10];
-  assign index_nodes[34:30] = sel_nodes[13] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 3'h6, index_nodes[66:65] } : { 3'h7, index_nodes[71:70] };
+  assign index_nodes[34:30] = sel_nodes[13] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) index_nodes[69:65] : index_nodes[74:70];
   assign sel_nodes[7] = sel_nodes[15] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[16];
   assign index_nodes[39:35] = sel_nodes[15] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'h0, index_nodes[75] } : { 4'h1, index_nodes[80] };
   assign sel_nodes[8] = sel_nodes[17] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[18];
@@ -22695,15 +22694,15 @@ module \cv32e40x_ff_one$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv
   assign index_nodes[49:45] = sel_nodes[19] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'h4, index_nodes[95] } : { 4'h5, index_nodes[100] };
   assign sel_nodes[1] = sel_nodes[3] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[4];
   assign sel_nodes[10] = sel_nodes[21] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[22];
-  assign index_nodes[51:50] = sel_nodes[21] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 1'h0, index_nodes[105] } : { 1'h1, index_nodes[110] };
+  assign index_nodes[54:50] = sel_nodes[21] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'h6, index_nodes[105] } : { 4'h7, index_nodes[110] };
   assign sel_nodes[11] = sel_nodes[23] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[24];
   assign index_nodes[59:55] = sel_nodes[23] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'h8, index_nodes[115] } : { 4'h9, index_nodes[120] };
   assign sel_nodes[12] = sel_nodes[25] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[26];
-  assign index_nodes[61:60] = sel_nodes[25] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 1'h0, index_nodes[125] } : { 1'h1, index_nodes[130] };
+  assign index_nodes[64:60] = sel_nodes[25] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'ha, index_nodes[125] } : { 4'hb, index_nodes[130] };
   assign sel_nodes[13] = sel_nodes[27] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[28];
-  assign index_nodes[66:65] = sel_nodes[27] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 1'h0, index_nodes[135] } : { 1'h1, index_nodes[140] };
+  assign index_nodes[69:65] = sel_nodes[27] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'hc, index_nodes[135] } : { 4'hd, index_nodes[140] };
   assign sel_nodes[14] = sel_nodes[29] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:65.44-65.107" *) sel_nodes[30];
-  assign index_nodes[71:70] = sel_nodes[29] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 1'h0, index_nodes[145] } : { 1'h1, index_nodes[150] };
+  assign index_nodes[74:70] = sel_nodes[29] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:66.44-67.111" *) { 4'he, index_nodes[145] } : { 4'hf, index_nodes[150] };
   assign sel_nodes[15] = in_i[0] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:75.46-75.69" *) in_i[1];
   assign index_nodes[75] = in_i[0] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:76.46-76.101" *) 1'h0 : 1'h1;
   assign sel_nodes[16] = in_i[2] | (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:75.46-75.69" *) in_i[3];
@@ -22742,7 +22741,7 @@ module \cv32e40x_ff_one$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.cv
   assign index_nodes[150] = in_i[30] ? (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:76.46-76.101" *) 1'h0 : 1'h1;
   assign no_ones_o = ~ (* src = "ip/cv32e40x/rtl/cv32e40x_ff_one.sv:99.24-99.37" *) sel_nodes[0];
   assign index_lut = 160'hffbbcdeb38bdab49ca307b9ac5a928398a418820;
-  assign { index_nodes[149:146], index_nodes[144:141], index_nodes[139:136], index_nodes[134:131], index_nodes[129:126], index_nodes[124:121], index_nodes[119:116], index_nodes[114:111], index_nodes[109:106], index_nodes[104:101], index_nodes[99:96], index_nodes[94:91], index_nodes[89:86], index_nodes[84:81], index_nodes[79:76], index_nodes[74:72], index_nodes[69:67], index_nodes[64:62], index_nodes[54:52], index_nodes[4:0] } = { 72'hedcba9876543210fab, first_one_o };
+  assign { index_nodes[149:146], index_nodes[144:141], index_nodes[139:136], index_nodes[134:131], index_nodes[129:126], index_nodes[124:121], index_nodes[119:116], index_nodes[114:111], index_nodes[109:106], index_nodes[104:101], index_nodes[99:96], index_nodes[94:91], index_nodes[89:86], index_nodes[84:81], index_nodes[79:76], index_nodes[4:0] } = { 60'hedcba9876543210, first_one_o };
 endmodule
 
 (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:30.8" *)
@@ -22783,25 +22782,25 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
   wire [54:0] _031_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:312.17-316.20" *)
   wire [54:0] _032_;
-  (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *)
-  wire [54:0] _033_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *)
-  wire [54:0] _034_;
+  wire [54:0] _033_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:141.9-143.12" *)
-  wire [54:0] _035_;
+  wire [54:0] _034_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:214.13-216.16" *)
-  wire [54:0] _036_;
+  wire [54:0] _035_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *)
-  wire [54:0] _037_;
+  wire [54:0] _036_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *)
-  wire [54:0] _038_;
+  wire [54:0] _037_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:204.9-229.16" *)
-  wire [54:0] _039_;
+  wire [54:0] _038_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *)
-  wire [54:0] _040_;
+  wire [54:0] _039_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:233.9-262.12" *)
-  wire [54:0] _041_;
+  wire [54:0] _040_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *)
+  wire [54:0] _041_;
+  (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *)
   wire [54:0] _042_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *)
   wire [54:0] _043_;
@@ -22923,7 +22922,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _113_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[54] = _113_(1'h0, { _042_[54], _045_[54], 3'h1, _039_[54], _041_[54], 1'h0, _046_[54] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[54] = _113_(1'h0, { _041_[54], _045_[54], 3'h1, _038_[54], _040_[54], 1'h0, _046_[54] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
   assign _050_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:294.9-417.12|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 7'h73;
   assign _051_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:274.21-291.10|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 4'hf;
   assign _052_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:233.9-262.12|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 6'h33;
@@ -22935,7 +22934,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
   assign _058_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:94.22-116.10|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 7'h63;
   assign _059_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 7'h67;
   assign _060_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:62.19-74.10|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:51.5-423.12" *) 7'h6f;
-  assign _034_[8:0] = _024_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:377.22-377.106|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) 9'h000 : 9'h100;
+  assign _033_[8:0] = _024_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:377.22-377.106|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) 9'h000 : 9'h100;
   assign _061_ = instr_rdata_i[13:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:376.22-376.104|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) 2'h2;
   assign _062_ = instr_rdata_i[13:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:375.22-375.59|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) 1'h1;
   function [1:0] _128_;
@@ -22957,10 +22956,10 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _128_ = a;
     endcase
   endfunction
-  assign _034_[22:21] = _128_(2'h0, { 2'h1, _017_, _018_ }, { _062_, _061_, _019_ });
+  assign _033_[22:21] = _128_(2'h0, { 2'h1, _017_, _018_ }, { _062_, _061_, _019_ });
   assign _049_ = instr_rdata_i[14] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:362.13-362.56|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:360.11-366.14" *) 2'h2 : 2'h0;
   assign _047_ = instr_rdata_i[14] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:362.13-362.56|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:360.11-366.14" *) 1'h0 : 1'h1;
-  assign _046_ = _013_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:295.11-355.14|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:294.9-417.12" *) _044_ : { 10'h013, _034_[44:21], 12'h000, _034_[8:0] };
+  assign _046_ = _013_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:295.11-355.14|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:294.9-417.12" *) _044_ : { 10'h013, _033_[44:21], 12'h000, _033_[8:0] };
   assign _044_ = _014_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:295.66-353.14|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:295.11-355.14" *) _043_ : 55'h027d4400000100;
   function [47:0] _133_;
     input [47:0] a;
@@ -22981,7 +22980,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _133_ = a;
     endcase
   endfunction
-  assign _043_[54:7] = _133_(48'h04fa88000002, { 45'h009f51000000, _032_[9:7], 45'h009f51000000, _033_[9:7], 48'h04fa88000004 }, { _066_, _065_, _026_ });
+  assign _043_[54:7] = _133_(48'h04fa88000002, { 45'h009f51000000, _032_[9:7], 45'h009f51000000, _042_[9:7], 48'h04fa88000004 }, { _066_, _065_, _026_ });
   assign _063_ = instr_rdata_i[31:20] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:340.17-346.20|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *) 12'h8c0;
   assign _064_ = instr_rdata_i[31:20] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:336.17-336.87|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *) 9'h105;
   assign _065_ = instr_rdata_i[31:20] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *) 11'h7b2;
@@ -23007,7 +23006,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
     endcase
   endfunction
   assign _043_[6] = _141_(1'h0, { 1'h1, _032_[6] }, { _067_, _066_ });
-  assign _033_[7] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:323.19-323.59|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *) 1'h1 : 1'h0;
+  assign _042_[7] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:323.19-323.59|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *) 1'h1 : 1'h0;
   assign _043_[4:2] = _066_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:340.17-346.20|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *) _032_[4:2] : 3'h0;
   assign _032_[2] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:313.19-313.62|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:312.17-316.20" *) 1'h0 : 1'h1;
   assign _043_[1] = _064_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:340.17-346.20|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:298.13-352.20" *) _015_ : 1'h0;
@@ -23029,7 +23028,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
     endcase
   endfunction
   assign _043_[5] = _146_(1'h0, { 1'h1, _032_[5] }, { _068_, _066_ });
-  assign _033_[9:8] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:323.19-323.59|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *) 2'h2 : 2'h1;
+  assign _042_[9:8] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:323.19-323.59|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:322.17-326.20" *) 2'h2 : 2'h1;
   assign _032_[9:3] = ctrl_fsm_i[147] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:313.19-313.62|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:312.17-316.20" *) 7'h20 : 7'h40;
   function [1:0] _149_;
     input [1:0] a;
@@ -23062,7 +23061,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _149_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[52:51] = _149_(2'h0, { 2'h2, _042_[52:51], _045_[52:51], 4'h0, _039_[52:51], _041_[52:51], 2'h0, _046_[52:51] }, { _060_, _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[52:51] = _149_(2'h0, { 2'h2, _041_[52:51], _045_[52:51], 4'h0, _038_[52:51], _040_[52:51], 2'h0, _046_[52:51] }, { _060_, _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
   assign _031_[3] = _069_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:284.13-284.51|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:276.9-290.16" *) 1'h1 : 1'h0;
   assign _069_ = instr_rdata_i[14:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:284.13-284.51|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:276.9-290.16" *) 1'h1;
   assign _031_[4] = _013_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:279.13-279.50|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:276.9-290.16" *) 1'h1 : 1'h0;
@@ -23099,8 +23098,8 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _153_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[50:41] = _153_(10'h13e, { _042_[50:41], 2'h1, _045_[48:41], 6'h13, _035_[44:41], 6'h13, _030_[44:41], 20'h02405, _039_[50:41], _041_[50:41], 10'h13e, _046_[50:41] }, { _059_, _058_, _057_, _056_, _055_, _025_, _053_, _052_, _051_, _050_ });
-  assign _040_[44:0] = _027_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:257.35-257.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) { 18'h02880, _048_, 26'h3000000 } : 45'h1d4400000100;
+  assign decoder_ctrl_o[50:41] = _153_(10'h13e, { _041_[50:41], 2'h1, _045_[48:41], 6'h13, _034_[44:41], 6'h13, _030_[44:41], 20'h02405, _038_[50:41], _040_[50:41], 10'h13e, _046_[50:41] }, { _059_, _058_, _057_, _056_, _055_, _025_, _053_, _052_, _051_, _050_ });
+  assign _039_[44:0] = _027_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:257.35-257.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) { 18'h02880, _048_, 26'h3000000 } : 45'h1d4400000100;
   assign _070_ = { instr_rdata_i[30:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:257.35-257.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) 9'h105;
   assign _071_ = { instr_rdata_i[30:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:256.35-256.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) 3'h5;
   assign _072_ = { instr_rdata_i[30:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:255.35-255.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) 1'h1;
@@ -23142,9 +23141,9 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _165_ = a;
     endcase
   endfunction
-  assign _040_[49:45] = _165_(5'h13, 45'h0046886384ad, { _079_, _078_, _077_, _075_, _074_, _073_, _072_, _071_, _070_ });
+  assign _039_[49:45] = _165_(5'h13, 45'h0046886384ad, { _079_, _078_, _077_, _075_, _074_, _073_, _072_, _071_, _070_ });
   assign _048_ = instr_rdata_i[28] ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:243.13-243.44|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:242.11-244.14" *) 1'h0 : 1'h1;
-  assign _041_ = _011_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:234.11-234.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:233.9-262.12" *) 55'h027d4400000100 : { _040_[54:51], 1'h0, _040_[49:0] };
+  assign _040_ = _011_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:234.11-234.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:233.9-262.12" *) 55'h027d4400000100 : { _039_[54:51], 1'h0, _039_[49:0] };
   function [1:0] _168_;
     input [1:0] a;
     input [13:0] b;
@@ -23172,13 +23171,13 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _168_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[40:39] = _168_(2'h2, { _045_[40:39], _035_[40:39], _030_[40:39], _039_[40:39], _041_[40:39], 2'h2, _046_[40:39] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
-  assign _038_[44:0] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 45'h034403000000 : _037_[44:0];
+  assign decoder_ctrl_o[40:39] = _168_(2'h2, { _045_[40:39], _034_[40:39], _030_[40:39], _038_[40:39], _040_[40:39], 2'h2, _046_[40:39] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign _037_[44:0] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 45'h034403000000 : _036_[44:0];
   assign _080_ = instr_rdata_i[14:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:204.9-229.16" *) 3'h5;
-  assign _037_[44:0] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 45'h034403000000 : 45'h1d4400000100;
-  assign _037_[49:45] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 5'h0d : 5'h13;
-  assign _038_[49:45] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 5'h05 : _037_[49:45];
-  assign _037_[54:51] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 4'h8 : 4'h0;
+  assign _036_[44:0] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 45'h034403000000 : 45'h1d4400000100;
+  assign _036_[49:45] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 5'h0d : 5'h13;
+  assign _037_[49:45] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 5'h05 : _036_[49:45];
+  assign _036_[54:51] = _007_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:223.15-223.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:222.22-226.16" *) 4'h8 : 4'h0;
   function [5:0] _175_;
     input [5:0] a;
     input [47:0] b;
@@ -23208,10 +23207,10 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _175_ = a;
     endcase
   endfunction
-  assign _039_[50:45] = _175_(6'hxx, { 36'h01a4c4187, _036_[50:45], 1'h0, _038_[49:45] }, { _013_, _082_, _003_, _081_, _001_, _000_, _069_, _080_ });
+  assign _038_[50:45] = _175_(6'hxx, { 36'h01a4c4187, _035_[50:45], 1'h0, _037_[49:45] }, { _013_, _082_, _003_, _081_, _001_, _000_, _069_, _080_ });
   assign _081_ = instr_rdata_i[14:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:208.19-208.57|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:204.9-229.16" *) 3'h4;
   assign _082_ = instr_rdata_i[14:12] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:206.19-206.57|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:204.9-229.16" *) 2'h2;
-  assign _038_[54:51] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 4'h8 : _037_[54:51];
+  assign _037_[54:51] = _006_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:221.15-221.53|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:220.13-226.16" *) 4'h8 : _036_[54:51];
   function [44:0] _179_;
     input [44:0] a;
     input [89:0] b;
@@ -23229,8 +23228,8 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _179_ = a;
     endcase
   endfunction
-  assign _039_[44:0] = _179_(45'h034403000000, { _036_[44:0], _038_[44:0] }, { _069_, _080_ });
-  assign _036_ = _005_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:215.15-215.58|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:214.13-216.16" *) 55'h027d4400000100 : 55'h40234403000000;
+  assign _038_[44:0] = _179_(45'h034403000000, { _035_[44:0], _037_[44:0] }, { _069_, _080_ });
+  assign _035_ = _005_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:215.15-215.58|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:214.13-216.16" *) 55'h027d4400000100 : 55'h40234403000000;
   function [1:0] _181_;
     input [1:0] a;
     input [15:0] b;
@@ -23260,7 +23259,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _181_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[26:25] = _181_(2'h0, { 1'h0, _042_[25], _045_[26:25], _035_[26:25], _030_[26:25], _039_[26:25], _041_[26:25], 2'h0, _046_[26:25] }, { _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[26:25] = _181_(2'h0, { 1'h0, _041_[25], _045_[26:25], _034_[26:25], _030_[26:25], _038_[26:25], _040_[26:25], 2'h0, _046_[26:25] }, { _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
   function [0:0] _182_;
     input [0:0] a;
     input [8:0] b;
@@ -23292,7 +23291,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _182_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[24] = _182_(1'h0, { _042_[24], _045_[24], _035_[24], _030_[24], 1'h1, _039_[24], _041_[24], 1'h0, _046_[24] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[24] = _182_(1'h0, { _041_[24], _045_[24], _034_[24], _030_[24], 1'h1, _038_[24], _040_[24], 1'h0, _046_[24] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
   function [1:0] _183_;
     input [1:0] a;
     input [19:0] b;
@@ -23326,7 +23325,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _183_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[37:36] = _183_(2'h0, { 2'h3, _042_[37:36], _045_[37:36], _035_[37:36], _030_[37:36], 2'h2, _039_[37:36], _041_[37:36], 2'h0, _046_[37:36] }, { _060_, _059_, _058_, _057_, _056_, _023_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[37:36] = _183_(2'h0, { 2'h3, _041_[37:36], _045_[37:36], _034_[37:36], _030_[37:36], 2'h2, _038_[37:36], _040_[37:36], 2'h0, _046_[37:36] }, { _060_, _059_, _058_, _057_, _056_, _023_, _053_, _052_, _051_, _050_ });
   function [1:0] _184_;
     input [1:0] a;
     input [17:0] b;
@@ -23358,7 +23357,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _184_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[35:34] = _184_(2'h1, { 1'h0, _008_, _042_[35:34], _045_[35:34], _035_[35:34], _030_[35:34], _039_[35:34], _041_[35:34], 2'h1, _046_[35:34] }, { _060_, _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[35:34] = _184_(2'h1, { 1'h0, _008_, _041_[35:34], _045_[35:34], _034_[35:34], _030_[35:34], _038_[35:34], _040_[35:34], 2'h1, _046_[35:34] }, { _060_, _059_, _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
   assign _045_[44:0] = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:111.19-111.57|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:105.9-115.16" *) 45'h00cc06000000 : 45'h1d4400000100;
   function [3:0] _186_;
     input [3:0] a;
@@ -23413,11 +23412,11 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _187_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[33:27] = _187_(7'h00, { _045_[33:27], _035_[33:27], _030_[33:27], _039_[33:27], _041_[33:27], 7'h00, _046_[33:27] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
-  assign _042_[52:41] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 12'h13e : 12'hc05;
-  assign _042_[37:34] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 4'h1 : 4'he;
-  assign _042_[25:24] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 2'h0 : 2'h3;
-  assign _042_[8:0] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 9'h100 : 9'h000;
+  assign decoder_ctrl_o[33:27] = _187_(7'h00, { _045_[33:27], _034_[33:27], _030_[33:27], _038_[33:27], _040_[33:27], 7'h00, _046_[33:27] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign _041_[52:41] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 12'h13e : 12'hc05;
+  assign _041_[37:34] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 4'h1 : 4'he;
+  assign _041_[25:24] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 2'h0 : 2'h3;
+  assign _041_[8:0] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 9'h100 : 9'h000;
   function [23:0] _192_;
     input [23:0] a;
     input [215:0] b;
@@ -23449,7 +23448,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _192_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[23:0] = _192_(24'h000100, { 15'h0000, _042_[8:0], _045_[23:0], _035_[23:0], _030_[23:0], 24'h000000, _039_[23:0], _041_[23:0], 14'h0000, _031_[9:3], 3'h0, _046_[23:0] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[23:0] = _192_(24'h000100, { 15'h0000, _041_[8:0], _045_[23:0], _034_[23:0], _030_[23:0], 24'h000000, _038_[23:0], _040_[23:0], 14'h0000, _031_[9:3], 3'h0, _046_[23:0] }, { _059_, _058_, _057_, _056_, _022_, _053_, _052_, _051_, _050_ });
   function [0:0] _193_;
     input [0:0] a;
     input [6:0] b;
@@ -23477,7 +23476,7 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _193_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[38] = _193_(1'h1, { _045_[38], _035_[38], _030_[38], _039_[38], _041_[38], 1'h1, _046_[38] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[38] = _193_(1'h1, { _045_[38], _034_[38], _030_[38], _038_[38], _040_[38], 1'h1, _046_[38] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
   function [0:0] _194_;
     input [0:0] a;
     input [6:0] b;
@@ -23505,10 +23504,10 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _194_ = a;
     endcase
   endfunction
-  assign decoder_ctrl_o[53] = _194_(1'h0, { _045_[53], 2'h0, _039_[53], _041_[53], 1'h0, _046_[53] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
+  assign decoder_ctrl_o[53] = _194_(1'h0, { _045_[53], 2'h0, _038_[53], _040_[53], 1'h0, _046_[53] }, { _058_, _057_, _056_, _053_, _052_, _051_, _050_ });
   assign _031_[9:5] = _028_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:284.13-284.51|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:276.9-290.16" *) 5'h10 : 5'h08;
-  assign _040_[54:51] = _027_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:257.35-257.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) 4'h8 : 4'h0;
-  assign _034_[44:23] = _024_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:377.22-377.106|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) { _049_, 17'h0c100, _047_, 2'h3 } : 22'h3a8800;
+  assign _039_[54:51] = _027_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:257.35-257.73|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:246.11-261.18" *) 4'h8 : 4'h0;
+  assign _033_[44:23] = _024_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:377.22-377.106|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:374.11-379.18" *) { _049_, 17'h0c100, _047_, 2'h3 } : 22'h3a8800;
   function [3:0] _198_;
     input [3:0] a;
     input [7:0] b;
@@ -23526,21 +23525,21 @@ module \cv32e40x_i_decoder$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
         _198_ = a;
     endcase
   endfunction
-  assign _039_[54:51] = _198_(4'h8, { _036_[54:51], _038_[54:51] }, { _069_, _080_ });
+  assign _038_[54:51] = _198_(4'h8, { _035_[54:51], _037_[54:51] }, { _069_, _080_ });
   assign _030_[44:0] = _004_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:164.11-164.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:163.9-165.12" *) 45'h1d4400000100 : { 26'h0688062, instr_rdata_i[13:12], _021_, 16'h0000 };
-  assign _035_[44:0] = _020_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:142.11-142.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:141.9-143.12" *) 45'h1d4400000100 : { 26'h04a80c3, instr_rdata_i[13:12], 17'h00000 };
-  assign _042_[54] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 1'h0 : 1'h1;
+  assign _034_[44:0] = _020_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:142.11-142.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:141.9-143.12" *) 45'h1d4400000100 : { 26'h04a80c3, instr_rdata_i[13:12], 17'h00000 };
+  assign _041_[54] = _012_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:78.11-78.54|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:77.9-91.12" *) 1'h0 : 1'h1;
   assign _045_[54:51] = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:111.19-111.57|ip/cv32e40x/rtl/cv32e40x_i_decoder.sv:105.9-115.16" *) 4'hc : 4'h0;
   assign _030_[54:45] = 10'h013;
   assign { _031_[54:10], _031_[2:0] } = 48'h04fa88000000;
   assign { _032_[54:10], _032_[1:0] } = 47'h027d44000000;
-  assign { _033_[54:10], _033_[6:0] } = 52'h04fa880000000;
-  assign { _034_[54:45], _034_[20:9] } = 22'h013000;
-  assign _035_[54:45] = 10'h013;
+  assign { _033_[54:45], _033_[20:9] } = 22'h013000;
+  assign _034_[54:45] = 10'h013;
+  assign _036_[50] = 1'h0;
   assign _037_[50] = 1'h0;
-  assign _038_[50] = 1'h0;
-  assign _040_[50] = 1'h0;
-  assign { _042_[53], _042_[40:38], _042_[33:26], _042_[23:9] } = 27'h2800000;
+  assign _039_[50] = 1'h0;
+  assign { _041_[53], _041_[40:38], _041_[33:26], _041_[23:9] } = 27'h2800000;
+  assign { _042_[54:10], _042_[6:0] } = 52'h04fa880000000;
   assign _045_[50:49] = 2'h1;
 endmodule
 
@@ -25615,8 +25614,7 @@ module \cv32e40x_load_store_unit$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhou
   assign _068_ = _052_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:492.13-492.34|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:491.11-492.34" *) 1'h1 : 1'h0;
   assign _067_ = _051_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:487.13-487.34|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:486.11-487.34" *) 1'h1 : 1'h0;
   assign _079_ = id_ex_pipe_i[171:170] == (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:486.11-487.34|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14" *) 2'h2;
-  assign _073_ = _078_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:490.9-495.12|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14" *) _072_ : 1'h0;
-  function [0:0] _202_;
+  function [0:0] _201_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
@@ -25624,16 +25622,17 @@ module \cv32e40x_load_store_unit$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhou
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _202_ = b[0:0];
+        _201_ = b[0:0];
       2'b1?:
-        _202_ = b[1:1];
+        _201_ = b[1:1];
       default:
-        _202_ = a;
+        _201_ = a;
     endcase
   endfunction
-  assign _069_ = _202_(1'h0, { _067_, _068_ }, { _079_, _078_ });
-  assign nonsplit_misaligned_halfword = _050_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:481.5-498.8" *) _073_ : 1'h0;
+  assign _069_ = _201_(1'h0, { _067_, _068_ }, { _079_, _078_ });
+  assign _073_ = _078_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:490.9-495.12|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14" *) _072_ : 1'h0;
   assign lsu_split_0_o = _050_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:481.5-498.8" *) _069_ : 1'h0;
+  assign nonsplit_misaligned_halfword = _050_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:483.7-497.14|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:481.5-498.8" *) _073_ : 1'h0;
   assign _053_ = \xif_mem_if.mem_valid  ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:429.13-429.39|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:428.11-433.16" *) 2'h0 : lsu_atomic_0_o;
   assign _054_ = ctrl_update ? (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:428.11-433.16|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:427.18-434.12" *) _053_ : \a_ext.lsu_atomic_q ;
   assign _080_ = _039_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:411.9-411.31|ip/cv32e40x/rtl/cv32e40x_load_store_unit.sv:410.7-414.10" *) wpt_resp[70:39] : rdata_ext;
@@ -28338,7 +28337,7 @@ module \cv32e40x_sequencer$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc
   assign valid_o = _008_ && (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:232.20-232.107" *) _009_;
   assign decode[28:17] = decode[44:33] + (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:243.35-243.76" *) { instr_i[6:5], 4'h0 };
   assign _011_ = instr_cnt_q + (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:250.39-250.56" *) 1'h1;
-  assign _012_ = - (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:250.36-250.61" *) { 5'h00, _011_, 2'h0 };
+  assign _012_ = - (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:250.36-250.61" *) { _011_, 2'h0 };
   assign _013_ = decode[28:17] - (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:255.36-255.85" *) { _011_, 2'h0 };
   assign _014_ = decode[32:29] - (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:263.24-263.60" *) instr_cnt_q;
   assign decode[4:0] = _014_ - (* src = "ip/cv32e40x/rtl/cv32e40x_sequencer.sv:263.24-263.67" *) 1'h1;
@@ -29386,7 +29385,7 @@ module \debug_rom$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top
 endmodule
 
 (* src = "ip/common_cells/src/delta_counter.sv:13.8" *)
-module \delta_counter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_demux.i_counter (clk_i, rst_ni, clear_i, en_i, load_i, down_i, delta_i, d_i, q_o, overflow_o);
+module \delta_counter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_obi_demux.i_counter (clk_i, rst_ni, en_i, clear_i, load_i, down_i, delta_i, d_i, q_o, overflow_o);
   wire [1:0] _00_;
   wire [1:0] _01_;
   (* src = "ip/common_cells/src/delta_counter.sv:68.13-72.16" *)
@@ -30090,10 +30089,10 @@ module \dm_csrs$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign _121_ = ~ _048_[0];
   assign _071_ = dmcontrol_q[31] & _070_;
   assign _072_ = dmcontrol_q[30] & _070_;
-  assign _116_ = | { _023_, _026_, _022_, _021_ };
+  assign _116_ = | { _026_, _023_, _022_, _021_ };
   assign _117_ = | { _052_, _033_, _008_, _004_, _003_ };
   assign _118_ = | { _052_, _033_, _008_, _004_ };
-  assign _119_ = | { _023_, _026_ };
+  assign _119_ = | { _026_, _023_ };
   assign _120_ = | { _033_, _008_ };
   (* src = "ip/riscv-dbg/src/dm_csrs.sv:612.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
@@ -30693,8 +30692,7 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   wire _084_;
   (* unused_bits = "1" *)
   wire [1:0] _085_;
-  (* unused_bits = "1" *)
-  wire [1:0] _086_;
+  wire _086_;
   wire _087_;
   wire [14:0] _088_;
   wire [126:0] _089_;
@@ -31067,12 +31065,12 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign _074_[1] = _110_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:243.7-243.41" *) _072_ : 1'h0;
   assign _081_[0] = _111_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:251.13-251.49" *) _079_ : 1'h0;
   assign _081_[1] = _112_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:251.13-251.49" *) _079_ : 1'h0;
-  assign _085_[0] = halted_q & _114_;
-  assign _114_ = ~ _081_[0];
-  assign _075_[0] = resuming_q & _115_;
-  assign _115_ = ~ _074_[0];
-  assign _086_[0] = _162_[0] | _081_[0];
+  assign _075_[0] = resuming_q & _114_;
+  assign _114_ = ~ _074_[0];
+  assign _085_[0] = halted_q & _115_;
+  assign _115_ = ~ _081_[0];
   assign _082_[0] = halted_q | _081_[0];
+  assign _086_ = _162_[0] | _081_[0];
   assign _043_ = { resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go, 6'h00, resume, go } & _041_;
   assign _113_ = | { _168_, _166_, _164_ };
   (* src = "ip/riscv-dbg/src/dm_mem.sv:522.3" *)
@@ -31166,7 +31164,7 @@ module \dm_mem$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
   assign _131_ = _000_ ? (* src = "ip/riscv-dbg/src/dm_mem.sv:270.17-280.20|ip/riscv-dbg/src/dm_mem.sv:269.15-281.18" *) { _132_, _130_, _129_, _138_ } : data_i[31:0];
   assign _139_ = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:266.39-283.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) 1'h1 : 1'h0;
   assign _127_ = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:266.39-283.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) { _136_, _131_ } : data_i;
-  assign _158_[0] = _084_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:257.25-262.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _086_[0] : _162_[0];
+  assign _158_[0] = _084_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:257.25-262.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _086_ : _162_[0];
   assign _146_ = _076_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dm_mem.sv:250.23-253.14|ip/riscv-dbg/src/dm_mem.sv:249.9-285.16" *) _081_ : 2'h0;
   function [0:0] _337_;
     input [0:0] a;
@@ -32057,7 +32055,7 @@ module \dm_top$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i_
 endmodule
 
 (* src = "ip/riscv-dbg/src/dmi_cdc.sv:19.8" *)
-module \dmi_cdc$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_cdc (clk_i, rst_ni, tck_i, trst_ni, jtag_dmi_req_i, jtag_dmi_ready_o, jtag_dmi_valid_i, jtag_dmi_cdc_clear_i, jtag_dmi_resp_o, jtag_dmi_valid_o, jtag_dmi_ready_i, core_dmi_rst_no, core_dmi_req_o, core_dmi_valid_o, core_dmi_ready_i, core_dmi_resp_i, core_dmi_ready_o, core_dmi_valid_i);
+module \dmi_cdc$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_cdc (clk_i, rst_ni, trst_ni, tck_i, jtag_dmi_req_i, jtag_dmi_ready_o, jtag_dmi_valid_i, jtag_dmi_cdc_clear_i, jtag_dmi_resp_o, jtag_dmi_valid_o, jtag_dmi_ready_i, core_dmi_rst_no, core_dmi_req_o, core_dmi_valid_o, core_dmi_ready_i, core_dmi_resp_i, core_dmi_ready_o, core_dmi_valid_i);
   wire _0_;
   wire _1_;
   (* src = "ip/riscv-dbg/src/dmi_cdc.sv:98.28" *)
@@ -32168,7 +32166,7 @@ module \dmi_cdc$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag
 endmodule
 
 (* src = "ip/riscv-dbg/src/dmi_jtag.sv:19.8" *)
-module \dmi_jtag$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag (clk_i, rst_ni, tck_i, tms_i, trst_ni, td_i, td_o, tdo_oe_o, testmode_i, dmi_rst_no, dmi_req_o, dmi_req_valid_o, dmi_req_ready_i, dmi_resp_i, dmi_resp_ready_o, dmi_resp_valid_i);
+module \dmi_jtag$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag (clk_i, rst_ni, trst_ni, td_i, td_o, tck_i, tms_i, tdo_oe_o, testmode_i, dmi_rst_no, dmi_req_o, dmi_req_valid_o, dmi_req_ready_i, dmi_resp_i, dmi_resp_ready_o, dmi_resp_valid_i);
   wire _000_;
   wire _001_;
   wire _002_;
@@ -32599,7 +32597,7 @@ module \dmi_jtag$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jta
 endmodule
 
 (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:19.8" *)
-module \dmi_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (tck_i, tms_i, trst_ni, td_i, td_o, tdo_oe_o, testmode_i, tck_o, update_o, capture_o, shift_o, tdi_o, dmi_clear_o, dtmcs_select_o, dtmcs_tdo_i, dmi_select_o, dmi_tdo_i);
+module \dmi_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (trst_ni, td_i, td_o, tck_i, tms_i, tdo_oe_o, shift_o, testmode_i, update_o, capture_o, tdi_o, tck_o, dmi_clear_o, dtmcs_select_o, dtmcs_tdo_i, dmi_select_o, dmi_tdo_i);
   wire _000_;
   wire _001_;
   wire [1:0] _002_;
@@ -32771,7 +32769,7 @@ module \dmi_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi
     else bypass_q <= bypass_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) idcode_q <= 32'd623206401;
+    if (!trst_ni) idcode_q <= 32'd86335489;
     else idcode_q <= idcode_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:104.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
@@ -32821,13 +32819,13 @@ module \dmi_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi
   assign dtmcs_select_o = _028_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:158.18-158.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign idcode_select = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:157.18-157.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign bypass_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 1'h0 : _018_;
-  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd623206401 : _022_;
+  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd86335489 : _022_;
   assign _017_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:137.27-137.43|ip/riscv-dbg/src/dmi_jtag_tap.sv:137.7-137.43" *) _016_ : td_i;
   assign _021_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:136.27-136.65|ip/riscv-dbg/src/dmi_jtag_tap.sv:136.7-136.65" *) { td_i, idcode_q[31:1] } : _020_;
   assign _018_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _017_ : _016_;
   assign _022_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _021_ : _020_;
   assign _015_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:132.26-132.42|ip/riscv-dbg/src/dmi_jtag_tap.sv:132.7-132.42" *) bypass_q : 1'h0;
-  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd623206401 : idcode_q;
+  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd86335489 : idcode_q;
   assign _016_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _015_ : bypass_q;
   assign _020_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _019_ : idcode_q;
   function [3:0] _086_;
@@ -32923,7 +32921,8 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   wire _00_;
   wire [3:0] _01_;
   wire _02_;
-  wire [3:0] _03_;
+  (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _03_;
   wire _04_;
   wire [8:0] _05_;
   wire _06_;
@@ -33023,7 +33022,7 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   assign r_ptr_succ = r_ptr_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:231.25-231.38" *) 1'h1;
   assign _01_ = level_reg - (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:244.34-244.47" *) 1'h1;
   assign _02_ = r_ptr_succ == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:245.25-245.48" *) w_ptr_reg;
-  assign _03_ = level_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:253.34-253.47" *) 1'h1;
+  assign _03_[3:0] = level_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:253.34-253.47" *) 1'h1;
   assign _04_ = w_ptr_succ == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:254.25-254.48" *) r_ptr_reg;
   assign _05_[8] = _00_ ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:194.13-194.42" *) 1'h1 : 1'h0;
   assign _06_ = ~ (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:198.24-198.33" *) full_reg;
@@ -33052,7 +33051,7 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   assign _18_ = { w_en, rd } == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:238.9-262.16" *) 2'h2;
   assign _09_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) empty_reg : 1'h0;
   assign _13_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) 1'h1 : _12_;
-  assign _16_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) level_reg : _03_;
+  assign _16_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) level_reg : _03_[3:0];
   assign _19_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) w_ptr_reg : w_ptr_succ;
   assign _07_ = _02_ ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:246.25-246.43|ip/EF_IP_UTIL/hdl/ef_util_lib.v:245.21-246.43" *) 1'h1 : 1'h0;
   assign _20_ = { w_en, rd } == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:241.17-247.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:238.9-262.16" *) 1'h1;
@@ -33158,7 +33157,8 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   wire _00_;
   wire [3:0] _01_;
   wire _02_;
-  wire [3:0] _03_;
+  (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _03_;
   wire _04_;
   wire [8:0] _05_;
   wire _06_;
@@ -33258,7 +33258,7 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   assign r_ptr_succ = r_ptr_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:231.25-231.38" *) 1'h1;
   assign _01_ = level_reg - (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:244.34-244.47" *) 1'h1;
   assign _02_ = r_ptr_succ == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:245.25-245.48" *) w_ptr_reg;
-  assign _03_ = level_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:253.34-253.47" *) 1'h1;
+  assign _03_[3:0] = level_reg + (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:253.34-253.47" *) 1'h1;
   assign _04_ = w_ptr_succ == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:254.25-254.48" *) r_ptr_reg;
   assign _05_[8] = _00_ ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:194.13-194.42" *) 1'h1 : 1'h0;
   assign _06_ = ~ (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:198.24-198.33" *) full_reg;
@@ -33287,7 +33287,7 @@ module \ef_util_fifo$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_EF_
   assign _18_ = { w_en, rd } == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:238.9-262.16" *) 2'h2;
   assign _09_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) empty_reg : 1'h0;
   assign _13_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) 1'h1 : _12_;
-  assign _16_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) level_reg : _03_;
+  assign _16_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) level_reg : _03_[3:0];
   assign _19_ = full_reg ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.31-256.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:250.17-256.20" *) w_ptr_reg : w_ptr_succ;
   assign _07_ = _02_ ? (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:246.25-246.43|ip/EF_IP_UTIL/hdl/ef_util_lib.v:245.21-246.43" *) 1'h1 : 1'h0;
   assign _20_ = { w_en, rd } == (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:241.17-247.20|ip/EF_IP_UTIL/hdl/ef_util_lib.v:238.9-262.16" *) 1'h1;
@@ -34114,7 +34114,8 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   (* unused_bits = "5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] _03_;
   wire _04_;
-  wire [21:0] _05_;
+  (* unused_bits = "22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _05_;
   wire [17:0] _06_;
   wire [18:0] _07_;
   wire _08_;
@@ -34143,13 +34144,13 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   wire _23_;
   wire [3:0] _24_;
   wire _25_;
-  wire _26_;
+  wire [3:0] _26_;
   wire _27_;
-  wire _28_;
+  wire [4:0] _28_;
   wire _29_;
-  wire [3:0] _30_;
-  wire [4:0] _31_;
-  wire [31:0] _32_;
+  wire _30_;
+  wire [31:0] _31_;
+  wire _32_;
   (* src = "ip/fabric_config/fabric_spi_controller.sv:46.18" *)
   reg [21:0] address_counter_words;
   (* src = "ip/fabric_config/fabric_spi_controller.sv:28.25" *)
@@ -34202,14 +34203,14 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   assign _01_ = 14'h2000 * (* src = "ip/fabric_config/fabric_spi_controller.sv:110.50-110.76" *) slot_i;
   assign _02_ = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:122.31-122.38" *) sclk_o;
   assign _03_[4:0] = shift_cnt - (* src = "ip/fabric_config/fabric_spi_controller.sv:126.38-126.49" *) 1'h1;
-  assign _05_ = address_counter_words + (* src = "ip/fabric_config/fabric_spi_controller.sv:146.46-146.71" *) 1'h1;
+  assign _05_[21:0] = address_counter_words + (* src = "ip/fabric_config/fabric_spi_controller.sv:146.46-146.71" *) 1'h1;
   assign cs_no = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:159.20-159.43" *) busy_o;
   assign _06_ = 14'h2000 * (* src = "ip/fabric_config/fabric_spi_controller.sv:75.46-75.68" *) slot;
   assign _07_ = _06_ + (* src = "ip/fabric_config/fabric_spi_controller.sv:75.46-75.91" *) 13'h11d6;
   assign _08_ = address_counter_words == (* src = "ip/fabric_config/fabric_spi_controller.sv:75.21-75.91" *) _07_;
-  assign _12_ = | { _28_, _27_, _25_ };
-  assign _13_ = | { _28_, _27_ };
-  assign _11_ = | { _23_, _21_ };
+  assign _11_ = | { _30_, _29_ };
+  assign _13_ = | { _30_, _29_, _25_ };
+  assign _12_ = | { _23_, _21_ };
   (* src = "ip/fabric_config/fabric_spi_controller.sv:95.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) address_counter_words <= 22'h000000;
@@ -34229,19 +34230,19 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   (* src = "ip/fabric_config/fabric_spi_controller.sv:95.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) sclk_o <= 1'h0;
-    else sclk_o <= _26_;
+    else sclk_o <= _32_;
   (* src = "ip/fabric_config/fabric_spi_controller.sv:95.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) shift_cnt <= 5'h00;
-    else shift_cnt <= _31_;
+    else shift_cnt <= _28_;
   (* src = "ip/fabric_config/fabric_spi_controller.sv:95.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) shift_register <= 32'd0;
-    else shift_register <= _32_;
+    else shift_register <= _31_;
   (* src = "ip/fabric_config/fabric_spi_controller.sv:95.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) slot <= 4'h0;
-    else slot <= _30_;
+    else slot <= _26_;
   assign _20_ = sclk_o ? (* src = "ip/fabric_config/fabric_spi_controller.sv:140.33-143.24|ip/fabric_config/fabric_spi_controller.sv:140.21-143.24" *) _03_[4:0] : shift_cnt;
   assign _21_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:136.31-144.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 3'h4;
   assign _23_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:121.31-129.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 2'h2;
@@ -34249,29 +34250,8 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
   assign _24_ = start_i ? (* src = "ip/fabric_config/fabric_spi_controller.sv:109.34-112.24|ip/fabric_config/fabric_spi_controller.sv:109.21-112.24" *) slot_i : slot;
   assign _25_ = ! (* src = "ip/fabric_config/fabric_spi_controller.sv:108.25-115.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) curr_state;
   assign _09_ = start_i ? (* src = "ip/fabric_config/fabric_spi_controller.sv:109.34-112.24|ip/fabric_config/fabric_spi_controller.sv:109.21-112.24" *) { 4'h0, _01_ } : address_counter_words;
-  function [0:0] _62_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* src = "ip/fabric_config/fabric_spi_controller.sv:136.31-144.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _62_ = b[0:0];
-      2'b1?:
-        _62_ = b[1:1];
-      default:
-        _62_ = a;
-    endcase
-  endfunction
-  assign _26_ = _62_(sclk_o, { 1'h0, _02_ }, { _12_, _11_ });
-  assign _27_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:131.30-135.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 2'h3;
-  assign _28_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:116.30-120.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 1'h1;
-  assign _16_ = _29_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 1'h1 : 1'h0;
-  assign _29_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 3'h5;
-  assign _15_ = _29_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) shift_register : bitstream_data_o;
-  assign _30_ = _25_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:108.25-115.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) _24_ : slot;
-  function [21:0] _69_;
+  assign _26_ = _25_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:108.25-115.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) _24_ : slot;
+  function [21:0] _63_;
     input [21:0] a;
     input [43:0] b;
     input [1:0] s;
@@ -34279,15 +34259,16 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _69_ = b[21:0];
+        _63_ = b[21:0];
       2'b1?:
-        _69_ = b[43:22];
+        _63_ = b[43:22];
       default:
-        _69_ = a;
+        _63_ = a;
     endcase
   endfunction
-  assign _10_ = _69_(address_counter_words, { _09_, _05_ }, { _25_, _29_ });
-  function [4:0] _70_;
+  assign _10_ = _63_(address_counter_words, { _09_, _05_[21:0] }, { _25_, _27_ });
+  assign _27_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 3'h5;
+  function [4:0] _65_;
     input [4:0] a;
     input [9:0] b;
     input [1:0] s;
@@ -34295,15 +34276,17 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _70_ = b[4:0];
+        _65_ = b[4:0];
       2'b1?:
-        _70_ = b[9:5];
+        _65_ = b[9:5];
       default:
-        _70_ = a;
+        _65_ = a;
     endcase
   endfunction
-  assign _31_ = _70_(shift_cnt, { 5'h1f, _20_ }, { _13_, _11_ });
-  function [31:0] _71_;
+  assign _28_ = _65_(shift_cnt, { 5'h1f, _20_ }, { _11_, _12_ });
+  assign _29_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:131.30-135.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 2'h3;
+  assign _30_ = curr_state == (* src = "ip/fabric_config/fabric_spi_controller.sv:116.30-120.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 1'h1;
+  function [31:0] _68_;
     input [31:0] a;
     input [63:0] b;
     input [1:0] s;
@@ -34311,14 +34294,32 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _71_ = b[31:0];
+        _68_ = b[31:0];
       2'b1?:
-        _71_ = b[63:32];
+        _68_ = b[63:32];
       default:
-        _71_ = a;
+        _68_ = a;
     endcase
   endfunction
-  assign _32_ = _71_(shift_register, { 8'h03, address_counter_words, 2'h0, _22_ }, { _28_, _11_ });
+  assign _31_ = _68_(shift_register, { 8'h03, address_counter_words, 2'h0, _22_ }, { _30_, _12_ });
+  function [0:0] _69_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* src = "ip/fabric_config/fabric_spi_controller.sv:136.31-144.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _69_ = b[0:0];
+      2'b1?:
+        _69_ = b[1:1];
+      default:
+        _69_ = a;
+    endcase
+  endfunction
+  assign _32_ = _69_(sclk_o, { 1'h0, _02_ }, { _13_, _12_ });
+  assign _16_ = _27_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) 1'h1 : 1'h0;
+  assign _15_ = _27_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:145.31-150.20|ip/fabric_config/fabric_spi_controller.sv:107.13-151.20" *) shift_register : bitstream_data_o;
   assign _18_ = _00_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:78.48-78.74|ip/fabric_config/fabric_spi_controller.sv:78.17-78.74" *) 32'd5 : curr_state;
   assign _14_[2:0] = _08_ ? (* full_case = 32'd1 *) (* src = "ip/fabric_config/fabric_spi_controller.sv:75.93-75.113|ip/fabric_config/fabric_spi_controller.sv:75.17-76.48" *) 3'h0 : 3'h4;
   assign _19_ = _00_ ? (* src = "ip/fabric_config/fabric_spi_controller.sv:73.48-73.73|ip/fabric_config/fabric_spi_controller.sv:73.17-73.73" *) 32'd3 : curr_state;
@@ -34346,7 +34347,7 @@ module \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_c
         _76_ = a;
     endcase
   endfunction
-  assign next_state = _76_(curr_state, { _17_, 32'h00000002, _19_, 29'h00000000, _14_[2:0], _18_, 32'h00000003 }, { _25_, _28_, _23_, _27_, _21_, _29_ });
+  assign next_state = _76_(curr_state, { _17_, 32'h00000002, _19_, 29'h00000000, _14_[2:0], _18_, 32'h00000003 }, { _25_, _30_, _23_, _29_, _21_, _27_ });
   assign _14_[31:3] = 29'h00000000;
   assign mosi_o = shift_register[31];
 endmodule
@@ -36407,10 +36408,12 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   wire [33:0] _04_;
   wire [67:0] _05_;
   wire _06_;
-  wire [1:0] _07_;
+  (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _07_;
   wire _08_;
   wire _09_;
-  wire _10_;
+  (* unused_bits = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] _10_;
   (* unused_bits = "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] _11_;
   wire _12_;
@@ -36493,10 +36496,10 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   );
   defparam _33_.WIDTH = 32'd68;
   assign _06_ = write_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:83.35-83.54" *) 1'h1;
-  assign _07_ = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
+  assign _07_[1:0] = status_cnt_q + (* src = "ip/common_cells/src/fifo_v3.sv:85.31-85.47" *) 1'h1;
   assign _08_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:88.22-88.30" *) empty_o;
   assign _09_ = pop_i && (* src = "ip/common_cells/src/fifo_v3.sv:88.13-88.30" *) _08_;
-  assign _10_ = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
+  assign _10_[0] = read_pointer_q + (* src = "ip/common_cells/src/fifo_v3.sv:95.34-95.52" *) 1'h1;
   assign _11_[1:0] = status_cnt_q - (* src = "ip/common_cells/src/fifo_v3.sv:97.30-97.46" *) 1'h1;
   assign _12_ = push_i && (* src = "ip/common_cells/src/fifo_v3.sv:101.13-101.28" *) pop_i;
   assign _13_ = ~ (* src = "ip/common_cells/src/fifo_v3.sv:101.33-101.40" *) full_o;
@@ -36535,8 +36538,8 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dm_top.i
   assign _23_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : read_pointer_n;
   assign status_cnt_n = _15_ ? (* src = "ip/common_cells/src/fifo_v3.sv:102.13-102.43|ip/common_cells/src/fifo_v3.sv:101.9-102.43" *) status_cnt_q : _24_;
   assign _24_ = _09_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _11_[1:0] : _25_;
-  assign read_pointer_n = _09_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _10_ : read_pointer_q;
-  assign _25_ = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _07_ : status_cnt_q;
+  assign read_pointer_n = _09_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _10_[0] : read_pointer_q;
+  assign _25_ = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _07_[1:0] : status_cnt_q;
   assign write_pointer_n = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _06_ : write_pointer_q;
   assign usage_o = status_cnt_q[0];
 endmodule
@@ -36811,66 +36814,3519 @@ module \fifo_v3$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_periph_e
   assign usage_o = status_cnt_q[0];
 endmodule
 
-(* src = "src/debug/fpga_dm.sv:1.8" *)
-module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, tck_i, tms_i, trst_ni, td_i, td_o, en_jtag_receiver_o, jtag_bitstream_o, jtag_bitstream_valid_o, tdo_oe_o);
-  (* src = "src/debug/fpga_dm.sv:2.26" *)
-  input clk_i;
-  wire clk_i;
-  (* src = "src/debug/fpga_dm.sv:17.11" *)
-  wire dm_clear;
-  (* src = "src/debug/fpga_dm.sv:19.29" *)
-  wire ejtag;
-  (* src = "src/debug/fpga_dm.sv:19.11" *)
-  wire ejtag_d;
-  (* src = "src/debug/fpga_dm.sv:19.20" *)
-  reg ejtag_q;
-  (* src = "src/debug/fpga_dm.sv:19.36" *)
-  wire ejtag_valid;
-  (* src = "src/debug/fpga_dm.sv:66.17" *)
-  reg [1:0] en_jtag_receiver_d;
-  (* src = "src/debug/fpga_dm.sv:13.26" *)
-  output en_jtag_receiver_o;
-  wire en_jtag_receiver_o;
-  (* src = "src/debug/fpga_dm.sv:21.18" *)
-  wire [31:0] isc_pdata;
-  (* src = "src/debug/fpga_dm.sv:20.18" *)
-  wire isc_pdata_valid;
-  (* src = "src/debug/fpga_dm.sv:14.26" *)
-  output [31:0] jtag_bitstream_o;
-  wire [31:0] jtag_bitstream_o;
-  (* src = "src/debug/fpga_dm.sv:15.26" *)
-  output jtag_bitstream_valid_o;
-  wire jtag_bitstream_valid_o;
-  (* src = "src/debug/fpga_dm.sv:3.26" *)
-  input rst_ni;
-  wire rst_ni;
-  (* src = "src/debug/fpga_dm.sv:6.26" *)
-  input tck_i;
-  wire tck_i;
-  (* src = "src/debug/fpga_dm.sv:9.26" *)
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[0].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
   input td_i;
   wire td_i;
-  (* src = "src/debug/fpga_dm.sv:10.26" *)
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
   output td_o;
   wire td_o;
-  (* src = "src/debug/fpga_dm.sv:11.26" *)
-  output tdo_oe_o;
-  wire tdo_oe_o;
-  (* src = "src/debug/fpga_dm.sv:7.26" *)
-  input tms_i;
-  wire tms_i;
-  (* src = "src/debug/fpga_dm.sv:8.26" *)
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
   input trst_ni;
   wire trst_ni;
-  assign ejtag_d = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:55.22-55.51" *) ejtag : ejtag_q;
-  (* src = "src/debug/fpga_dm.sv:56.5" *)
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[10].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[11].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[12].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[13].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[14].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[15].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[16].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[17].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[18].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[19].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[1].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[20].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[21].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[22].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[23].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[24].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[25].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[26].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[27].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[28].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[29].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[2].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[30].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[31].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[3].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[4].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[5].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[6].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[7].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[8].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_boundary_cell.sv:5.8" *)
+module \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[9].genblk1.fpga_boundary_cell (tclk_i, tclk_ni, trst_ni, capture_bsr_select_i, shift_dr_i, shift_bsr_select_i, update_bsr_select_i, output_enable_i, output_data_i, input_data_o, mode2_i, mode5_i, mode6_i, td_i, td_o, pin_i, pin_o, enable_pin_o);
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:79.13-82.16" *)
+  wire _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:62.13-65.16" *)
+  wire _02_;
+  wire _03_;
+  (* src = "src/debug/fpga_boundary_cell.sv:12.18" *)
+  input capture_bsr_select_i;
+  wire capture_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:34.18" *)
+  output enable_pin_o;
+  wire enable_pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:39.20" *)
+  reg input_data;
+  (* src = "src/debug/fpga_boundary_cell.sv:23.18" *)
+  output input_data_o;
+  wire input_data_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:25.18" *)
+  input mode2_i;
+  wire mode2_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:26.18" *)
+  input mode5_i;
+  wire mode5_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:27.18" *)
+  input mode6_i;
+  wire mode6_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:22.18" *)
+  input output_data_i;
+  wire output_data_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.11" *)
+  wire output_enable;
+  (* src = "src/debug/fpga_boundary_cell.sv:21.18" *)
+  input output_enable_i;
+  wire output_enable_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:36.26" *)
+  reg output_enable_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:32.18" *)
+  input pin_i;
+  wire pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:33.18" *)
+  output pin_o;
+  wire pin_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.11" *)
+  wire pino_g11_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:38.23" *)
+  reg pino_g11_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:18.18" *)
+  input shift_bsr_select_i;
+  wire shift_bsr_select_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:13.18" *)
+  input shift_dr_i;
+  wire shift_dr_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:6.18" *)
+  input tclk_i;
+  wire tclk_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:7.18" *)
+  input tclk_ni;
+  wire tclk_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:29.18" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:30.18" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.11" *)
+  wire tdo_d;
+  (* src = "src/debug/fpga_boundary_cell.sv:37.18" *)
+  reg tdo_q;
+  (* src = "src/debug/fpga_boundary_cell.sv:8.18" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_boundary_cell.sv:19.18" *)
+  input update_bsr_select_i;
+  wire update_bsr_select_i;
+  assign enable_pin_o = mode6_i & (* src = "src/debug/fpga_boundary_cell.sv:42.28-42.51" *) output_enable;
+  assign output_enable = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:43.28-43.71" *) output_enable_q : output_enable_i;
+  assign pin_o = mode5_i ? (* src = "src/debug/fpga_boundary_cell.sv:48.27-48.63" *) input_data : output_data_i;
+  assign input_data_o = mode2_i ? (* src = "src/debug/fpga_boundary_cell.sv:51.27-51.55" *) input_data : pin_i;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) input_data <= 1'h0;
+    else input_data <= _00_;
+  (* src = "src/debug/fpga_boundary_cell.sv:73.5" *)
+  always_ff @(posedge tclk_ni, negedge trst_ni)
+    if (!trst_ni) output_enable_q <= 1'h0;
+    else output_enable_q <= _01_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) pino_g11_q <= 1'h0;
+    else pino_g11_q <= _02_;
+  (* src = "src/debug/fpga_boundary_cell.sv:56.5" *)
+  always_ff @(posedge tclk_i, negedge trst_ni)
+    if (!trst_ni) tdo_q <= 1'h0;
+    else tdo_q <= _03_;
+  assign _00_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) pino_g11_q : input_data;
+  assign _01_ = update_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:79.38-82.16|src/debug/fpga_boundary_cell.sv:79.13-82.16" *) tdo_q : output_enable_q;
+  assign _02_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) td_i : pino_g11_q;
+  assign _03_ = shift_bsr_select_i ? (* src = "src/debug/fpga_boundary_cell.sv:62.37-65.16|src/debug/fpga_boundary_cell.sv:62.13-65.16" *) pino_g11_q : tdo_q;
+  assign pino_g11_d = td_i;
+  assign td_o = tdo_q;
+  assign tdo_d = pino_g11_q;
+endmodule
+
+(* src = "src/debug/fpga_dm.sv:4.8" *)
+module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, trst_ni, td_i, td_o, clk_fabric_o, tck_i, tms_i, en_jtag_receiver_o, jtag_bitstream_o, jtag_bitstream_valid_o, dm_clear_o, shift_dr_o, tck_no, mode2_o, mode5_o, mode6_o, boundary_scan_o, boundary_scan_i, capture_bsr_select_o, shift_bsr_select_o
+, update_bsr_select_o, tdo_oe_o);
+  wire _0_;
+  (* src = "src/debug/fpga_dm.sv:31.26" *)
+  input boundary_scan_i;
+  wire boundary_scan_i;
+  (* src = "src/debug/fpga_dm.sv:30.26" *)
+  output boundary_scan_o;
+  wire boundary_scan_o;
+  (* src = "src/debug/fpga_dm.sv:32.26" *)
+  output capture_bsr_select_o;
+  wire capture_bsr_select_o;
+  (* src = "src/debug/fpga_dm.sv:38.11" *)
+  wire clk_fabric_m;
+  (* src = "src/debug/fpga_dm.sv:8.26" *)
+  output clk_fabric_o;
+  wire clk_fabric_o;
+  (* src = "src/debug/fpga_dm.sv:5.26" *)
+  input clk_i;
+  wire clk_i;
+  (* src = "src/debug/fpga_dm.sv:24.26" *)
+  output dm_clear_o;
+  wire dm_clear_o;
+  (* src = "src/debug/fpga_dm.sv:55.29" *)
+  wire ejtag;
+  (* src = "src/debug/fpga_dm.sv:55.11" *)
+  wire ejtag_d;
+  (* src = "src/debug/fpga_dm.sv:55.20" *)
+  reg ejtag_q;
+  (* src = "src/debug/fpga_dm.sv:55.36" *)
+  wire ejtag_valid;
+  (* src = "src/debug/fpga_dm.sv:115.17" *)
+  reg [1:0] en_jtag_receiver_d;
+  (* src = "src/debug/fpga_dm.sv:19.26" *)
+  output en_jtag_receiver_o;
+  wire en_jtag_receiver_o;
+  (* src = "src/debug/fpga_dm.sv:38.35" *)
+  wire fabric_clk_enable;
+  (* src = "src/debug/fpga_dm.sv:57.18" *)
+  wire [31:0] isc_pdata;
+  (* src = "src/debug/fpga_dm.sv:56.18" *)
+  wire isc_pdata_valid;
+  (* src = "src/debug/fpga_dm.sv:21.26" *)
+  output [31:0] jtag_bitstream_o;
+  wire [31:0] jtag_bitstream_o;
+  (* src = "src/debug/fpga_dm.sv:22.26" *)
+  output jtag_bitstream_valid_o;
+  wire jtag_bitstream_valid_o;
+  (* src = "src/debug/fpga_dm.sv:27.26" *)
+  output mode2_o;
+  wire mode2_o;
+  (* src = "src/debug/fpga_dm.sv:28.26" *)
+  output mode5_o;
+  wire mode5_o;
+  (* src = "src/debug/fpga_dm.sv:29.26" *)
+  output mode6_o;
+  wire mode6_o;
+  (* src = "src/debug/fpga_dm.sv:6.26" *)
+  input rst_ni;
+  wire rst_ni;
+  (* src = "src/debug/fpga_dm.sv:33.26" *)
+  output shift_bsr_select_o;
+  wire shift_bsr_select_o;
+  (* src = "src/debug/fpga_dm.sv:25.26" *)
+  output shift_dr_o;
+  wire shift_dr_o;
+  (* src = "src/debug/fpga_dm.sv:11.26" *)
+  input tck_i;
+  wire tck_i;
+  (* src = "src/debug/fpga_dm.sv:26.26" *)
+  output tck_no;
+  wire tck_no;
+  (* src = "src/debug/fpga_dm.sv:14.26" *)
+  input td_i;
+  wire td_i;
+  (* src = "src/debug/fpga_dm.sv:15.26" *)
+  output td_o;
+  wire td_o;
+  (* src = "src/debug/fpga_dm.sv:16.26" *)
+  output tdo_oe_o;
+  wire tdo_oe_o;
+  (* src = "src/debug/fpga_dm.sv:38.25" *)
+  wire testmode;
+  (* src = "src/debug/fpga_dm.sv:12.26" *)
+  input tms_i;
+  wire tms_i;
+  (* src = "src/debug/fpga_dm.sv:13.26" *)
+  input trst_ni;
+  wire trst_ni;
+  (* src = "src/debug/fpga_dm.sv:34.26" *)
+  output update_bsr_select_o;
+  wire update_bsr_select_o;
+  (* src = "src/debug/fpga_dm.sv:58.18" *)
+  wire [31:0] usercode_d;
+  (* src = "src/debug/fpga_dm.sv:58.30" *)
+  reg [31:0] usercode_q;
+  (* src = "src/debug/fpga_dm.sv:59.18" *)
+  wire usercode_valid_d;
+  (* src = "src/debug/fpga_dm.sv:59.36" *)
+  reg usercode_valid_q;
+  assign ejtag_d = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:98.31-98.60" *) ejtag : ejtag_q;
+  assign _0_ = isc_pdata == (* src = "src/debug/fpga_dm.sv:99.50-99.76" *) 24'haaff01;
+  assign usercode_valid_d = isc_pdata_valid & (* src = "src/debug/fpga_dm.sv:99.31-99.77" *) _0_;
+  assign usercode_d = usercode_valid_q ? (* src = "src/debug/fpga_dm.sv:100.31-100.72" *) isc_pdata : usercode_q;
+  (* src = "src/debug/fpga_dm.sv:101.5" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) ejtag_q <= 1'h0;
     else ejtag_q <= ejtag_d;
-  (* src = "src/debug/fpga_dm.sv:67.5" *)
+  (* src = "src/debug/fpga_dm.sv:116.5" *)
   always_ff @(posedge clk_i)
     en_jtag_receiver_d <= { en_jtag_receiver_d[0], ejtag_q };
-  (* src = "src/debug/fpga_dm.sv:73.46" *)
+  (* src = "src/debug/fpga_dm.sv:101.5" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) usercode_q <= 32'd0;
+    else usercode_q <= usercode_d;
+  (* src = "src/debug/fpga_dm.sv:101.5" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) usercode_valid_q <= 1'h0;
+    else usercode_valid_q <= usercode_valid_d;
+  (* src = "src/debug/fpga_dm.sv:122.46" *)
   \cdc_2phase_clearable$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_cdc_req  i_cdc_req (
     .dst_clear_i(1'h0),
     .dst_clk_i(clk_i),
@@ -36878,110 +40334,140 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, tc
     .dst_ready_i(1'h1),
     .dst_rst_ni(rst_ni),
     .dst_valid_o(jtag_bitstream_valid_o),
-    .src_clear_i(dm_clear),
+    .src_clear_i(dm_clear_o),
     .src_clk_i(tck_i),
     .src_data_i(isc_pdata),
     .src_rst_ni(trst_ni),
     .src_valid_i(isc_pdata_valid)
   );
-  (* src = "src/debug/fpga_dm.sv:31.7" *)
-  \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap  i_dmi_jtag_tap (
-    .dm_rst_o(dm_clear),
+  (* src = "src/debug/fpga_dm.sv:48.19" *)
+  \tc_clk_gating$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_clk_gate  i_clk_gate (
+    .clk_i(clk_fabric_m),
+    .clk_o(clk_fabric_o),
+    .en_i(fabric_clk_enable)
+  );
+  (* src = "src/debug/fpga_dm.sv:40.17" *)
+  \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dft_tck_mux  i_dft_tck_mux (
+    .clk0_i(clk_i),
+    .clk1_i(tck_i),
+    .clk_o(clk_fabric_m),
+    .clk_sel_i(testmode)
+  );
+  (* src = "src/debug/fpga_dm.sv:67.7" *)
+  \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap  i_dm_jtag_tap (
+    .boundary_scan_i(boundary_scan_i),
+    .boundary_scan_o(boundary_scan_o),
+    .capture_bsr_select_o(capture_bsr_select_o),
+    .dm_rst_o(dm_clear_o),
     .ejtag_i(ejtag_q),
     .ejtag_o(ejtag),
     .ejtag_valid_o(ejtag_valid),
     .isc_pdata_o(isc_pdata),
     .isc_pdata_valid_o(isc_pdata_valid),
+    .mode2_o(mode2_o),
+    .mode5_o(mode5_o),
+    .mode6_o(mode6_o),
+    .shift_bsr_select_o(shift_bsr_select_o),
+    .shift_o(shift_dr_o),
     .tck_i(tck_i),
+    .tck_no(tck_no),
     .td_i(td_i),
     .td_o(td_o),
     .tdo_oe_o(tdo_oe_o),
-    .testmode_i(1'h0),
+    .testmode_clk_pulse_o(fabric_clk_enable),
+    .testmode_o(testmode),
     .tms_i(tms_i),
-    .trst_ni(trst_ni)
+    .trst_ni(trst_ni),
+    .update_bsr_select_o(update_bsr_select_o),
+    .usercode_i(usercode_q)
   );
   assign en_jtag_receiver_o = en_jtag_receiver_d[1];
 endmodule
 
 (* src = "src/debug/fpga_dm_jtag_tap.sv:21.8" *)
-module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap (tck_i, tms_i, trst_ni, td_i, td_o, tdo_oe_o, testmode_i, dm_rst_o, ejtag_o, ejtag_valid_o, ejtag_i, isc_pdata_valid_o, isc_pdata_o, tck_o, update_o, capture_o, shift_o, tdi_o);
-  wire _000_;
-  wire _001_;
-  wire [1:0] _002_;
-  wire [3:0] _003_;
+module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap (trst_ni, td_i, td_o, tck_i, tms_i, tck_no, mode2_o, mode5_o, mode6_o, boundary_scan_o, boundary_scan_i, capture_bsr_select_o, shift_bsr_select_o, update_bsr_select_o, tdo_oe_o, dm_rst_o, shift_o, ejtag_o, ejtag_valid_o, ejtag_i, usercode_i
+, isc_pdata_valid_o, isc_pdata_o, testmode_o, testmode_clk_pulse_o, update_o, capture_o, tdi_o);
+  wire [2:0] _000_;
+  wire [1:0] _001_;
+  wire _002_;
+  wire _003_;
   wire _004_;
-  wire [3:0] _005_;
+  wire _005_;
   wire [3:0] _006_;
   wire [3:0] _007_;
-  wire [2:0] _008_;
-  wire [1:0] _009_;
+  wire [3:0] _008_;
+  wire [3:0] _009_;
   wire [3:0] _010_;
-  wire _011_;
-  wire _012_;
+  wire [2:0] _011_;
+  wire [1:0] _012_;
   wire _013_;
   wire _014_;
   wire _015_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:168.7-168.48" *)
   wire _016_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:169.7-169.51" *)
   wire _017_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *)
   wire _018_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:175.7-175.48" *)
   wire _019_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:176.7-176.48" *)
   wire _020_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:194.7-194.56" *)
   wire _021_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.7-182.50" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *)
   wire _022_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:167.7-167.55" *)
-  wire [31:0] _023_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *)
-  wire [31:0] _024_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:174.7-174.70" *)
-  wire [31:0] _025_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *)
-  wire [31:0] _026_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:183.7-183.56" *)
+  wire _023_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:184.7-184.59" *)
+  wire _024_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *)
+  wire _025_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:191.7-191.56" *)
+  wire _026_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:192.7-192.56" *)
   wire _027_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:317.9-319.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *)
   wire _028_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:199.7-199.54" *)
   wire _029_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:322.9-325.12" *)
-  wire _030_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:301.9-303.12" *)
-  wire _031_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:306.9-308.12" *)
-  wire _032_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *)
-  wire _033_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:170.7-170.46" *)
-  wire [31:0] _034_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *)
-  wire [31:0] _035_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:177.7-177.73" *)
-  wire [31:0] _036_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *)
-  wire [31:0] _037_;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:181.7-181.63" *)
+  wire [31:0] _030_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.7-182.62" *)
+  wire [31:0] _031_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *)
+  wire [31:0] _032_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:189.7-189.78" *)
+  wire [31:0] _033_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:190.7-190.78" *)
+  wire [31:0] _034_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *)
+  wire [31:0] _035_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *)
+  wire _036_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:379.9-381.12" *)
+  wire _037_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *)
   wire _038_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:118.5-120.8" *)
-  wire [4:0] _039_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:108.5-110.8" *)
-  wire [4:0] _040_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:113.5-115.8" *)
-  wire [4:0] _041_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:384.9-387.12" *)
+  wire _039_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:363.9-365.12" *)
+  wire _040_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:368.9-370.12" *)
+  wire _041_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *)
   wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:185.7-185.54" *)
+  wire [31:0] _043_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *)
+  wire [31:0] _044_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:193.7-193.81" *)
+  wire [31:0] _045_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *)
+  wire [31:0] _046_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:198.7-198.63" *)
   wire _047_;
-  wire _048_;
-  wire _049_;
-  wire _050_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:127.5-129.8" *)
+  wire [4:0] _048_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:117.5-119.8" *)
+  wire [4:0] _049_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:122.5-124.8" *)
+  wire [4:0] _050_;
   wire _051_;
   wire _052_;
   wire _053_;
@@ -36998,390 +40484,466 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jta
   wire _064_;
   wire _065_;
   wire _066_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:157.16" *)
+  wire _067_;
+  wire _068_;
+  wire _069_;
+  wire _070_;
+  wire _071_;
+  wire _072_;
+  wire _073_;
+  wire _074_;
+  wire _075_;
+  wire _076_;
+  wire _077_;
+  wire _078_;
+  wire _079_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:57.23" *)
+  input boundary_scan_i;
+  wire boundary_scan_i;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:56.23" *)
+  output boundary_scan_o;
+  wire boundary_scan_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:161.16" *)
+  wire boundary_scan_select;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:170.16" *)
   wire bypass_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:157.26" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:170.26" *)
   reg bypass_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:70.30" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:58.23" *)
+  output capture_bsr_select_o;
+  wire capture_bsr_select_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.30" *)
   wire capture_dr;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:101.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.9" *)
   wire capture_ir;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:42.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:40.23" *)
   output capture_o;
   wire capture_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:40.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:257.10" *)
+  wire clk_bsr_select_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:38.23" *)
   output dm_rst_o;
   wire dm_rst_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:48.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:46.23" *)
   input ejtag_i;
   wire ejtag_i;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:46.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:44.23" *)
   output ejtag_o;
   wire ejtag_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:150.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:163.16" *)
   wire ejtag_select;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:47.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:45.23" *)
   output ejtag_valid_o;
   wire ejtag_valid_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:147.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:158.16" *)
   wire [31:0] idcode_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:147.26" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:158.26" *)
   reg [31:0] idcode_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:148.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:159.16" *)
   wire idcode_select;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:73.35" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:84.35" *)
   wire isc_disable_completing_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:73.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:84.9" *)
   reg isc_disable_completing_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:155.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:168.16" *)
   wire isc_disable_select;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:72.21" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:83.21" *)
   wire isc_done_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:72.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:83.9" *)
   reg isc_done_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:154.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:167.16" *)
   wire isc_enable_select;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:71.24" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.24" *)
   wire isc_enabled_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:71.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.9" *)
   reg isc_enabled_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:151.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:164.16" *)
   wire [31:0] isc_pdata_d;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:51.23" *)
   output [31:0] isc_pdata_o;
   wire [31:0] isc_pdata_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:151.29" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:164.29" *)
   reg [31:0] isc_pdata_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:152.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:165.16" *)
   wire isc_pdata_select;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:50.23" *)
   output isc_pdata_valid_o;
   wire isc_pdata_valid_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:100.25" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:109.25" *)
   wire [4:0] jtag_ir_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:100.36" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:109.36" *)
   reg [4:0] jtag_ir_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:98.25" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.25" *)
   wire [4:0] jtag_ir_shift_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:98.42" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.42" *)
   reg [4:0] jtag_ir_shift_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:70.20" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:53.23" *)
+  output mode2_o;
+  wire mode2_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:54.23" *)
+  output mode5_o;
+  wire mode5_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:55.23" *)
+  output mode6_o;
+  wire mode6_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.60" *)
+  wire run_test_idle_d;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.77" *)
+  reg run_test_idle_q;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:59.23" *)
+  output shift_bsr_select_o;
+  wire shift_bsr_select_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.20" *)
   wire shift_dr;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:101.21" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.21" *)
   wire shift_ir;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:43.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:41.23" *)
   output shift_o;
   wire shift_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:69.19" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.19" *)
   wire [2:0] tap_isc_state_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:68.28" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.28" *)
   wire [3:0] tap_state_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:68.15" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.15" *)
   reg [3:0] tap_state_q;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:30.23" *)
   input tck_i;
   wire tck_i;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:245.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:281.9" *)
   wire tck_n;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:245.16" *)
-  wire tck_ni;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:38.23" *)
-  output tck_o;
-  wire tck_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:36.23" *)
+  output tck_no;
+  wire tck_no;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:33.23" *)
   input td_i;
   wire td_i;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:34.23" *)
   output td_o;
   reg td_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:44.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:42.23" *)
   output tdi_o;
   wire tdi_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:226.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:293.9" *)
   wire tdo_mux;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:35.23" *)
   output tdo_oe_o;
   reg tdo_oe_o;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:101.42" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.42" *)
   wire test_logic_reset;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:36.23" *)
-  input testmode_i;
-  wire testmode_i;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:62.23" *)
+  output testmode_clk_pulse_o;
+  wire testmode_clk_pulse_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:61.23" *)
+  output testmode_o;
+  wire testmode_o;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:31.23" *)
   input tms_i;
   wire tms_i;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:32.23" *)
   input trst_ni;
   wire trst_ni;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:70.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:60.23" *)
+  output update_bsr_select_o;
+  wire update_bsr_select_o;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.9" *)
   wire update_dr;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:101.31" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:110.31" *)
   wire update_ir;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:41.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:39.23" *)
   output update_o;
   wire update_o;
-  assign _000_ = shift_ir | (* src = "src/debug/fpga_dm_jtag_tap.sv:266.20-266.39" *) shift_dr;
-  assign _001_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:349.23-349.61" *) 1'h0 : 1'h1;
-  assign _002_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:353.23-353.59" *) 2'h2 : 2'h1;
-  assign _003_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:357.23-357.57" *) 4'h9 : 4'h3;
-  assign _004_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:361.23-361.50" *) 1'h1 : 1'h0;
-  assign _005_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:368.23-368.51" *) 4'h8 : 4'h6;
-  assign _006_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:374.23-374.51" *) 4'h8 : 4'h4;
-  assign _007_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:382.23-382.59" *) 4'h0 : 4'ha;
-  assign _008_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:390.23-390.50" *) 3'h4 : 3'h3;
-  assign _009_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:401.23-401.51" *) 2'h3 : 2'h1;
-  assign _010_[2:0] = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:408.23-408.51" *) 3'h7 : 3'h3;
-  assign _011_ = | { _050_, _047_, _046_ };
-  assign _012_ = | { _044_, _042_ };
-  assign _013_ = | { _065_, _058_, _051_ };
-  assign _014_ = | { _056_, _055_ };
-  assign _015_ = | { _063_, _062_ };
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:422.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:48.23" *)
+  input [31:0] usercode_i;
+  wire [31:0] usercode_i;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:160.16" *)
+  wire usercode_select;
+  assign _000_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:471.23-471.51" *) 3'h7 : 3'h3;
+  assign _001_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:479.23-479.59" *) 2'h2 : 2'h1;
+  assign capture_bsr_select_o = boundary_scan_select & (* src = "src/debug/fpga_dm_jtag_tap.sv:258.33-258.66" *) capture_dr;
+  assign shift_bsr_select_o = boundary_scan_select & (* src = "src/debug/fpga_dm_jtag_tap.sv:259.33-259.64" *) shift_dr;
+  assign update_bsr_select_o = boundary_scan_select & (* src = "src/debug/fpga_dm_jtag_tap.sv:260.33-260.65" *) update_dr;
+  assign _002_ = ~ (* src = "src/debug/fpga_dm_jtag_tap.sv:271.50-271.66" *) run_test_idle_q;
+  assign _003_ = run_test_idle_d & (* src = "src/debug/fpga_dm_jtag_tap.sv:271.32-271.66" *) _002_;
+  assign _004_ = shift_ir | (* src = "src/debug/fpga_dm_jtag_tap.sv:328.20-328.39" *) shift_dr;
+  assign _005_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:411.23-411.61" *) 1'h0 : 1'h1;
+  assign _006_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:420.23-420.57" *) 4'h9 : 4'h3;
+  assign _007_[0] = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:424.23-424.50" *) 1'h1 : 1'h0;
+  assign _008_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:431.23-431.51" *) 4'h8 : 4'h6;
+  assign _009_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:437.23-437.51" *) 4'h8 : 4'h4;
+  assign _010_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:445.23-445.59" *) 4'h0 : 4'ha;
+  assign _011_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:453.23-453.50" *) 3'h4 : 3'h3;
+  assign _012_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:464.23-464.51" *) 2'h3 : 2'h1;
+  assign _013_ = | { _054_, _053_ };
+  assign _014_ = | { _076_, _057_, _056_, _055_, _054_, _053_, _052_ };
+  assign _015_ = | { _055_, _054_, _053_ };
+  assign _016_ = | { _057_, _056_ };
+  assign _017_ = | { _072_, _065_, _058_ };
+  assign _018_ = | { _063_, _062_ };
+  assign _019_ = | { _070_, _069_ };
+  assign _020_ = | { _079_, _077_ };
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:485.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) bypass_q <= 1'h0;
     else bypass_q <= bypass_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:422.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:485.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) idcode_q <= 32'd610557953;
+    if (!trst_ni) idcode_q <= 32'd73687041;
     else idcode_q <= idcode_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:335.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_disable_completing_q <= 1'h0;
     else isc_disable_completing_q <= isc_disable_completing_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:335.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_done_q <= 1'h0;
     else isc_done_q <= isc_done_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:335.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_enabled_q <= 1'h0;
     else isc_enabled_q <= isc_enabled_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:422.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:485.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) isc_pdata_q <= 32'd0;
     else isc_pdata_q <= isc_pdata_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:129.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:138.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) jtag_ir_q <= 5'h01;
     else jtag_ir_q <= jtag_ir_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:129.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:138.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) jtag_ir_shift_q <= 5'h00;
     else jtag_ir_shift_q <= jtag_ir_shift_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:422.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:282.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) run_test_idle_q <= 1'h0;
+    else run_test_idle_q <= run_test_idle_d;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:485.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) tap_state_q <= 4'h0;
     else tap_state_q <= tap_state_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:260.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:322.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) td_o <= 1'h0;
     else td_o <= tdo_mux;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:260.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:322.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) tdo_oe_o <= 1'h0;
-    else tdo_oe_o <= _000_;
-  assign _030_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:322.32-325.12|src/debug/fpga_dm_jtag_tap.sv:322.9-325.12" *) 1'h0 : isc_done_q;
-  assign _042_ = { isc_enabled_q, isc_done_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:322.9-325.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *) 2'h2;
-  assign _028_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:318.11-318.43|src/debug/fpga_dm_jtag_tap.sv:317.9-319.12" *) isc_disable_completing_q : 1'h0;
-  assign _043_ = { isc_enabled_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:317.9-319.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *) 1'h1;
-  assign _027_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:310.33-314.12|src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *) 1'h1 : isc_disable_completing_q;
-  assign _029_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:310.33-314.12|src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *) 1'h1 : isc_done_q;
-  assign _033_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:310.33-314.12|src/debug/fpga_dm_jtag_tap.sv:310.9-314.12" *) 1'h0 : _032_;
-  assign _032_ = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:307.11-307.32|src/debug/fpga_dm_jtag_tap.sv:306.9-308.12" *) 1'h0 : 1'h1;
-  assign _031_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:302.11-302.32|src/debug/fpga_dm_jtag_tap.sv:301.9-303.12" *) 1'h1 : 1'h0;
-  assign _044_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:301.9-303.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *) { isc_enabled_q, isc_done_q, isc_disable_completing_q };
-  function [0:0] _104_;
+    else tdo_oe_o <= _004_;
+  function [0:0] _116_;
     input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
+    input [2:0] b;
+    input [2:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:317.9-319.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:307.25-307.50|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *)
     (* parallel_case *)
     casez (s)
-      2'b?1:
-        _104_ = b[0:0];
-      2'b1?:
-        _104_ = b[1:1];
+      3'b??1:
+        _116_ = b[0:0];
+      3'b?1?:
+        _116_ = b[1:1];
+      3'b1??:
+        _116_ = b[2:2];
       default:
-        _104_ = a;
+        _116_ = a;
     endcase
   endfunction
-  assign isc_disable_completing_d = _104_(isc_disable_completing_q, { _027_, _028_ }, { isc_enabled_q, _043_ });
-  function [0:0] _105_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:322.9-325.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _105_ = b[0:0];
-      2'b1?:
-        _105_ = b[1:1];
-      default:
-        _105_ = a;
-    endcase
-  endfunction
-  assign isc_done_d = _105_(isc_done_q, { _029_, _030_ }, { isc_enabled_q, _042_ });
-  function [0:0] _106_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:322.9-325.12|src/debug/fpga_dm_jtag_tap.sv:299.5-328.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _106_ = b[0:0];
-      2'b1?:
-        _106_ = b[1:1];
-      default:
-        _106_ = a;
-    endcase
-  endfunction
-  assign isc_enabled_d = _106_(1'h0, { _033_, _031_ }, { isc_enabled_q, _012_ });
-  function [0:0] _107_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:236.25-236.50|src/debug/fpga_dm_jtag_tap.sv:234.7-238.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _107_ = b[0:0];
-      2'b1?:
-        _107_ = b[1:1];
-      default:
-        _107_ = a;
-    endcase
-  endfunction
-  assign _045_ = _107_(bypass_q, { idcode_q[0], isc_pdata_q[0] }, { _047_, _046_ });
-  assign _046_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:236.25-236.50|src/debug/fpga_dm_jtag_tap.sv:234.7-238.14" *) 5'h16;
-  assign _047_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:235.25-235.47|src/debug/fpga_dm_jtag_tap.sv:234.7-238.14" *) 1'h1;
-  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:231.7-231.36|src/debug/fpga_dm_jtag_tap.sv:230.5-239.8" *) jtag_ir_shift_q[0] : _045_;
-  assign isc_disable_select = _048_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:212.20-215.10|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 1'h1 : 1'h0;
-  assign _048_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:212.20-215.10|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 5'h15;
-  assign isc_enable_select = _049_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:208.19-211.10|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 1'h1 : 1'h0;
-  assign _049_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:208.19-211.10|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 5'h14;
-  assign isc_pdata_select = _046_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:216.20-216.44|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 1'h1 : 1'h0;
-  assign ejtag_select = _050_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:207.19-207.40|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 1'h1 : 1'h0;
-  assign _050_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:207.19-207.40|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 5'h10;
-  assign idcode_select = _047_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:206.19-206.40|src/debug/fpga_dm_jtag_tap.sv:204.5-220.12" *) 1'h1 : 1'h0;
-  assign bypass_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.27-190.8|src/debug/fpga_dm_jtag_tap.sv:185.5-190.8" *) 1'h0 : _021_;
-  assign isc_pdata_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.27-190.8|src/debug/fpga_dm_jtag_tap.sv:185.5-190.8" *) 32'd0 : _037_;
-  assign idcode_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.27-190.8|src/debug/fpga_dm_jtag_tap.sv:185.5-190.8" *) 32'd610557953 : _026_;
-  assign _022_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.29-182.50|src/debug/fpga_dm_jtag_tap.sv:182.7-182.50" *) 1'h1 : 1'h0;
-  assign _038_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:181.29-181.63|src/debug/fpga_dm_jtag_tap.sv:181.7-181.63" *) isc_enabled_q : 1'h0;
-  assign isc_pdata_valid_o = update_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:180.20-183.8|src/debug/fpga_dm_jtag_tap.sv:180.5-183.8" *) _038_ : 1'h0;
-  assign ejtag_valid_o = update_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:180.20-183.8|src/debug/fpga_dm_jtag_tap.sv:180.5-183.8" *) _022_ : 1'h0;
-  assign _036_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:177.29-177.73|src/debug/fpga_dm_jtag_tap.sv:177.7-177.73" *) { td_i, isc_pdata_q[31:1] } : _035_;
-  assign _020_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:176.29-176.48|src/debug/fpga_dm_jtag_tap.sv:176.7-176.48" *) td_i : _019_;
-  assign _019_ = _011_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:175.29-175.48|src/debug/fpga_dm_jtag_tap.sv:175.7-175.48" *) _018_ : td_i;
-  assign _025_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:174.29-174.70|src/debug/fpga_dm_jtag_tap.sv:174.7-174.70" *) { td_i, idcode_q[31:1] } : _024_;
-  assign _021_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:173.19-178.8|src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *) _020_ : _018_;
-  assign _037_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:173.19-178.8|src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *) _036_ : _035_;
-  assign _026_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:173.19-178.8|src/debug/fpga_dm_jtag_tap.sv:173.5-178.8" *) _025_ : _024_;
-  assign _034_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:170.29-170.46|src/debug/fpga_dm_jtag_tap.sv:170.7-170.46" *) 32'd0 : isc_pdata_q;
-  assign _017_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:169.29-169.51|src/debug/fpga_dm_jtag_tap.sv:169.7-169.51" *) ejtag_i : _016_;
-  assign _016_ = _011_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:168.29-168.48|src/debug/fpga_dm_jtag_tap.sv:168.7-168.48" *) bypass_q : 1'h0;
-  assign _023_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:167.29-167.55|src/debug/fpga_dm_jtag_tap.sv:167.7-167.55" *) 32'd610557953 : idcode_q;
-  assign _018_ = capture_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:166.21-171.8|src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *) _017_ : bypass_q;
-  assign _035_ = capture_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:166.21-171.8|src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *) _034_ : isc_pdata_q;
-  assign _024_ = capture_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:166.21-171.8|src/debug/fpga_dm_jtag_tap.sv:166.5-171.8" *) _023_ : idcode_q;
-  function [3:0] _140_;
+  assign _051_ = _116_(bypass_q, { idcode_q[0], boundary_scan_i, isc_pdata_q[0] }, { _016_, _015_, _052_ });
+  assign _052_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:307.25-307.50|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 5'h16;
+  assign _053_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:306.25-306.51|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 3'h5;
+  assign _054_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:305.25-305.51|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 3'h4;
+  assign _055_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:304.25-304.51|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 2'h3;
+  assign _056_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:303.25-303.47|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 2'h2;
+  assign _057_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:302.25-302.47|src/debug/fpga_dm_jtag_tap.sv:301.7-309.14" *) 1'h1;
+  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:298.7-298.36|src/debug/fpga_dm_jtag_tap.sv:297.5-310.8" *) jtag_ir_shift_q[0] : _051_;
+  function [3:0] _124_;
     input [3:0] a;
     input [47:0] b;
     input [11:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:414.17-417.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:477.17-480.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *)
     (* parallel_case *)
     casez (s)
       12'b???????????1:
-        _140_ = b[3:0];
+        _124_ = b[3:0];
       12'b??????????1?:
-        _140_ = b[7:4];
+        _124_ = b[7:4];
       12'b?????????1??:
-        _140_ = b[11:8];
+        _124_ = b[11:8];
       12'b????????1???:
-        _140_ = b[15:12];
+        _124_ = b[15:12];
       12'b???????1????:
-        _140_ = b[19:16];
+        _124_ = b[19:16];
       12'b??????1?????:
-        _140_ = b[23:20];
+        _124_ = b[23:20];
       12'b?????1??????:
-        _140_ = b[27:24];
+        _124_ = b[27:24];
       12'b????1???????:
-        _140_ = b[31:28];
+        _124_ = b[31:28];
       12'b???1????????:
-        _140_ = b[35:32];
+        _124_ = b[35:32];
       12'b??1?????????:
-        _140_ = b[39:36];
+        _124_ = b[39:36];
       12'b?1??????????:
-        _140_ = b[43:40];
+        _124_ = b[43:40];
       12'b1???????????:
-        _140_ = b[47:44];
+        _124_ = b[47:44];
       default:
-        _140_ = a;
+        _124_ = a;
     endcase
   endfunction
-  assign tap_state_d = _140_(4'hx, { 3'h0, _001_, _003_, 3'h2, _004_, _005_, 3'h3, _004_, _006_, _007_, 1'h1, _008_, 2'h3, _009_, 2'h3, _002_, 1'h1, _010_[2:0], 2'h0, _002_ }, { _066_, _064_, _015_, _061_, _060_, _059_, _057_, _014_, _054_, _053_, _052_, _013_ });
-  assign _051_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:414.17-417.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'hf;
-  assign _052_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:408.9-408.52|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'he;
-  assign _053_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:405.9-405.51|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'hd;
-  assign _054_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:401.9-401.52|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'hc;
-  assign _055_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:396.16-399.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'hb;
-  assign _056_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:388.18-391.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'ha;
-  assign _057_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:382.9-382.60|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'h9;
-  assign _058_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:376.17-379.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 4'h8;
-  assign _059_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:374.9-374.52|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 3'h7;
-  assign _060_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:371.9-371.51|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 3'h6;
-  assign _061_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:368.9-368.52|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 3'h5;
-  assign _062_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:363.16-366.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 3'h4;
-  assign _063_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:359.18-362.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 2'h3;
-  assign _064_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:357.9-357.58|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 2'h2;
-  assign _065_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:353.9-353.60|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1;
-  assign _066_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:348.23-351.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) tap_state_q;
-  assign dm_rst_o = _066_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:348.23-351.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign update_ir = _051_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:414.17-417.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign shift_ir = _055_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:396.16-399.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign capture_ir = _056_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:388.18-391.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign capture_o = _063_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:359.18-362.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign shift_dr = _062_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:363.16-366.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign update_o = _058_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:376.17-379.10|src/debug/fpga_dm_jtag_tap.sv:347.5-419.12" *) 1'h1 : 1'h0;
-  assign jtag_ir_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:122.27-126.8|src/debug/fpga_dm_jtag_tap.sv:122.5-126.8" *) 5'h01 : _039_;
-  assign jtag_ir_shift_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:122.27-126.8|src/debug/fpga_dm_jtag_tap.sv:122.5-126.8" *) 5'h00 : _041_;
-  assign _039_ = update_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:119.7-119.46|src/debug/fpga_dm_jtag_tap.sv:118.5-120.8" *) jtag_ir_shift_q : jtag_ir_q;
-  assign _041_ = capture_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:114.7-114.45|src/debug/fpga_dm_jtag_tap.sv:113.5-115.8" *) 5'h05 : _040_;
-  assign _040_ = shift_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:109.7-109.63|src/debug/fpga_dm_jtag_tap.sv:108.5-110.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:252.15" *)
-  \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap.i_dft_tck_mux  i_dft_tck_mux (
-    .clk0_i(tck_ni),
-    .clk1_i(tck_i),
-    .clk_o(tck_n),
-    .clk_sel_i(testmode_i)
-  );
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:247.19" *)
-  \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap.i_tck_inv  i_tck_inv (
+  assign tap_state_d = _124_(4'hx, { 3'h0, _005_, _006_, 3'h2, _007_[0], _008_, 3'h3, _007_[0], _009_, _010_, 1'h1, _011_, 2'h3, _012_, 2'h3, _001_, 1'h1, _000_, 2'h0, _001_ }, { _073_, _071_, _019_, _068_, _067_, _066_, _064_, _018_, _061_, _060_, _059_, _017_ });
+  assign _058_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:477.17-480.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'hf;
+  assign _059_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:471.9-471.52|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'he;
+  assign _060_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:468.9-468.51|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'hd;
+  assign _061_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:464.9-464.52|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'hc;
+  assign _062_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:459.16-462.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'hb;
+  assign _063_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:451.18-454.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'ha;
+  assign _064_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:445.9-445.60|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'h9;
+  assign _065_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:439.17-442.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 4'h8;
+  assign _066_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:437.9-437.52|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 3'h7;
+  assign _067_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:434.9-434.51|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 3'h6;
+  assign _068_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:431.9-431.52|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 3'h5;
+  assign _069_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:426.16-429.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 3'h4;
+  assign _070_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:422.18-425.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 2'h3;
+  assign _071_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:420.9-420.58|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 2'h2;
+  assign _072_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:414.20-417.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1;
+  assign _073_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:410.23-413.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) tap_state_q;
+  assign run_test_idle_d = _072_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:414.20-417.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign dm_rst_o = _073_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:410.23-413.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign update_ir = _058_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:477.17-480.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign shift_ir = _062_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:459.16-462.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign capture_ir = _063_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:451.18-454.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign capture_dr = _070_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:422.18-425.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign shift_dr = _069_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:426.16-429.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign update_dr = _065_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:439.17-442.10|src/debug/fpga_dm_jtag_tap.sv:409.5-482.12" *) 1'h1 : 1'h0;
+  assign testmode_clk_pulse_o = _053_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:269.15-272.10|src/debug/fpga_dm_jtag_tap.sv:268.5-278.12" *) _003_ : 1'h1;
+  assign mode6_o = _053_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:269.15-272.10|src/debug/fpga_dm_jtag_tap.sv:268.5-278.12" *) 1'h0 : 1'h1;
+  assign mode5_o = _054_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:273.15-276.10|src/debug/fpga_dm_jtag_tap.sv:268.5-278.12" *) 1'h1 : 1'h0;
+  assign mode2_o = _053_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:269.15-272.10|src/debug/fpga_dm_jtag_tap.sv:268.5-278.12" *) 1'h1 : 1'h0;
+  assign testmode_o = _013_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:234.15-237.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign isc_disable_select = _074_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:243.20-246.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign _074_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:243.20-246.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 5'h15;
+  assign isc_enable_select = _075_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:239.19-242.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign _075_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:239.19-242.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 5'h14;
+  assign isc_pdata_select = _052_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:247.20-247.44|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign ejtag_select = _076_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:238.14-238.34|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign _076_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:238.14-238.34|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 5'h10;
+  assign boundary_scan_select = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:234.15-237.10|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign usercode_select = _056_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:228.23-228.51|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign idcode_select = _057_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:227.23-227.51|src/debug/fpga_dm_jtag_tap.sv:225.5-251.12" *) 1'h1 : 1'h0;
+  assign boundary_scan_o = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:202.27-208.8|src/debug/fpga_dm_jtag_tap.sv:202.5-208.8" *) 1'h0 : _022_;
+  assign bypass_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:202.27-208.8|src/debug/fpga_dm_jtag_tap.sv:202.5-208.8" *) 1'h0 : _028_;
+  assign isc_pdata_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:202.27-208.8|src/debug/fpga_dm_jtag_tap.sv:202.5-208.8" *) 32'd0 : _046_;
+  assign idcode_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:202.27-208.8|src/debug/fpga_dm_jtag_tap.sv:202.5-208.8" *) 32'd73687041 : _035_;
+  assign _029_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:199.29-199.54|src/debug/fpga_dm_jtag_tap.sv:199.7-199.54" *) 1'h1 : 1'h0;
+  assign _047_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:198.29-198.63|src/debug/fpga_dm_jtag_tap.sv:198.7-198.63" *) isc_enabled_q : 1'h0;
+  assign isc_pdata_valid_o = update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:197.20-200.8|src/debug/fpga_dm_jtag_tap.sv:197.5-200.8" *) _047_ : 1'h0;
+  assign ejtag_valid_o = update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:197.20-200.8|src/debug/fpga_dm_jtag_tap.sv:197.5-200.8" *) _029_ : 1'h0;
+  assign _021_ = boundary_scan_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:194.33-194.56|src/debug/fpga_dm_jtag_tap.sv:194.7-194.56" *) td_i : boundary_scan_i;
+  assign _045_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:193.33-193.81|src/debug/fpga_dm_jtag_tap.sv:193.7-193.81" *) { td_i, isc_pdata_q[31:1] } : _044_;
+  assign _027_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:192.33-192.56|src/debug/fpga_dm_jtag_tap.sv:192.7-192.56" *) td_i : _026_;
+  assign _026_ = _014_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:191.33-191.56|src/debug/fpga_dm_jtag_tap.sv:191.7-191.56" *) _025_ : td_i;
+  assign _034_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:190.33-190.78|src/debug/fpga_dm_jtag_tap.sv:190.7-190.78" *) { td_i, idcode_q[31:1] } : _033_;
+  assign _033_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:189.33-189.78|src/debug/fpga_dm_jtag_tap.sv:189.7-189.78" *) { td_i, idcode_q[31:1] } : _032_;
+  assign _022_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:188.19-195.8|src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *) _021_ : boundary_scan_i;
+  assign _028_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:188.19-195.8|src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *) _027_ : _025_;
+  assign _046_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:188.19-195.8|src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *) _045_ : _044_;
+  assign _035_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:188.19-195.8|src/debug/fpga_dm_jtag_tap.sv:188.5-195.8" *) _034_ : _032_;
+  assign _043_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.33-185.54|src/debug/fpga_dm_jtag_tap.sv:185.7-185.54" *) 32'd0 : isc_pdata_q;
+  assign _024_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:184.33-184.59|src/debug/fpga_dm_jtag_tap.sv:184.7-184.59" *) ejtag_i : _023_;
+  assign _023_ = _014_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:183.33-183.56|src/debug/fpga_dm_jtag_tap.sv:183.7-183.56" *) bypass_q : 1'h0;
+  assign _031_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.33-182.62|src/debug/fpga_dm_jtag_tap.sv:182.7-182.62" *) usercode_i : _030_;
+  assign _030_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:181.33-181.63|src/debug/fpga_dm_jtag_tap.sv:181.7-181.63" *) 32'd73687041 : idcode_q;
+  assign _025_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:180.21-186.8|src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *) _024_ : bypass_q;
+  assign _044_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:180.21-186.8|src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *) _043_ : isc_pdata_q;
+  assign _032_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:180.21-186.8|src/debug/fpga_dm_jtag_tap.sv:180.5-186.8" *) _031_ : idcode_q;
+  assign _039_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:384.32-387.12|src/debug/fpga_dm_jtag_tap.sv:384.9-387.12" *) 1'h0 : isc_done_q;
+  assign _077_ = { isc_enabled_q, isc_done_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:384.9-387.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *) 2'h2;
+  assign _040_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:384.32-387.12|src/debug/fpga_dm_jtag_tap.sv:384.9-387.12" *) 1'h1 : 1'h0;
+  assign _037_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:380.11-380.43|src/debug/fpga_dm_jtag_tap.sv:379.9-381.12" *) isc_disable_completing_q : 1'h0;
+  assign _078_ = { isc_enabled_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:379.9-381.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *) 1'h1;
+  assign _036_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:372.33-376.12|src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *) 1'h1 : isc_disable_completing_q;
+  assign _038_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:372.33-376.12|src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *) 1'h1 : isc_done_q;
+  assign _042_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:372.33-376.12|src/debug/fpga_dm_jtag_tap.sv:372.9-376.12" *) 1'h0 : _041_;
+  assign _041_ = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:369.11-369.32|src/debug/fpga_dm_jtag_tap.sv:368.9-370.12" *) 1'h0 : 1'h1;
+  assign _079_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:363.9-365.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *) { isc_enabled_q, isc_done_q, isc_disable_completing_q };
+  function [0:0] _200_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:379.9-381.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _200_ = b[0:0];
+      2'b1?:
+        _200_ = b[1:1];
+      default:
+        _200_ = a;
+    endcase
+  endfunction
+  assign isc_disable_completing_d = _200_(isc_disable_completing_q, { _036_, _037_ }, { isc_enabled_q, _078_ });
+  function [0:0] _201_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:384.9-387.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _201_ = b[0:0];
+      2'b1?:
+        _201_ = b[1:1];
+      default:
+        _201_ = a;
+    endcase
+  endfunction
+  assign isc_done_d = _201_(isc_done_q, { _038_, _039_ }, { isc_enabled_q, _077_ });
+  function [0:0] _202_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:384.9-387.12|src/debug/fpga_dm_jtag_tap.sv:361.5-390.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _202_ = b[0:0];
+      2'b1?:
+        _202_ = b[1:1];
+      default:
+        _202_ = a;
+    endcase
+  endfunction
+  assign isc_enabled_d = _202_(1'h0, { _042_, _040_ }, { isc_enabled_q, _020_ });
+  assign jtag_ir_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:131.27-135.8|src/debug/fpga_dm_jtag_tap.sv:131.5-135.8" *) 5'h01 : _048_;
+  assign jtag_ir_shift_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:131.27-135.8|src/debug/fpga_dm_jtag_tap.sv:131.5-135.8" *) 5'h00 : _050_;
+  assign _048_ = update_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:128.7-128.46|src/debug/fpga_dm_jtag_tap.sv:127.5-129.8" *) jtag_ir_shift_q : jtag_ir_q;
+  assign _050_ = capture_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:123.7-123.45|src/debug/fpga_dm_jtag_tap.sv:122.5-124.8" *) 5'h05 : _049_;
+  assign _049_ = shift_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:118.7-118.63|src/debug/fpga_dm_jtag_tap.sv:117.5-119.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:316.19" *)
+  \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.i_tck_inv  i_tck_inv (
     .clk_i(tck_i),
-    .clk_o(tck_ni)
+    .clk_o(tck_n)
   );
-  assign _010_[3] = 1'h1;
-  assign capture_dr = capture_o;
+  assign _007_[3:1] = 3'h2;
+  assign capture_o = capture_dr;
+  assign clk_bsr_select_o = boundary_scan_select;
   assign ejtag_o = bypass_q;
   assign isc_pdata_o = isc_pdata_q;
   assign shift_o = shift_dr;
   assign tap_isc_state_q = { isc_enabled_q, isc_done_q, isc_disable_completing_q };
-  assign tck_o = tck_i;
+  assign tck_no = tck_n;
   assign tdi_o = td_i;
   assign test_logic_reset = dm_rst_o;
-  assign update_dr = update_o;
+  assign update_o = update_dr;
 endmodule
 
 (* src = "src/greyhound_ihp.sv:7.8" *)
@@ -37394,90 +40956,95 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire _004_;
   wire _005_;
   wire _006_;
-  wire [3:0] _007_;
-  wire [3:0] _008_;
+  wire _007_;
+  wire _008_;
   wire _009_;
   wire _010_;
   wire _011_;
   wire _012_;
   wire _013_;
   wire _014_;
-  wire _015_;
-  (* src = "src/greyhound_ihp.sv:415.18-419.12" *)
-  wire [31:0] _016_;
-  (* src = "src/greyhound_ihp.sv:273.13-312.16" *)
-  wire _017_;
-  (* src = "src/greyhound_ihp.sv:273.13-312.16" *)
+  wire [3:0] _015_;
+  wire [3:0] _016_;
+  (* src = "src/greyhound_ihp.sv:517.18-521.12" *)
+  wire [31:0] _017_;
+  (* src = "src/greyhound_ihp.sv:363.13-402.16" *)
   wire _018_;
-  (* src = "src/greyhound_ihp.sv:216.9-313.12" *)
+  (* src = "src/greyhound_ihp.sv:363.13-402.16" *)
   wire _019_;
-  (* src = "src/greyhound_ihp.sv:245.13-257.16" *)
+  (* src = "src/greyhound_ihp.sv:308.9-403.12" *)
   wire _020_;
-  (* src = "src/greyhound_ihp.sv:273.13-312.16" *)
+  (* src = "src/greyhound_ihp.sv:337.13-347.16" *)
   wire _021_;
-  (* src = "src/greyhound_ihp.sv:216.9-313.12" *)
+  (* src = "src/greyhound_ihp.sv:363.13-402.16" *)
   wire _022_;
-  (* src = "src/greyhound_ihp.sv:245.13-257.16" *)
+  (* src = "src/greyhound_ihp.sv:308.9-403.12" *)
   wire _023_;
-  (* src = "src/greyhound_ihp.sv:273.13-312.16" *)
+  (* src = "src/greyhound_ihp.sv:337.13-347.16" *)
   wire _024_;
-  (* src = "src/greyhound_ihp.sv:273.13-312.16" *)
+  (* src = "src/greyhound_ihp.sv:363.13-402.16" *)
   wire _025_;
-  (* src = "src/greyhound_ihp.sv:245.13-257.16" *)
+  (* src = "src/greyhound_ihp.sv:363.13-402.16" *)
   wire _026_;
-  (* src = "src/greyhound_ihp.sv:216.9-313.12" *)
+  (* src = "src/greyhound_ihp.sv:337.13-347.16" *)
   wire _027_;
-  (* src = "src/greyhound_ihp.sv:245.13-257.16" *)
+  (* src = "src/greyhound_ihp.sv:308.9-403.12" *)
   wire _028_;
-  (* src = "src/greyhound_ihp.sv:216.9-313.12" *)
+  (* src = "src/greyhound_ihp.sv:337.13-347.16" *)
   wire _029_;
-  (* src = "src/greyhound_ihp.sv:245.13-257.16" *)
+  (* src = "src/greyhound_ihp.sv:308.9-403.12" *)
   wire _030_;
-  (* src = "src/greyhound_ihp.sv:216.9-313.12" *)
+  (* src = "src/greyhound_ihp.sv:337.13-347.16" *)
   wire _031_;
+  (* src = "src/greyhound_ihp.sv:308.9-403.12" *)
   wire _032_;
-  wire [3:0] _033_;
-  wire _034_;
+  wire _033_;
+  wire [3:0] _034_;
   wire _035_;
-  wire [31:0] _036_;
-  wire _037_;
+  wire _036_;
+  wire [31:0] _037_;
   wire _038_;
-  wire [3:0] _039_;
-  wire _040_;
+  wire _039_;
+  wire [3:0] _040_;
   wire _041_;
   wire _042_;
   wire _043_;
   wire _044_;
   wire _045_;
-  wire [31:0] _046_;
+  wire _046_;
+  wire [31:0] _047_;
   (* src = "src/greyhound_ihp.sv:87.45" *)
   wire [575:0] FrameData;
   (* src = "src/greyhound_ihp.sv:88.45" *)
   wire [239:0] FrameStrobe;
-  (* src = "src/greyhound_ihp.sv:510.22" *)
+  (* src = "src/greyhound_ihp.sv:612.22" *)
   wire [3:0] bank_be;
-  (* src = "src/greyhound_ihp.sv:508.22" *)
+  (* src = "src/greyhound_ihp.sv:610.22" *)
   wire [31:0] bank_rdata;
-  (* src = "src/greyhound_ihp.sv:617.18" *)
+  (* src = "src/greyhound_ihp.sv:719.18" *)
   wire [31:0] bank_rdata_sram_0;
-  (* src = "src/greyhound_ihp.sv:618.18" *)
+  (* src = "src/greyhound_ihp.sv:720.18" *)
   wire [31:0] bank_rdata_sram_1;
-  (* src = "src/greyhound_ihp.sv:512.22" *)
+  (* src = "src/greyhound_ihp.sv:614.22" *)
   wire bank_req;
-  (* src = "src/greyhound_ihp.sv:511.22" *)
+  (* src = "src/greyhound_ihp.sv:613.22" *)
   wire [31:0] bank_wdata;
-  (* src = "src/greyhound_ihp.sv:513.22" *)
+  (* src = "src/greyhound_ihp.sv:615.22" *)
   wire bank_we;
-  (* src = "src/greyhound_ihp.sv:509.22" *)
+  (* src = "src/greyhound_ihp.sv:611.22" *)
   wire [10:0] bank_word_addr;
-  (* src = "src/greyhound_ihp.sv:409.18" *)
+  (* src = "src/greyhound_ihp.sv:511.18" *)
   wire [31:0] bitstream_data;
   (* src = "src/greyhound_ihp.sv:84.21" *)
   wire [31:0] bitstream_data_cpu;
-  (* src = "src/greyhound_ihp.sv:410.18" *)
+  (* src = "src/greyhound_ihp.sv:512.18" *)
   wire bitstream_valid;
   (* src = "src/greyhound_ihp.sv:83.21" *)
   wire bitstream_valid_cpu;
+  (* src = "src/greyhound_ihp.sv:154.10" *)
+  wire [30:0] boundary_scan_td;
+  (* src = "src/greyhound_ihp.sv:455.26" *)
+  wire clk_fabric;
   (* src = "src/greyhound_ihp.sv:12.27" *)
   input clk_i;
   wire clk_i;
@@ -37487,21 +41054,21 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:60.18" *)
   output core_sleep_o;
   wire core_sleep_o;
-  (* src = "src/greyhound_ihp.sv:181.21" *)
+  (* src = "src/greyhound_ihp.sv:274.21" *)
   wire cpu_warmboot_boot_o;
-  (* src = "src/greyhound_ihp.sv:182.21" *)
+  (* src = "src/greyhound_ihp.sv:275.21" *)
   wire [3:0] cpu_warmboot_slot_o;
-  (* src = "src/greyhound_ihp.sv:197.29" *)
+  (* src = "src/greyhound_ihp.sv:290.29" *)
   wire en_jtag_receiver;
-  (* src = "src/greyhound_ihp.sv:176.21" *)
+  (* src = "src/greyhound_ihp.sv:269.21" *)
   wire [23:0] fabric_addr;
-  (* src = "src/greyhound_ihp.sv:175.21" *)
+  (* src = "src/greyhound_ihp.sv:268.21" *)
   wire [3:0] fabric_be;
   (* src = "src/greyhound_ihp.sv:74.21" *)
   wire fabric_config_busy;
   (* src = "src/greyhound_ihp.sv:77.21" *)
   wire fabric_config_configured;
-  (* src = "src/greyhound_ihp.sv:171.21" *)
+  (* src = "src/greyhound_ihp.sv:264.21" *)
   wire fabric_gnt;
   (* src = "src/greyhound_ihp.sv:16.25" *)
   input [31:0] fabric_gpio_i;
@@ -37512,60 +41079,60 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:18.25" *)
   output [31:0] fabric_gpio_oe_o;
   wire [31:0] fabric_gpio_oe_o;
-  (* src = "src/greyhound_ihp.sv:139.40" *)
+  (* src = "src/greyhound_ihp.sv:146.40" *)
   wire [31:0] fabric_io_west_in_i;
-  (* src = "src/greyhound_ihp.sv:141.40" *)
+  (* src = "src/greyhound_ihp.sv:148.40" *)
   wire [31:0] fabric_io_west_oe_o;
-  (* src = "src/greyhound_ihp.sv:140.40" *)
+  (* src = "src/greyhound_ihp.sv:147.40" *)
   wire [31:0] fabric_io_west_out_o;
-  (* src = "src/greyhound_ihp.sv:154.17" *)
+  (* src = "src/greyhound_ihp.sv:247.17" *)
   wire [3:0] fabric_irq_o;
-  (* src = "src/greyhound_ihp.sv:158.18" *)
+  (* src = "src/greyhound_ihp.sv:251.18" *)
   wire fabric_issue_accept;
-  (* src = "src/greyhound_ihp.sv:163.18" *)
+  (* src = "src/greyhound_ihp.sv:256.18" *)
   wire [3:0] fabric_issue_id;
-  (* src = "src/greyhound_ihp.sv:160.18" *)
+  (* src = "src/greyhound_ihp.sv:253.18" *)
   wire [31:0] fabric_issue_instr;
-  (* src = "src/greyhound_ihp.sv:161.18" *)
+  (* src = "src/greyhound_ihp.sv:254.18" *)
   wire [31:0] fabric_issue_op0;
-  (* src = "src/greyhound_ihp.sv:162.18" *)
+  (* src = "src/greyhound_ihp.sv:255.18" *)
   wire [31:0] fabric_issue_op1;
-  (* src = "src/greyhound_ihp.sv:157.18" *)
+  (* src = "src/greyhound_ihp.sv:250.18" *)
   wire fabric_issue_ready;
-  (* src = "src/greyhound_ihp.sv:159.18" *)
+  (* src = "src/greyhound_ihp.sv:252.18" *)
   wire fabric_issue_valid;
-  (* src = "src/greyhound_ihp.sv:178.21" *)
+  (* src = "src/greyhound_ihp.sv:271.21" *)
   wire [31:0] fabric_rdata;
-  (* src = "src/greyhound_ihp.sv:172.21" *)
+  (* src = "src/greyhound_ihp.sv:265.21" *)
   wire fabric_req;
-  (* src = "src/greyhound_ihp.sv:168.18" *)
+  (* src = "src/greyhound_ihp.sv:261.18" *)
   wire [31:0] fabric_result;
-  (* src = "src/greyhound_ihp.sv:166.18" *)
+  (* src = "src/greyhound_ihp.sv:259.18" *)
   wire [3:0] fabric_result_id;
-  (* src = "src/greyhound_ihp.sv:167.18" *)
+  (* src = "src/greyhound_ihp.sv:260.18" *)
   wire [4:0] fabric_result_rd;
-  (* src = "src/greyhound_ihp.sv:165.18" *)
+  (* src = "src/greyhound_ihp.sv:258.18" *)
   wire fabric_result_valid;
-  (* src = "src/greyhound_ihp.sv:173.21" *)
+  (* src = "src/greyhound_ihp.sv:266.21" *)
   wire fabric_rvalid;
   (* src = "src/greyhound_ihp.sv:80.11" *)
   wire fabric_spi_controller_busy;
-  (* src = "src/greyhound_ihp.sv:149.17" *)
+  (* src = "src/greyhound_ihp.sv:242.17" *)
   wire fabric_warmboot_boot_o;
-  (* src = "src/greyhound_ihp.sv:151.17" *)
+  (* src = "src/greyhound_ihp.sv:244.17" *)
   wire fabric_warmboot_reset_i;
-  (* src = "src/greyhound_ihp.sv:150.17" *)
+  (* src = "src/greyhound_ihp.sv:243.17" *)
   wire [3:0] fabric_warmboot_slot_o;
-  (* src = "src/greyhound_ihp.sv:177.21" *)
+  (* src = "src/greyhound_ihp.sv:270.21" *)
   wire [31:0] fabric_wdata;
-  (* src = "src/greyhound_ihp.sv:174.21" *)
+  (* src = "src/greyhound_ihp.sv:267.21" *)
   wire fabric_we;
-  (* src = "src/greyhound_ihp.sv:516.17" *)
+  (* src = "src/greyhound_ihp.sv:618.17" *)
   reg [1:0] fetch_enable_d;
   (* src = "src/greyhound_ihp.sv:59.18" *)
   input fetch_enable_i;
   wire fetch_enable_i;
-  (* src = "src/greyhound_ihp.sv:517.11" *)
+  (* src = "src/greyhound_ihp.sv:619.11" *)
   wire fetch_enable_sync;
   (* src = "src/greyhound_ihp.sv:44.18" *)
   output flash_clk_o;
@@ -37579,7 +41146,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:47.24" *)
   output [3:0] flash_io_o;
   wire [3:0] flash_io_o;
-  (* src = "src/greyhound_ihp.sv:502.16" *)
+  (* src = "src/greyhound_ihp.sv:604.16" *)
   wire [3:0] flash_io_oe;
   (* src = "src/greyhound_ihp.sv:48.24" *)
   output [3:0] flash_io_oe_no;
@@ -37593,7 +41160,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:27.18" *)
   output fpga_cs_n_oe_o;
   wire fpga_cs_n_oe_o;
-  (* src = "src/greyhound_ihp.sv:365.11" *)
+  (* src = "src/greyhound_ihp.sv:455.11" *)
   wire fpga_jtag_tdi;
   (* src = "src/greyhound_ihp.sv:33.18" *)
   input fpga_miso_i;
@@ -37633,18 +41200,40 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire [31:0] jtag_bitstream_data;
   (* src = "src/greyhound_ihp.sv:121.18" *)
   wire jtag_bitstream_valid;
-  (* src = "src/greyhound_ihp.sv:208.11" *)
+  (* src = "src/greyhound_ihp.sv:126.11" *)
+  wire jtag_boundary_scan_tdi;
+  (* src = "src/greyhound_ihp.sv:126.35" *)
+  wire jtag_boundary_scan_tdo;
+  (* src = "src/greyhound_ihp.sv:127.11" *)
+  wire jtag_capture_bsr_select;
+  (* src = "src/greyhound_ihp.sv:124.11" *)
+  wire jtag_dm_clear;
+  (* src = "src/greyhound_ihp.sv:125.11" *)
+  wire jtag_mode2;
+  (* src = "src/greyhound_ihp.sv:125.23" *)
+  wire jtag_mode5;
+  (* src = "src/greyhound_ihp.sv:125.35" *)
+  wire jtag_mode6;
+  (* src = "src/greyhound_ihp.sv:127.36" *)
+  wire jtag_shift_bsr_select;
+  (* src = "src/greyhound_ihp.sv:127.83" *)
+  wire jtag_shift_dr;
+  (* src = "src/greyhound_ihp.sv:128.11" *)
   wire jtag_tck;
-  (* src = "src/greyhound_ihp.sv:208.21" *)
+  (* src = "src/greyhound_ihp.sv:124.26" *)
+  wire jtag_tck_n;
+  (* src = "src/greyhound_ihp.sv:128.21" *)
   wire jtag_tdi;
-  (* src = "src/greyhound_ihp.sv:208.31" *)
+  (* src = "src/greyhound_ihp.sv:128.31" *)
   wire jtag_tdo;
-  (* src = "src/greyhound_ihp.sv:208.41" *)
+  (* src = "src/greyhound_ihp.sv:128.41" *)
   wire jtag_tms;
-  (* src = "src/greyhound_ihp.sv:197.47" *)
+  (* src = "src/greyhound_ihp.sv:290.47" *)
   wire jtag_trst_n_module;
-  (* src = "src/greyhound_ihp.sv:197.11" *)
+  (* src = "src/greyhound_ihp.sv:290.11" *)
   wire jtag_trst_n_sync;
+  (* src = "src/greyhound_ihp.sv:127.59" *)
+  wire jtag_update_bsr_select;
   (* src = "src/greyhound_ihp.sv:50.18" *)
   output psram_clk_o;
   wire psram_clk_o;
@@ -37657,7 +41246,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   (* src = "src/greyhound_ihp.sv:53.24" *)
   output [3:0] psram_io_o;
   wire [3:0] psram_io_o;
-  (* src = "src/greyhound_ihp.sv:502.29" *)
+  (* src = "src/greyhound_ihp.sv:604.29" *)
   wire [3:0] psram_io_oe;
   (* src = "src/greyhound_ihp.sv:54.24" *)
   output [3:0] psram_io_oe_no;
@@ -37683,56 +41272,57 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   wire [31:0] spi_controller_bitstream_data_o;
   (* src = "src/greyhound_ihp.sv:117.39" *)
   wire spi_controller_bitstream_valid_o;
-  (* src = "src/greyhound_ihp.sv:131.11" *)
+  (* src = "src/greyhound_ihp.sv:138.11" *)
   wire spi_controller_cs_no;
-  (* src = "src/greyhound_ihp.sv:133.11" *)
+  (* src = "src/greyhound_ihp.sv:140.11" *)
   wire spi_controller_miso_i;
-  (* src = "src/greyhound_ihp.sv:132.11" *)
+  (* src = "src/greyhound_ihp.sv:139.11" *)
   wire spi_controller_mosi_o;
-  (* src = "src/greyhound_ihp.sv:130.11" *)
+  (* src = "src/greyhound_ihp.sv:137.11" *)
   wire spi_controller_sclk_o;
-  (* src = "src/greyhound_ihp.sv:136.17" *)
+  (* src = "src/greyhound_ihp.sv:143.17" *)
   wire [3:0] spi_controller_slot_i;
-  (* src = "src/greyhound_ihp.sv:135.11" *)
+  (* src = "src/greyhound_ihp.sv:142.11" *)
   wire spi_controller_start_i;
   (* src = "src/greyhound_ihp.sv:116.71" *)
   wire [31:0] spi_receiver_bitstream_data_o;
   (* src = "src/greyhound_ihp.sv:117.73" *)
   wire spi_receiver_bitstream_valid_o;
-  (* src = "src/greyhound_ihp.sv:125.11" *)
+  (* src = "src/greyhound_ihp.sv:132.11" *)
   wire spi_receiver_cs_ni;
-  (* src = "src/greyhound_ihp.sv:127.11" *)
+  (* src = "src/greyhound_ihp.sv:134.11" *)
   wire spi_receiver_miso_o;
-  (* src = "src/greyhound_ihp.sv:126.11" *)
+  (* src = "src/greyhound_ihp.sv:133.11" *)
   wire spi_receiver_mosi_i;
-  (* src = "src/greyhound_ihp.sv:124.11" *)
+  (* src = "src/greyhound_ihp.sv:131.11" *)
   wire spi_receiver_sclk_i;
-  (* src = "src/greyhound_ihp.sv:620.11" *)
+  (* src = "src/greyhound_ihp.sv:722.11" *)
   wire sram_enable;
-  (* src = "src/greyhound_ihp.sv:623.11" *)
+  (* src = "src/greyhound_ihp.sv:725.11" *)
   reg sram_enable_d;
-  (* src = "src/greyhound_ihp.sv:186.11" *)
+  (* src = "src/greyhound_ihp.sv:279.11" *)
   reg startup_trigger;
-  assign _000_ = _010_ & (* src = "src/greyhound_ihp.sv:203.33-203.64" *) _015_;
-  assign _001_ = en_jtag_receiver | (* src = "src/greyhound_ihp.sv:203.13-203.65" *) _000_;
-  assign _002_ = fabric_warmboot_boot_o || (* src = "src/greyhound_ihp.sv:290.64-290.109" *) cpu_warmboot_boot_o;
-  assign _003_ = fabric_config_busy || (* src = "src/greyhound_ihp.sv:290.116-290.164" *) fabric_spi_controller_busy;
-  assign _004_ = ! (* src = "src/greyhound_ihp.sv:290.114-290.165" *) _003_;
-  assign _005_ = _002_ && (* src = "src/greyhound_ihp.sv:290.63-290.165" *) _004_;
-  assign _006_ = startup_trigger || (* src = "src/greyhound_ihp.sv:290.43-290.166" *) _005_;
-  assign _007_ = cpu_warmboot_boot_o ? (* src = "src/greyhound_ihp.sv:291.66-291.132" *) cpu_warmboot_slot_o : fabric_warmboot_slot_o;
-  assign _008_ = startup_trigger ? (* src = "src/greyhound_ihp.sv:291.43-291.132" *) 4'h0 : _007_;
-  assign _010_ = ! (* src = "src/greyhound_ihp.sv:203.33-203.50" *) fpga_mode_d[1];
-  assign _009_ = bitstream_valid_cpu || (* src = "src/greyhound_ihp.sv:422.30-422.72" *) spi_bitstream_valid;
-  assign bitstream_valid = _009_ || (* src = "src/greyhound_ihp.sv:422.30-422.96" *) jtag_bitstream_valid;
-  assign flash_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:504.29-504.41" *) flash_io_oe;
-  assign psram_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:505.29-505.41" *) psram_io_oe;
-  assign _015_ = ! (* src = "src/greyhound_ihp.sv:203.53-203.64" *) rst_nd[1];
-  assign _011_ = ~ (* src = "src/greyhound_ihp.sv:642.34-642.53" *) bank_word_addr[10];
-  assign _012_ = bank_req && (* src = "src/greyhound_ihp.sv:642.22-642.53" *) _011_;
-  assign _013_ = ! (* src = "src/greyhound_ihp.sv:644.22-644.30" *) bank_we;
-  assign _014_ = bank_req && (* src = "src/greyhound_ihp.sv:662.22-662.53" *) bank_word_addr[10];
-  (* src = "src/greyhound_ihp.sv:518.5" *)
+  assign _000_ = ~ (* src = "src/greyhound_ihp.sv:215.32-215.46" *) jtag_dm_clear;
+  assign _001_ = bitstream_valid_cpu || (* src = "src/greyhound_ihp.sv:524.30-524.72" *) spi_bitstream_valid;
+  assign bitstream_valid = _001_ || (* src = "src/greyhound_ihp.sv:524.30-524.96" *) jtag_bitstream_valid;
+  assign flash_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:606.29-606.41" *) flash_io_oe;
+  assign psram_io_oe_no = ~ (* src = "src/greyhound_ihp.sv:607.29-607.41" *) psram_io_oe;
+  assign _002_ = fabric_config_busy || (* src = "src/greyhound_ihp.sv:641.34-641.82" *) fabric_spi_controller_busy;
+  assign _003_ = ~ (* src = "src/greyhound_ihp.sv:744.34-744.53" *) bank_word_addr[10];
+  assign _004_ = bank_req && (* src = "src/greyhound_ihp.sv:744.22-744.53" *) _003_;
+  assign _005_ = ! (* src = "src/greyhound_ihp.sv:746.22-746.30" *) bank_we;
+  assign _006_ = bank_req && (* src = "src/greyhound_ihp.sv:764.22-764.53" *) bank_word_addr[10];
+  assign _007_ = ! (* src = "src/greyhound_ihp.sv:296.33-296.50" *) fpga_mode_d[1];
+  assign _008_ = ! (* src = "src/greyhound_ihp.sv:296.53-296.64" *) rst_nd[1];
+  assign _009_ = _007_ & (* src = "src/greyhound_ihp.sv:296.33-296.64" *) _008_;
+  assign _010_ = en_jtag_receiver | (* src = "src/greyhound_ihp.sv:296.13-296.65" *) _009_;
+  assign _011_ = fabric_warmboot_boot_o || (* src = "src/greyhound_ihp.sv:380.64-380.109" *) cpu_warmboot_boot_o;
+  assign _012_ = ! (* src = "src/greyhound_ihp.sv:380.114-380.165" *) _002_;
+  assign _013_ = _011_ && (* src = "src/greyhound_ihp.sv:380.63-380.165" *) _012_;
+  assign _014_ = startup_trigger || (* src = "src/greyhound_ihp.sv:380.43-380.166" *) _013_;
+  assign _015_ = cpu_warmboot_boot_o ? (* src = "src/greyhound_ihp.sv:381.66-381.132" *) cpu_warmboot_slot_o : fabric_warmboot_slot_o;
+  assign _016_ = startup_trigger ? (* src = "src/greyhound_ihp.sv:381.43-381.132" *) 4'h0 : _015_;
+  (* src = "src/greyhound_ihp.sv:620.5" *)
   always_ff @(posedge clk_i)
     fetch_enable_d <= { fetch_enable_d[0], fetch_enable_i };
   (* src = "src/greyhound_ihp.sv:108.5" *)
@@ -37742,82 +41332,82 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) rst_nd <= 2'h0;
     else rst_nd <= { rst_nd[0], 1'h1 };
-  (* src = "src/greyhound_ihp.sv:625.5" *)
+  (* src = "src/greyhound_ihp.sv:727.5" *)
   always_ff @(posedge clk_i, negedge rst_nd[1])
     if (!rst_nd[1]) sram_enable_d <= 1'h0;
     else sram_enable_d <= bank_word_addr[10];
-  (* src = "src/greyhound_ihp.sv:187.5" *)
+  (* src = "src/greyhound_ihp.sv:280.5" *)
   always_ff @(posedge clk_i, negedge rst_nd[1])
     if (!rst_nd[1]) startup_trigger <= 1'h1;
     else startup_trigger <= 1'h0;
-  assign jtag_trst_n_module = _001_ ? (* src = "src/greyhound_ihp.sv:204.13-204.51|src/greyhound_ihp.sv:203.9-205.12" *) fpga_mode_d[1] : 1'h1;
-  function [31:0] _072_;
+  assign jtag_trst_n_module = _010_ ? (* src = "src/greyhound_ihp.sv:297.13-297.51|src/greyhound_ihp.sv:296.9-298.12" *) fpga_mode_d[1] : 1'h1;
+  function [31:0] _074_;
     input [31:0] a;
     input [63:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
-    (* src = "src/greyhound_ihp.sv:636.19-636.50|src/greyhound_ihp.sv:634.9-637.16" *)
+    (* src = "src/greyhound_ihp.sv:738.19-738.50|src/greyhound_ihp.sv:736.9-739.16" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _072_ = b[31:0];
+        _074_ = b[31:0];
       2'b1?:
-        _072_ = b[63:32];
+        _074_ = b[63:32];
       default:
-        _072_ = a;
+        _074_ = a;
     endcase
   endfunction
-  assign bank_rdata = _072_(32'hxxxxxxxx, { bank_rdata_sram_0, bank_rdata_sram_1 }, { _032_, sram_enable_d });
-  assign _032_ = ~ (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:635.19-635.50|src/greyhound_ihp.sv:634.9-637.16" *) sram_enable_d;
-  assign _016_ = jtag_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:416.13-416.50|src/greyhound_ihp.sv:415.18-419.12" *) jtag_bitstream_data : bitstream_data_cpu;
-  assign bitstream_data = spi_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:414.13-414.49|src/greyhound_ihp.sv:413.9-419.12" *) spi_bitstream_data : _016_;
-  assign fpga_miso_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h1 : _023_;
-  assign fpga_miso_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) jtag_tdo : _022_;
-  assign fpga_mosi_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _019_;
-  assign jtag_tms = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) fpga_cs_n_i : _031_;
-  assign jtag_tdi = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) fpga_mosi_i : _029_;
-  assign jtag_tck = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) fpga_sclk_i : _027_;
-  assign spi_controller_slot_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 4'h0 : _039_;
-  assign spi_controller_start_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _040_;
-  assign spi_controller_miso_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _041_;
-  assign spi_receiver_mosi_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _042_;
-  assign spi_receiver_cs_ni = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h1 : _043_;
-  assign spi_receiver_sclk_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _044_;
-  assign spi_bitstream_valid = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 1'h0 : _045_;
-  assign spi_bitstream_data = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:316.31-344.12|src/greyhound_ihp.sv:316.9-344.12" *) 32'd0 : _046_;
-  assign _023_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h1 : 1'h0;
-  assign _018_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : 1'h1;
-  assign _033_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 4'h0 : _008_;
-  assign _034_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : _006_;
-  assign _035_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) spi_receiver_bitstream_valid_o : spi_controller_bitstream_valid_o;
-  assign _036_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) spi_receiver_bitstream_data_o : spi_controller_bitstream_data_o;
-  assign _021_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) spi_receiver_miso_o : 1'h0;
-  assign _024_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : spi_controller_mosi_o;
-  assign _017_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : spi_controller_cs_no;
-  assign _025_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : spi_controller_sclk_o;
-  assign _037_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) 1'h0 : fpga_miso_i;
-  assign _028_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) fpga_mosi_i : 1'h0;
-  assign _038_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) fpga_cs_n_i : 1'h1;
-  assign _026_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:273.41-293.16|src/greyhound_ihp.sv:273.13-312.16" *) fpga_sclk_i : 1'h0;
-  assign _022_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _021_ : _020_;
-  assign _019_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _018_ : 1'h0;
-  assign fpga_mosi_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _024_ : 1'h0;
-  assign fpga_cs_n_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _017_ : 1'h0;
-  assign fpga_sclk_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _025_ : 1'h0;
-  assign _039_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _033_ : 4'h0;
-  assign _040_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _034_ : 1'h0;
-  assign _041_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _037_ : 1'h0;
-  assign _042_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _028_ : 1'h0;
-  assign _043_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _038_ : 1'h1;
-  assign _044_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _026_ : 1'h0;
-  assign _045_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _035_ : 1'h0;
-  assign _046_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) _036_ : 32'd0;
-  assign _020_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:245.35-257.16|src/greyhound_ihp.sv:245.13-257.16" *) jtag_tdo : 1'h0;
-  assign _030_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:245.35-257.16|src/greyhound_ihp.sv:245.13-257.16" *) fpga_cs_n_i : 1'h0;
-  assign _031_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) 1'h0 : _030_;
-  assign _029_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) 1'h0 : _028_;
-  assign _027_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:216.26-258.12|src/greyhound_ihp.sv:216.9-313.12" *) 1'h0 : _026_;
-  (* src = "src/greyhound_ihp.sv:430.7" *)
+  assign bank_rdata = _074_(32'hxxxxxxxx, { bank_rdata_sram_0, bank_rdata_sram_1 }, { _033_, sram_enable_d });
+  assign _033_ = ~ (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:737.19-737.50|src/greyhound_ihp.sv:736.9-739.16" *) sram_enable_d;
+  assign _017_ = jtag_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:518.13-518.50|src/greyhound_ihp.sv:517.18-521.12" *) jtag_bitstream_data : bitstream_data_cpu;
+  assign bitstream_data = spi_bitstream_valid ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:516.13-516.49|src/greyhound_ihp.sv:515.9-521.12" *) spi_bitstream_data : _017_;
+  assign fpga_miso_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h1 : _024_;
+  assign fpga_miso_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) jtag_tdo : _023_;
+  assign fpga_mosi_oe_o = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _020_;
+  assign spi_controller_slot_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 4'h0 : _040_;
+  assign spi_controller_start_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _041_;
+  assign spi_controller_miso_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _042_;
+  assign spi_receiver_mosi_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _043_;
+  assign spi_receiver_cs_ni = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h1 : _044_;
+  assign spi_receiver_sclk_i = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _045_;
+  assign jtag_tms = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) fpga_cs_n_i : _032_;
+  assign jtag_tdi = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) fpga_mosi_i : _030_;
+  assign jtag_tck = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) fpga_sclk_i : _028_;
+  assign spi_bitstream_valid = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 1'h0 : _046_;
+  assign spi_bitstream_data = en_jtag_receiver ? (* src = "src/greyhound_ihp.sv:405.31-433.12|src/greyhound_ihp.sv:405.9-433.12" *) 32'd0 : _047_;
+  assign _024_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h1 : 1'h0;
+  assign _019_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : 1'h1;
+  assign _034_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 4'h0 : _016_;
+  assign _035_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : _014_;
+  assign _036_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) spi_receiver_bitstream_valid_o : spi_controller_bitstream_valid_o;
+  assign _037_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) spi_receiver_bitstream_data_o : spi_controller_bitstream_data_o;
+  assign _022_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) spi_receiver_miso_o : 1'h0;
+  assign _025_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : spi_controller_mosi_o;
+  assign _018_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : spi_controller_cs_no;
+  assign _026_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : spi_controller_sclk_o;
+  assign _038_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) 1'h0 : fpga_miso_i;
+  assign _029_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) fpga_mosi_i : 1'h0;
+  assign _039_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) fpga_cs_n_i : 1'h1;
+  assign _027_ = fpga_mode_d[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:363.41-383.16|src/greyhound_ihp.sv:363.13-402.16" *) fpga_sclk_i : 1'h0;
+  assign _023_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _022_ : _021_;
+  assign _020_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _019_ : 1'h0;
+  assign fpga_mosi_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _025_ : 1'h0;
+  assign fpga_cs_n_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _018_ : 1'h0;
+  assign fpga_sclk_o = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _026_ : 1'h0;
+  assign _040_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _034_ : 4'h0;
+  assign _041_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _035_ : 1'h0;
+  assign _042_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _038_ : 1'h0;
+  assign _043_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _029_ : 1'h0;
+  assign _044_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _039_ : 1'h1;
+  assign _045_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _027_ : 1'h0;
+  assign _046_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _036_ : 1'h0;
+  assign _047_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) _037_ : 32'd0;
+  assign _021_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:337.35-347.16|src/greyhound_ihp.sv:337.13-347.16" *) jtag_tdo : 1'h0;
+  assign _031_ = fpga_mode_d[1] ? (* src = "src/greyhound_ihp.sv:337.35-347.16|src/greyhound_ihp.sv:337.13-347.16" *) fpga_cs_n_i : 1'h0;
+  assign _032_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) 1'h0 : _031_;
+  assign _030_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) 1'h0 : _029_;
+  assign _028_ = rst_nd[1] ? (* full_case = 32'd1 *) (* src = "src/greyhound_ihp.sv:308.26-348.12|src/greyhound_ihp.sv:308.9-403.12" *) 1'h0 : _027_;
+  (* src = "src/greyhound_ihp.sv:532.7" *)
   \fabric_config$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_config  fabric_config (
     .FrameData_o(FrameData),
     .FrameStrobe_o(FrameStrobe),
@@ -37828,7 +41418,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .configured_o(fabric_config_configured),
     .rst_ni(rst_nd[1])
   );
-  (* src = "src/greyhound_ihp.sv:385.7" *)
+  (* src = "src/greyhound_ihp.sv:487.7" *)
   \fabric_spi_controller$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_controller  fabric_spi_controller (
     .bitstream_data_o(spi_controller_bitstream_data_o),
     .bitstream_valid_o(spi_controller_bitstream_valid_o),
@@ -37842,7 +41432,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .slot_i(spi_controller_slot_i),
     .start_i(spi_controller_start_i)
   );
-  (* src = "src/greyhound_ihp.sv:347.25" *)
+  (* src = "src/greyhound_ihp.sv:436.25" *)
   \fabric_spi_receiver$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_spi_receiver  fabric_spi_receiver (
     .bitstream_data_o(spi_receiver_bitstream_data_o),
     .bitstream_valid_o(spi_receiver_bitstream_valid_o),
@@ -37855,13 +41445,13 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .sclk_i(spi_receiver_sclk_i)
   );
   (* keep = 1'h1 *)
-  (* src = "src/greyhound_ihp.sv:451.31" *)
+  (* src = "src/greyhound_ihp.sv:553.31" *)
   \fabric_wrapper$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wrapper  fabric_wrapper (
     .FrameData_i(FrameData),
     .FrameStrobe_i(FrameStrobe),
-    .clk_i(clk_i),
+    .clk_i(clk_fabric),
     .configured_i(fabric_config_configured),
-    .fabric_io_west_in_i(fabric_gpio_i),
+    .fabric_io_west_in_i(fabric_io_west_in_i),
     .fabric_io_west_oe_o(fabric_io_west_oe_o),
     .fabric_io_west_out_o(fabric_io_west_out_o),
     .fabric_irq_o(fabric_irq_o),
@@ -37888,20 +41478,704 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .fabric_warmboot_reset_i(fabric_config_busy),
     .fabric_warmboot_slot_o(fabric_warmboot_slot_o)
   );
-  (* src = "src/greyhound_ihp.sv:366.13" *)
+  (* src = "src/greyhound_ihp.sv:456.13" *)
   \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm  fpga_dm (
+    .boundary_scan_i(jtag_boundary_scan_tdi),
+    .boundary_scan_o(jtag_boundary_scan_tdo),
+    .capture_bsr_select_o(jtag_capture_bsr_select),
+    .clk_fabric_o(clk_fabric),
     .clk_i(clk_i),
+    .dm_clear_o(jtag_dm_clear),
     .en_jtag_receiver_o(en_jtag_receiver),
     .jtag_bitstream_o(jtag_bitstream_data),
     .jtag_bitstream_valid_o(jtag_bitstream_valid),
+    .mode2_o(jtag_mode2),
+    .mode5_o(jtag_mode5),
+    .mode6_o(jtag_mode6),
     .rst_ni(rst_ni),
+    .shift_bsr_select_o(jtag_shift_bsr_select),
+    .shift_dr_o(jtag_shift_dr),
     .tck_i(jtag_tck),
+    .tck_no(jtag_tck_n),
     .td_i(fpga_jtag_tdi),
     .td_o(jtag_tdo),
     .tms_i(jtag_tms),
-    .trst_ni(jtag_trst_n_module)
+    .trst_ni(jtag_trst_n_module),
+    .update_bsr_select_o(jtag_update_bsr_select)
   );
-  (* src = "src/greyhound_ihp.sv:523.19" *)
+  (* src = "src/greyhound_ihp.sv:158.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[0].genblk1.fpga_boundary_cell  \genblk1[0].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[0]),
+    .input_data_o(fabric_io_west_in_i[0]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[0]),
+    .output_enable_i(fabric_io_west_oe_o[0]),
+    .pin_i(fabric_gpio_i[0]),
+    .pin_o(fabric_gpio_o[0]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(jtag_boundary_scan_tdo),
+    .td_o(boundary_scan_td[0]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[10].genblk1.fpga_boundary_cell  \genblk1[10].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[10]),
+    .input_data_o(fabric_io_west_in_i[10]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[10]),
+    .output_enable_i(fabric_io_west_oe_o[10]),
+    .pin_i(fabric_gpio_i[10]),
+    .pin_o(fabric_gpio_o[10]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[9]),
+    .td_o(boundary_scan_td[10]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[11].genblk1.fpga_boundary_cell  \genblk1[11].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[11]),
+    .input_data_o(fabric_io_west_in_i[11]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[11]),
+    .output_enable_i(fabric_io_west_oe_o[11]),
+    .pin_i(fabric_gpio_i[11]),
+    .pin_o(fabric_gpio_o[11]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[10]),
+    .td_o(boundary_scan_td[11]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[12].genblk1.fpga_boundary_cell  \genblk1[12].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[12]),
+    .input_data_o(fabric_io_west_in_i[12]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[12]),
+    .output_enable_i(fabric_io_west_oe_o[12]),
+    .pin_i(fabric_gpio_i[12]),
+    .pin_o(fabric_gpio_o[12]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[11]),
+    .td_o(boundary_scan_td[12]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[13].genblk1.fpga_boundary_cell  \genblk1[13].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[13]),
+    .input_data_o(fabric_io_west_in_i[13]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[13]),
+    .output_enable_i(fabric_io_west_oe_o[13]),
+    .pin_i(fabric_gpio_i[13]),
+    .pin_o(fabric_gpio_o[13]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[12]),
+    .td_o(boundary_scan_td[13]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[14].genblk1.fpga_boundary_cell  \genblk1[14].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[14]),
+    .input_data_o(fabric_io_west_in_i[14]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[14]),
+    .output_enable_i(fabric_io_west_oe_o[14]),
+    .pin_i(fabric_gpio_i[14]),
+    .pin_o(fabric_gpio_o[14]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[13]),
+    .td_o(boundary_scan_td[14]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[15].genblk1.fpga_boundary_cell  \genblk1[15].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[15]),
+    .input_data_o(fabric_io_west_in_i[15]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[15]),
+    .output_enable_i(fabric_io_west_oe_o[15]),
+    .pin_i(fabric_gpio_i[15]),
+    .pin_o(fabric_gpio_o[15]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[14]),
+    .td_o(boundary_scan_td[15]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[16].genblk1.fpga_boundary_cell  \genblk1[16].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[16]),
+    .input_data_o(fabric_io_west_in_i[16]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[16]),
+    .output_enable_i(fabric_io_west_oe_o[16]),
+    .pin_i(fabric_gpio_i[16]),
+    .pin_o(fabric_gpio_o[16]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[15]),
+    .td_o(boundary_scan_td[16]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[17].genblk1.fpga_boundary_cell  \genblk1[17].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[17]),
+    .input_data_o(fabric_io_west_in_i[17]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[17]),
+    .output_enable_i(fabric_io_west_oe_o[17]),
+    .pin_i(fabric_gpio_i[17]),
+    .pin_o(fabric_gpio_o[17]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[16]),
+    .td_o(boundary_scan_td[17]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[18].genblk1.fpga_boundary_cell  \genblk1[18].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[18]),
+    .input_data_o(fabric_io_west_in_i[18]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[18]),
+    .output_enable_i(fabric_io_west_oe_o[18]),
+    .pin_i(fabric_gpio_i[18]),
+    .pin_o(fabric_gpio_o[18]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[17]),
+    .td_o(boundary_scan_td[18]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[19].genblk1.fpga_boundary_cell  \genblk1[19].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[19]),
+    .input_data_o(fabric_io_west_in_i[19]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[19]),
+    .output_enable_i(fabric_io_west_oe_o[19]),
+    .pin_i(fabric_gpio_i[19]),
+    .pin_o(fabric_gpio_o[19]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[18]),
+    .td_o(boundary_scan_td[19]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[1].genblk1.fpga_boundary_cell  \genblk1[1].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[1]),
+    .input_data_o(fabric_io_west_in_i[1]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[1]),
+    .output_enable_i(fabric_io_west_oe_o[1]),
+    .pin_i(fabric_gpio_i[1]),
+    .pin_o(fabric_gpio_o[1]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[0]),
+    .td_o(boundary_scan_td[1]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[20].genblk1.fpga_boundary_cell  \genblk1[20].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[20]),
+    .input_data_o(fabric_io_west_in_i[20]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[20]),
+    .output_enable_i(fabric_io_west_oe_o[20]),
+    .pin_i(fabric_gpio_i[20]),
+    .pin_o(fabric_gpio_o[20]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[19]),
+    .td_o(boundary_scan_td[20]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[21].genblk1.fpga_boundary_cell  \genblk1[21].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[21]),
+    .input_data_o(fabric_io_west_in_i[21]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[21]),
+    .output_enable_i(fabric_io_west_oe_o[21]),
+    .pin_i(fabric_gpio_i[21]),
+    .pin_o(fabric_gpio_o[21]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[20]),
+    .td_o(boundary_scan_td[21]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[22].genblk1.fpga_boundary_cell  \genblk1[22].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[22]),
+    .input_data_o(fabric_io_west_in_i[22]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[22]),
+    .output_enable_i(fabric_io_west_oe_o[22]),
+    .pin_i(fabric_gpio_i[22]),
+    .pin_o(fabric_gpio_o[22]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[21]),
+    .td_o(boundary_scan_td[22]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[23].genblk1.fpga_boundary_cell  \genblk1[23].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[23]),
+    .input_data_o(fabric_io_west_in_i[23]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[23]),
+    .output_enable_i(fabric_io_west_oe_o[23]),
+    .pin_i(fabric_gpio_i[23]),
+    .pin_o(fabric_gpio_o[23]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[22]),
+    .td_o(boundary_scan_td[23]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[24].genblk1.fpga_boundary_cell  \genblk1[24].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[24]),
+    .input_data_o(fabric_io_west_in_i[24]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[24]),
+    .output_enable_i(fabric_io_west_oe_o[24]),
+    .pin_i(fabric_gpio_i[24]),
+    .pin_o(fabric_gpio_o[24]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[23]),
+    .td_o(boundary_scan_td[24]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[25].genblk1.fpga_boundary_cell  \genblk1[25].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[25]),
+    .input_data_o(fabric_io_west_in_i[25]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[25]),
+    .output_enable_i(fabric_io_west_oe_o[25]),
+    .pin_i(fabric_gpio_i[25]),
+    .pin_o(fabric_gpio_o[25]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[24]),
+    .td_o(boundary_scan_td[25]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[26].genblk1.fpga_boundary_cell  \genblk1[26].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[26]),
+    .input_data_o(fabric_io_west_in_i[26]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[26]),
+    .output_enable_i(fabric_io_west_oe_o[26]),
+    .pin_i(fabric_gpio_i[26]),
+    .pin_o(fabric_gpio_o[26]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[25]),
+    .td_o(boundary_scan_td[26]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[27].genblk1.fpga_boundary_cell  \genblk1[27].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[27]),
+    .input_data_o(fabric_io_west_in_i[27]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[27]),
+    .output_enable_i(fabric_io_west_oe_o[27]),
+    .pin_i(fabric_gpio_i[27]),
+    .pin_o(fabric_gpio_o[27]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[26]),
+    .td_o(boundary_scan_td[27]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[28].genblk1.fpga_boundary_cell  \genblk1[28].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[28]),
+    .input_data_o(fabric_io_west_in_i[28]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[28]),
+    .output_enable_i(fabric_io_west_oe_o[28]),
+    .pin_i(fabric_gpio_i[28]),
+    .pin_o(fabric_gpio_o[28]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[27]),
+    .td_o(boundary_scan_td[28]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[29].genblk1.fpga_boundary_cell  \genblk1[29].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[29]),
+    .input_data_o(fabric_io_west_in_i[29]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[29]),
+    .output_enable_i(fabric_io_west_oe_o[29]),
+    .pin_i(fabric_gpio_i[29]),
+    .pin_o(fabric_gpio_o[29]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[28]),
+    .td_o(boundary_scan_td[29]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[2].genblk1.fpga_boundary_cell  \genblk1[2].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[2]),
+    .input_data_o(fabric_io_west_in_i[2]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[2]),
+    .output_enable_i(fabric_io_west_oe_o[2]),
+    .pin_i(fabric_gpio_i[2]),
+    .pin_o(fabric_gpio_o[2]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[1]),
+    .td_o(boundary_scan_td[2]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[30].genblk1.fpga_boundary_cell  \genblk1[30].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[30]),
+    .input_data_o(fabric_io_west_in_i[30]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[30]),
+    .output_enable_i(fabric_io_west_oe_o[30]),
+    .pin_i(fabric_gpio_i[30]),
+    .pin_o(fabric_gpio_o[30]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[29]),
+    .td_o(boundary_scan_td[30]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:185.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[31].genblk1.fpga_boundary_cell  \genblk1[31].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[31]),
+    .input_data_o(fabric_io_west_in_i[31]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[31]),
+    .output_enable_i(fabric_io_west_oe_o[31]),
+    .pin_i(fabric_gpio_i[31]),
+    .pin_o(fabric_gpio_o[31]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[30]),
+    .td_o(jtag_boundary_scan_tdi),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[3].genblk1.fpga_boundary_cell  \genblk1[3].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[3]),
+    .input_data_o(fabric_io_west_in_i[3]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[3]),
+    .output_enable_i(fabric_io_west_oe_o[3]),
+    .pin_i(fabric_gpio_i[3]),
+    .pin_o(fabric_gpio_o[3]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[2]),
+    .td_o(boundary_scan_td[3]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[4].genblk1.fpga_boundary_cell  \genblk1[4].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[4]),
+    .input_data_o(fabric_io_west_in_i[4]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[4]),
+    .output_enable_i(fabric_io_west_oe_o[4]),
+    .pin_i(fabric_gpio_i[4]),
+    .pin_o(fabric_gpio_o[4]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[3]),
+    .td_o(boundary_scan_td[4]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[5].genblk1.fpga_boundary_cell  \genblk1[5].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[5]),
+    .input_data_o(fabric_io_west_in_i[5]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[5]),
+    .output_enable_i(fabric_io_west_oe_o[5]),
+    .pin_i(fabric_gpio_i[5]),
+    .pin_o(fabric_gpio_o[5]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[4]),
+    .td_o(boundary_scan_td[5]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[6].genblk1.fpga_boundary_cell  \genblk1[6].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[6]),
+    .input_data_o(fabric_io_west_in_i[6]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[6]),
+    .output_enable_i(fabric_io_west_oe_o[6]),
+    .pin_i(fabric_gpio_i[6]),
+    .pin_o(fabric_gpio_o[6]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[5]),
+    .td_o(boundary_scan_td[6]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[7].genblk1.fpga_boundary_cell  \genblk1[7].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[7]),
+    .input_data_o(fabric_io_west_in_i[7]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[7]),
+    .output_enable_i(fabric_io_west_oe_o[7]),
+    .pin_i(fabric_gpio_i[7]),
+    .pin_o(fabric_gpio_o[7]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[6]),
+    .td_o(boundary_scan_td[7]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[8].genblk1.fpga_boundary_cell  \genblk1[8].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[8]),
+    .input_data_o(fabric_io_west_in_i[8]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[8]),
+    .output_enable_i(fabric_io_west_oe_o[8]),
+    .pin_i(fabric_gpio_i[8]),
+    .pin_o(fabric_gpio_o[8]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[7]),
+    .td_o(boundary_scan_td[8]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:212.36" *)
+  \fpga_boundary_cell$FMD_QNC_greyhound_ihp.i_greyhound_ihp.genblk1[9].genblk1.fpga_boundary_cell  \genblk1[9].genblk1.fpga_boundary_cell  (
+    .capture_bsr_select_i(jtag_capture_bsr_select),
+    .enable_pin_o(fabric_gpio_oe_o[9]),
+    .input_data_o(fabric_io_west_in_i[9]),
+    .mode2_i(jtag_mode2),
+    .mode5_i(jtag_mode5),
+    .mode6_i(jtag_mode6),
+    .output_data_i(fabric_io_west_out_o[9]),
+    .output_enable_i(fabric_io_west_oe_o[9]),
+    .pin_i(fabric_gpio_i[9]),
+    .pin_o(fabric_gpio_o[9]),
+    .shift_bsr_select_i(jtag_shift_bsr_select),
+    .shift_dr_i(jtag_shift_dr),
+    .tclk_i(jtag_tck),
+    .tclk_ni(jtag_tck_n),
+    .td_i(boundary_scan_td[8]),
+    .td_o(boundary_scan_td[9]),
+    .trst_ni(_000_),
+    .update_bsr_select_i(jtag_update_bsr_select)
+  );
+  (* src = "src/greyhound_ihp.sv:625.19" *)
   \greyhound_soc$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc  i_greyhound_soc (
     .bank_be_o(bank_be),
     .bank_rdata_i(bank_rdata),
@@ -37915,7 +42189,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .core_sleep_o(core_sleep_o),
     .fabric_addr_o(fabric_addr),
     .fabric_be_o(fabric_be),
-    .fabric_config_busy_i(_003_),
+    .fabric_config_busy_i(_002_),
     .fabric_configured_i(fabric_config_configured),
     .fabric_gnt_i(fabric_gnt),
     .fabric_irq_i(fabric_irq_o),
@@ -37957,7 +42231,7 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .warmboot_boot_o(cpu_warmboot_boot_o),
     .warmboot_slot_o(cpu_warmboot_slot_o)
   );
-  (* src = "src/greyhound_ihp.sv:640.38" *)
+  (* src = "src/greyhound_ihp.sv:742.38" *)
   RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram0 (
     .A_ADDR(bank_word_addr[9:0]),
     .A_BIST_ADDR(10'h000),
@@ -37973,11 +42247,11 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .A_DIN(bank_wdata),
     .A_DLY(1'h1),
     .A_DOUT(bank_rdata_sram_0),
-    .A_MEN(_012_),
-    .A_REN(_013_),
+    .A_MEN(_004_),
+    .A_REN(_005_),
     .A_WEN(bank_we)
   );
-  (* src = "src/greyhound_ihp.sv:660.38" *)
+  (* src = "src/greyhound_ihp.sv:762.38" *)
   RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram1 (
     .A_ADDR(bank_word_addr[9:0]),
     .A_BIST_ADDR(10'h000),
@@ -37993,14 +42267,11 @@ module \greyhound_ihp$FMD_QNC_greyhound_ihp.i_greyhound_ihp (clk_i, rst_ni, fabr
     .A_DIN(bank_wdata),
     .A_DLY(1'h1),
     .A_DOUT(bank_rdata_sram_1),
-    .A_MEN(_014_),
-    .A_REN(_013_),
+    .A_MEN(_006_),
+    .A_REN(_005_),
     .A_WEN(bank_we)
   );
   assign config_busy_o = fabric_config_busy;
-  assign fabric_gpio_o = fabric_io_west_out_o;
-  assign fabric_gpio_oe_o = fabric_io_west_oe_o;
-  assign fabric_io_west_in_i = fabric_gpio_i;
   assign fabric_warmboot_reset_i = fabric_config_busy;
   assign fetch_enable_sync = fetch_enable_d[1];
   assign fpga_cs_n_oe_o = fpga_mosi_oe_o;
@@ -40757,8 +45028,29 @@ module \sync$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_
   assign serial_o = reg_q[2];
 endmodule
 
+(* src = "src/debug/tc_clk_wrapper.sv:32.8" *)
+module \tc_clk_gating$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_clk_gate (clk_i, clk_o, en_i);
+  (* src = "src/debug/tc_clk_wrapper.sv:33.16" *)
+  input clk_i;
+  wire clk_i;
+  (* src = "src/debug/tc_clk_wrapper.sv:35.16" *)
+  output clk_o;
+  wire clk_o;
+  (* src = "src/debug/tc_clk_wrapper.sv:34.16" *)
+  input en_i;
+  wire en_i;
+  (* dont_touch = 1'h1 *)
+  (* keep = 1'h1 *)
+  (* src = "src/debug/tc_clk_wrapper.sv:38.17" *)
+  sg13g2_lgcp_1 clk_gate (
+    .CLK(clk_i),
+    .GATE(en_i),
+    .GCLK(clk_o)
+  );
+endmodule
+
 (* src = "src/debug/tc_clk_wrapper.sv:5.8" *)
-module \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap.i_tck_inv (clk_i, clk_o);
+module \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.i_tck_inv (clk_i, clk_o);
   (* src = "src/debug/tc_clk_wrapper.sv:6.18" *)
   input clk_i;
   wire clk_i;
@@ -40792,7 +45084,7 @@ module \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_
 endmodule
 
 (* src = "src/debug/tc_clk_wrapper.sv:17.8" *)
-module \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap.i_dft_tck_mux (clk_o, clk0_i, clk1_i, clk_sel_i);
+module \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dft_tck_mux (clk0_i, clk1_i, clk_sel_i, clk_o);
   (* src = "src/debug/tc_clk_wrapper.sv:18.18" *)
   input clk0_i;
   wire clk0_i;
@@ -40817,7 +45109,7 @@ module \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dmi_jtag_tap
 endmodule
 
 (* src = "src/debug/tc_clk_wrapper.sv:17.8" *)
-module \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_dft_tck_mux (clk_o, clk0_i, clk1_i, clk_sel_i);
+module \tc_clk_mux2$FMD_QNC_greyhound_ihp.i_greyhound_ihp.i_greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_dft_tck_mux (clk0_i, clk1_i, clk_sel_i, clk_o);
   (* src = "src/debug/tc_clk_wrapper.sv:18.18" *)
   input clk0_i;
   wire clk0_i;
