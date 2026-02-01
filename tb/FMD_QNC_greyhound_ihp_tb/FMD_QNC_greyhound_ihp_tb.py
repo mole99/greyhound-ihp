@@ -97,44 +97,44 @@ fpga_blinky = {
     'dump_waveforms': False,
 }
 
-jtag_enable = {
+jtag_bsr_none = {
     'flash0_slot0': '',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
-    'enable':'',
+    'bsr_length': 1,
 }
 
-jtag_sample = {
+jtag_bsr_external = {
     'flash0_slot0': '',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
-    'sample':'',
+    'bsr_length': 64,
 }
 
-jtag_extest = {
+jtag_bsr_internal = {
     'flash0_slot0': '',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
-    'extest':'',
+    'bsr_length': 245,
 }
 
-jtag_intest = {
+jtag_bsr_all = {
     'flash0_slot0': '',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
-    'intest':'',
+    'bsr_length': 309,
 }
 
 jtag_isc = {
@@ -147,17 +147,7 @@ jtag_isc = {
     'isc':'',
 }
 
-jtag_commands = {
-    'flash0_slot0': '',
-    'flash0_slot1': '',
-    'flash1_slot0': '',
-    'flash1_slot1': '',
-    'connect_flash1': False,
-    'dump_waveforms': True,
-    'commands':'',
-}
-
-enabled = jtag_intest
+enabled = jtag_bsr_all
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -503,10 +493,16 @@ class JTAGFPGA(JTAGDevice):
         super().__init__(name, idcode, ir_len)
         self.add_jtag_reg("IDCODE", 32, 0x1)
         self.add_jtag_reg("USERCODE", 32,0x2)
-        self.add_jtag_reg("SAMPLE", 64, 0x3)
-        self.add_jtag_reg("PRELOAD", 64, 0x3)
-        self.add_jtag_reg("EXTEST", 64, 0x4)
-        self.add_jtag_reg("INTEST", 64, 0x5)
+        bsr_length = 1
+
+        if 'bsr_length' in enabled:
+            bsr_length = enabled['bsr_length']
+        
+        self.add_jtag_reg("SAMPLE", bsr_length, 0x3)
+        self.add_jtag_reg("PRELOAD", bsr_length, 0x3)
+        self.add_jtag_reg("EXTEST", bsr_length, 0x4)
+        self.add_jtag_reg("INTEST", bsr_length, 0x5)
+
         self.add_jtag_reg("EJTAG", 1, 0x10)
         self.add_jtag_reg("ISC_ENABLE", 1, 0x14)
         self.add_jtag_reg("ISC_DISABLE", 1,0x15)
@@ -536,8 +532,7 @@ async def setup_for_jtag(dut):
 
     # Start up
     await start_up(dut, False)
-    
-    # TODO test without tdo connected to output
+
     # Enable JTAG mode of FPGA
     await ClockCycles(dut.io_clock_PAD, 10)
     cocotb.log.info("Enable JTAG interface.")
@@ -553,7 +548,7 @@ async def setup_for_jtag(dut):
     cocotb.log.info("JTAG interface enabled.")
     return jtag
 
-@cocotb.test(skip=enabled!=jtag_enable)
+@cocotb.test(skip=(enabled!=jtag_bsr_none and enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_enable(dut):
     jtag = await setup_for_jtag(dut)
 
@@ -567,136 +562,329 @@ async def test_jtag_enable(dut):
     assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x0)
     await ClockCycles(dut.io_clock_PAD, 10)
 
-@cocotb.test(skip=enabled!=jtag_sample)
+@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_sample(dut):
     jtag = await setup_for_jtag(dut)
-    # TODO do this by specifiing boundary cell values
-
-
-@cocotb.test(skip=enabled!=jtag_extest)
-async def test_jtag_extest(dut):
-    jtag = await setup_for_jtag(dut)
+    # Set outputs
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_oe_o.value = 0xffffffff
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o.value = 0x0
     
-    dut.io_gpio_PAD[1].value = 0
-    dut.io_gpio_PAD[3].value = 0
-    dut.io_gpio_PAD[4].value = 0
-    dut.io_gpio_PAD[6].value = 0
-    dut.io_gpio_PAD[9].value = 0
-    dut.io_gpio_PAD[11].value = 0
-    dut.io_gpio_PAD[12].value = 0
-    dut.io_gpio_PAD[14].value = 0
-    dut.io_gpio_PAD[17].value = 0
-    dut.io_gpio_PAD[19].value = 0
-    dut.io_gpio_PAD[20].value = 0
-    dut.io_gpio_PAD[22].value = 0
-    dut.io_gpio_PAD[25].value = 0
-    dut.io_gpio_PAD[27].value = 0
-    dut.io_gpio_PAD[28].value = 0
-    dut.io_gpio_PAD[30].value = 0
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        # CPU_IRQ
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0 # 4 bit
+        # CUSTOM_INSTRUCTION
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_ready_dm.value  = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_valid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op1_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0 # 4 bit
+        # OBI_PERIPHERAL
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_gnt_dm.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rvalid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0 # 32 bit
+
+    # Set expected test vectors
+    if enabled == jtag_bsr_external:
+        ret_val = [0x55555555_55555555, 0xd7f57d5f_d7f57d5f]
+    if enabled == jtag_bsr_internal:
+        ret_val = [0x0,
+                   0x180000_000001ef_67ab23cd_45890555_55555a22_f7b3d591_e6a2c407_77777774]
+    if enabled == jtag_bsr_all:
+        ret_val = [0xaaaaa_aaaaaaaa_aaa00000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
+                   0x1afeaf_abfafeaf_abf80000_000001ef_67ab23cd_45890555_55555a22_f7b3d591_e6a2c407_77777774]
+
+    await jtag.read("SAMPLE", device=1)
+    assert(jtag.ret_val == ret_val[0])
+
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o.value = 0xc639c639
     
-    # Test instr TODO find how to access returned value
-    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
-    await jtag.write("BYPASS", 0x1, device=1)
-    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
-    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
-    dut.io_gpio_PAD[1].value = 1
-    dut.io_gpio_PAD[3].value = 1
-    dut.io_gpio_PAD[4].value = 1
-    dut.io_gpio_PAD[6].value = 1
-    dut.io_gpio_PAD[9].value = 1
-    dut.io_gpio_PAD[11].value = 1
-    dut.io_gpio_PAD[12].value = 1
-    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b1_c431c431, device=1)
-    dut.io_gpio_PAD[14].value = 1
-    dut.io_gpio_PAD[17].value = 1
-    dut.io_gpio_PAD[19].value = 1
-    dut.io_gpio_PAD[20].value = 1
-    dut.io_gpio_PAD[22].value = 1
-    dut.io_gpio_PAD[25].value = 1
-    dut.io_gpio_PAD[27].value = 1
-    dut.io_gpio_PAD[28].value = 1
-    dut.io_gpio_PAD[30].value = 1
-    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b9_e6b9e6b8, device=1)
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        # CPU_IRQ
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0x3 # 4 bit
+        # CUSTOM_INSTRUCTION
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0x2 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0x5 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0xaaaaaaaa # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0x12345678 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0x9abcdef0 # 32 bit
+        # OBI_PERIPHERAL
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0xbbbbbbbb # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0x234567 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0x89abcdef # 32 bit
+
+    await jtag.read("SAMPLE", device=1)
+    assert(jtag.ret_val == ret_val[1])
 
     await ClockCycles(dut.io_clock_PAD, 10)
 
-@cocotb.test(skip=enabled!=jtag_intest)
-async def test_jtag_intest(dut):
-    # TODO this testcase
+@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
+async def test_jtag_extest(dut):
     jtag = await setup_for_jtag(dut)
-    dut.io_gpio_PAD[1].value = 0
-    dut.io_gpio_PAD[3].value = 0
-    dut.io_gpio_PAD[4].value = 0
-    dut.io_gpio_PAD[6].value = 0
-    dut.io_gpio_PAD[9].value = 0
-    dut.io_gpio_PAD[11].value = 0
-    dut.io_gpio_PAD[12].value = 0
-    dut.io_gpio_PAD[14].value = 0
-    dut.io_gpio_PAD[17].value = 0
-    dut.io_gpio_PAD[19].value = 0
-    dut.io_gpio_PAD[20].value = 0
-    dut.io_gpio_PAD[22].value = 0
-    dut.io_gpio_PAD[25].value = 0
-    dut.io_gpio_PAD[27].value = 0
-    dut.io_gpio_PAD[28].value = 0
-    dut.io_gpio_PAD[30].value = 0
+    # Set extest inputs
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.io_gpio_PAD[1].value = 0
+        dut.io_gpio_PAD[3].value = 0
+        dut.io_gpio_PAD[4].value = 0
+        dut.io_gpio_PAD[6].value = 0
+        dut.io_gpio_PAD[9].value = 0
+        dut.io_gpio_PAD[11].value = 0
+        dut.io_gpio_PAD[12].value = 0
+        dut.io_gpio_PAD[14].value = 0
+        dut.io_gpio_PAD[17].value = 0
+        dut.io_gpio_PAD[19].value = 0
+        dut.io_gpio_PAD[20].value = 0
+        dut.io_gpio_PAD[22].value = 0
+        dut.io_gpio_PAD[25].value = 0
+        dut.io_gpio_PAD[27].value = 0
+        dut.io_gpio_PAD[28].value = 0
+        dut.io_gpio_PAD[30].value = 0
+   
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        # CPU_IRQ
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0x3 # 4 bit
+        # CUSTOM_INSTRUCTION
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_ready_dm.value  = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_valid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op1_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0 # 4 bit
+        # OBI_PERIPHERAL
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_gnt_dm.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rvalid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0 # 32 bit
     
-    # Test instr TODO find how to access returned value
-    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
+    # Set expected test vectors
+    if enabled == jtag_bsr_external:
+        write_val = 0xc639c639_c639c639
+        ret_val   = [0xc431c431_c431c431, 0xc431c431_c431c431, 0xe6b9e6b1_c431c431, 0xe6b9e6b9_e6b9e6b9]
+    if enabled == jtag_bsr_internal:
+        write_val = 0x000000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val   = [0x180000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
+                     0x180000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
+                     0x1861ef_67ab23cd_45890aaa_aaaab000_00000000_00000000_00000000_00000000,
+                     0x1861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000]
+    if enabled == jtag_bsr_all:
+        write_val = 0x18c738_c738c738_c7200000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val   = [0x188638_86388638_86380000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
+                     0x188638_86388638_86380000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
+                     0x1cd73c_d6388638_863861ef_67ab23cd_45890aaa_aaaab000_00000000_00000000_00000000_00000000,
+                     0x1cd73c_d73cd73c_d73861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000]
+
+    # Test if preload holds the value until test
+    await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
-    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
-    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
-    dut.io_gpio_PAD[1].value = 1
-    dut.io_gpio_PAD[3].value = 1
-    dut.io_gpio_PAD[4].value = 1
-    dut.io_gpio_PAD[6].value = 1
-    dut.io_gpio_PAD[9].value = 1
-    dut.io_gpio_PAD[11].value = 1
-    dut.io_gpio_PAD[12].value = 1
-    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b1_c431c431, device=1)
-    dut.io_gpio_PAD[14].value = 1
-    dut.io_gpio_PAD[17].value = 1
-    dut.io_gpio_PAD[19].value = 1
-    dut.io_gpio_PAD[20].value = 1
-    dut.io_gpio_PAD[22].value = 1
-    dut.io_gpio_PAD[25].value = 1
-    dut.io_gpio_PAD[27].value = 1
-    dut.io_gpio_PAD[28].value = 1
-    dut.io_gpio_PAD[30].value = 1
-    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b9_e6b9e6b8, device=1)
+
+    # Check for correct extest scan reg value, when input changes (output is set by test vector)
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[0])
+
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[1])
+
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.io_gpio_PAD[1].value = 1
+        dut.io_gpio_PAD[3].value = 1
+        dut.io_gpio_PAD[4].value = 1
+        dut.io_gpio_PAD[6].value = 1
+        dut.io_gpio_PAD[9].value = 1
+        dut.io_gpio_PAD[11].value = 1
+        dut.io_gpio_PAD[12].value = 1
+
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0xaaaaaaaa # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0x12345678 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op1_soc.value   = 0x9abcdef0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0xc # 4 bit
+
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[2])
+
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.io_gpio_PAD[14].value = 1
+        dut.io_gpio_PAD[17].value = 1
+        dut.io_gpio_PAD[19].value = 1
+        dut.io_gpio_PAD[20].value = 1
+        dut.io_gpio_PAD[22].value = 1
+        dut.io_gpio_PAD[25].value = 1
+        dut.io_gpio_PAD[27].value = 1
+        dut.io_gpio_PAD[28].value = 1
+        dut.io_gpio_PAD[30].value = 1
+
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0x0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0x1 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0x234567 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0x89abcdef # 32 bit
+
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[3])
+
+    await ClockCycles(dut.io_clock_PAD, 10)
+
+@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
+async def test_jtag_intest(dut):
+    jtag = await setup_for_jtag(dut)
+    # Set intest outputs
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_oe_o.value = 0xa5a5a5a5
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[0].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[2].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[5].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[7].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[8].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[10].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[13].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[15].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[16].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[18].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[21].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[23].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[24].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[26].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[29].value = 0
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[31].value = 0
+
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        # CPU_IRQ
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0x3 # 4 bit
+        # CUSTOM_INSTRUCTION
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_ready_dm.value  = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_valid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op1_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0 # 4 bit
+        # OBI_PERIPHERAL
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_gnt_dm.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rvalid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0 # 32 bit
+
+    # Set expected test vectors
+    if enabled == jtag_bsr_external:
+        write_val = 0xc639c639_c639c639
+        ret_val   = [0x46194619_46194619, 0x46194619_46194619, 0xce3bce39_46194619, 0xce3bce3b_ce3bce3b]
+    if enabled == jtag_bsr_internal:
+        write_val = 0x000000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val   = [0x180000_0000001a_bfafeaff_aefaf000_00000000_00000000_0c123454_00000000,
+                     0x180000_0000001a_bfafeaff_aefaf000_00000000_00000000_0c123454_00000000,
+                     0x180000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123454_00000000,
+                     0x180000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123456_479a8b11]
+    if enabled == jtag_bsr_all:
+        write_val = 0x18c738_c738c738_c7200000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val   = [0x08c328_c328c328_c3380000_0000001a_bfafeaff_aefaf000_00000000_00000000_0c123454_00000000,
+                     0x08c328_c328c328_c3380000_0000001a_bfafeaff_aefaf000_00000000_00000000_0c123454_00000000,
+                     0x19c779_c728c328_c3380000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123454_00000000,
+                     0x19c779_c779c779_c7780000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123456_479a8b11]
+
+    # Test if preload holds the value until test
+    await jtag.write("PRELOAD", write_val, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+
+    # Check for correct intest scan reg value, when output changes (input is set by test vector)
+    await jtag.write("INTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[0])
+
+    await jtag.write("INTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[1])
+
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[0].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[2].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[5].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[7].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[8].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[10].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[13].value = 1
+
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_ready_dm.value  = 0x0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_valid_dm.value = 0x0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0x5 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0x16 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0x89abcdef # 32 bit
+
+    await jtag.write("INTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[2])
+
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[15].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[16].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[18].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[21].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[23].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[24].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[26].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[29].value = 1
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_io_west_out_o[31].value = 1
+
+    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_gnt_dm.value    = 0x1 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rvalid_dm.value = 0x0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0x23456789 # 32 bit
+
+    await jtag.write("INTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[3])
 
     await ClockCycles(dut.io_clock_PAD, 10)
 
 @cocotb.test(skip=enabled!=jtag_isc)
 async def test_jtag_isc(dut):
     jtag = await setup_for_jtag(dut)
-
-@cocotb.test(skip=enabled!=jtag_commands)
-async def test_jtag_commands(dut):
-    # TODO needs env COCOTB_RESOLVE_X=ZEROS to startup until tdo is set to output
-    """Run the JTAG command test"""
-    jtag = await setup_for_jtag(dut)
-
-    # Test jtag boundary scan functions
-    # TODO check pattern in boundary reg
-    await jtag.write("USERCODE", 0xa5a5a5a5, device=1)        # Need rom downloaded
-    await jtag.write("SAMPLE", 0xaaaaaaaa_55555555, device=1) # Better sample test (need fpga rom downloaded)
-    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
-    await jtag.write("EXTEST", 0x1c0ffee1_deadbeef, device=1)
-    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1) 
-    await jtag.write("INTEST", 0xdeadbeef_1c0ffee1, device=1)
-    await jtag.write("SAMPLE", 0x55555555_aaaaaaaa, device=1)
-
+    # TODO test isc cycle in combination with spi/CPU
+    # TODO also test USERCODE instr
     # Test ics functions with simple device programming
-    # TODO check pattern from fig 6 page 26 IEEE1532 after writing JTAG instr. 
+    # TODO check pattern from fig 6 page 26 IEEE1532 after writing JTAG instr.
+    # TODO test in/extest after programming
     await jtag.write("ISC_ENABLE", 0x1, device=1)
     await jtag.write("ISC_PROGRAM", 0xdeadbeef, device=1)
     await jtag.write("ISC_PROGRAM", 0x1c0ffee1, device=1)
     await jtag.write("ISC_NOOP", 0x1, device=1)
     await jtag.write("ISC_DISABLE", 0x1, device=1)
     await jtag.write("ISC_ENABLE", 0x1, device=1)
-
-    # TODO Check sample, usercode and intest after programming
 
     await ClockCycles(dut.io_clock_PAD, 100)
 
@@ -933,4 +1121,5 @@ if __name__ == "__main__":
         test_module="FMD_QNC_greyhound_ihp_tb,",
         plusargs=plusargs,
         waves=True,
+        extra_env = {"COCOTB_RESOLVE_X": "RANDOM"}, # Needed because JTAG pins are not always reserved
     )

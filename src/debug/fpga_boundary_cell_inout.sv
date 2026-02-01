@@ -2,17 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 // IO cell in accordance to IEEE1149.1 Figure 11-38, adjusted for non gated clk and tap device used here
-module fpga_boundary_cell (
+module fpga_boundary_cell_inout (
     input  logic tclk_i,
     input  logic tclk_ni,
     input  logic trst_ni,
+    input  logic tclear_i,
     // Gated clk
-
-    // TODO
-    input  logic shift_dr_i,
-
-
-
     input  logic capture_bsr_select_i,
     input  logic shift_bsr_select_i,
     input  logic update_bsr_select_i,
@@ -50,22 +45,20 @@ module fpga_boundary_cell (
     assign input_data_o = mode2_i ? input_data : pin_i;
 
     // Boundary regs
-    // TODO values on EX-/INTEST
-    // TODO remove capture input (not needed no sample when implemented)
     always_ff @(posedge tclk_i, negedge trst_ni) begin
         if (!trst_ni) begin
             pino_g11_q <= '0;
             tdo_q      <= '0;
         end
         else begin
-            if (shift_bsr_select_i | capture_bsr_select_i) begin
+            if (tclear_i) begin
+                pino_g11_q <= '0;
+                tdo_q      <= '0;
+            end
+            else if (shift_bsr_select_i | capture_bsr_select_i) begin
                 pino_g11_q <= pino_g11_d;
                 tdo_q      <= tdo_d;
             end
-
-            // if (capture_bsr_select_i) begin
-            //     pino_g11_q <= '0;
-            // end
         end
     end
 
@@ -75,14 +68,14 @@ module fpga_boundary_cell (
             input_data      <= '0;
         end
         else begin
-            if (update_bsr_select_i) begin
-                output_enable_q <= tdo_q;
-                input_data <= pino_g11_q;
+            if (tclear_i) begin
+                output_enable_q <= '0;
+                input_data      <= '0;
             end
-
-            // if (capture_bsr_select_i) begin
-            //     tdo_q <= '0;
-            // end
+            else if (update_bsr_select_i) begin
+                output_enable_q <= tdo_q;
+                input_data      <= pino_g11_q;
+            end
         end
     end
 endmodule

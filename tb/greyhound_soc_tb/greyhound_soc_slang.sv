@@ -32527,12 +32527,12 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   assign debug_fabric_rdata = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_rdata_i : 32'd0;
   assign debug_fabric_rvalid = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_rvalid_i : 1'h0;
   assign debug_fabric_gnt = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_gnt_i : 1'h0;
-  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_i : 32'd0;
-  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_rd_i : 5'h00;
   assign fabric_result_id_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_id_i : 4'h0;
   assign fabric_result_valid_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_valid_i : 1'h0;
   assign fabric_issue_accept_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_accept_i : 1'h0;
   assign fabric_issue_ready_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_ready_i : 1'h1;
+  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_i : 32'd0;
+  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_rd_i : 5'h00;
   (* src = "src/soc/greyhound_soc.sv:360.7" *)
   \cv32e40x_core$greyhound_soc.cv32e40x_core  cv32e40x_core (
     .boot_addr_i(32'd128),

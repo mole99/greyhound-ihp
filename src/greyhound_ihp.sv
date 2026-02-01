@@ -124,10 +124,6 @@ module greyhound_ihp (
     logic        jtag_bitstream_valid;
 
     // JTAG boundary scan
-    logic jtag_dm_clear, jtag_tck_n;
-    logic jtag_mode2, jtag_mode5, jtag_mode6;
-    logic jtag_boundary_scan_tdi, jtag_boundary_scan_tdo;
-    logic jtag_capture_bsr_select, jtag_shift_bsr_select, jtag_update_bsr_select, jtag_shift_dr;
     logic jtag_tck, jtag_tdi, jtag_tdo, jtag_tms;
 
     // SPI receiver
@@ -150,127 +146,57 @@ module greyhound_ihp (
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_out_o;
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_oe_o;
 
-    // Assign fabric IOs
-    // TODO glitch free rst, rstgen.v?
-    // TODO move this into debug_module
-    wire boundary_scan_td [FABRIC_NUM_IO_WEST-2:0];
-    generate
-        for (genvar i = 0; i<FABRIC_NUM_IO_WEST; i++) begin
-            if (i==0) begin
-                fpga_boundary_cell fpga_boundary_cell (
-                    .tclk_i  ( jtag_tck       ),
-                    .tclk_ni ( jtag_tck_n     ),
-                    .trst_ni ( ~jtag_dm_clear ),
-                    // Gated clk signals
-                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
-                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
-                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
-                    .shift_dr_i           ( jtag_shift_dr           ),
-                    // System logic connection
-                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
-                    .output_data_i   ( fabric_io_west_out_o[i] ),
-                    .input_data_o    ( fabric_io_west_in_i[i]  ),
-                    // Mode configuration
-                    .mode2_i ( jtag_mode2 ),
-                    .mode5_i ( jtag_mode5 ),
-                    .mode6_i ( jtag_mode6 ),
-                    // Daisy chain connection
-                    .td_i ( jtag_boundary_scan_tdo ),
-                    .td_o ( boundary_scan_td[i]    ),
-                    // System pin connection
-                    .pin_i        ( fabric_gpio_i[i]    ),
-                    .pin_o        ( fabric_gpio_o[i]    ),
-                    .enable_pin_o ( fabric_gpio_oe_o[i] )
-                );
-            end
-            else if (i==(FABRIC_NUM_IO_WEST-1)) begin
-                fpga_boundary_cell fpga_boundary_cell (
-                    .tclk_i  ( jtag_tck       ),
-                    .tclk_ni ( jtag_tck_n     ),
-                    .trst_ni ( ~jtag_dm_clear ),
-                    // Gated clk signals
-                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
-                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
-                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
-                    .shift_dr_i           ( jtag_shift_dr           ),
-                    // System logic connection
-                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
-                    .output_data_i   ( fabric_io_west_out_o[i] ),
-                    .input_data_o    ( fabric_io_west_in_i[i]  ),
-                    // Mode configuration
-                    .mode2_i ( jtag_mode2 ),
-                    .mode5_i ( jtag_mode5 ),
-                    .mode6_i ( jtag_mode6 ),
-                    // Daisy chain connection
-                    .td_i ( boundary_scan_td[i-1]  ),
-                    .td_o ( jtag_boundary_scan_tdi ),
-                    // System pin connection
-                    .pin_i        ( fabric_gpio_i[i]    ),
-                    .pin_o        ( fabric_gpio_o[i]    ),
-                    .enable_pin_o ( fabric_gpio_oe_o[i] )
-                );
-            end
-            else begin
-                fpga_boundary_cell fpga_boundary_cell (
-                    .tclk_i  ( jtag_tck       ),
-                    .tclk_ni ( jtag_tck_n     ),
-                    .trst_ni ( ~jtag_dm_clear ),
-                    // Gated clk signals
-                    .capture_bsr_select_i ( jtag_capture_bsr_select ),
-                    .shift_bsr_select_i   ( jtag_shift_bsr_select   ),
-                    .update_bsr_select_i  ( jtag_update_bsr_select  ),
-                    .shift_dr_i           ( jtag_shift_dr           ),
-                    // System logic connection
-                    .output_enable_i ( fabric_io_west_oe_o[i]  ),
-                    .output_data_i   ( fabric_io_west_out_o[i] ),
-                    .input_data_o    ( fabric_io_west_in_i[i]  ),
-                    // Mode configuration
-                    .mode2_i ( jtag_mode2 ),
-                    .mode5_i ( jtag_mode5 ),
-                    .mode6_i ( jtag_mode6 ),
-                    // Daisy chain connection
-                    .td_i ( boundary_scan_td[i-1] ),
-                    .td_o ( boundary_scan_td[i]   ),
-                    // System pin connection
-                    .pin_i        ( fabric_gpio_i[i]    ),
-                    .pin_o        ( fabric_gpio_o[i]    ),
-                    .enable_pin_o ( fabric_gpio_oe_o[i] )
-                );
-            end
-        end
-    endgenerate
-
     // WARMBOOT
     wire        fabric_warmboot_boot_o;
     wire  [3:0] fabric_warmboot_slot_o;
     wire        fabric_warmboot_reset_i;
 
     // CPU_IRQ
-    wire  [3:0] fabric_irq_o;
+    wire  [3:0] fabric_irq_soc;
+    wire  [3:0] fabric_irq_dm;
     
     // Custom instruction interface to fabric
-    logic        fabric_issue_ready;
-    logic        fabric_issue_accept;
-    logic        fabric_issue_valid;
-    logic [31:0] fabric_issue_instr;
-    logic [31:0] fabric_issue_op0;
-    logic [31:0] fabric_issue_op1;
-    logic [3 :0] fabric_issue_id;
-    
-    logic        fabric_result_valid;
-    logic [3 :0] fabric_result_id;
-    logic [4 :0] fabric_result_rd;
-    logic [31:0] fabric_result;
-    
+    logic        fabric_issue_ready_soc;
+    logic        fabric_issue_accept_soc;
+    logic        fabric_issue_valid_soc;
+    logic [31:0] fabric_issue_instr_soc;
+    logic [31:0] fabric_issue_op0_soc;
+    logic [31:0] fabric_issue_op1_soc;
+    logic [3 :0] fabric_issue_id_soc;
+    logic        fabric_issue_ready_dm;
+    logic        fabric_issue_accept_dm;
+    logic        fabric_issue_valid_dm;
+    logic [31:0] fabric_issue_instr_dm;
+    logic [31:0] fabric_issue_op0_dm;
+    logic [31:0] fabric_issue_op1_dm;
+    logic [3 :0] fabric_issue_id_dm;
+
+    logic        fabric_result_valid_soc;
+    logic [3 :0] fabric_result_id_soc;
+    logic [4 :0] fabric_result_rd_soc;
+    logic [31:0] fabric_result_soc;
+    logic        fabric_result_valid_dm;
+    logic [3 :0] fabric_result_id_dm;
+    logic [4 :0] fabric_result_rd_dm;
+    logic [31:0] fabric_result_dm;
+
     // Bus interface to fabric
-    wire            fabric_gnt;
-    wire            fabric_req;
-    wire            fabric_rvalid;
-    wire            fabric_we;
-    wire [ 3:0]     fabric_be;
-    wire [23:0]     fabric_addr;
-    wire [31:0]     fabric_wdata;
-    wire [31:0]     fabric_rdata;
+    wire            fabric_gnt_soc;
+    wire            fabric_req_soc;
+    wire            fabric_rvalid_soc;
+    wire            fabric_we_soc;
+    wire [ 3:0]     fabric_be_soc;
+    wire [23:0]     fabric_addr_soc;
+    wire [31:0]     fabric_wdata_soc;
+    wire [31:0]     fabric_rdata_soc;
+    wire            fabric_gnt_dm;
+    wire            fabric_req_dm;
+    wire            fabric_rvalid_dm;
+    wire            fabric_we_dm;
+    wire [ 3:0]     fabric_be_dm;
+    wire [23:0]     fabric_addr_dm;
+    wire [31:0]     fabric_wdata_dm;
+    wire [31:0]     fabric_rdata_dm;
     
     // CPU trigger reconfiguration
     wire            cpu_warmboot_boot_o;
@@ -289,15 +215,13 @@ module greyhound_ihp (
     
     // Due to lack of pins fpga_mode_i is double used
     // Rename for clarity
-    logic jtag_trst_n_sync, en_jtag_receiver, jtag_trst_n_module;
-    assign jtag_trst_n_sync = fpga_mode_sync;
+    logic jtag_trst_ni_sync, en_jtag_receiver, jtag_trst_n_module_sync, jtag_trst_n_module_sync_d;
+    assign jtag_trst_ni_sync = fpga_mode_sync;
  
-    always_comb begin
-        jtag_trst_n_module = 1'b1;
-
-        if (en_jtag_receiver | (!jtag_trst_n_sync & !rst_n_sync)) begin
-            jtag_trst_n_module = jtag_trst_n_sync;
-        end
+    // Create a rst_n signal for the jtag test logic, when jtag receiver is enabled
+    assign jtag_trst_n_module_sync_d = (en_jtag_receiver | !rst_n_sync) ? jtag_trst_ni_sync : 1'b1;
+    always_ff @(posedge clk_i) begin
+        jtag_trst_n_module_sync <= jtag_trst_n_module_sync_d;
     end
 
     always_comb begin
@@ -336,7 +260,7 @@ module greyhound_ihp (
             spi_controller_slot_i   = '0;
             spi_controller_start_i  = '0;
 
-            if (jtag_trst_n_sync) begin
+            if (jtag_trst_ni_sync) begin
                 // srst pulled, trst not -> do special init (configure for jtag input instead of spi)
                 // Run init sequence through jtag interface
                 jtag_tck = fpga_sclk_i;
@@ -344,8 +268,8 @@ module greyhound_ihp (
                 jtag_tdi = fpga_mosi_i;
                 // TODO test if one can disable this output until fully configured
                 // Enable tdo output in this case
-                fpga_miso_oe_o = 1'b1;
-                fpga_miso_o = jtag_tdo;
+                // fpga_miso_oe_o = 1'b1;
+                // fpga_miso_o = jtag_tdo;
             end
         end else begin
             // Default output
@@ -421,7 +345,7 @@ module greyhound_ihp (
 
             // JTAG receiver
             jtag_tck = fpga_sclk_i;
-            jtag_tms  = fpga_cs_n_i;
+            jtag_tms = fpga_cs_n_i;
             jtag_tdi = fpga_mosi_i;
             fpga_miso_o = jtag_tdo;
 
@@ -453,32 +377,83 @@ module greyhound_ihp (
         .miso_o     (spi_receiver_miso_o)
     );
 
-    // TODO allow tap isc case change when loading rom over spi
-    logic fpga_jtag_tdi;
-    fpga_dm fpga_dm (
+    // TODO allow tap isc case change when loading rom over spi/CPU
+    wire fpga_jtag_tdi;
+    fpga_dm #(
+        .FABRIC_NUM_IO_WEST ( FABRIC_NUM_IO_WEST )
+    ) fpga_dm (
         .clk_i                  ( clk_i                   ),
         .rst_ni                 ( rst_ni                  ),
         .clk_o                  ( clk                     ),
         .tck_i                  ( jtag_tck                ),
         .tms_i                  ( jtag_tms                ),
-        .trst_ni                ( jtag_trst_n_module      ),
+        .trst_ni                ( jtag_trst_n_module_sync ),
         .td_i                   ( fpga_jtag_tdi           ),
         .td_o                   ( jtag_tdo                ),
-        .tdo_oe_o               (  ),
+        // EJTAG
         .en_jtag_receiver_o     ( en_jtag_receiver        ),
+        // ISC Program
         .jtag_bitstream_o       ( jtag_bitstream_data     ),
         .jtag_bitstream_valid_o ( jtag_bitstream_valid    ),
-        .dm_clear_o             ( jtag_dm_clear           ),
-        .shift_dr_o             ( jtag_shift_dr           ),
-        .tck_no                 ( jtag_tck_n              ),
-        .mode2_o                ( jtag_mode2              ),
-        .mode5_o                ( jtag_mode5              ),
-        .mode6_o                ( jtag_mode6              ),
-        .boundary_scan_o        ( jtag_boundary_scan_tdo  ),
-        .boundary_scan_i        ( jtag_boundary_scan_tdi  ),
-        .capture_bsr_select_o   ( jtag_capture_bsr_select ),
-        .shift_bsr_select_o     ( jtag_shift_bsr_select   ),
-        .update_bsr_select_o    ( jtag_update_bsr_select  )
+        // Boundary scan register (intercept all relevant fabric connections)
+        // GPIOs
+        // to boundary
+        .fabric_pin_i           ( fabric_gpio_i           ),
+        .fabric_pin_o           ( fabric_gpio_o           ),
+        .fabric_enable_pin_o    ( fabric_gpio_oe_o        ),
+        // from fabric
+        .fabric_output_enable_i ( fabric_io_west_oe_o     ),
+        .fabric_output_data_i   ( fabric_io_west_out_o    ),
+        .fabric_input_data_o    ( fabric_io_west_in_i     ),
+        // CPU_IRQ
+        // to cpu
+        .fabric_irq_o           ( fabric_irq_soc ),
+        // from fabric
+        .fabric_irq_i           ( fabric_irq_dm ),
+        // CUSTOM_INSTRUCTION
+        // to cpu
+        .fabric_issue_ready_o   ( fabric_issue_ready_soc  ),
+        .fabric_issue_accept_o  ( fabric_issue_accept_soc ),
+        .fabric_issue_valid_i   ( fabric_issue_valid_soc  ),
+        .fabric_issue_instr_i   ( fabric_issue_instr_soc  ),
+        .fabric_issue_op0_i     ( fabric_issue_op0_soc    ),
+        .fabric_issue_op1_i     ( fabric_issue_op1_soc    ),
+        .fabric_issue_id_i      ( fabric_issue_id_soc     ),
+        .fabric_result_valid_o  ( fabric_result_valid_soc ),
+        .fabric_result_id_o     ( fabric_result_id_soc    ),
+        .fabric_result_rd_o     ( fabric_result_rd_soc    ),
+        .fabric_result_o        ( fabric_result_soc       ),
+        // from fabric
+        .fabric_issue_ready_i   ( fabric_issue_ready_dm   ),
+        .fabric_issue_accept_i  ( fabric_issue_accept_dm  ),
+        .fabric_issue_valid_o   ( fabric_issue_valid_dm   ),
+        .fabric_issue_instr_o   ( fabric_issue_instr_dm   ),
+        .fabric_issue_op0_o     ( fabric_issue_op0_dm     ),
+        .fabric_issue_op1_o     ( fabric_issue_op1_dm     ),
+        .fabric_issue_id_o      ( fabric_issue_id_dm      ),
+        .fabric_result_valid_i  ( fabric_result_valid_dm  ),
+        .fabric_result_id_i     ( fabric_result_id_dm     ),
+        .fabric_result_rd_i     ( fabric_result_rd_dm     ),
+        .fabric_result_i        ( fabric_result_dm        ),
+        // OBI_PERIPHERAL
+        // to cpu
+        .fabric_obi_req_i       ( fabric_req_soc          ),
+        .fabric_obi_we_i        ( fabric_we_soc           ),
+        .fabric_obi_be_i        ( fabric_be_soc           ),
+        .fabric_obi_addr_i      ( fabric_addr_soc         ),
+        .fabric_obi_wdata_i     ( fabric_wdata_soc        ),
+        .fabric_obi_gnt_o       ( fabric_gnt_soc          ),
+        .fabric_obi_rvalid_o    ( fabric_rvalid_soc       ),
+        .fabric_obi_rdata_o     ( fabric_rdata_soc        ),
+        // from fabric
+        .fabric_obi_req_o       ( fabric_req_dm           ),
+        .fabric_obi_we_o        ( fabric_we_dm            ),
+        .fabric_obi_be_o        ( fabric_be_dm            ),
+        .fabric_obi_addr_o      ( fabric_addr_dm          ),
+        .fabric_obi_wdata_o     ( fabric_wdata_dm         ),
+        .fabric_obi_gnt_i       ( fabric_gnt_dm           ),
+        .fabric_obi_rvalid_i    ( fabric_rvalid_dm        ),
+        .fabric_obi_rdata_i     ( fabric_rdata_dm         )
     );
 
     // TODO adjust BITSTREAM_LENGTH_WORDS
@@ -558,7 +533,7 @@ module greyhound_ihp (
         // Configuration
         .FrameData_i    (FrameData),
         .FrameStrobe_i  (FrameStrobe),
-        
+
         // Fabric is configured
         .configured_i   (fabric_config_configured),
         
@@ -573,31 +548,31 @@ module greyhound_ihp (
         .fabric_warmboot_reset_i,
 
         // CPU_IRQ
-        .fabric_irq_o,
+        .fabric_irq_o           (fabric_irq_dm),
         
         // CUSTOM_INSTRUCTION
-        .fabric_issue_ready_o   (fabric_issue_ready),
-        .fabric_issue_accept_o  (fabric_issue_accept),
-        .fabric_issue_valid_i   (fabric_issue_valid),
-        .fabric_issue_instr_i   (fabric_issue_instr),
-        .fabric_issue_op0_i     (fabric_issue_op0),
-        .fabric_issue_op1_i     (fabric_issue_op1),
-        .fabric_issue_id_i      (fabric_issue_id),
+        .fabric_issue_ready_o   (fabric_issue_ready_dm),
+        .fabric_issue_accept_o  (fabric_issue_accept_dm),
+        .fabric_issue_valid_i   (fabric_issue_valid_dm),
+        .fabric_issue_instr_i   (fabric_issue_instr_dm),
+        .fabric_issue_op0_i     (fabric_issue_op0_dm),
+        .fabric_issue_op1_i     (fabric_issue_op1_dm),
+        .fabric_issue_id_i      (fabric_issue_id_dm),
             
-        .fabric_result_valid_o  (fabric_result_valid),
-        .fabric_result_id_o     (fabric_result_id),
-        .fabric_result_rd_o     (fabric_result_rd),
-        .fabric_result_o        (fabric_result),
+        .fabric_result_valid_o  (fabric_result_valid_dm),
+        .fabric_result_id_o     (fabric_result_id_dm),
+        .fabric_result_rd_o     (fabric_result_rd_dm),
+        .fabric_result_o        (fabric_result_dm),
         
         // OBI_PERIPHERAL
-        .fabric_obi_req_i       (fabric_req),
-        .fabric_obi_we_i        (fabric_we),
-        .fabric_obi_be_i        (fabric_be),
-        .fabric_obi_addr_i      (fabric_addr),
-        .fabric_obi_wdata_i     (fabric_wdata),
-        .fabric_obi_gnt_o       (fabric_gnt),
-        .fabric_obi_rvalid_o    (fabric_rvalid),
-        .fabric_obi_rdata_o     (fabric_rdata)
+        .fabric_obi_req_i       (fabric_req_dm),
+        .fabric_obi_we_i        (fabric_we_dm),
+        .fabric_obi_be_i        (fabric_be_dm),
+        .fabric_obi_addr_i      (fabric_addr_dm),
+        .fabric_obi_wdata_i     (fabric_wdata_dm),
+        .fabric_obi_gnt_o       (fabric_gnt_dm),
+        .fabric_obi_rvalid_o    (fabric_rvalid_dm),
+        .fabric_obi_rdata_o     (fabric_rdata_dm)
     );
 
     // SoC
@@ -636,7 +611,7 @@ module greyhound_ihp (
         .rst_ni         ( rst_n_sync ),
 
         // Interrupt requests from fabric
-        .fabric_irq_i   ( fabric_irq_o ),
+        .fabric_irq_i   ( fabric_irq_soc ),
         
         // Fabric config is currently
         // configuring the fabric
@@ -654,28 +629,28 @@ module greyhound_ihp (
         .warmboot_slot_o    (cpu_warmboot_slot_o),
         
         // Custom instruction interface to fabric
-        .fabric_issue_ready_i   (fabric_issue_ready),
-        .fabric_issue_accept_i  (fabric_issue_accept),
-        .fabric_issue_valid_o   (fabric_issue_valid),
-        .fabric_issue_instr_o   (fabric_issue_instr),
-        .fabric_issue_op0_o     (fabric_issue_op0),
-        .fabric_issue_op1_o     (fabric_issue_op1),
-        .fabric_issue_id_o      (fabric_issue_id),
+        .fabric_issue_ready_i   (fabric_issue_ready_soc),
+        .fabric_issue_accept_i  (fabric_issue_accept_soc),
+        .fabric_issue_valid_o   (fabric_issue_valid_soc),
+        .fabric_issue_instr_o   (fabric_issue_instr_soc),
+        .fabric_issue_op0_o     (fabric_issue_op0_soc),
+        .fabric_issue_op1_o     (fabric_issue_op1_soc),
+        .fabric_issue_id_o      (fabric_issue_id_soc),
             
-        .fabric_result_valid_i  (fabric_result_valid),
-        .fabric_result_id_i     (fabric_result_id),
-        .fabric_result_rd_i     (fabric_result_rd),
-        .fabric_result_i        (fabric_result),
+        .fabric_result_valid_i  (fabric_result_valid_soc),
+        .fabric_result_id_i     (fabric_result_id_soc),
+        .fabric_result_rd_i     (fabric_result_rd_soc),
+        .fabric_result_i        (fabric_result_soc),
 
         // Bus interface to fabric
-        .fabric_gnt_i           (fabric_gnt),
-        .fabric_req_o           (fabric_req),
-        .fabric_rvalid_i        (fabric_rvalid),
-        .fabric_we_o            (fabric_we),
-        .fabric_be_o            (fabric_be),
-        .fabric_addr_o          (fabric_addr),
-        .fabric_wdata_o         (fabric_wdata),
-        .fabric_rdata_i         (fabric_rdata),
+        .fabric_gnt_i           (fabric_gnt_soc),
+        .fabric_req_o           (fabric_req_soc),
+        .fabric_rvalid_i        (fabric_rvalid_soc),
+        .fabric_we_o            (fabric_we_soc),
+        .fabric_be_o            (fabric_be_soc),
+        .fabric_addr_o          (fabric_addr_soc),
+        .fabric_wdata_o         (fabric_wdata_soc),
+        .fabric_rdata_i         (fabric_rdata_soc),
 
         // SRAM
         .bank_rdata_i             (bank_rdata),
@@ -712,7 +687,7 @@ module greyhound_ihp (
         .jtag_tdi_i     ( jtag_tdi           ),
         .jtag_tdo_o     ( fpga_jtag_tdi      ),
         .jtag_tms_i     ( jtag_tms           ),
-        .jtag_trst_ni   ( jtag_trst_n_module )
+        .jtag_trst_ni   ( jtag_trst_n_module_sync )
     );
     
     // Connect SRAM to the SoC

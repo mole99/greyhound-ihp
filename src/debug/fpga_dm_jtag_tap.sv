@@ -18,7 +18,7 @@
  *
  */
 
-module fpga_dm_jtag_tap #(
+module fpga_dm_jtag_tap import soc_pkg::*; #(
   parameter int unsigned IrLength = 5,
   // JTAG IDCODE Value
   parameter logic [31:0] IdcodeValue = 32'h00000001
@@ -32,14 +32,9 @@ module fpga_dm_jtag_tap #(
   input  logic        trst_ni,  // JTAG test reset pad
   input  logic        td_i,     // JTAG test data input pad
   output logic        td_o,     // JTAG test data output pad
-  output logic        tdo_oe_o, // Data out output enable
   output logic        tck_no,
   // Synchronous reset of the dmi module triggered by JTAG TAP
   output logic        dm_rst_o,
-  output logic        update_o,
-  output logic        capture_o,
-  output logic        shift_o,
-  output logic        tdi_o,
   // Control if jtag interface is enabled
   output logic        ejtag_o,
   output logic        ejtag_valid_o,
@@ -50,6 +45,7 @@ module fpga_dm_jtag_tap #(
   output logic        isc_pdata_valid_o,
   output logic [31:0] isc_pdata_o,
   // Boundary scan
+  output logic        mode1_o,
   output logic        mode2_o,
   output logic        mode5_o,
   output logic        mode6_o,
@@ -86,8 +82,7 @@ module fpga_dm_jtag_tap #(
   typedef enum logic [IrLength-1:0] {
     BYPASS0        = 'h0,
     IDCODE         = 'h1,
-    // TODO test them IEEE1149.1
-    USERCODE       = 'h2,
+    USERCODE       = 'h2, // TODO test, when configured...
     SAMPLE_PRELOAD = 'h3,
     EXTEST         = 'h4,
     INTEST         = 'h5,
@@ -175,7 +170,9 @@ module fpga_dm_jtag_tap #(
     isc_pdata_d       = isc_pdata_q;
     isc_pdata_valid_o = 1'b0;
     ejtag_valid_o     = 1'b0;
-    boundary_scan_o   = boundary_scan_i;
+    if (EnabledBSRLength != None) begin
+      boundary_scan_o = boundary_scan_i;
+    end
 
     if (capture_dr) begin
       if (idcode_select)        idcode_d        = IdcodeValue;
@@ -191,7 +188,12 @@ module fpga_dm_jtag_tap #(
       if (bypass_select)        bypass_d        = td_i;
       if (ejtag_select)         bypass_d        = td_i;
       if (isc_pdata_select)     isc_pdata_d     = {td_i, 31'(isc_pdata_q >> 1)};
-      if (boundary_scan_select) boundary_scan_o = td_i;
+      if (EnabledBSRLength == None) begin
+        if (boundary_scan_select) bypass_d = td_i;
+      end
+      else begin
+        if (boundary_scan_select) boundary_scan_o = td_i;
+      end
     end
 
     if (update_dr) begin
@@ -204,8 +206,14 @@ module fpga_dm_jtag_tap #(
       idcode_d        = IdcodeValue;
       bypass_d        = 1'b0;
       isc_pdata_d     = '0;
-      boundary_scan_o = '0;
+      if (EnabledBSRLength != None) begin
+        boundary_scan_o = '0;
+      end
     end
+  end
+
+  if (EnabledBSRLength == None) begin
+    assign boundary_scan_o = '0;
   end
 
   // ----------------
@@ -240,11 +248,22 @@ module fpga_dm_jtag_tap #(
   // Mode select for IEEE
   // ---------------
   logic testmode_clk_pulse_d, testmode_clk_pulse_q;
-  assign clk_bsr_select_o     = boundary_scan_select;
-  assign capture_bsr_select_o = boundary_scan_select & capture_dr;
-  assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
-  assign update_bsr_select_o  = boundary_scan_select & update_dr;
-  assign testmode_clk_pulse_o = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
+  if (EnabledBSRLength == None) begin
+    assign clk_bsr_select_o     = '0;
+    assign capture_bsr_select_o = '0;
+    assign shift_bsr_select_o   = '0;
+    assign update_bsr_select_o  = '0;
+    assign testmode_o           = '0;
+    assign testmode_clk_pulse_o = '0;
+  end
+  else begin
+    assign clk_bsr_select_o     = boundary_scan_select;
+    assign capture_bsr_select_o = boundary_scan_select & capture_dr;
+    assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
+    assign update_bsr_select_o  = boundary_scan_select & update_dr;
+    assign testmode_o           = mode1_o | (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
+    assign testmode_clk_pulse_o = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
+  end
 
   // Determin clk pulse in test mode
   always_comb begin
@@ -258,30 +277,45 @@ module fpga_dm_jtag_tap #(
     endcase
   end
 
-
-  // Determin logic mode (In ISC and boundary scan)
+  // Determin ISC mode
   always_comb begin
-    mode2_o              = '0;
-    mode5_o              = '0;
-    mode6_o              = '0;
-    testmode_o           = (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
     isc_enable_select    = 1'b0;
     isc_disable_select   = 1'b0;
 
     unique case (jtag_ir_q)
-      INTEST: begin
-        mode2_o    = 1;
-        testmode_o = 1'b1;
-      end
-      EXTEST: begin
-        mode5_o    = 1;
-        mode6_o    = 1;
-        testmode_o = 1'b1;
-      end
       ISC_ENABLE:  isc_enable_select  = 1'b1;
       ISC_DISABLE: isc_disable_select = 1'b1;
-      default: mode6_o = 1;
+      default:;
     endcase
+  end
+
+  // Determin logic mode (In boundary scan)
+  if (EnabledBSRLength != None) begin
+    always_comb begin
+      mode1_o              = 1'b0;
+      mode2_o              = 1'b0;
+      mode5_o              = 1'b0;
+      mode6_o              = 1'b1;
+
+      unique case (jtag_ir_q)
+        INTEST: begin
+          mode1_o    = 1'b1;
+          mode2_o    = 1'b1;
+        end
+        EXTEST: begin
+          mode1_o    = 1'b1;
+          mode5_o    = 1'b1;
+          mode6_o    = 1'b1;
+        end
+        default:;
+      endcase
+    end
+  end
+  else begin
+    assign mode1_o = 1'b0;
+    assign mode2_o = 1'b0;
+    assign mode5_o = 1'b0;
+    assign mode6_o = 1'b0;
   end
 
   always_ff @(posedge tck_i, negedge trst_ni) begin
@@ -306,9 +340,9 @@ module fpga_dm_jtag_tap #(
       unique case (jtag_ir_q)
         IDCODE:         tdo_mux = idcode_q[0];   // Reading ID code
         USERCODE:       tdo_mux = idcode_q[0];   // Reading user code
-        SAMPLE_PRELOAD: tdo_mux = boundary_scan_i;
-        EXTEST:         tdo_mux = boundary_scan_i;
-        INTEST:         tdo_mux = boundary_scan_i;
+        SAMPLE_PRELOAD: tdo_mux = (EnabledBSRLength == None) ? bypass_q : boundary_scan_i;
+        EXTEST:         tdo_mux = (EnabledBSRLength == None) ? bypass_q : boundary_scan_i;
+        INTEST:         tdo_mux = (EnabledBSRLength == None) ? bypass_q : boundary_scan_i;
         ISC_PROGRAM:    tdo_mux = isc_pdata_q[0];
         default:        tdo_mux = bypass_q;      // BYPASS instruction
       endcase
@@ -328,10 +362,8 @@ module fpga_dm_jtag_tap #(
   always_ff @(posedge tck_n, negedge trst_ni) begin : p_tdo_regs
     if (!trst_ni) begin
       td_o     <= 1'b0;
-      tdo_oe_o <= 1'b0;
     end else begin
       td_o     <= tdo_mux;
-      tdo_oe_o <= (shift_ir | shift_dr);
     end
   end
 
@@ -503,12 +535,7 @@ module fpga_dm_jtag_tap #(
   // Pass through JTAG signals to debug custom DR logic.
   // In case of a single TAP those are just feed-through.
   assign tck_no = tck_n;
-  assign tdi_o = td_i;
-  assign update_o = update_dr;
-  assign shift_o = shift_dr;
-  assign capture_o = capture_dr;
   assign dm_rst_o = test_logic_reset;
-
   assign ejtag_o = bypass_q;
   assign isc_pdata_o = isc_pdata_q;
 

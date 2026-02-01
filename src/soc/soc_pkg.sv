@@ -182,4 +182,13 @@ package soc_pkg;
         version       : JtagGreyhoundVersion
     };
 
+    // Supported boundary scan register length for the fabric fpga
+    typedef enum logic [1:0] {
+        None,       // No bsr is implemented run everything through the bypass register (0 bit)
+        External,   // Only the bsr for the west IOs is implemented (64 bit)
+        Internal,   // Only the bsr for the internal connections (cpu irq, cpu xif, cpu obi) are implemented (245 bit)
+        All         // External and internal bsr are implemented (309 bit)
+    } supported_bsr_e;
+
+    localparam supported_bsr_e EnabledBSRLength = All;
 endpackage
