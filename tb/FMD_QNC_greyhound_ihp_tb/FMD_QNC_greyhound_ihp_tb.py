@@ -12,8 +12,9 @@ from cocotb.regression import TestFactory
 from cocotb.runner import get_runner
 #from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
-
 from cocotbext.spi import SpiBus, SpiConfig, SpiMaster
+import logging
+from cocotbext.jtag import JTAGDriver, JTAGBus, JTAGDevice
 
 hello_world = {
     'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
@@ -96,27 +97,45 @@ fpga_blinky = {
     'dump_waveforms': False,
 }
 
-enabled = cpu_trigger_fpga
+hello_world_jtag = {
+    'flash0_slot0': '../../../firmware/hello_world_dbg/hello_world.hex',
+    'flash0_slot1': '',
+    'flash1_slot0': '',
+    'flash1_slot1': '',
+    'connect_flash1': False,
+    'dump_waveforms': True,
+}
+
+enabled = hello_world_jtag
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/freq*1000, 'ns')
     await cocotb.start(c.start())
 
-async def reset(reset, active_low=True, time_ns=1000):
+async def reset(system_reset, tap_reset, active_low=True, time_ns=1000):
     """ Reset dut """
     cocotb.log.info("Reset asserted...")
     
-    reset.value = not active_low
+    system_reset.value = not active_low
+    if tap_reset is not None: 
+        tap_reset.value = not active_low
     await Timer(time_ns, "ns")
-    reset.value = active_low
+    system_reset.value = active_low
+    if tap_reset is not None: 
+        tap_reset.value = active_low
     
     cocotb.log.info("Reset deasserted.")
 
-async def start_up(dut):
+async def start_up(dut, tap_reset=True):
     """ Startup sequence """
     await start_clock(dut.io_clock_PAD)
-    await reset(dut.io_reset_PAD)
+    
+    trst_pad = None
+    if tap_reset:
+        trst_pad = dut.io_fpga_mode_PAD
+    
+    await reset(dut.io_reset_PAD, trst_pad) # Tap reset is shared with fpga mode
 
 async def write_bitstream_spi(filename, spi_master):
     with open(filename, 'br') as f:
@@ -144,11 +163,13 @@ async def test_hello_world(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Start up
     await start_up(dut)
     
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
+
     # Wait for UART to get clocked
     await ClockCycles(dut.io_clock_PAD, int(50000*1))
     
@@ -178,10 +199,12 @@ async def test_custom_instruction(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Wait for message
     #await ClockCycles(dut.io_clock_PAD, int(50000*3))
@@ -205,11 +228,13 @@ async def test_fpga_all_zeros(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 0
-    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Start up
     await start_up(dut)
     
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
+
     print("Waiting for configuration to start.")
     await RisingEdge(dut.io_config_busy_PAD)
     print("Waiting for configuration to end.")
@@ -241,10 +266,12 @@ async def test_fpga_all_ones(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 0
-    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     print("Writing bitstream via SPI!")
 
@@ -267,11 +294,11 @@ async def test_cpu_trigger_fpga(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
 
     # Start up
     await start_up(dut)
-    
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
     dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Ignore x -> 0 rising edge
@@ -292,10 +319,12 @@ async def test_fpga_peripheral(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Ignore x -> 0 rising edge
     await ClockCycles(dut.io_clock_PAD, 10)
@@ -319,10 +348,12 @@ async def test_fpga_peripheral_sram(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Ignore x -> 0 rising edge
     await ClockCycles(dut.io_clock_PAD, 10)
@@ -342,10 +373,12 @@ async def test_fpga_irq(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
-    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Ignore x -> 0 rising edge
     await ClockCycles(dut.io_clock_PAD, 10)
@@ -370,10 +403,12 @@ async def test_fpga_blinky(dut):
 
     # Static setup
     dut.io_fetch_enable_PAD.value = 0
-    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
 
     # Start up
     await start_up(dut)
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 0 # Configure FPGA as controller
     
     print("Waiting for configuration to start.")
     await RisingEdge(dut.io_config_busy_PAD)
@@ -404,6 +439,113 @@ async def test_fpga_blinky(dut):
     
     await ClockCycles(dut.io_clock_PAD, 10)
     assert(dut.io_gpio_PAD.value == 0x00000000)
+
+# Define JTAG devices
+class JTAGCore(JTAGDevice):
+    def __init__(self, name="jtagcore", idcode=0x2_5256_001, ir_len=5):
+        super().__init__(name, idcode, ir_len)
+        self.add_jtag_reg("IDCODE", 32, 0x1)
+        self.idle_delay = 10
+
+class JTAGFPGA(JTAGDevice):
+    def __init__(self, name="jtagfpga", idcode=0x2_4646_001, ir_len=5):
+        super().__init__(name, idcode, ir_len)
+        self.add_jtag_reg("IDCODE", 32, 0x1)
+        self.add_jtag_reg("EJTAG", 1, 0x10)
+        self.add_jtag_reg("ISC_ENABLE", 1, 0x14)
+        self.add_jtag_reg("ISC_DISABLE", 1,0x15)
+        self.add_jtag_reg("ISC_PROGRAM", 32,0x16)
+        self.add_jtag_reg("ISC_NOOP", 1, 0x17)
+
+        self.idle_delay = 10
+
+@cocotb.test(skip=enabled!=hello_world_jtag)
+async def test_hello_world_jtag(dut):
+    # TODO needs env COCOTB_RESOLVE_X=ZEROS to startup until tdo is set to output
+    """Run the "Hello World!" program with JTAG"""
+    # Setup UART
+    uart_source = UartSource(dut.io_ser_rx_PAD, baud=115200, bits=8)
+    uart_sink = UartSink(dut.io_ser_tx_PAD, baud=115200, bits=8)
+
+    # Setup JTAG
+    jtag_signals:dict = {"tck" :"io_fpga_sclk_PAD",
+                         "tms" :"io_fpga_cs_n_PAD",
+                         "tdi" :"io_fpga_mosi_PAD",
+                         "tdo" :"io_fpga_miso_PAD",
+                         "trst":"io_fpga_mode_PAD"}
+
+    bus = JTAGBus(dut, signals=jtag_signals)
+    jtag = JTAGDriver(bus)
+    # jtag.log.setLevel(logging.CRITICAL) TODO ???
+    jtag.add_device(JTAGCore())
+    jtag.add_device(JTAGFPGA())
+    # jtag.log.setLevel(logging.INFO)
+
+    jtag.devices[0].print_regs()
+    jtag.devices[1].print_regs()
+
+    # Static setup
+    dut.io_fetch_enable_PAD.value = 1
+
+    # Start up
+    await start_up(dut, False)
+    
+    # TODO test without tdo connected to output
+    # Enable JTAG mode of FPGA
+    await ClockCycles(dut.io_clock_PAD, 10)
+    cocotb.log.info("Enable JTAG interface.")
+    dut.io_reset_PAD.value = 0
+    await ClockCycles(dut.io_clock_PAD, 10)
+
+    # All jtag operations have to be one after the other, else jtag lib runs into issues
+    # Test perm enable of JTAG interface
+    # TODO Check if interface was enabled
+    await jtag.write("EJTAG", 0x1, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    dut.io_reset_PAD.value = 1
+    cocotb.log.info("JTAG interface enabled.")
+
+    # Test ics functions with simple device programming
+    # TODO check pattern from fig 6 page 26 IEEE1532 after writing JTAG instr. 
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    await jtag.write("ISC_PROGRAM", 0xdeadbeef, device=1)
+    await jtag.write("ISC_PROGRAM", 0x1c0ffee1, device=1)
+    await jtag.write("ISC_NOOP", 0x1, device=1)
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+
+    # Test interface disable
+    # TODO check if interface was disabled
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("EJTAG", 0x0, device=1)
+    cocotb.log.info("JTAG interface disabled.")
+
+    await ClockCycles(dut.io_clock_PAD, 100)
+
+    return
+
+    # Static setup, apply after reset happened (fpga_mode and tap reset share a line)
+    dut.io_fpga_mode_PAD.value = 1 # Configure FPGA as receiver
+
+    # Wait for UART to get clocked
+    await ClockCycles(dut.io_clock_PAD, int(50000*1))
+    
+    # Send char
+    await uart_source.write(b'A')
+    
+    # Read char
+    data = await uart_sink.read(1)
+    print(data)
+    assert data == b'A'
+
+    # Wait for message
+    await ClockCycles(dut.io_clock_PAD, int(50000*1.8))
+    
+    # Read message
+    data = uart_sink.read_nowait(-1)
+    print(data)
+    assert data == b'Hello World!\n'
 
 if __name__ == "__main__":
 

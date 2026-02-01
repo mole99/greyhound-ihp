@@ -1011,7 +1011,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
   dm::dmi_resp_t dmi_resp;
 
   dmi_jtag #(
-    .IdcodeValue ( GreyhoundJtagIdCode )
+    .IdcodeValue ( GreyhoundJtagIdCodeCore )
   ) i_dmi_jtag (
     .clk_i,
     .rst_ni,

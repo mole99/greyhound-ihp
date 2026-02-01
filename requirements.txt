@@ -2,3 +2,4 @@ cocotb>=1.9.2
 cocotbext-spi>=0.5.0
 cocotbext-uart>=0.1.2
 fasm>=0.0.2.post88
+cocotbext-jtag>=0.3.1

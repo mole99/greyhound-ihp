@@ -30572,7 +30572,7 @@ module \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (testmode_i, tck_i,
     else bypass_q <= bypass_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) idcode_q <= 32'd536870913;
+    if (!trst_ni) idcode_q <= 32'd623206401;
     else idcode_q <= idcode_d;
   (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:104.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
@@ -30622,13 +30622,13 @@ module \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (testmode_i, tck_i,
   assign dtmcs_select_o = _028_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:158.18-158.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign idcode_select = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:157.18-157.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
   assign bypass_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 1'h0 : _018_;
-  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd536870913 : _022_;
+  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd623206401 : _022_;
   assign _017_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:137.27-137.43|ip/riscv-dbg/src/dmi_jtag_tap.sv:137.7-137.43" *) _016_ : td_i;
   assign _021_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:136.27-136.65|ip/riscv-dbg/src/dmi_jtag_tap.sv:136.7-136.65" *) { td_i, idcode_q[31:1] } : _020_;
   assign _018_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _017_ : _016_;
   assign _022_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _021_ : _020_;
   assign _015_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:132.26-132.42|ip/riscv-dbg/src/dmi_jtag_tap.sv:132.7-132.42" *) bypass_q : 1'h0;
-  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd536870913 : idcode_q;
+  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd623206401 : idcode_q;
   assign _016_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _015_ : bypass_q;
   assign _020_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _019_ : idcode_q;
   function [3:0] _086_;
@@ -31912,7 +31912,7 @@ module \fifo_v3$greyhound_soc.i_periph_err.i_id_fifo (clk_i, rst_ni, testmode_i,
 endmodule
 
 (* top =  1  *)
-(* src = "src/soc/greyhound_soc.sv:6.8" *)
+(* src = "src/soc/greyhound_soc.sv:7.8" *)
 module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_configured_i, bitstream_valid_o, bitstream_data_o, warmboot_boot_o, warmboot_slot_o, fabric_issue_ready_i, fabric_issue_accept_i, fabric_issue_valid_o, fabric_issue_instr_o, fabric_issue_op0_o, fabric_issue_op1_o, fabric_issue_id_o, fabric_result_valid_i, fabric_result_id_i, fabric_result_rd_i, fabric_result_i, fabric_gnt_i
 , fabric_req_o, fabric_rvalid_i, fabric_we_o, fabric_be_o, fabric_addr_o, fabric_wdata_o, fabric_rdata_i, bank_rdata_i, bank_word_addr_o, bank_be_o, bank_wdata_o, bank_req_o, bank_we_o, flash_sck, flash_ce_n, flash_din, flash_dout, flash_douten, psram_sck, psram_ce_n, psram_din
 , psram_dout, psram_douten, uart0_rx, uart0_tx, fetch_enable_i, core_sleep_o, jtag_tck_i, jtag_tdi_i, jtag_tdo_o, jtag_tms_i, jtag_trst_ni);
@@ -31941,45 +31941,45 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   wire _022_;
   wire _023_;
   wire _024_;
-  (* src = "src/soc/greyhound_soc.sv:931.21-933.24" *)
+  (* src = "src/soc/greyhound_soc.sv:932.21-934.24" *)
   wire [31:0] _025_;
-  (* src = "src/soc/greyhound_soc.sv:914.21-921.24" *)
+  (* src = "src/soc/greyhound_soc.sv:915.21-922.24" *)
   wire [31:0] _026_;
-  (* src = "src/soc/greyhound_soc.sv:912.17-934.20" *)
+  (* src = "src/soc/greyhound_soc.sv:913.17-935.20" *)
   wire [31:0] _027_;
-  (* src = "src/soc/greyhound_soc.sv:907.13-935.16" *)
+  (* src = "src/soc/greyhound_soc.sv:908.13-936.16" *)
   wire [31:0] _028_;
-  (* src = "src/soc/greyhound_soc.sv:916.25-916.124" *)
-  wire [7:0] _029_;
   (* src = "src/soc/greyhound_soc.sv:917.25-917.124" *)
-  wire [7:0] _030_;
+  wire [7:0] _029_;
   (* src = "src/soc/greyhound_soc.sv:918.25-918.124" *)
+  wire [7:0] _030_;
+  (* src = "src/soc/greyhound_soc.sv:919.25-919.124" *)
   wire [7:0] _031_;
-  (* src = "src/soc/greyhound_soc.sv:915.25-915.124" *)
+  (* src = "src/soc/greyhound_soc.sv:916.25-916.124" *)
   wire [7:0] _032_;
-  (* src = "src/soc/greyhound_soc.sv:914.21-921.24" *)
+  (* src = "src/soc/greyhound_soc.sv:915.21-922.24" *)
   wire _033_;
-  (* src = "src/soc/greyhound_soc.sv:912.17-934.20" *)
+  (* src = "src/soc/greyhound_soc.sv:913.17-935.20" *)
   wire _034_;
-  (* src = "src/soc/greyhound_soc.sv:907.13-935.16" *)
+  (* src = "src/soc/greyhound_soc.sv:908.13-936.16" *)
   wire _035_;
-  (* src = "src/soc/greyhound_soc.sv:907.13-935.16" *)
+  (* src = "src/soc/greyhound_soc.sv:908.13-936.16" *)
   wire _036_;
-  (* src = "src/soc/greyhound_soc.sv:912.17-934.20" *)
+  (* src = "src/soc/greyhound_soc.sv:913.17-935.20" *)
   wire [31:0] _037_;
-  (* src = "src/soc/greyhound_soc.sv:907.13-935.16" *)
+  (* src = "src/soc/greyhound_soc.sv:908.13-936.16" *)
   wire [31:0] _038_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _039_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _040_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _041_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _042_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _043_;
-  (* src = "src/soc/greyhound_soc.sv:500.9-501.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _044_;
   wire [3:0] _045_;
   wire [3:0] _046_;
@@ -31988,158 +31988,158 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   wire _049_;
   wire [3:0] _050_;
   wire _051_;
-  (* src = "src/soc/greyhound_soc.sv:237.36" *)
+  (* src = "src/soc/greyhound_soc.sv:238.36" *)
   (* unused_bits = "73 217 289 361 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 433 496 497 498 499 500 501 502 503 505" *)
   wire [575:0] all_periph_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:238.36" *)
+  (* src = "src/soc/greyhound_soc.sv:239.36" *)
   wire [295:0] all_periph_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:62.29" *)
+  (* src = "src/soc/greyhound_soc.sv:63.29" *)
   output [3:0] bank_be_o;
   wire [3:0] bank_be_o;
-  (* src = "src/soc/greyhound_soc.sv:678.37" *)
+  (* src = "src/soc/greyhound_soc.sv:679.37" *)
   (* unused_bits = "0 1 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] bank_byte_addr;
-  (* src = "src/soc/greyhound_soc.sv:677.11" *)
+  (* src = "src/soc/greyhound_soc.sv:678.11" *)
   wire bank_gnt;
-  (* src = "src/soc/greyhound_soc.sv:60.29" *)
+  (* src = "src/soc/greyhound_soc.sv:61.29" *)
   input [31:0] bank_rdata_i;
   wire [31:0] bank_rdata_i;
-  (* src = "src/soc/greyhound_soc.sv:64.29" *)
+  (* src = "src/soc/greyhound_soc.sv:65.29" *)
   output bank_req_o;
   wire bank_req_o;
-  (* src = "src/soc/greyhound_soc.sv:63.29" *)
+  (* src = "src/soc/greyhound_soc.sv:64.29" *)
   output [31:0] bank_wdata_o;
   wire [31:0] bank_wdata_o;
-  (* src = "src/soc/greyhound_soc.sv:65.29" *)
+  (* src = "src/soc/greyhound_soc.sv:66.29" *)
   output bank_we_o;
   wire bank_we_o;
-  (* src = "src/soc/greyhound_soc.sv:61.29" *)
+  (* src = "src/soc/greyhound_soc.sv:62.29" *)
   output [10:0] bank_word_addr_o;
   wire [10:0] bank_word_addr_o;
-  (* src = "src/soc/greyhound_soc.sv:29.29" *)
+  (* src = "src/soc/greyhound_soc.sv:30.29" *)
   output [31:0] bitstream_data_o;
   reg [31:0] bitstream_data_o;
-  (* src = "src/soc/greyhound_soc.sv:28.29" *)
+  (* src = "src/soc/greyhound_soc.sv:29.29" *)
   output bitstream_valid_o;
   reg bitstream_valid_o;
-  (* src = "src/soc/greyhound_soc.sv:14.29" *)
+  (* src = "src/soc/greyhound_soc.sv:15.29" *)
   input clk_i;
   wire clk_i;
-  (* src = "src/soc/greyhound_soc.sv:197.19" *)
-  wire [71:0] core_data_obi_req;
   (* src = "src/soc/greyhound_soc.sv:198.19" *)
+  wire [71:0] core_data_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:199.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] core_data_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:188.19" *)
-  wire [71:0] core_instr_obi_req;
   (* src = "src/soc/greyhound_soc.sv:189.19" *)
+  wire [71:0] core_instr_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:190.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] core_instr_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:87.29" *)
+  (* src = "src/soc/greyhound_soc.sv:88.29" *)
   output core_sleep_o;
   wire core_sleep_o;
-  (* src = "src/soc/greyhound_soc.sv:310.36" *)
-  wire [31:0] data_addr_o;
   (* src = "src/soc/greyhound_soc.sv:311.36" *)
-  wire [3:0] data_be_o;
-  (* src = "src/soc/greyhound_soc.sv:315.36" *)
-  wire data_err_i;
-  (* src = "src/soc/greyhound_soc.sv:308.36" *)
-  wire data_gnt_i;
-  (* src = "src/soc/greyhound_soc.sv:314.36" *)
-  wire [31:0] data_rdata_i;
-  (* src = "src/soc/greyhound_soc.sv:307.36" *)
-  wire data_req_o;
-  (* src = "src/soc/greyhound_soc.sv:309.36" *)
-  wire data_rvalid_i;
-  (* src = "src/soc/greyhound_soc.sv:313.36" *)
-  wire [31:0] data_wdata_o;
+  wire [31:0] data_addr_o;
   (* src = "src/soc/greyhound_soc.sv:312.36" *)
+  wire [3:0] data_be_o;
+  (* src = "src/soc/greyhound_soc.sv:316.36" *)
+  wire data_err_i;
+  (* src = "src/soc/greyhound_soc.sv:309.36" *)
+  wire data_gnt_i;
+  (* src = "src/soc/greyhound_soc.sv:315.36" *)
+  wire [31:0] data_rdata_i;
+  (* src = "src/soc/greyhound_soc.sv:308.36" *)
+  wire data_req_o;
+  (* src = "src/soc/greyhound_soc.sv:310.36" *)
+  wire data_rvalid_i;
+  (* src = "src/soc/greyhound_soc.sv:314.36" *)
+  wire [31:0] data_wdata_o;
+  (* src = "src/soc/greyhound_soc.sv:313.36" *)
   wire data_we_o;
-  (* src = "src/soc/greyhound_soc.sv:269.19" *)
+  (* src = "src/soc/greyhound_soc.sv:270.19" *)
   (* unused_bits = "1" *)
   wire [71:0] dbg_mem_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:270.19" *)
+  (* src = "src/soc/greyhound_soc.sv:271.19" *)
   wire [36:0] dbg_mem_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:203.19" *)
-  wire [71:0] dbg_req_obi_req;
   (* src = "src/soc/greyhound_soc.sv:204.19" *)
+  wire [71:0] dbg_req_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:205.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] dbg_req_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:984.22" *)
+  (* src = "src/soc/greyhound_soc.sv:985.22" *)
   (* unused_bits = "0" *)
   wire debug_fabric_a_optional;
-  (* src = "src/soc/greyhound_soc.sv:979.22" *)
+  (* src = "src/soc/greyhound_soc.sv:980.22" *)
   (* unused_bits = "24 25 26 27 28 29 30 31" *)
   wire [31:0] debug_fabric_addr;
-  (* src = "src/soc/greyhound_soc.sv:983.22" *)
+  (* src = "src/soc/greyhound_soc.sv:984.22" *)
   wire debug_fabric_aid;
-  (* src = "src/soc/greyhound_soc.sv:981.22" *)
+  (* src = "src/soc/greyhound_soc.sv:982.22" *)
   wire [3:0] debug_fabric_be;
-  (* src = "src/soc/greyhound_soc.sv:867.22" *)
+  (* src = "src/soc/greyhound_soc.sv:868.22" *)
   (* unused_bits = "0" *)
   wire debug_fabric_config_a_optional;
-  (* src = "src/soc/greyhound_soc.sv:862.22" *)
+  (* src = "src/soc/greyhound_soc.sv:863.22" *)
   (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] debug_fabric_config_addr;
-  (* src = "src/soc/greyhound_soc.sv:866.22" *)
+  (* src = "src/soc/greyhound_soc.sv:867.22" *)
   wire debug_fabric_config_aid;
-  (* src = "src/soc/greyhound_soc.sv:864.22" *)
+  (* src = "src/soc/greyhound_soc.sv:865.22" *)
   wire [3:0] debug_fabric_config_be;
-  (* src = "src/soc/greyhound_soc.sv:881.20" *)
-  wire debug_fabric_config_err;
-  (* src = "src/soc/greyhound_soc.sv:877.20" *)
-  wire debug_fabric_config_gnt;
   (* src = "src/soc/greyhound_soc.sv:882.20" *)
+  wire debug_fabric_config_err;
+  (* src = "src/soc/greyhound_soc.sv:878.20" *)
+  wire debug_fabric_config_gnt;
+  (* src = "src/soc/greyhound_soc.sv:883.20" *)
   wire debug_fabric_config_r_optional;
-  (* src = "src/soc/greyhound_soc.sv:879.20" *)
+  (* src = "src/soc/greyhound_soc.sv:880.20" *)
   wire [31:0] debug_fabric_config_rdata;
   wire debug_fabric_config_req;
-  (* src = "src/soc/greyhound_soc.sv:880.20" *)
+  (* src = "src/soc/greyhound_soc.sv:881.20" *)
   wire debug_fabric_config_rid;
-  (* src = "src/soc/greyhound_soc.sv:878.20" *)
+  (* src = "src/soc/greyhound_soc.sv:879.20" *)
   wire debug_fabric_config_rvalid;
-  (* src = "src/soc/greyhound_soc.sv:865.22" *)
+  (* src = "src/soc/greyhound_soc.sv:866.22" *)
   wire [31:0] debug_fabric_config_wdata;
-  (* src = "src/soc/greyhound_soc.sv:863.22" *)
+  (* src = "src/soc/greyhound_soc.sv:864.22" *)
   wire debug_fabric_config_we;
-  (* src = "src/soc/greyhound_soc.sv:998.20" *)
-  wire debug_fabric_err;
-  (* src = "src/soc/greyhound_soc.sv:994.20" *)
-  wire debug_fabric_gnt;
   (* src = "src/soc/greyhound_soc.sv:999.20" *)
-  wire debug_fabric_r_optional;
-  (* src = "src/soc/greyhound_soc.sv:996.20" *)
-  wire [31:0] debug_fabric_rdata;
-  (* src = "src/soc/greyhound_soc.sv:978.22" *)
-  wire [31:0] debug_fabric_req;
-  (* src = "src/soc/greyhound_soc.sv:997.20" *)
-  wire debug_fabric_rid;
+  wire debug_fabric_err;
   (* src = "src/soc/greyhound_soc.sv:995.20" *)
+  wire debug_fabric_gnt;
+  (* src = "src/soc/greyhound_soc.sv:1000.20" *)
+  wire debug_fabric_r_optional;
+  (* src = "src/soc/greyhound_soc.sv:997.20" *)
+  wire [31:0] debug_fabric_rdata;
+  (* src = "src/soc/greyhound_soc.sv:979.22" *)
+  wire [31:0] debug_fabric_req;
+  (* src = "src/soc/greyhound_soc.sv:998.20" *)
+  wire debug_fabric_rid;
+  (* src = "src/soc/greyhound_soc.sv:996.20" *)
   wire debug_fabric_rvalid;
-  (* src = "src/soc/greyhound_soc.sv:982.22" *)
+  (* src = "src/soc/greyhound_soc.sv:983.22" *)
   wire [31:0] debug_fabric_wdata;
-  (* src = "src/soc/greyhound_soc.sv:980.22" *)
+  (* src = "src/soc/greyhound_soc.sv:981.22" *)
   wire debug_fabric_we;
-  (* src = "src/soc/greyhound_soc.sv:338.11" *)
+  (* src = "src/soc/greyhound_soc.sv:339.11" *)
   wire debug_req;
-  (* src = "src/soc/greyhound_soc.sv:1012.17" *)
+  (* src = "src/soc/greyhound_soc.sv:1013.17" *)
   wire [40:0] dmi_req;
-  (* src = "src/soc/greyhound_soc.sv:1011.35" *)
+  (* src = "src/soc/greyhound_soc.sv:1012.35" *)
   wire dmi_req_ready;
-  (* src = "src/soc/greyhound_soc.sv:1011.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1012.20" *)
   wire dmi_req_valid;
-  (* src = "src/soc/greyhound_soc.sv:1013.18" *)
+  (* src = "src/soc/greyhound_soc.sv:1014.18" *)
   wire [33:0] dmi_resp;
-  (* src = "src/soc/greyhound_soc.sv:1011.66" *)
+  (* src = "src/soc/greyhound_soc.sv:1012.66" *)
   wire dmi_resp_ready;
-  (* src = "src/soc/greyhound_soc.sv:1011.50" *)
+  (* src = "src/soc/greyhound_soc.sv:1012.50" *)
   wire dmi_resp_valid;
-  (* src = "src/soc/greyhound_soc.sv:1011.9" *)
+  (* src = "src/soc/greyhound_soc.sv:1012.9" *)
   wire dmi_rst_n;
-  (* src = "src/soc/greyhound_soc.sv:241.19" *)
-  wire [71:0] error_obi_req;
   (* src = "src/soc/greyhound_soc.sv:242.19" *)
+  wire [71:0] error_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:243.19" *)
   wire [36:0] error_obi_rsp;
   (* src = "ip/cv32e40x/rtl/cv32e40x_if_xif.sv:134.23" *)
   wire [4:0] \ext_if.commit ;
@@ -32179,361 +32179,361 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   wire \ext_if.result_ready ;
   (* src = "ip/cv32e40x/rtl/cv32e40x_if_xif.sv:147.23" *)
   wire \ext_if.result_valid ;
-  (* src = "src/soc/greyhound_soc.sv:55.29" *)
+  (* src = "src/soc/greyhound_soc.sv:56.29" *)
   output [23:0] fabric_addr_o;
   wire [23:0] fabric_addr_o;
-  (* src = "src/soc/greyhound_soc.sv:54.29" *)
+  (* src = "src/soc/greyhound_soc.sv:55.29" *)
   output [3:0] fabric_be_o;
   wire [3:0] fabric_be_o;
-  (* src = "src/soc/greyhound_soc.sv:22.29" *)
+  (* src = "src/soc/greyhound_soc.sv:23.29" *)
   input fabric_config_busy_i;
   wire fabric_config_busy_i;
-  (* src = "src/soc/greyhound_soc.sv:261.19" *)
+  (* src = "src/soc/greyhound_soc.sv:262.19" *)
   (* unused_bits = "1 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71" *)
   wire [71:0] fabric_config_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:262.19" *)
+  (* src = "src/soc/greyhound_soc.sv:263.19" *)
   wire [36:0] fabric_config_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:25.29" *)
+  (* src = "src/soc/greyhound_soc.sv:26.29" *)
   input fabric_configured_i;
   wire fabric_configured_i;
-  (* src = "src/soc/greyhound_soc.sv:949.22" *)
+  (* src = "src/soc/greyhound_soc.sv:950.22" *)
   wire fabric_gnt_gated;
-  (* src = "src/soc/greyhound_soc.sv:50.29" *)
+  (* src = "src/soc/greyhound_soc.sv:51.29" *)
   input fabric_gnt_i;
   wire fabric_gnt_i;
-  (* src = "src/soc/greyhound_soc.sv:18.29" *)
+  (* src = "src/soc/greyhound_soc.sv:19.29" *)
   input [3:0] fabric_irq_i;
   wire [3:0] fabric_irq_i;
-  (* src = "src/soc/greyhound_soc.sv:122.18" *)
+  (* src = "src/soc/greyhound_soc.sv:123.18" *)
   wire fabric_issue_accept_gated;
-  (* src = "src/soc/greyhound_soc.sv:37.25" *)
+  (* src = "src/soc/greyhound_soc.sv:38.25" *)
   input fabric_issue_accept_i;
   wire fabric_issue_accept_i;
-  (* src = "src/soc/greyhound_soc.sv:42.25" *)
+  (* src = "src/soc/greyhound_soc.sv:43.25" *)
   output [3:0] fabric_issue_id_o;
   wire [3:0] fabric_issue_id_o;
-  (* src = "src/soc/greyhound_soc.sv:39.25" *)
+  (* src = "src/soc/greyhound_soc.sv:40.25" *)
   output [31:0] fabric_issue_instr_o;
   wire [31:0] fabric_issue_instr_o;
-  (* src = "src/soc/greyhound_soc.sv:40.25" *)
+  (* src = "src/soc/greyhound_soc.sv:41.25" *)
   output [31:0] fabric_issue_op0_o;
   wire [31:0] fabric_issue_op0_o;
-  (* src = "src/soc/greyhound_soc.sv:41.25" *)
+  (* src = "src/soc/greyhound_soc.sv:42.25" *)
   output [31:0] fabric_issue_op1_o;
   wire [31:0] fabric_issue_op1_o;
-  (* src = "src/soc/greyhound_soc.sv:121.18" *)
+  (* src = "src/soc/greyhound_soc.sv:122.18" *)
   wire fabric_issue_ready_gated;
-  (* src = "src/soc/greyhound_soc.sv:36.25" *)
+  (* src = "src/soc/greyhound_soc.sv:37.25" *)
   input fabric_issue_ready_i;
   wire fabric_issue_ready_i;
-  (* src = "src/soc/greyhound_soc.sv:38.25" *)
+  (* src = "src/soc/greyhound_soc.sv:39.25" *)
   output fabric_issue_valid_o;
   wire fabric_issue_valid_o;
-  (* src = "src/soc/greyhound_soc.sv:265.19" *)
+  (* src = "src/soc/greyhound_soc.sv:266.19" *)
   (* unused_bits = "1 64 65 66 67 68 69 70 71" *)
   wire [71:0] fabric_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:266.19" *)
+  (* src = "src/soc/greyhound_soc.sv:267.19" *)
   wire [36:0] fabric_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:951.22" *)
+  (* src = "src/soc/greyhound_soc.sv:952.22" *)
   wire [31:0] fabric_rdata_gated;
-  (* src = "src/soc/greyhound_soc.sv:57.29" *)
+  (* src = "src/soc/greyhound_soc.sv:58.29" *)
   input [31:0] fabric_rdata_i;
   wire [31:0] fabric_rdata_i;
-  (* src = "src/soc/greyhound_soc.sv:51.29" *)
+  (* src = "src/soc/greyhound_soc.sv:52.29" *)
   output fabric_req_o;
   wire fabric_req_o;
-  (* src = "src/soc/greyhound_soc.sv:127.18" *)
+  (* src = "src/soc/greyhound_soc.sv:128.18" *)
   wire [31:0] fabric_result_gated;
-  (* src = "src/soc/greyhound_soc.sv:47.25" *)
+  (* src = "src/soc/greyhound_soc.sv:48.25" *)
   input [31:0] fabric_result_i;
   wire [31:0] fabric_result_i;
-  (* src = "src/soc/greyhound_soc.sv:125.18" *)
+  (* src = "src/soc/greyhound_soc.sv:126.18" *)
   wire [3:0] fabric_result_id_gated;
-  (* src = "src/soc/greyhound_soc.sv:45.25" *)
+  (* src = "src/soc/greyhound_soc.sv:46.25" *)
   input [3:0] fabric_result_id_i;
   wire [3:0] fabric_result_id_i;
-  (* src = "src/soc/greyhound_soc.sv:126.18" *)
+  (* src = "src/soc/greyhound_soc.sv:127.18" *)
   wire [4:0] fabric_result_rd_gated;
-  (* src = "src/soc/greyhound_soc.sv:46.25" *)
+  (* src = "src/soc/greyhound_soc.sv:47.25" *)
   input [4:0] fabric_result_rd_i;
   wire [4:0] fabric_result_rd_i;
-  (* src = "src/soc/greyhound_soc.sv:124.18" *)
+  (* src = "src/soc/greyhound_soc.sv:125.18" *)
   wire fabric_result_valid_gated;
-  (* src = "src/soc/greyhound_soc.sv:44.25" *)
+  (* src = "src/soc/greyhound_soc.sv:45.25" *)
   input fabric_result_valid_i;
   wire fabric_result_valid_i;
-  (* src = "src/soc/greyhound_soc.sv:950.22" *)
+  (* src = "src/soc/greyhound_soc.sv:951.22" *)
   wire fabric_rvalid_gated;
-  (* src = "src/soc/greyhound_soc.sv:52.29" *)
+  (* src = "src/soc/greyhound_soc.sv:53.29" *)
   input fabric_rvalid_i;
   wire fabric_rvalid_i;
-  (* src = "src/soc/greyhound_soc.sv:56.29" *)
+  (* src = "src/soc/greyhound_soc.sv:57.29" *)
   output [31:0] fabric_wdata_o;
   wire [31:0] fabric_wdata_o;
-  (* src = "src/soc/greyhound_soc.sv:53.29" *)
+  (* src = "src/soc/greyhound_soc.sv:54.29" *)
   output fabric_we_o;
   wire fabric_we_o;
-  (* src = "src/soc/greyhound_soc.sv:86.29" *)
+  (* src = "src/soc/greyhound_soc.sv:87.29" *)
   input fetch_enable_i;
   wire fetch_enable_i;
-  (* src = "src/soc/greyhound_soc.sv:546.26" *)
-  wire [31:0] flash_HADDR;
-  (* src = "src/soc/greyhound_soc.sv:551.26" *)
-  wire [31:0] flash_HRDATA;
-  (* src = "src/soc/greyhound_soc.sv:549.26" *)
-  wire flash_HREADY;
-  (* src = "src/soc/greyhound_soc.sv:550.26" *)
-  wire flash_HREADYOUT;
-  (* src = "src/soc/greyhound_soc.sv:545.26" *)
-  wire flash_HSEL;
   (* src = "src/soc/greyhound_soc.sv:547.26" *)
-  wire [1:0] flash_HTRANS;
+  wire [31:0] flash_HADDR;
+  (* src = "src/soc/greyhound_soc.sv:552.26" *)
+  wire [31:0] flash_HRDATA;
+  (* src = "src/soc/greyhound_soc.sv:550.26" *)
+  wire flash_HREADY;
+  (* src = "src/soc/greyhound_soc.sv:551.26" *)
+  wire flash_HREADYOUT;
+  (* src = "src/soc/greyhound_soc.sv:546.26" *)
+  wire flash_HSEL;
   (* src = "src/soc/greyhound_soc.sv:548.26" *)
+  wire [1:0] flash_HTRANS;
+  (* src = "src/soc/greyhound_soc.sv:549.26" *)
   wire flash_HWRITE;
-  (* src = "src/soc/greyhound_soc.sv:69.29" *)
+  (* src = "src/soc/greyhound_soc.sv:70.29" *)
   output flash_ce_n;
   wire flash_ce_n;
-  (* src = "src/soc/greyhound_soc.sv:70.29" *)
+  (* src = "src/soc/greyhound_soc.sv:71.29" *)
   input [3:0] flash_din;
   wire [3:0] flash_din;
-  (* src = "src/soc/greyhound_soc.sv:71.29" *)
+  (* src = "src/soc/greyhound_soc.sv:72.29" *)
   output [3:0] flash_dout;
   wire [3:0] flash_dout;
-  (* src = "src/soc/greyhound_soc.sv:72.29" *)
+  (* src = "src/soc/greyhound_soc.sv:73.29" *)
   output [3:0] flash_douten;
   wire [3:0] flash_douten;
-  (* src = "src/soc/greyhound_soc.sv:245.19" *)
+  (* src = "src/soc/greyhound_soc.sv:246.19" *)
   (* unused_bits = "1" *)
   wire [71:0] flash_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:246.19" *)
+  (* src = "src/soc/greyhound_soc.sv:247.19" *)
   wire [36:0] flash_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:68.29" *)
+  (* src = "src/soc/greyhound_soc.sv:69.29" *)
   output flash_sck;
   wire flash_sck;
-  (* src = "src/soc/greyhound_soc.sv:302.36" *)
-  wire [31:0] instr_addr_o;
-  (* src = "src/soc/greyhound_soc.sv:304.36" *)
-  wire instr_err_i;
-  (* src = "src/soc/greyhound_soc.sv:300.36" *)
-  wire instr_gnt_i;
   (* src = "src/soc/greyhound_soc.sv:303.36" *)
-  wire [31:0] instr_rdata_i;
-  (* src = "src/soc/greyhound_soc.sv:299.36" *)
-  wire instr_req_o;
+  wire [31:0] instr_addr_o;
+  (* src = "src/soc/greyhound_soc.sv:305.36" *)
+  wire instr_err_i;
   (* src = "src/soc/greyhound_soc.sv:301.36" *)
+  wire instr_gnt_i;
+  (* src = "src/soc/greyhound_soc.sv:304.36" *)
+  wire [31:0] instr_rdata_i;
+  (* src = "src/soc/greyhound_soc.sv:300.36" *)
+  wire instr_req_o;
+  (* src = "src/soc/greyhound_soc.sv:302.36" *)
   wire instr_rvalid_i;
   wire [20:0] irq;
-  (* src = "src/soc/greyhound_soc.sv:90.23" *)
+  (* src = "src/soc/greyhound_soc.sv:91.23" *)
   input jtag_tck_i;
   wire jtag_tck_i;
-  (* src = "src/soc/greyhound_soc.sv:91.23" *)
+  (* src = "src/soc/greyhound_soc.sv:92.23" *)
   input jtag_tdi_i;
   wire jtag_tdi_i;
-  (* src = "src/soc/greyhound_soc.sv:92.23" *)
+  (* src = "src/soc/greyhound_soc.sv:93.23" *)
   output jtag_tdo_o;
   wire jtag_tdo_o;
-  (* src = "src/soc/greyhound_soc.sv:93.23" *)
+  (* src = "src/soc/greyhound_soc.sv:94.23" *)
   input jtag_tms_i;
   wire jtag_tms_i;
-  (* src = "src/soc/greyhound_soc.sv:94.23" *)
+  (* src = "src/soc/greyhound_soc.sv:95.23" *)
   input jtag_trst_ni;
   wire jtag_trst_ni;
-  (* src = "src/soc/greyhound_soc.sv:219.37" *)
-  wire [215:0] mgrs_mux_obi_req;
   (* src = "src/soc/greyhound_soc.sv:220.37" *)
+  wire [215:0] mgrs_mux_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:221.37" *)
   (* unused_bits = "2 4 39 41 76 78" *)
   wire [110:0] mgrs_mux_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:212.19" *)
-  wire [71:0] mux_demux_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:505.16" *)
-  wire [31:0] mux_demux_obi_req_a_addr;
   (* src = "src/soc/greyhound_soc.sv:213.19" *)
+  wire [71:0] mux_demux_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:506.16" *)
+  wire [31:0] mux_demux_obi_req_a_addr;
+  (* src = "src/soc/greyhound_soc.sv:214.19" *)
   wire [36:0] mux_demux_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:473.50" *)
+  (* src = "src/soc/greyhound_soc.sv:474.50" *)
   wire [2:0] periph_idx;
-  (* src = "src/soc/greyhound_soc.sv:707.26" *)
-  wire [31:0] psram_HADDR;
-  (* src = "src/soc/greyhound_soc.sv:714.26" *)
-  wire [31:0] psram_HRDATA;
-  (* src = "src/soc/greyhound_soc.sv:712.26" *)
-  wire psram_HREADY;
-  (* src = "src/soc/greyhound_soc.sv:713.26" *)
-  wire psram_HREADYOUT;
-  (* src = "src/soc/greyhound_soc.sv:706.26" *)
-  wire psram_HSEL;
-  (* src = "src/soc/greyhound_soc.sv:709.26" *)
-  wire [2:0] psram_HSIZE;
   (* src = "src/soc/greyhound_soc.sv:708.26" *)
-  wire [1:0] psram_HTRANS;
+  wire [31:0] psram_HADDR;
+  (* src = "src/soc/greyhound_soc.sv:715.26" *)
+  wire [31:0] psram_HRDATA;
+  (* src = "src/soc/greyhound_soc.sv:713.26" *)
+  wire psram_HREADY;
+  (* src = "src/soc/greyhound_soc.sv:714.26" *)
+  wire psram_HREADYOUT;
+  (* src = "src/soc/greyhound_soc.sv:707.26" *)
+  wire psram_HSEL;
   (* src = "src/soc/greyhound_soc.sv:710.26" *)
-  wire [31:0] psram_HWDATA;
+  wire [2:0] psram_HSIZE;
+  (* src = "src/soc/greyhound_soc.sv:709.26" *)
+  wire [1:0] psram_HTRANS;
   (* src = "src/soc/greyhound_soc.sv:711.26" *)
+  wire [31:0] psram_HWDATA;
+  (* src = "src/soc/greyhound_soc.sv:712.26" *)
   wire psram_HWRITE;
-  (* src = "src/soc/greyhound_soc.sv:76.29" *)
+  (* src = "src/soc/greyhound_soc.sv:77.29" *)
   output psram_ce_n;
   wire psram_ce_n;
-  (* src = "src/soc/greyhound_soc.sv:77.29" *)
+  (* src = "src/soc/greyhound_soc.sv:78.29" *)
   input [3:0] psram_din;
   wire [3:0] psram_din;
-  (* src = "src/soc/greyhound_soc.sv:78.29" *)
+  (* src = "src/soc/greyhound_soc.sv:79.29" *)
   output [3:0] psram_dout;
   wire [3:0] psram_dout;
-  (* src = "src/soc/greyhound_soc.sv:79.29" *)
+  (* src = "src/soc/greyhound_soc.sv:80.29" *)
   output [3:0] psram_douten;
   wire [3:0] psram_douten;
-  (* src = "src/soc/greyhound_soc.sv:253.19" *)
+  (* src = "src/soc/greyhound_soc.sv:254.19" *)
   (* unused_bits = "1" *)
   wire [71:0] psram_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:254.19" *)
+  (* src = "src/soc/greyhound_soc.sv:255.19" *)
   wire [36:0] psram_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:75.29" *)
+  (* src = "src/soc/greyhound_soc.sv:76.29" *)
   output psram_sck;
   wire psram_sck;
-  (* src = "src/soc/greyhound_soc.sv:15.29" *)
+  (* src = "src/soc/greyhound_soc.sv:16.29" *)
   input rst_ni;
   wire rst_ni;
-  (* src = "src/soc/greyhound_soc.sv:249.19" *)
-  wire [71:0] sram_obi_req;
   (* src = "src/soc/greyhound_soc.sv:250.19" *)
+  wire [71:0] sram_obi_req;
+  (* src = "src/soc/greyhound_soc.sv:251.19" *)
   wire [36:0] sram_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:174.18" *)
+  (* src = "src/soc/greyhound_soc.sv:175.18" *)
   reg [63:0] time_counter;
-  (* src = "src/soc/greyhound_soc.sv:784.26" *)
+  (* src = "src/soc/greyhound_soc.sv:785.26" *)
   wire [31:0] uart0_HADDR;
-  (* src = "src/soc/greyhound_soc.sv:791.26" *)
+  (* src = "src/soc/greyhound_soc.sv:792.26" *)
   wire [31:0] uart0_HRDATA;
-  (* src = "src/soc/greyhound_soc.sv:789.26" *)
-  wire uart0_HREADY;
   (* src = "src/soc/greyhound_soc.sv:790.26" *)
+  wire uart0_HREADY;
+  (* src = "src/soc/greyhound_soc.sv:791.26" *)
   wire uart0_HREADYOUT;
-  (* src = "src/soc/greyhound_soc.sv:783.26" *)
+  (* src = "src/soc/greyhound_soc.sv:784.26" *)
   wire uart0_HSEL;
-  (* src = "src/soc/greyhound_soc.sv:786.26" *)
+  (* src = "src/soc/greyhound_soc.sv:787.26" *)
   (* unused_bits = "0 1 2" *)
   wire [2:0] uart0_HSIZE;
-  (* src = "src/soc/greyhound_soc.sv:785.26" *)
+  (* src = "src/soc/greyhound_soc.sv:786.26" *)
   wire [1:0] uart0_HTRANS;
-  (* src = "src/soc/greyhound_soc.sv:787.26" *)
-  wire [31:0] uart0_HWDATA;
   (* src = "src/soc/greyhound_soc.sv:788.26" *)
+  wire [31:0] uart0_HWDATA;
+  (* src = "src/soc/greyhound_soc.sv:789.26" *)
   wire uart0_HWRITE;
-  (* src = "src/soc/greyhound_soc.sv:342.11" *)
+  (* src = "src/soc/greyhound_soc.sv:343.11" *)
   wire uart0_irq;
-  (* src = "src/soc/greyhound_soc.sv:257.19" *)
+  (* src = "src/soc/greyhound_soc.sv:258.19" *)
   (* unused_bits = "1" *)
   wire [71:0] uart0_obi_req;
-  (* src = "src/soc/greyhound_soc.sv:258.19" *)
+  (* src = "src/soc/greyhound_soc.sv:259.19" *)
   wire [36:0] uart0_obi_rsp;
-  (* src = "src/soc/greyhound_soc.sv:82.28" *)
+  (* src = "src/soc/greyhound_soc.sv:83.28" *)
   input uart0_rx;
   wire uart0_rx;
-  (* src = "src/soc/greyhound_soc.sv:83.25" *)
+  (* src = "src/soc/greyhound_soc.sv:84.25" *)
   output uart0_tx;
   wire uart0_tx;
-  (* src = "src/soc/greyhound_soc.sv:32.29" *)
+  (* src = "src/soc/greyhound_soc.sv:33.29" *)
   output warmboot_boot_o;
   reg warmboot_boot_o;
-  (* src = "src/soc/greyhound_soc.sv:33.29" *)
+  (* src = "src/soc/greyhound_soc.sv:34.29" *)
   output [3:0] warmboot_slot_o;
   reg [3:0] warmboot_slot_o;
-  assign _000_ = time_counter + (* src = "src/soc/greyhound_soc.sv:179.29-179.45" *) 1'h1;
-  assign _001_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 31'h50000000;
-  assign _002_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 31'h51000000;
-  assign _003_ = _001_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _002_;
-  assign _004_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 31'h40000000;
-  assign _005_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 31'h40000100;
-  assign _006_ = _004_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _005_;
-  assign _007_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 30'h30000000;
-  assign _008_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 30'h30010000;
-  assign _009_ = _007_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _008_;
-  assign _010_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 30'h20000000;
-  assign _011_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 30'h21000000;
-  assign _012_ = _010_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _011_;
-  assign _013_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 29'h10000000;
-  assign _014_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 29'h10002000;
-  assign _015_ = _013_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _014_;
-  assign _016_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 1'h0;
-  assign _017_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 25'h1000000;
-  assign _018_ = _016_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _017_;
-  assign _019_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:500.14-500.71" *) 31'h60000000;
-  assign _020_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:501.11-501.65" *) 31'h60001000;
-  assign _021_ = _019_ && (* src = "src/soc/greyhound_soc.sv:500.13-501.106" *) _020_;
-  assign flash_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:587.25-587.50" *) 1'h1;
-  assign psram_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:750.25-750.50" *) 2'h3;
-  assign uart0_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:827.25-827.50" *) 3'h4;
-  assign _022_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:914.25-914.75" *) 4'h8;
-  assign _023_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:923.25-923.78" *) 4'hc;
-  assign _024_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:931.25-931.84" *) 3'h4;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  assign _000_ = time_counter + (* src = "src/soc/greyhound_soc.sv:180.29-180.45" *) 1'h1;
+  assign _001_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h50000000;
+  assign _002_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h51000000;
+  assign _003_ = _001_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _002_;
+  assign _004_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h40000000;
+  assign _005_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h40000100;
+  assign _006_ = _004_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _005_;
+  assign _007_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 30'h30000000;
+  assign _008_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 30'h30010000;
+  assign _009_ = _007_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _008_;
+  assign _010_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 30'h20000000;
+  assign _011_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 30'h21000000;
+  assign _012_ = _010_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _011_;
+  assign _013_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 29'h10000000;
+  assign _014_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 29'h10002000;
+  assign _015_ = _013_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _014_;
+  assign _016_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 1'h0;
+  assign _017_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 25'h1000000;
+  assign _018_ = _016_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _017_;
+  assign _019_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h60000000;
+  assign _020_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h60001000;
+  assign _021_ = _019_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _020_;
+  assign flash_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:588.25-588.50" *) 1'h1;
+  assign psram_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:751.25-751.50" *) 2'h3;
+  assign uart0_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:828.25-828.50" *) 3'h4;
+  assign _022_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:915.25-915.75" *) 4'h8;
+  assign _023_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:924.25-924.78" *) 4'hc;
+  assign _024_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:932.25-932.84" *) 3'h4;
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) bitstream_data_o <= 32'd0;
     else bitstream_data_o <= _028_;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) bitstream_valid_o <= 1'h0;
     else bitstream_valid_o <= _035_;
   reg [31:0] _082_;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) _082_ <= 32'd0;
     else _082_ <= _038_;
   assign fabric_config_obi_rsp[36:5] = _082_;
   reg \fabric_config_obi_rsp_reg[0] ;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) \fabric_config_obi_rsp_reg[0]  <= 1'h0;
     else \fabric_config_obi_rsp_reg[0]  <= _036_;
   assign fabric_config_obi_rsp[0] = \fabric_config_obi_rsp_reg[0] ;
-  (* src = "src/soc/greyhound_soc.sv:175.5" *)
+  (* src = "src/soc/greyhound_soc.sv:176.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) time_counter <= 64'h0000000000000000;
     else time_counter <= _000_;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) warmboot_boot_o <= 1'h0;
     else warmboot_boot_o <= _051_;
-  (* src = "src/soc/greyhound_soc.sv:892.5" *)
+  (* src = "src/soc/greyhound_soc.sv:893.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) warmboot_slot_o <= 4'h0;
     else warmboot_slot_o <= _050_;
-  assign _025_[0] = _024_ ? (* src = "src/soc/greyhound_soc.sv:932.25-932.88|src/soc/greyhound_soc.sv:931.21-933.24" *) fabric_config_busy_i : 1'h0;
-  assign _045_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:924.60-924.116|src/soc/greyhound_soc.sv:924.25-924.116" *) all_periph_obi_req[366:363] : warmboot_slot_o;
-  assign _046_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:923.80-927.24|src/soc/greyhound_soc.sv:923.21-927.24" *) _045_ : warmboot_slot_o;
-  assign _047_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:923.80-927.24|src/soc/greyhound_soc.sv:923.21-927.24" *) 1'h1 : 1'h0;
-  assign _031_ = all_periph_obi_req[398] ? (* src = "src/soc/greyhound_soc.sv:918.60-918.124|src/soc/greyhound_soc.sv:918.25-918.124" *) all_periph_obi_req[394:387] : bitstream_data_o[31:24];
-  assign _030_ = all_periph_obi_req[397] ? (* src = "src/soc/greyhound_soc.sv:917.60-917.124|src/soc/greyhound_soc.sv:917.25-917.124" *) all_periph_obi_req[386:379] : bitstream_data_o[23:16];
-  assign _029_ = all_periph_obi_req[396] ? (* src = "src/soc/greyhound_soc.sv:916.60-916.124|src/soc/greyhound_soc.sv:916.25-916.124" *) all_periph_obi_req[378:371] : bitstream_data_o[15:8];
-  assign _032_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:915.60-915.124|src/soc/greyhound_soc.sv:915.25-915.124" *) all_periph_obi_req[370:363] : bitstream_data_o[7:0];
-  assign _026_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:914.77-921.24|src/soc/greyhound_soc.sv:914.21-921.24" *) { _031_, _030_, _029_, _032_ } : bitstream_data_o;
-  assign _033_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:914.77-921.24|src/soc/greyhound_soc.sv:914.21-921.24" *) 1'h1 : 1'h0;
-  assign _037_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:912.49-929.20|src/soc/greyhound_soc.sv:912.17-934.20" *) fabric_config_obi_rsp[36:5] : { 31'h00000000, _025_[0] };
-  assign _048_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:912.49-929.20|src/soc/greyhound_soc.sv:912.17-934.20" *) _046_ : warmboot_slot_o;
-  assign _049_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:912.49-929.20|src/soc/greyhound_soc.sv:912.17-934.20" *) _047_ : 1'h0;
-  assign _027_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:912.49-929.20|src/soc/greyhound_soc.sv:912.17-934.20" *) _026_ : bitstream_data_o;
-  assign _034_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:912.49-929.20|src/soc/greyhound_soc.sv:912.17-934.20" *) _033_ : 1'h0;
-  assign _038_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) _037_ : fabric_config_obi_rsp[36:5];
-  assign _036_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) 1'h1 : 1'h0;
-  assign _050_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) _048_ : warmboot_slot_o;
-  assign _051_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) _049_ : 1'h0;
-  assign _028_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) _027_ : bitstream_data_o;
-  assign _035_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:907.44-935.16|src/soc/greyhound_soc.sv:907.13-935.16" *) _034_ : 1'h0;
-  assign periph_idx = _021_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h7 : _044_;
-  assign _044_ = _018_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h1 : _043_;
-  assign _043_ = _015_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h2 : _042_;
-  assign _042_ = _012_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h3 : _041_;
-  assign _041_ = _009_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h4 : _040_;
-  assign _040_ = _006_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h5 : _039_;
-  assign _039_ = _003_ ? (* src = "src/soc/greyhound_soc.sv:501.108-501.144|src/soc/greyhound_soc.sv:500.9-501.144" *) 3'h6 : 3'h0;
-  assign debug_fabric_rdata = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:957.34-961.12|src/soc/greyhound_soc.sv:957.9-961.12" *) fabric_rdata_i : 32'd0;
-  assign debug_fabric_rvalid = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:957.34-961.12|src/soc/greyhound_soc.sv:957.9-961.12" *) fabric_rvalid_i : 1'h0;
-  assign debug_fabric_gnt = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:957.34-961.12|src/soc/greyhound_soc.sv:957.9-961.12" *) fabric_gnt_i : 1'h0;
-  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_result_i : 32'd0;
-  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_result_rd_i : 5'h00;
-  assign fabric_result_id_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_result_id_i : 4'h0;
-  assign fabric_result_valid_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_result_valid_i : 1'h0;
-  assign fabric_issue_accept_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_issue_accept_i : 1'h0;
-  assign fabric_issue_ready_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:137.34-145.12|src/soc/greyhound_soc.sv:137.9-145.12" *) fabric_issue_ready_i : 1'h1;
-  (* src = "src/soc/greyhound_soc.sv:359.7" *)
+  assign _025_[0] = _024_ ? (* src = "src/soc/greyhound_soc.sv:933.25-933.88|src/soc/greyhound_soc.sv:932.21-934.24" *) fabric_config_busy_i : 1'h0;
+  assign _045_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:925.60-925.116|src/soc/greyhound_soc.sv:925.25-925.116" *) all_periph_obi_req[366:363] : warmboot_slot_o;
+  assign _046_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:924.80-928.24|src/soc/greyhound_soc.sv:924.21-928.24" *) _045_ : warmboot_slot_o;
+  assign _047_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:924.80-928.24|src/soc/greyhound_soc.sv:924.21-928.24" *) 1'h1 : 1'h0;
+  assign _031_ = all_periph_obi_req[398] ? (* src = "src/soc/greyhound_soc.sv:919.60-919.124|src/soc/greyhound_soc.sv:919.25-919.124" *) all_periph_obi_req[394:387] : bitstream_data_o[31:24];
+  assign _030_ = all_periph_obi_req[397] ? (* src = "src/soc/greyhound_soc.sv:918.60-918.124|src/soc/greyhound_soc.sv:918.25-918.124" *) all_periph_obi_req[386:379] : bitstream_data_o[23:16];
+  assign _029_ = all_periph_obi_req[396] ? (* src = "src/soc/greyhound_soc.sv:917.60-917.124|src/soc/greyhound_soc.sv:917.25-917.124" *) all_periph_obi_req[378:371] : bitstream_data_o[15:8];
+  assign _032_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:916.60-916.124|src/soc/greyhound_soc.sv:916.25-916.124" *) all_periph_obi_req[370:363] : bitstream_data_o[7:0];
+  assign _026_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:915.77-922.24|src/soc/greyhound_soc.sv:915.21-922.24" *) { _031_, _030_, _029_, _032_ } : bitstream_data_o;
+  assign _033_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:915.77-922.24|src/soc/greyhound_soc.sv:915.21-922.24" *) 1'h1 : 1'h0;
+  assign _037_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:913.49-930.20|src/soc/greyhound_soc.sv:913.17-935.20" *) fabric_config_obi_rsp[36:5] : { 31'h00000000, _025_[0] };
+  assign _048_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:913.49-930.20|src/soc/greyhound_soc.sv:913.17-935.20" *) _046_ : warmboot_slot_o;
+  assign _049_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:913.49-930.20|src/soc/greyhound_soc.sv:913.17-935.20" *) _047_ : 1'h0;
+  assign _027_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:913.49-930.20|src/soc/greyhound_soc.sv:913.17-935.20" *) _026_ : bitstream_data_o;
+  assign _034_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:913.49-930.20|src/soc/greyhound_soc.sv:913.17-935.20" *) _033_ : 1'h0;
+  assign _038_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) _037_ : fabric_config_obi_rsp[36:5];
+  assign _036_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) 1'h1 : 1'h0;
+  assign _050_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) _048_ : warmboot_slot_o;
+  assign _051_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) _049_ : 1'h0;
+  assign _028_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) _027_ : bitstream_data_o;
+  assign _035_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:908.44-936.16|src/soc/greyhound_soc.sv:908.13-936.16" *) _034_ : 1'h0;
+  assign periph_idx = _021_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h7 : _044_;
+  assign _044_ = _018_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h1 : _043_;
+  assign _043_ = _015_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h2 : _042_;
+  assign _042_ = _012_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h3 : _041_;
+  assign _041_ = _009_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h4 : _040_;
+  assign _040_ = _006_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h5 : _039_;
+  assign _039_ = _003_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h6 : 3'h0;
+  assign debug_fabric_rdata = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_rdata_i : 32'd0;
+  assign debug_fabric_rvalid = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_rvalid_i : 1'h0;
+  assign debug_fabric_gnt = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:958.34-962.12|src/soc/greyhound_soc.sv:958.9-962.12" *) fabric_gnt_i : 1'h0;
+  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_i : 32'd0;
+  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_rd_i : 5'h00;
+  assign fabric_result_id_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_id_i : 4'h0;
+  assign fabric_result_valid_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_valid_i : 1'h0;
+  assign fabric_issue_accept_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_accept_i : 1'h0;
+  assign fabric_issue_ready_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_ready_i : 1'h1;
+  (* src = "src/soc/greyhound_soc.sv:360.7" *)
   \cv32e40x_core$greyhound_soc.cv32e40x_core  cv32e40x_core (
     .boot_addr_i(32'd128),
     .clic_irq_i(1'h0),
@@ -32592,7 +32592,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .\xif_result_if.result_ready (\ext_if.result_ready ),
     .\xif_result_if.result_valid (\ext_if.result_valid )
   );
-  (* src = "src/soc/greyhound_soc.sv:148.22" *)
+  (* src = "src/soc/greyhound_soc.sv:149.22" *)
   \fabric_extension$greyhound_soc.fabric_extension  fabric_extension (
     .clk_i(clk_i),
     .fabric_issue_accept_i(fabric_issue_accept_gated),
@@ -32627,7 +32627,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .\xif_result.result_ready (\ext_if.result_ready ),
     .\xif_result.result_valid (\ext_if.result_valid )
   );
-  (* src = "src/soc/greyhound_soc.sv:757.24" *)
+  (* src = "src/soc/greyhound_soc.sv:758.24" *)
   \EF_PSRAM_CTRL_AHBL$greyhound_soc.i_EF_PSRAM_CTRL_AHBL  i_EF_PSRAM_CTRL_AHBL (
     .HADDR(psram_HADDR),
     .HCLK(clk_i),
@@ -32646,7 +32646,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .douten(psram_douten),
     .sck(psram_sck)
   );
-  (* src = "src/soc/greyhound_soc.sv:599.5" *)
+  (* src = "src/soc/greyhound_soc.sv:600.5" *)
   \EF_QSPI_XIP_CTRL_AHBL$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL  i_EF_QSPI_XIP_CTRL_AHBL (
     .HADDR(flash_HADDR),
     .HCLK(clk_i),
@@ -32663,7 +32663,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .douten(flash_douten),
     .sck(flash_sck)
   );
-  (* src = "src/soc/greyhound_soc.sv:833.18" *)
+  (* src = "src/soc/greyhound_soc.sv:834.18" *)
   \EF_UART_AHBL$greyhound_soc.i_EF_UART_AHBL  i_EF_UART_AHBL (
     .HADDR(uart0_HADDR),
     .HCLK(clk_i),
@@ -32679,7 +32679,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .rx(uart0_rx),
     .tx(uart0_tx)
   );
-  (* src = "src/soc/greyhound_soc.sv:1042.5" *)
+  (* src = "src/soc/greyhound_soc.sv:1043.5" *)
   \dm_obi_top$greyhound_soc.i_dm_top  i_dm_top (
     .clk_i(clk_i),
     .debug_req_o(debug_req),
@@ -32715,7 +32715,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .testmode_i(1'h0),
     .unavailable_i(1'h0)
   );
-  (* src = "src/soc/greyhound_soc.sv:1017.5" *)
+  (* src = "src/soc/greyhound_soc.sv:1018.5" *)
   \dmi_jtag$greyhound_soc.i_dmi_jtag  i_dmi_jtag (
     .clk_i(clk_i),
     .dmi_req_o(dmi_req),
@@ -32733,7 +32733,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .tms_i(jtag_tms_i),
     .trst_ni(jtag_trst_ni)
   );
-  (* src = "src/soc/greyhound_soc.sv:553.22" *)
+  (* src = "src/soc/greyhound_soc.sv:554.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_flash  i_obi2ahbm_adapter_flash (
     .data_addr_i(all_periph_obi_req[143:112]),
     .data_be_i(all_periph_obi_req[110:107]),
@@ -32755,7 +32755,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .pending_dbus_xfer_i(1'h0),
     .priv_mode_i(1'h1)
   );
-  (* src = "src/soc/greyhound_soc.sv:716.22" *)
+  (* src = "src/soc/greyhound_soc.sv:717.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_psram  i_obi2ahbm_adapter_psram (
     .data_addr_i(all_periph_obi_req[287:256]),
     .data_be_i(all_periph_obi_req[254:251]),
@@ -32779,7 +32779,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .pending_dbus_xfer_i(1'h0),
     .priv_mode_i(1'h1)
   );
-  (* src = "src/soc/greyhound_soc.sv:793.22" *)
+  (* src = "src/soc/greyhound_soc.sv:794.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_uart0  i_obi2ahbm_adapter_uart0 (
     .data_addr_i(all_periph_obi_req[359:328]),
     .data_be_i(all_periph_obi_req[326:323]),
@@ -32803,7 +32803,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .pending_dbus_xfer_i(1'h0),
     .priv_mode_i(1'h1)
   );
-  (* src = "src/soc/greyhound_soc.sv:514.5" *)
+  (* src = "src/soc/greyhound_soc.sv:515.5" *)
   \obi_demux$greyhound_soc.i_obi_demux  i_obi_demux (
     .clk_i(clk_i),
     .mgr_ports_req_o(all_periph_obi_req),
@@ -32813,7 +32813,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .sbr_port_rsp_o(mux_demux_obi_rsp),
     .sbr_port_select_i(periph_idx)
   );
-  (* src = "src/soc/greyhound_soc.sv:456.5" *)
+  (* src = "src/soc/greyhound_soc.sv:457.5" *)
   \obi_mux$greyhound_soc.i_obi_mux  i_obi_mux (
     .clk_i(clk_i),
     .mgr_port_req_o(mux_demux_obi_req),
@@ -32823,7 +32823,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .sbr_ports_rsp_o(mgrs_mux_obi_rsp),
     .testmode_i(1'h0)
   );
-  (* src = "src/soc/greyhound_soc.sv:533.5" *)
+  (* src = "src/soc/greyhound_soc.sv:534.5" *)
   \obi_err_sbr$greyhound_soc.i_periph_err  i_periph_err (
     .clk_i(clk_i),
     .obi_req_i(all_periph_obi_req[71:0]),
@@ -32831,7 +32831,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .rst_ni(rst_ni),
     .testmode_i(1'h0)
   );
-  (* src = "src/soc/greyhound_soc.sv:684.7" *)
+  (* src = "src/soc/greyhound_soc.sv:685.7" *)
   \obi_sram_shim$greyhound_soc.i_sram_shim  i_sram_shim (
     .addr_o(bank_byte_addr),
     .be_o(bank_be_o),
@@ -34508,40 +34508,40 @@ module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_src.i_sync (clk_i, 
   assign serial_o = reg_q[2];
 endmodule
 
-(* src = "src/riscv-dbg/tc_clk_wrapper.sv:1.8" *)
+(* src = "src/debug/tc_clk_wrapper.sv:5.8" *)
 module \tc_clk_inverter$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_tck_inv (clk_i, clk_o);
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:2.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:6.18" *)
   input clk_i;
   wire clk_i;
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:3.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:7.18" *)
   output clk_o;
   wire clk_o;
   (* dont_touch = "true" *)
   (* keep = 1'h1 *)
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:6.16" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:10.16" *)
   sg13g2_inv_1 i_inv (
     .A(clk_i),
     .Y(clk_o)
   );
 endmodule
 
-(* src = "src/riscv-dbg/tc_clk_wrapper.sv:13.8" *)
+(* src = "src/debug/tc_clk_wrapper.sv:17.8" *)
 module \tc_clk_mux2$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_dft_tck_mux (clk_o, clk0_i, clk1_i, clk_sel_i);
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:14.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:18.18" *)
   input clk0_i;
   wire clk0_i;
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:15.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:19.18" *)
   input clk1_i;
   wire clk1_i;
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:17.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:21.18" *)
   output clk_o;
   wire clk_o;
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:16.18" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:20.18" *)
   input clk_sel_i;
   wire clk_sel_i;
   (* dont_touch = "true" *)
   (* keep = 1'h1 *)
-  (* src = "src/riscv-dbg/tc_clk_wrapper.sv:20.17" *)
+  (* src = "src/debug/tc_clk_wrapper.sv:24.17" *)
   sg13g2_mux2_1 i_mux (
     .A0(clk0_i),
     .A1(clk1_i),

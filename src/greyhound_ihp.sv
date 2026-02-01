@@ -116,6 +116,10 @@ module greyhound_ihp (
     logic [31:0] spi_bitstream_data, spi_controller_bitstream_data_o, spi_receiver_bitstream_data_o;
     logic        spi_bitstream_valid, spi_controller_bitstream_valid_o, spi_receiver_bitstream_valid_o;
     
+    // JTAG receiver
+    logic [31:0] jtag_bitstream_data;
+    logic        jtag_bitstream_valid;
+
     // SPI receiver
     logic spi_receiver_sclk_i;
     logic spi_receiver_cs_ni;
@@ -188,7 +192,26 @@ module greyhound_ihp (
         end
     end
     
+    // Due to lack of pins fpga_mode_i is double used
+    // Rename for clarity
+    logic jtag_trst_n_sync, en_jtag_receiver, jtag_trst_n_module;
+    assign jtag_trst_n_sync = fpga_mode_sync;
+ 
     always_comb begin
+        jtag_trst_n_module = 1'b1;
+
+        if (en_jtag_receiver | (!jtag_trst_n_sync & !rst_n_sync)) begin
+            jtag_trst_n_module = jtag_trst_n_sync;
+        end
+    end
+
+    logic jtag_tck, jtag_tdi, jtag_tdo, jtag_tms;
+    always_comb begin
+        jtag_tck         = 1'b0;
+        jtag_tms         = 1'b0;
+        jtag_tdi         = 1'b0;
+        fpga_miso_o      = 1'b0;
+
         // On reset, set SPI to tri-state
         if (!rst_n_sync) begin
             // Default output
@@ -218,6 +241,20 @@ module greyhound_ihp (
             // Slot and trigger
             spi_controller_slot_i   = '0;
             spi_controller_start_i  = '0;
+
+            if (jtag_trst_n_sync) begin
+                // srst pulled, trst not -> do special init (configure for jtag input instead of spi)
+
+                // TODO implement a power on reset to prevent non working soc
+                // Run init sequence through jtag interface
+                jtag_tck = fpga_sclk_i;
+                jtag_tms = fpga_cs_n_i;
+                jtag_tdi = fpga_mosi_i;
+                // TODO test if one can disable this output until fully configured
+                // Enable tdo output in this case
+                fpga_miso_oe_o = 1'b1;
+                fpga_miso_o = jtag_tdo;
+            end
         end else begin
             // Default output
             fpga_sclk_o = 1'b0;
@@ -274,6 +311,37 @@ module greyhound_ihp (
                 spi_controller_slot_i   = '0;
             end
         end
+
+        // TODO connect to jtag bitstream
+        if (en_jtag_receiver) begin
+            // JTAG receiver is enabled
+            fpga_sclk_oe_o = 1'b0;
+            fpga_cs_n_oe_o = 1'b0;
+            fpga_mosi_oe_o = 1'b0;
+            fpga_miso_oe_o = 1'b1;
+
+            // Receiver not selected
+            spi_receiver_sclk_i = 1'b0;
+            spi_receiver_cs_ni  = 1'b1;
+            spi_receiver_mosi_i = 1'b0;
+            
+            // Controller not selected
+            spi_controller_miso_i = 1'b0;
+
+            // JTAG receiver
+            jtag_tck = fpga_sclk_i;
+            jtag_tms  = fpga_cs_n_i;
+            jtag_tdi = fpga_mosi_i;
+            fpga_miso_o = jtag_tdo;
+
+            // No spi bitstream
+            spi_bitstream_data  = '0;
+            spi_bitstream_valid = '0;
+            
+            // Slot and trigger
+            spi_controller_slot_i   = '0;
+            spi_controller_start_i  = '0;
+        end
     end
     
     fabric_spi_receiver fabric_spi_receiver (
@@ -292,6 +360,21 @@ module greyhound_ihp (
         .cs_ni      (spi_receiver_cs_ni),
         .mosi_i     (spi_receiver_mosi_i),
         .miso_o     (spi_receiver_miso_o)
+    );
+
+    logic fpga_jtag_tdi;
+    fpga_dm fpga_dm (
+        .clk_i                  ( clk_i                ),
+        .rst_ni                 ( rst_ni               ),
+        .tck_i                  ( jtag_tck             ),
+        .tms_i                  ( jtag_tms             ),
+        .trst_ni                ( jtag_trst_n_module   ),
+        .td_i                   ( fpga_jtag_tdi        ),
+        .td_o                   ( jtag_tdo             ),
+        .tdo_oe_o               (  ),
+        .en_jtag_receiver_o     ( en_jtag_receiver     ),
+        .jtag_bitstream_o       ( jtag_bitstream_data  ),
+        .jtag_bitstream_valid_o ( jtag_bitstream_valid )
     );
 
     // TODO adjust BITSTREAM_LENGTH_WORDS
@@ -329,12 +412,14 @@ module greyhound_ihp (
     always_comb begin
         if (spi_bitstream_valid) begin
             bitstream_data = spi_bitstream_data;
+        end else if (jtag_bitstream_valid) begin
+            bitstream_data = jtag_bitstream_data;
         end else begin
             bitstream_data = bitstream_data_cpu;
         end
     end
     
-    assign bitstream_valid = bitstream_valid_cpu || spi_bitstream_valid;
+    assign bitstream_valid = bitstream_valid_cpu || spi_bitstream_valid || jtag_bitstream_valid;
 
     fabric_config #(
         	.FrameBitsPerRow    (FrameBitsPerRow),
@@ -518,12 +603,12 @@ module greyhound_ihp (
         .fetch_enable_i ( fetch_enable_sync ),
         .core_sleep_o   ( core_sleep_o   ),
 
-        // JTAG TODO must be reset on power up, else internal bus stalls
-        .jtag_tck_i     (  ),
-        .jtag_tdi_i     (  ),
-        .jtag_tdo_o     (  ),
-        .jtag_tms_i     (  ),
-        .jtag_trst_ni   ( rst_ni )
+        // JTAG
+        .jtag_tck_i     ( jtag_tck           ),
+        .jtag_tdi_i     ( jtag_tdi           ),
+        .jtag_tdo_o     ( fpga_jtag_tdi      ),
+        .jtag_tms_i     ( jtag_tms           ),
+        .jtag_trst_ni   ( jtag_trst_n_module )
     );
     
     // Connect SRAM to the SoC

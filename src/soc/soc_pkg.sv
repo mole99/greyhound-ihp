@@ -165,12 +165,20 @@ package soc_pkg;
 
     // JTAG IDCODE TODO
     localparam bit [10:0] JtagGreyhoundManufacturer = 11'h0;
-    localparam bit [15:0] JtagGreyhoundPartNum      = 16'h0;
+    localparam bit [15:0] JtagGreyhoundPartNumCore  = 16'h5256; // Core: RV (Risc-V)
+    localparam bit [15:0] JtagGreyhoundPartNumFPGA  = 16'h4646; // Fpga: FF (Fabulous Fabric)
     localparam bit [ 3:0] JtagGreyhoundVersion      = 4'h2;
-    localparam jtag_idcode_t GreyhoundJtagIdCode = '{
+    localparam jtag_idcode_t GreyhoundJtagIdCodeCore = '{
         _one          : 1,
         manufacturer  : JtagGreyhoundManufacturer,
-        part_num      : JtagGreyhoundPartNum,
+        part_num      : JtagGreyhoundPartNumCore,
+        version       : JtagGreyhoundVersion
+    };
+
+    localparam jtag_idcode_t GreyhoundJtagIdCodeFPGA = '{
+        _one          : 1,
+        manufacturer  : JtagGreyhoundManufacturer,
+        part_num      : JtagGreyhoundPartNumFPGA,
         version       : JtagGreyhoundVersion
     };
 

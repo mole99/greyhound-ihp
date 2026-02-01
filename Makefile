@@ -62,7 +62,9 @@ CORE_FILES += ip/riscv-dbg/src/dm_sba.sv
 CORE_FILES += ip/riscv-dbg/src/dm_mem.sv
 CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom.sv
 CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom_one_scratch.sv
-CORE_FILES += src/riscv-dbg/tc_clk_wrapper.sv
+CORE_FILES += src/debug/tc_clk_wrapper.sv
+CORE_FILES += src/debug/fpga_dm_jtag_tap.sv
+CORE_FILES += src/debug/fpga_dm.sv
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
