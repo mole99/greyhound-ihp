@@ -20,7 +20,7 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
     - `Zicntr`, `Zicsr`, `Zihpm`, `Zifencei`
   - 8 KiB SRAM
   - QSPI Flash Controller for XIP
-    - Cache: 16 lines of 32 bytes, direct mapped
+    - Cache: 8 lines of 32 bytes, direct mapped
   - QSPI PSRAM controller
   - Highly Configurable UART
   - Fabric Config Peripheral
@@ -63,11 +63,11 @@ The FPGA can configure itself from an SPI Flash from any of 16 different slots, 
 
 Here are the STA results after PnR for the SoC:
 
-| corner              | frequency |
-|---------------------|-----------|
-| nom_fast_1p32V_m40C | 69 MHz    |
-| nom_typ_1p20V_25C   | 51 MHz    |
-| nom_slow_1p08V_125C | 32 MHz    |
+| corner              | BSR=None  | BSR=External | BSR=Internal | BSR=All   |
+|---------------------|-----------|--------------|--------------|-----------|
+| nom_fast_1p32V_m40C | 67 MHz    | 66 MHz       | 66 MHz       | 64 MHz    |
+| nom_typ_1p20V_25C   | 55 MHz    | 54 MHz       | 54 MHz       | 52 MHz    |
+| nom_slow_1p08V_125C | 39 MHz    | 35 MHz       | 35 MHz       | 35 MHz    |
 
 ## FPGA Fabric
 
@@ -81,13 +81,13 @@ This is the memory map of the SoC:
 
 | Base Address | Name               | Description                                                                                      |
 |--------------|--------------------|--------------------------------------------------------------------------------------------------|
-| 0x00000000   | FLASH_BASE         | QSPI XIP Flash controller with 16 lines of 32 bytes direct mapped cache                           |
+| 0x00000000   | FLASH_BASE         | QSPI XIP Flash controller with 8 lines of 32 bytes direct mapped cache                           |
 | 0x10000000   | SRAM_BASE          | 8kB of SRAM                                                                                      |
 | 0x20000000   | PSRAM_BASE         | QSPI PSRAM controller                                                                            |
 | 0x30000000   | UART0_BASE         | Highly configurable UART with 16-byte TX and RX FIFO, 16-bit prescaler and ten interrupt sources |
 | 0x40000000   | FABRIC_CONFIG_BASE | Fabric configuration peripheral                                                                  |
 | 0x50000000   | FABRIC_BASE        | Interface to the fabric when it is configured as peripheral                                      |
-| 0x60000000   | DEBUG_BASE         | Memory mapping of the riscv-dbg module |
+| 0x60000000   | DEBUG_BASE         | Memory mapping of the [riscv-dbg](https://github.com/pulp-platform/riscv-dbg/) module |
 
 ## Fabric Config Peripheral
 
@@ -159,7 +159,7 @@ Where `a` and `b` are the variables for the operands and `c` is the variable for
 
 ## FPGA Configuration
 
-There are several paths for uploading a bitstream into the FPGA fabric.
+There are several paths for uploading a bitstream into the FPGA fabric. To support the JTAG interface the `fpga_mode` pin has to be pulled low for 5 clk cycles on power up.
 
 ![fabric_configuration.svg](img/svg/fabric_configuration.svg)
 
@@ -181,11 +181,51 @@ By writing the slot number to the `REG_TRIGGER_SLOT` register of the `FABRIC_CON
 
 The CPU can also write raw bitstream data to the `REG_BITSTREAM` register of the `FABRIC_CONFIG_BASE` peripheral. The advantage of this mode is that only one SPI flash needs to be populated on the PCB.
 
+5. JTAG interface
+
+The JTAG interface provides access to the CPU and fabric tap, they support [OpenOCD](https://github.com/riscv-collab/riscv-openocd/tree/riscv). An example config is provided in the .cfg files of the tb/ directory. The CPU tap supports [riscv-gdb](https://github.com/riscv-collab/riscv-gnu-toolchain) through the [riscv-dbg](https://github.com/pulp-platform/riscv-dbg/) module, while the fabric tap supports IEEE1532 programming and IEEE1149.1 boundary scan if implemented.
+
 Approximate times for configuration from simulation:
 
 - CPU configures FPGA @50MHz: ~13.3ms
 - Fabric config controller @50MHz: ~5ms
 - Fabric config peripheral @10Mhz: ~22.5ms
+- Fabric config jtag @10MHz: ~22.5ms
+
+## JTAG
+Greyhound implements two JTAG TAPs, one for the CPU and one for the fabric. As the amount of pins is limited by the packaging the JTAG interface shares its pins with the fabric configuration pins. For this to work the `fpga_mode` pin has to be pulled low for at least 5 clk cycles on power up. Otherwise the internal OBI bus may stall.
+
+The cpu tap supports the riscv-dbg spec as in [riscv-dbg](https://github.com/pulp-platform/riscv-dbg/).
+
+The fabric tap is compatibel with IEEE1149.1 and IEEE1532 for in system configuration. The boundary scan register size may be configured in the soc pkg. It can be 0 bits (None), 64 bits (External), 245 bits(Internal) or 309 bits(All) long. When selecting None for the length the soc is not IEEE1532 conform as there is no boundary scan support. When None is selected the boundary scan operations are redirected to use the bypass register.
+
+The preload and sample instructions behave in the same way and thus have the same address. The usercode instruction is set by uploading the bitstream to the fabric.
+
+The soc needs a special instruction (ejtag) to enable the jtag interface. This works by writing a 1 bit 1 value to this address when the system reset is pulled low. To disable the interface simply write 0 instead of 1. When a BSR is implemented the fabric IOs are in highZ as described in IEEE1532. Without BSR no IO value can be set and thus the wires are routed directly. Only pins where boundary scan registers are present are controlled as in IEEE1532. To remain compatible with the SPI-peripheral/controller highZ and the BSR only control the IOs, when ejtag is written to 1.
+
+To program the fabric one has to cycle through ISC_ENABLE -> ISC_PROGRAMM (write complete bitstream) -> ISC_DISABLE (signals complete programming) -> BYPASS (to activate the design). When the fabric is programmed by the cpu it will be forced into the ISC Accessed state while programming and then back to the operational state, if a jtag clk is present. Without jtag clk this transition will not happen. As a result, when the BSR is present jtag clk can only be disconnected once the fabric is in operational mode.
+
+| Length              | Register configuration |
+|---------------------|------------------------|
+| None (0 bits)       | No BSR                 |
+| External (64 bits)  | Fabric GPIOs from 0 to 31, each GPIO has 2 bits (first bit is for the ex/intest value, second bit is to control the output enable) |
+| Internal (245 bits) | cpu irq, cpu xif (fabric_issue_ready, fabric_issue_accept, fabric_result_valid, fabric_result_id, fabric_result_rd, fabric_result, fabric_issue_valid, fabric_issue_instr, fabric_issue_op0, fabric_issue_op1, fabric_issue_id), cpu obi (fabric_obi_req, fabric_obi_we, fabric_obi_be, fabric_obi_addr, fabric_obi_wdata, fabric_obi_gnt, fabric_obi_rvalid, fabric_obi_rdata) |
+| All (309 bits)      | Fabric GPIOs, cpu irq, cpu xif (fabric_issue_ready, fabric_issue_accept, fabric_result_valid, fabric_result_id, fabric_result_rd, fabric_result, fabric_issue_valid, fabric_issue_instr, fabric_issue_op0, fabric_issue_op1, fabric_issue_id), cpu obi (fabric_obi_req, fabric_obi_we, fabric_obi_be, fabric_obi_addr, fabric_obi_wdata, fabric_obi_gnt, fabric_obi_rvalid, fabric_obi_rdata) |
+
+| Command        | Address  | Register size |
+|----------------|----------|---------------|
+| BYPASS         | 0x0/0x1f | 1 bit         |
+| IDCODE         | 0x1      | 32 bit        |
+| USERCODE       | 0x2      | 32 bit        |
+| SAMPLE         | 0x3      | BSR size      |
+| PRELOAD        | 0x3      | BSR size      |
+| EXTEST         | 0x4      | BSR size      |
+| INTEST         | 0x5      | BSR size      |
+| EJTAG          | 0x10     | 1 bit         |
+| ISC_ENABLE     | 0x14     | 1 bit         |
+| ISC_DISABLE    | 0x15     | 1 bit         |
+| ISC_PROGRAM    | 0x16     | 32 bit        |
+| ISC_NOOP       | 0x17     | 1 bit         |
 
 ## Firmware and Bitstream
 
@@ -199,6 +239,7 @@ Testbenches are made with [cocotb](https://github.com/cocotb/cocotb). There are 
 
 To run an RTL simulation, first we need to convert the SystemVerilog into something that Icarus Verilog can read.
 Enable a Nix shell using `nix-shell` and run `make convert-slang`.
+To run the debug testbenches with [OpenOCD](https://github.com/riscv-collab/riscv-openocd/tree/riscv) one has to build the vpi module for Icarus Verilog first with `make sim-jtag-wrapper`.
 
 Currently, Nix is not used for the testbench environment (sorry!), you need to create a virtual environment in Python and install the dependencies via:
 

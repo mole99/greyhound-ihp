@@ -301,47 +301,48 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
 
   // Determine logic mode (In boundary scan)
   // Value has to be present when the single step clk pulse rises, otherwise capture may be to early
+  logic mode1_d, mode2_d, mode5_d, mode6_d;
   always_comb begin
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
-      mode1_o = isc_highZ | (jtag_ir_d == INTEST) | (jtag_ir_d == EXTEST);
+      mode1_d = isc_highZ | (jtag_ir_d == INTEST) | (jtag_ir_d == EXTEST);
     end
     else begin
-      mode1_o = 1'b0;
+      mode1_d = 1'b0;
     end
 
     if ((EnabledBSRLength != None)) begin
-      mode2_o = jtag_ir_d == INTEST;
+      mode2_d = jtag_ir_d == INTEST;
     end
     else begin
-      mode2_o = 1'b0;
+      mode2_d = 1'b0;
     end
     
     if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
-      mode5_o = isc_highZ | (jtag_ir_d == EXTEST);
-      mode6_o = jtag_ir_d != INTEST;
+      mode5_d = isc_highZ | (jtag_ir_d == EXTEST);
+      mode6_d = jtag_ir_d != INTEST;
     end
     else begin
-      mode5_o = 1'b0;
-      mode6_o = 1'b0;
+      mode5_d = 1'b0;
+      mode6_d = 1'b0;
     end
 
     if (EnabledBSRLength != None) begin
       unique case (jtag_ir_q)
         INTEST: begin
           if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
-            mode1_o = 1'b1;
+            mode1_d = 1'b1;
           end
-          mode2_o = 1'b1;
+          mode2_d = 1'b1;
           if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
-            mode6_o = 1'b0;
+            mode6_d = 1'b0;
           end
         end
         EXTEST: begin
           if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
-            mode1_o = 1'b1;
+            mode1_d = 1'b1;
           end
           if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
-            mode5_o = 1'b1;
+            mode5_d = 1'b1;
           end
         end
         default:;
@@ -356,6 +357,28 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
       end else begin
         testmode_clk_pulse_q <= testmode_clk_pulse_d;
       end
+    end
+  end
+
+  // Buffer mode signals, fixes some slack timing
+  logic tck_n;
+  always_ff @(posedge tck_i, negedge trst_ni) begin
+    if (!trst_ni) begin
+      mode1_o <= 1'b0;
+      mode2_o <= 1'b0;
+      mode5_o <= 1'b0;
+      if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
+        mode6_o <= 1'b1;
+      end
+      else begin
+        mode6_o <= 1'b0;
+      end
+    end
+    else begin
+      mode1_o <= mode1_d;
+      mode2_o <= mode2_d;
+      mode5_o <= mode5_d;
+      mode6_o <= mode6_d;
     end
   end
 
@@ -385,7 +408,6 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // ----------------
   // DFT
   // ----------------
-  logic tck_n;
   tc_clk_inverter i_tck_inv (
     .clk_i ( tck_i ),
     .clk_o ( tck_n )
@@ -409,21 +431,9 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
       isc_done_q               <= '0;
       isc_disable_completing_q <= '0;
     end else begin
-      if (isc_ext_prog_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric is beeing configured by cpu
-        isc_enabled_q            <= 1'b1;
-        isc_done_q               <= '0;
-        isc_disable_completing_q <= '0;
-      end 
-      else if (isc_ext_conf_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric was configured by cpu
-        isc_enabled_q            <= '0;
-        isc_done_q               <= 1'b1;
-        isc_disable_completing_q <= '0;
-      end
-      else begin
-        isc_enabled_q            <= isc_enabled_d;
-        isc_done_q               <= isc_done_d;
-        isc_disable_completing_q <= isc_disable_completing_d;
-      end
+      isc_enabled_q            <= isc_enabled_d;
+      isc_done_q               <= isc_done_d;
+      isc_disable_completing_q <= isc_disable_completing_d;
     end
   end
 
@@ -467,6 +477,18 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
       end
       default: ;
     endcase
+
+    if (isc_ext_prog_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric is beeing configured by cpu
+      isc_enabled_d            = 1'b1;
+      isc_done_d               = '0;
+      isc_disable_completing_d = '0;
+    end 
+    
+    if (isc_ext_conf_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric was configured by cpu
+      isc_enabled_d            = '0;
+      isc_done_d               = 1'b1;
+      isc_disable_completing_d = '0;
+    end
   end
 
   // ----------------

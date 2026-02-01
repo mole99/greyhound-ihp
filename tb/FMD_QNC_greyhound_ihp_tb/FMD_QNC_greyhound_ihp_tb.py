@@ -99,7 +99,7 @@ fpga_blinky = {
 }
 
 jtag_bsr_none = {
-    'flash0_slot0': '',
+    'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
@@ -109,7 +109,7 @@ jtag_bsr_none = {
 }
 
 jtag_bsr_external = {
-    'flash0_slot0': '',
+    'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
@@ -119,7 +119,7 @@ jtag_bsr_external = {
 }
 
 jtag_bsr_internal = {
-    'flash0_slot0': '',
+    'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
@@ -129,7 +129,7 @@ jtag_bsr_internal = {
 }
 
 jtag_bsr_all = {
-    'flash0_slot0': '',
+    'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
@@ -552,18 +552,30 @@ async def setup_for_jtag(dut):
 async def test_jtag_enable(dut):
     """Permanently enable jtag interface"""
     jtag = await setup_for_jtag(dut)
+    gl   = os.getenv("GL", False)
 
     # Test interface enabled
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x1)
+    if gl:
+        await jtag.read("IDCODE", device=1)
+        print("Returned %x" % (jtag.ret_val))
+        assert (jtag.ret_val == 0x4646001)
+    else:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x1)
 
     await jtag.write("BYPASS", 0x1, device=1)
     await jtag.write("EJTAG", 0x0, device=1)
     cocotb.log.info("JTAG interface disabled.")
     # Test interface disable
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x0)
+    if gl:
+        await jtag.read("IDCODE", device=1)
+        print("Returned %x" % (jtag.ret_val))
+        assert (jtag.ret_val == 0x0)
+    else:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x0)
+
     await ClockCycles(dut.io_clock_PAD, 10)
 
-@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
+@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all) or os.getenv("GL", False))
 async def test_jtag_sample(dut):
     """JTAG SAMPLE command"""
     jtag = await setup_for_jtag(dut)
@@ -646,6 +658,7 @@ async def test_jtag_sample(dut):
 async def test_jtag_extest(dut):
     """JTAG EXTEST command, with stepping through ICS (IEEE1532) testmode"""
     jtag = await setup_for_jtag(dut)
+    gl   = os.getenv("GL", False)
 
     # Set extest inputs
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
@@ -667,7 +680,7 @@ async def test_jtag_extest(dut):
         dut.io_gpio_PAD[28].value = 0
         dut.io_gpio_PAD[30].value = 0
    
-    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+    if not gl and (enabled == jtag_bsr_internal or enabled == jtag_bsr_all):
         # CPU_IRQ
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0x3 # 4 bit
         # CUSTOM_INSTRUCTION
@@ -696,36 +709,56 @@ async def test_jtag_extest(dut):
     if enabled == jtag_bsr_external:
         write_val = 0xc639c639_c639c639
         ret_val   = [0xc431c431_c431c431, 0xc431c431_c431c431, 0xe6b9e6b1_c431c431, 0xe6b9e6b9_e6b9e6b9]
+        mask_val  = 0xffffffff_ffffffff
     if enabled == jtag_bsr_internal:
         write_val = 0x000000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
         ret_val   = [0x180000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
                      0x180000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
                      0x1861ef_67ab23cd_45890aaa_aaaab000_00000000_00000000_00000000_00000000,
                      0x1861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000]
+        mask_val  =  0x0
     if enabled == jtag_bsr_all:
         write_val = 0x18c738_c738c738_c7200000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
         ret_val   = [0x188638_86388638_86380000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
                      0x188638_86388638_86380000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
                      0x1cd73c_d6388638_863861ef_67ab23cd_45890aaa_aaaab000_00000000_00000000_00000000_00000000,
                      0x1cd73c_d73cd73c_d73861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000]
+        mask_val  = 0xffffff_ffffffff_ffe00000_00000000_00000000_00000000_00000000_00000000_00000000_00000000
+
+    if gl:
+        write_val = write_val & mask_val
 
     # Test isc preload
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("EXTEST", write_val, device=1)
-    assert(jtag.ret_val == ret_val[0])
+    if gl:
+        print("%x == %x" % ((jtag.ret_val & mask_val), (ret_val[0] & mask_val)))
+        assert((jtag.ret_val & mask_val) == (ret_val[0] & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val[0])
+    
     await jtag.write("BYPASS", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
 
     # Change isc state to operational (without device programming) and test testmode behaviour
     await jtag.write("ISC_ENABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    
     await jtag.write("EXTEST", write_val, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0x1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0x1) # ISC Accessed
+    
     await jtag.write("ISC_DISABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    
     await jtag.write("EXTEST", write_val, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
 
     # Test if preload holds the value until test
     await jtag.write("PRELOAD", write_val, device=1)
@@ -733,10 +766,16 @@ async def test_jtag_extest(dut):
 
     # Check for correct extest scan reg value, when input changes (output is set by test vector)
     await jtag.write("EXTEST", write_val, device=1)
-    assert(jtag.ret_val == ret_val[0])
+    if gl:
+        assert((jtag.ret_val & mask_val) == (ret_val[0] & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val[0])
 
     await jtag.write("EXTEST", write_val, device=1)
-    assert(jtag.ret_val == ret_val[1])
+    if gl:
+        assert((jtag.ret_val & mask_val) == (ret_val[1] & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val[1])
 
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         # GPIOs
@@ -748,7 +787,7 @@ async def test_jtag_extest(dut):
         dut.io_gpio_PAD[11].value = 1
         dut.io_gpio_PAD[12].value = 1
 
-    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+    if not gl and (enabled == jtag_bsr_internal or enabled == jtag_bsr_all):
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0x1 # 1 bit
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0xaaaaaaaa # 32 bit
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0x12345678 # 32 bit
@@ -756,7 +795,10 @@ async def test_jtag_extest(dut):
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0xc # 4 bit
 
     await jtag.write("EXTEST", write_val, device=1)
-    assert(jtag.ret_val == ret_val[2])
+    if gl:
+        assert((jtag.ret_val & mask_val) == (ret_val[2] & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val[2])
 
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         # GPIOs
@@ -770,7 +812,7 @@ async def test_jtag_extest(dut):
         dut.io_gpio_PAD[28].value = 1
         dut.io_gpio_PAD[30].value = 1
 
-    if enabled == jtag_bsr_internal or enabled == jtag_bsr_all:
+    if not gl and (enabled == jtag_bsr_internal or enabled == jtag_bsr_all):
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0x1 # 1 bit
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0x0 # 1 bit
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0x1 # 4 bit
@@ -778,11 +820,14 @@ async def test_jtag_extest(dut):
         dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0x89abcdef # 32 bit
 
     await jtag.write("EXTEST", write_val, device=1)
-    assert(jtag.ret_val == ret_val[3])
+    if gl:
+        assert((jtag.ret_val & mask_val) == (ret_val[3] & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val[3])
 
     await ClockCycles(dut.io_clock_PAD, 10)
 
-@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
+@cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all) or os.getenv("GL", False))
 async def test_jtag_intest(dut):
     """JTAG INTEST command"""
     jtag = await setup_for_jtag(dut)
@@ -911,59 +956,126 @@ async def test_jtag_intest(dut):
 async def write_bitstream_jtag(filename, jtag):
     with open(filename, 'br') as f:
         data = f.read(4)
+        nbr = 0
         while data:
             number = int.from_bytes(data, "big")
+            cocotb.log.info("Program word %d of %d" % (nbr, 4565))
             await jtag.write("ISC_PROGRAM", number, device=1)
             data = f.read(4)
+            nbr = nbr + 1
 
 @cocotb.test(skip=(enabled!=jtag_bsr_none and enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_isc(dut):
     """ISC (IEEE1532) device programming, with USERCODE command support"""
     jtag = await setup_for_jtag(dut)
+    gl   = os.getenv("GL", False)
 
     # Test USERCODE
     await jtag.read("USERCODE", device=1)
     assert(jtag.ret_val == 0x0)
 
     # Program device over jtag
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    
     await jtag.write("ISC_ENABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    
     await write_bitstream_jtag('../../../ip/fabric/user_designs/all_ones/all_ones.bit', jtag)
     
     # Finished programming
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    
     await jtag.write("ISC_DISABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
     
     await jtag.write("ISC_ENABLE", 0x1, device=1)
     # Should be back in accessed state
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
     
     # Test NOOP
     await jtag.write("ISC_NOOP", 0x1, device=1)
     await jtag.write("ISC_NOOP", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
     
     # Test Operational
     await jtag.write("ISC_DISABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    
     await jtag.write("ISC_DISABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    
     await jtag.write("ISC_DISABLE", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    
     await jtag.write("BYPASS", 0x1, device=1)
 
     # Should be in operational state
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
 
     # Check program
     assert(dut.io_config_busy_PAD.value == 0)
+
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
     # Test USERCODE
     await jtag.read("USERCODE", device=1)
     assert(jtag.ret_val == 0x1)
+
+    if (enabled==jtag_bsr_none):
+        return
+
+    # Short test ex/intest
+    if enabled == jtag_bsr_external:
+        write_val  = 0xc639c639_c639c639
+        ret_val_ex = 0xe6b9e6b9_e6b9e6b9
+        ret_val_in = 0xce3bce3b_ce3bce3b
+        mask_val   = 0xffffffff_ffffffff
+    if enabled == jtag_bsr_internal:
+        write_val  = 0x000000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val_ex = 0x1861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000
+        ret_val_in = 0x180000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123456_479a8b11
+        mask_val   = 0x0
+    if enabled == jtag_bsr_all:
+        write_val  = 0x18c738_c738c738_c7200000_0000001a_bfafeaff_aefafbaa_bfafeafc_00000000_0c123456_bfafeafc
+        ret_val_ex = 0x1cd73c_d73cd73c_d73861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000
+        ret_val_in = 0x19c779_c779c779_c7780000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123456_479a8b11
+        mask_val   = 0xffffff_ffffffff_ffe00000_00000000_00000000_00000000_00000000_00000000_00000000_00000000
+
+    await jtag.write("PRELOAD", write_val, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("EXTEST", write_val, device=1)
+    if gl:
+        print("RET_VAL ex: %x" % (jtag.ret_val))
+        assert((jtag.ret_val & mask_val) == (ret_val_ex & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val_ex)
+
+    await jtag.read("SAMPLE", device=1)
+    if gl:
+        print("SAMPLE_VAL: %x" % (jtag.ret_val))
+        #assert(jtag.ret_val == )
+    else:
+        True
+        #assert(jtag.ret_val == )
+
+    await jtag.write("PRELOAD", write_val, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("INTEST", write_val, device=1)
+    if gl:
+        print("RET_VAL in: %x" % (jtag.ret_val))
+        assert((jtag.ret_val & mask_val) == (ret_val_in & mask_val))
+    else:
+        assert(jtag.ret_val == ret_val_in)
 
     await ClockCycles(dut.io_clock_PAD, 10)
 
@@ -971,6 +1083,7 @@ async def test_jtag_isc(dut):
 async def test_jtag_cpu(dut):
     """Program fabric with jtag and cpu"""
     jtag = await setup_for_jtag(dut)
+    gl   = os.getenv("GL", False)
 
     # Program with cpu, jtag not running but in jtag mode
     cocotb.log.info("Waiting for configuration to start.")
@@ -981,7 +1094,9 @@ async def test_jtag_cpu(dut):
     # Clock jtag port (to update the fpga io's)
     await jtag.write("BYPASS", 0x1, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
     # Check if device is programmed
@@ -1002,7 +1117,9 @@ async def test_jtag_cpu(dut):
     await jtag.write("ISC_DISABLE", 0x1, device=1)
     await jtag.read("USERCODE", device=1)
     assert(jtag.ret_val == 0x2)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
     # Keep running in system mode until fabric is reconfigured

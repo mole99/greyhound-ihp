@@ -58,7 +58,12 @@ async def start_up(dut):
     dut.reset_SimJTAG.value = True
 
     # Wait for jtag to be enabled
-    await RisingEdge(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver)
+    gl = os.getenv("GL", False)
+    if gl:
+        await ClockCycles(dut.io_clock_PAD, int(50*4)) # Wait for 4µs
+    else:
+        await RisingEdge(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver)
+    
     dut.io_reset_PAD.value  = True
 
 @cocotb.test(skip=enabled!=hello_world)
@@ -96,20 +101,24 @@ async def test_hello_world(dut):
 @cocotb.test(skip=enabled!=bitstream_upload)
 async def test_bitstream_upload(dut):
     """Upload bitstream over jtag"""
+    gl = os.getenv("GL", False)
+
     # Static setup
     dut.io_fetch_enable_PAD.value = 1
 
     # Start up
     await start_up(dut)
 
-    # Wait for telnet bitstream upload (takes 22ms sim time)
+    # Wait for telnet bitstream upload (takes ~22ms sim time)
     for i in range(22):
         cocotb.log.info("Progress: %3d %%" % (int(i*4.5)))
         await ClockCycles(dut.io_clock_PAD, 50000)
 
     # Check result
     cocotb.log.info(dut.io_gpio_PAD.value)
-    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    if not gl:
+        assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
 def streamPrinter(stream, tag:str, run_openocd:bool=False, run_gdb:bool=False, stop_gdb:bool=False, run_telnet:bool=False, stop_printing:bool=False, out=sys.__stdout__):

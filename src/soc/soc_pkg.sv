@@ -163,7 +163,7 @@ package soc_pkg;
         bit         _one;
     } jtag_idcode_t;
 
-    // JTAG IDCODE TODO
+    // JTAG IDCODE
     localparam bit [10:0] JtagGreyhoundManufacturer = 11'h0;
     localparam bit [15:0] JtagGreyhoundPartNumCore  = 16'h5256; // Core: RV (Risc-V)
     localparam bit [15:0] JtagGreyhoundPartNumFPGA  = 16'h4646; // Fpga: FF (Fabulous Fabric)
@@ -191,5 +191,5 @@ package soc_pkg;
         All         // External and internal bsr are implemented (309 bit)
     } supported_bsr_e;
 
-    localparam supported_bsr_e EnabledBSRLength = None;
+    localparam supported_bsr_e EnabledBSRLength = All;
 endpackage
