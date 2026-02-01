@@ -107,7 +107,7 @@ module fpga_dm_jtag_tap #(
   logic [IrLength-1:0]  jtag_ir_shift_d, jtag_ir_shift_q;
   // IR register -> this gets captured from shift register upon update_ir
   ir_reg_e              jtag_ir_d, jtag_ir_q;
-  logic capture_ir, shift_ir, update_ir, test_logic_reset, run_test_idle_d, run_test_idle_q;
+  logic capture_ir, shift_ir, update_ir, test_logic_reset;
 
   always_comb begin : p_jtag
     jtag_ir_shift_d = jtag_ir_shift_q;
@@ -216,74 +216,79 @@ module fpga_dm_jtag_tap #(
     usercode_select      = 1'b0;
     bypass_select        = 1'b0;
     ejtag_select         = 1'b0;
-    isc_enable_select    = 1'b0;
-    isc_disable_select   = 1'b0;
     isc_pdata_select     = 1'b0;
     boundary_scan_select = 1'b0;
-    testmode_o           = 1'b0;
 
     unique case (jtag_ir_q)
       BYPASS0:        bypass_select        = 1'b1;
       IDCODE:         idcode_select        = 1'b1;
       USERCODE:       usercode_select      = 1'b1;
       SAMPLE_PRELOAD: boundary_scan_select = 1'b1;
-      EXTEST: begin
-        boundary_scan_select = 1'b1;
-        testmode_o           = 1'b1;
-      end
-      INTEST: begin
-        boundary_scan_select = 1'b1;
-        testmode_o           = 1'b1;
-      end
-      EJTAG: ejtag_select = 1'b1;
-      ISC_ENABLE: begin
-        bypass_select     = 1'b1;
-        isc_enable_select = 1'b1;
-      end
-      ISC_DISABLE: begin
-        bypass_select      = 1'b1;
-        isc_disable_select = 1'b1;
-      end
-      ISC_PROGRAM: isc_pdata_select = 1'b1;
-      ISC_NOOP:    bypass_select    = 1'b1;
-      BYPASS1:     bypass_select    = 1'b1;
-      default:     bypass_select    = 1'b1;
+      EXTEST:         boundary_scan_select = 1'b1;
+      INTEST:         boundary_scan_select = 1'b1;
+      EJTAG:          ejtag_select         = 1'b1;
+      ISC_ENABLE:     bypass_select        = 1'b1;
+      ISC_DISABLE:    bypass_select        = 1'b1;
+      ISC_PROGRAM:    isc_pdata_select     = 1'b1;
+      ISC_NOOP:       bypass_select        = 1'b1;
+      BYPASS1:        bypass_select        = 1'b1;
+      default:        bypass_select        = 1'b1;
     endcase
   end
 
   // ----------------
-  // Mode select
+  // Mode select for IEEE
   // ---------------
-  assign clk_bsr_select_o = boundary_scan_select;
+  logic testmode_clk_pulse_d, testmode_clk_pulse_q;
+  assign clk_bsr_select_o     = boundary_scan_select;
   assign capture_bsr_select_o = boundary_scan_select & capture_dr;
   assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
   assign update_bsr_select_o  = boundary_scan_select & update_dr;
+  assign testmode_clk_pulse_o = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
 
+  // Determin clk pulse in test mode
+  always_comb begin
+    unique case (tap_state_q)
+      RunTestIdle: testmode_clk_pulse_d = 1'b1;
+      // Create a single pulse if idle state is skipped, must happen between update and capture are performed
+      // Update happens on falling edge, capture happens 2 cyles later on rising edge at the minimum
+      UpdateDr:    testmode_clk_pulse_d = tms_i;
+      UpdateIr:    testmode_clk_pulse_d = tms_i;
+      default:     testmode_clk_pulse_d = 1'b0;
+    endcase
+  end
+
+
+  // Determin logic mode (In ISC and boundary scan)
   always_comb begin
     mode2_o              = '0;
     mode5_o              = '0;
     mode6_o              = '0;
-    testmode_clk_pulse_o = 1'b1;
+    testmode_o           = (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
+    isc_enable_select    = 1'b0;
+    isc_disable_select   = 1'b0;
 
     unique case (jtag_ir_q)
       INTEST: begin
-        mode2_o              = 1;
-        testmode_clk_pulse_o = run_test_idle_d & ~run_test_idle_q;
+        mode2_o    = 1;
+        testmode_o = 1'b1;
       end
       EXTEST: begin
-        mode5_o = 1;
-        mode6_o = 1;
+        mode5_o    = 1;
+        mode6_o    = 1;
+        testmode_o = 1'b1;
       end
+      ISC_ENABLE:  isc_enable_select  = 1'b1;
+      ISC_DISABLE: isc_disable_select = 1'b1;
       default: mode6_o = 1;
     endcase
   end
 
-  logic tck_n;
   always_ff @(posedge tck_i, negedge trst_ni) begin
     if (!trst_ni) begin
-      run_test_idle_q <= '0;
+      testmode_clk_pulse_q <= '0;
     end else begin
-      run_test_idle_q <= run_test_idle_d;
+      testmode_clk_pulse_q <= testmode_clk_pulse_d;
     end
   end
 
@@ -313,6 +318,7 @@ module fpga_dm_jtag_tap #(
   // ----------------
   // DFT
   // ----------------
+  logic tck_n;
   tc_clk_inverter i_tck_inv (
     .clk_i ( tck_i ),
     .clk_o ( tck_n )
@@ -395,16 +401,15 @@ module fpga_dm_jtag_tap #(
   // ----------------
   // Determination of next state; purely combinatorial
   always_comb begin : p_tap_fsm
-    test_logic_reset   = 1'b0;
-    run_test_idle_d    = 1'b0;
+    test_logic_reset = 1'b0;
 
-    capture_dr         = 1'b0;
-    shift_dr           = 1'b0;
-    update_dr          = 1'b0;
+    capture_dr       = 1'b0;
+    shift_dr         = 1'b0;
+    update_dr        = 1'b0;
 
-    capture_ir         = 1'b0;
-    shift_ir           = 1'b0;
-    update_ir          = 1'b0;
+    capture_ir       = 1'b0;
+    shift_ir         = 1'b0;
+    update_ir        = 1'b0;
 
     unique case (tap_state_q)
       TestLogicReset: begin
@@ -413,7 +418,6 @@ module fpga_dm_jtag_tap #(
       end
       RunTestIdle: begin
         tap_state_d = (tms_i) ? SelectDrScan : RunTestIdle;
-        run_test_idle_d = 1'b1;
       end
       // DR Path
       SelectDrScan: begin

@@ -5,7 +5,7 @@ module fpga_dm import soc_pkg::GreyhoundJtagIdCodeFPGA;(
     input  logic         clk_i,
     input  logic         rst_ni,
     // Muxed and gated clk to use as EX- and INTEST are supported
-    output logic         clk_fabric_o,
+    output logic         clk_o,
 
     // JTAG
     input  logic         tck_i,
@@ -35,7 +35,7 @@ module fpga_dm import soc_pkg::GreyhoundJtagIdCodeFPGA;(
 );
     localparam logic [31:0] BITFILE_START = 32'h00AAFF01;
 
-    logic clk_fabric_m, testmode, fabric_clk_enable;
+    logic clk_fabric_m, testmode, clk_enable;
     // Mux FPGA and tclk to create a glitch free intest clk if desired
     tc_clk_mux2 i_dft_tck_mux (
         .clk0_i    ( clk_i        ),
@@ -46,9 +46,9 @@ module fpga_dm import soc_pkg::GreyhoundJtagIdCodeFPGA;(
 
     // Gate the input clock with the enable signal to create an intest clk
     tc_clk_gating i_clk_gate (
-        .clk_i     ( clk_fabric_m      ),
-        .en_i      ( fabric_clk_enable ),
-        .clk_o     ( clk_fabric_o      )
+        .clk_i     ( clk_fabric_m ),
+        .en_i      ( clk_enable   ),
+        .clk_o     ( clk_o        )
     );
 
     // ejtag controls "enable jtag" alternate pinout function. It is only ever reset by trst. 
@@ -80,10 +80,10 @@ module fpga_dm import soc_pkg::GreyhoundJtagIdCodeFPGA;(
         .capture_bsr_select_o,
         .shift_bsr_select_o,
         .update_bsr_select_o,
-        .testmode_o           ( testmode          ),
-        .testmode_clk_pulse_o ( fabric_clk_enable ),
-        .dm_rst_o             ( dm_clear_o        ),
-        .shift_o              ( shift_dr_o        ),
+        .testmode_o           ( testmode   ),
+        .testmode_clk_pulse_o ( clk_enable ),
+        .dm_rst_o             ( dm_clear_o ),
+        .shift_o              ( shift_dr_o ),
         // Control if jtag interface is enabled
         .ejtag_o        ( ejtag       ),
         .ejtag_valid_o  ( ejtag_valid ),

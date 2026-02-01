@@ -8,13 +8,12 @@ module fpga_boundary_cell (
     input  logic trst_ni,
     // Gated clk
 
-
-    input  logic capture_bsr_select_i,
+    // TODO
     input  logic shift_dr_i,
 
 
 
-
+    input  logic capture_bsr_select_i,
     input  logic shift_bsr_select_i,
     input  logic update_bsr_select_i,
     // System logic connection
@@ -59,7 +58,7 @@ module fpga_boundary_cell (
             tdo_q      <= '0;
         end
         else begin
-            if (shift_bsr_select_i) begin
+            if (shift_bsr_select_i | capture_bsr_select_i) begin
                 pino_g11_q <= pino_g11_d;
                 tdo_q      <= tdo_d;
             end

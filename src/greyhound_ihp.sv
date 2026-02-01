@@ -87,6 +87,9 @@ module greyhound_ihp (
     wire [(FrameBitsPerRow*NumRows)-1:0]    FrameData;
     wire [(MaxFramesPerCol*NumColumns)-1:0] FrameStrobe;
 
+    // Gated clk used for JTAG single stepping
+    wire clk;
+
     // Reset with asynchronous assertion and synchronous relase
     logic [1:0] rst_nd;
     logic rst_n_sync;
@@ -148,9 +151,8 @@ module greyhound_ihp (
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_oe_o;
 
     // Assign fabric IOs
-    // TODO change fabric clk to tclk when running INTEST
-    // TODO test if working
     // TODO glitch free rst, rstgen.v?
+    // TODO move this into debug_module
     wire boundary_scan_td [FABRIC_NUM_IO_WEST-2:0];
     generate
         for (genvar i = 0; i<FABRIC_NUM_IO_WEST; i++) begin
@@ -434,7 +436,7 @@ module greyhound_ihp (
     end
     
     fabric_spi_receiver fabric_spi_receiver (
-        .clk_i  (clk_i),
+        .clk_i  (clk),
         .rst_ni (rst_n_sync),
         
         // Bitstream data
@@ -452,11 +454,11 @@ module greyhound_ihp (
     );
 
     // TODO allow tap isc case change when loading rom over spi
-    logic fpga_jtag_tdi, clk_fabric;
+    logic fpga_jtag_tdi;
     fpga_dm fpga_dm (
         .clk_i                  ( clk_i                   ),
         .rst_ni                 ( rst_ni                  ),
-        .clk_fabric_o           ( clk_fabric              ),
+        .clk_o                  ( clk                     ),
         .tck_i                  ( jtag_tck                ),
         .tms_i                  ( jtag_tms                ),
         .trst_ni                ( jtag_trst_n_module      ),
@@ -485,7 +487,7 @@ module greyhound_ihp (
         .SLOT_OFFSET_WORDS      (32'h2000),
         .NUM_SLOTS              (16)
     ) fabric_spi_controller (
-        .clk_i  (clk_i),
+        .clk_i  (clk),
         .rst_ni (rst_n_sync),
         
         // Start reading data at selected slot
@@ -530,7 +532,7 @@ module greyhound_ihp (
 	    .NumColumns         (NumColumns),
 	    .NumRows            (NumRows)
     ) fabric_config (
-        .clk_i              (clk_i),
+        .clk_i              (clk),
         .rst_ni             (rst_n_sync),
         
         // Bitstream
@@ -551,7 +553,7 @@ module greyhound_ihp (
     assign fabric_warmboot_reset_i = fabric_config_busy;
 
     (* keep *) fabric_wrapper fabric_wrapper (
-        .clk_i          (clk_fabric),
+        .clk_i          (clk),
         
         // Configuration
         .FrameData_i    (FrameData),
@@ -630,7 +632,7 @@ module greyhound_ihp (
         `endif
 
         // Clock and reset
-        .clk_i          ( clk_i  ),
+        .clk_i          ( clk  ),
         .rst_ni         ( rst_n_sync ),
 
         // Interrupt requests from fabric
@@ -739,7 +741,7 @@ module greyhound_ihp (
     end
 
     RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram0 (
-        .A_CLK      (clk_i),
+        .A_CLK      (clk),
         .A_MEN      (bank_req && sram_enable == 1'd0),
         .A_WEN      (bank_we),
         .A_REN      (!bank_we),
@@ -759,7 +761,7 @@ module greyhound_ihp (
         .A_BIST_BM      ('0)
     );
     RM_IHPSG13_1P_1024x32_c2_bm_bist i_soc_sram1 (
-        .A_CLK      (clk_i),
+        .A_CLK      (clk),
         .A_MEN      (bank_req && sram_enable == 1'd1),
         .A_WEN      (bank_we),
         .A_REN      (!bank_we),

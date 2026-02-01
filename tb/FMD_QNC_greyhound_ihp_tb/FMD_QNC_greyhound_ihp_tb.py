@@ -117,16 +117,6 @@ jtag_sample = {
     'sample':'',
 }
 
-jtag_preload = {
-    'flash0_slot0': '',
-    'flash0_slot1': '',
-    'flash1_slot0': '',
-    'flash1_slot1': '',
-    'connect_flash1': False,
-    'dump_waveforms': True,
-    'preload':'',
-}
-
 jtag_extest = {
     'flash0_slot0': '',
     'flash0_slot1': '',
@@ -167,7 +157,7 @@ jtag_commands = {
     'commands':'',
 }
 
-enabled = jtag_commands
+enabled = jtag_intest
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -527,9 +517,6 @@ class JTAGFPGA(JTAGDevice):
 
 async def setup_for_jtag(dut):
     """Setup soc for jtag"""
-    # Setup env
-    # os.environ['COCOTB_RESOLVE_X'] = "RANDOM"
-
     # Setup JTAG
     jtag_signals:dict = {"tck" :"io_fpga_sclk_PAD",
                          "tms" :"io_fpga_cs_n_PAD",
@@ -578,51 +565,111 @@ async def test_jtag_enable(dut):
     cocotb.log.info("JTAG interface disabled.")
     # Test interface disable
     assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver == 0x0)
-    await ClockCycles(dut.io_clock_PAD, 100)
-
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
+    await ClockCycles(dut.io_clock_PAD, 10)
 
 @cocotb.test(skip=enabled!=jtag_sample)
 async def test_jtag_sample(dut):
     jtag = await setup_for_jtag(dut)
+    # TODO do this by specifiing boundary cell values
 
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
-
-@cocotb.test(skip=enabled!=jtag_preload)
-async def test_jtag_preload(dut):
-    jtag = await setup_for_jtag(dut)
-
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
 
 @cocotb.test(skip=enabled!=jtag_extest)
 async def test_jtag_extest(dut):
     jtag = await setup_for_jtag(dut)
+    
+    dut.io_gpio_PAD[1].value = 0
+    dut.io_gpio_PAD[3].value = 0
+    dut.io_gpio_PAD[4].value = 0
+    dut.io_gpio_PAD[6].value = 0
+    dut.io_gpio_PAD[9].value = 0
+    dut.io_gpio_PAD[11].value = 0
+    dut.io_gpio_PAD[12].value = 0
+    dut.io_gpio_PAD[14].value = 0
+    dut.io_gpio_PAD[17].value = 0
+    dut.io_gpio_PAD[19].value = 0
+    dut.io_gpio_PAD[20].value = 0
+    dut.io_gpio_PAD[22].value = 0
+    dut.io_gpio_PAD[25].value = 0
+    dut.io_gpio_PAD[27].value = 0
+    dut.io_gpio_PAD[28].value = 0
+    dut.io_gpio_PAD[30].value = 0
+    
+    # Test instr TODO find how to access returned value
+    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
+    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
+    dut.io_gpio_PAD[1].value = 1
+    dut.io_gpio_PAD[3].value = 1
+    dut.io_gpio_PAD[4].value = 1
+    dut.io_gpio_PAD[6].value = 1
+    dut.io_gpio_PAD[9].value = 1
+    dut.io_gpio_PAD[11].value = 1
+    dut.io_gpio_PAD[12].value = 1
+    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b1_c431c431, device=1)
+    dut.io_gpio_PAD[14].value = 1
+    dut.io_gpio_PAD[17].value = 1
+    dut.io_gpio_PAD[19].value = 1
+    dut.io_gpio_PAD[20].value = 1
+    dut.io_gpio_PAD[22].value = 1
+    dut.io_gpio_PAD[25].value = 1
+    dut.io_gpio_PAD[27].value = 1
+    dut.io_gpio_PAD[28].value = 1
+    dut.io_gpio_PAD[30].value = 1
+    await jtag.write("EXTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b9_e6b9e6b8, device=1)
 
-    # Change Fabric GPIO 1,3,4,6
-    dut.io_gpio_PAD[1]
-    dut.io_gpio_PAD[3]
-    dut.io_gpio_PAD[4]
-    dut.io_gpio_PAD[6]
-
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
+    await ClockCycles(dut.io_clock_PAD, 10)
 
 @cocotb.test(skip=enabled!=jtag_intest)
 async def test_jtag_intest(dut):
+    # TODO this testcase
     jtag = await setup_for_jtag(dut)
+    dut.io_gpio_PAD[1].value = 0
+    dut.io_gpio_PAD[3].value = 0
+    dut.io_gpio_PAD[4].value = 0
+    dut.io_gpio_PAD[6].value = 0
+    dut.io_gpio_PAD[9].value = 0
+    dut.io_gpio_PAD[11].value = 0
+    dut.io_gpio_PAD[12].value = 0
+    dut.io_gpio_PAD[14].value = 0
+    dut.io_gpio_PAD[17].value = 0
+    dut.io_gpio_PAD[19].value = 0
+    dut.io_gpio_PAD[20].value = 0
+    dut.io_gpio_PAD[22].value = 0
+    dut.io_gpio_PAD[25].value = 0
+    dut.io_gpio_PAD[27].value = 0
+    dut.io_gpio_PAD[28].value = 0
+    dut.io_gpio_PAD[30].value = 0
+    
+    # Test instr TODO find how to access returned value
+    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
+    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xc431c431_c431c431, device=1)
+    dut.io_gpio_PAD[1].value = 1
+    dut.io_gpio_PAD[3].value = 1
+    dut.io_gpio_PAD[4].value = 1
+    dut.io_gpio_PAD[6].value = 1
+    dut.io_gpio_PAD[9].value = 1
+    dut.io_gpio_PAD[11].value = 1
+    dut.io_gpio_PAD[12].value = 1
+    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b1_c431c431, device=1)
+    dut.io_gpio_PAD[14].value = 1
+    dut.io_gpio_PAD[17].value = 1
+    dut.io_gpio_PAD[19].value = 1
+    dut.io_gpio_PAD[20].value = 1
+    dut.io_gpio_PAD[22].value = 1
+    dut.io_gpio_PAD[25].value = 1
+    dut.io_gpio_PAD[27].value = 1
+    dut.io_gpio_PAD[28].value = 1
+    dut.io_gpio_PAD[30].value = 1
+    await jtag.write("INTEST", 0xc639c639_c639c639, ret_val=0xe6b9e6b9_e6b9e6b8, device=1)
 
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
+    await ClockCycles(dut.io_clock_PAD, 10)
 
 @cocotb.test(skip=enabled!=jtag_isc)
 async def test_jtag_isc(dut):
     jtag = await setup_for_jtag(dut)
-
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
 
 @cocotb.test(skip=enabled!=jtag_commands)
 async def test_jtag_commands(dut):
@@ -634,8 +681,8 @@ async def test_jtag_commands(dut):
     # TODO check pattern in boundary reg
     await jtag.write("USERCODE", 0xa5a5a5a5, device=1)        # Need rom downloaded
     await jtag.write("SAMPLE", 0xaaaaaaaa_55555555, device=1) # Better sample test (need fpga rom downloaded)
-    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1) # Works
-    await jtag.write("EXTEST", 0x1c0ffee1_deadbeef, device=1) # Works
+    await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1)
+    await jtag.write("EXTEST", 0x1c0ffee1_deadbeef, device=1)
     await jtag.write("PRELOAD", 0xc639c639_c639c639, device=1) 
     await jtag.write("INTEST", 0xdeadbeef_1c0ffee1, device=1)
     await jtag.write("SAMPLE", 0x55555555_aaaaaaaa, device=1)
@@ -652,8 +699,6 @@ async def test_jtag_commands(dut):
     # TODO Check sample, usercode and intest after programming
 
     await ClockCycles(dut.io_clock_PAD, 100)
-    # Unset env var
-    os.environ.pop("COCOTB_RESOLVE_X")
 
 if __name__ == "__main__":
 
