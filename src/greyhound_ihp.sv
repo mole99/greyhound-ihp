@@ -224,8 +224,9 @@ module greyhound_ihp (
         jtag_trst_n_module_sync <= jtag_trst_n_module_sync_d;
     end
 
+    assign jtag_tck = fpga_sclk_i;
+
     always_comb begin
-        jtag_tck         = 1'b0;
         jtag_tms         = 1'b0;
         jtag_tdi         = 1'b0;
         fpga_miso_o      = 1'b0;
@@ -263,7 +264,6 @@ module greyhound_ihp (
             if (jtag_trst_ni_sync) begin
                 // srst pulled, trst not -> do special init (configure for jtag input instead of spi)
                 // Run init sequence through jtag interface
-                jtag_tck = fpga_sclk_i;
                 jtag_tms = fpga_cs_n_i;
                 jtag_tdi = fpga_mosi_i;
                 // TODO test if one can disable this output until fully configured
@@ -344,7 +344,6 @@ module greyhound_ihp (
             spi_controller_miso_i = 1'b0;
 
             // JTAG receiver
-            jtag_tck = fpga_sclk_i;
             jtag_tms = fpga_cs_n_i;
             jtag_tdi = fpga_mosi_i;
             fpga_miso_o = jtag_tdo;
@@ -377,7 +376,8 @@ module greyhound_ihp (
         .miso_o     (spi_receiver_miso_o)
     );
 
-    // TODO allow tap isc case change when loading rom over spi/CPU
+    logic [31:0] bitstream_data;
+    logic        bitstream_valid;
     wire fpga_jtag_tdi;
     fpga_dm #(
         .FABRIC_NUM_IO_WEST ( FABRIC_NUM_IO_WEST )
@@ -395,6 +395,10 @@ module greyhound_ihp (
         // ISC Program
         .jtag_bitstream_o       ( jtag_bitstream_data     ),
         .jtag_bitstream_valid_o ( jtag_bitstream_valid    ),
+        .fabric_busy_i          ( fabric_config_busy      ),
+        .fabric_configured_i    ( fabric_config_configured ),
+        .fabric_bitstream_valid_i ( bitstream_valid         ),
+        .fabric_bitstream_data_i  ( bitstream_data          ),
         // Boundary scan register (intercept all relevant fabric connections)
         // GPIOs
         // to boundary
@@ -483,11 +487,7 @@ module greyhound_ihp (
         .miso_i     (spi_controller_miso_i)
     );
     
-    // Mux bitstreams: SPI (controller/receiver) <-> CPU
-    
-    logic [31:0] bitstream_data;
-    logic        bitstream_valid;
-    
+    // Mux bitstreams: SPI (controller/receiver) <-> CPU    
     always_comb begin
         if (spi_bitstream_valid) begin
             bitstream_data = spi_bitstream_data;

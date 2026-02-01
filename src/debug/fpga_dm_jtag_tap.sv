@@ -44,6 +44,8 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // Fabric program bitstream register
   output logic        isc_pdata_valid_o,
   output logic [31:0] isc_pdata_o,
+  input  logic        isc_ext_prog_i,
+  input  logic        isc_ext_conf_i,
   // Boundary scan
   output logic        mode1_o,
   output logic        mode2_o,
@@ -82,12 +84,11 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   typedef enum logic [IrLength-1:0] {
     BYPASS0        = 'h0,
     IDCODE         = 'h1,
-    USERCODE       = 'h2, // TODO test, when configured...
+    USERCODE       = 'h2,
     SAMPLE_PRELOAD = 'h3,
     EXTEST         = 'h4,
     INTEST         = 'h5,
     EJTAG          = 'h10, // Enable JTAG pin functionality, set register to enable/disable jtag functionality
-    // TODO verify (need 1149.1) IEEE1532
     ISC_ENABLE     = 'h14,
     ISC_DISABLE    = 'h15,
     ISC_PROGRAM    = 'h16,
@@ -248,6 +249,7 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // Mode select for IEEE
   // ---------------
   logic testmode_clk_pulse_d, testmode_clk_pulse_q;
+  logic isc_highZ, isc_update_dr;
   if (EnabledBSRLength == None) begin
     assign clk_bsr_select_o     = '0;
     assign capture_bsr_select_o = '0;
@@ -260,24 +262,24 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     assign clk_bsr_select_o     = boundary_scan_select;
     assign capture_bsr_select_o = boundary_scan_select & capture_dr;
     assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
-    assign update_bsr_select_o  = boundary_scan_select & update_dr;
-    assign testmode_o           = mode1_o | (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
+    assign update_bsr_select_o  = boundary_scan_select & isc_update_dr & ~isc_highZ;
+    assign testmode_o           = (jtag_ir_q == EXTEST) | (jtag_ir_q == INTEST) | (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
     assign testmode_clk_pulse_o = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
+
+    // Determine clk pulse in test mode
+    always_comb begin
+      unique case (tap_state_q)
+        RunTestIdle: testmode_clk_pulse_d = 1'b1;
+        // Create a single pulse if idle state is skipped, must happen between update and capture are performed
+        // Update happens on falling edge, capture happens 2 cyles later on rising edge at the minimum
+        UpdateDr:    testmode_clk_pulse_d = tms_i;
+        UpdateIr:    testmode_clk_pulse_d = tms_i;
+        default:     testmode_clk_pulse_d = 1'b0;
+      endcase
+    end
   end
 
-  // Determin clk pulse in test mode
-  always_comb begin
-    unique case (tap_state_q)
-      RunTestIdle: testmode_clk_pulse_d = 1'b1;
-      // Create a single pulse if idle state is skipped, must happen between update and capture are performed
-      // Update happens on falling edge, capture happens 2 cyles later on rising edge at the minimum
-      UpdateDr:    testmode_clk_pulse_d = tms_i;
-      UpdateIr:    testmode_clk_pulse_d = tms_i;
-      default:     testmode_clk_pulse_d = 1'b0;
-    endcase
-  end
-
-  // Determin ISC mode
+  // Determine ISC mode
   always_comb begin
     isc_enable_select    = 1'b0;
     isc_disable_select   = 1'b0;
@@ -289,40 +291,74 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     endcase
   end
 
-  // Determin logic mode (In boundary scan)
   if (EnabledBSRLength != None) begin
-    always_comb begin
-      mode1_o              = 1'b0;
-      mode2_o              = 1'b0;
-      mode5_o              = 1'b0;
-      mode6_o              = 1'b1;
+    // Determine ISC highZ (Sets known IO state, when unprogrammed)
+    assign isc_highZ     = (tap_isc_state_q != Operational) & ~testmode_o & ejtag_i;
+    // Allow to update bsr with preload in all isc states when entering testmode shortly afterwards
+    assign isc_update_dr = update_dr | ((jtag_ir_q == SAMPLE_PRELOAD) & testmode_o & (tap_isc_state_q != Operational));
+  end
+  else begin
+    assign isc_highZ     = 0;
+    assign isc_update_dr = update_dr;
+  end
 
+  // Determine logic mode (In boundary scan)
+  // Value has to be present when the single step clk pulse rises, otherwise capture may be to early
+  always_comb begin
+    if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
+      mode1_o = isc_highZ | (jtag_ir_d == INTEST) | (jtag_ir_d == EXTEST);
+    end
+    else begin
+      mode1_o = 1'b0;
+    end
+
+    if ((EnabledBSRLength != None)) begin
+      mode2_o = jtag_ir_d == INTEST;
+    end
+    else begin
+      mode2_o = 1'b0;
+    end
+    
+    if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
+      mode5_o = isc_highZ | (jtag_ir_d == EXTEST);
+      mode6_o = jtag_ir_d != INTEST;
+    end
+    else begin
+      mode5_o = 1'b0;
+      mode6_o = 1'b0;
+    end
+
+    if (EnabledBSRLength != None) begin
       unique case (jtag_ir_q)
         INTEST: begin
-          mode1_o    = 1'b1;
-          mode2_o    = 1'b1;
+          if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
+            mode1_o = 1'b1;
+          end
+          mode2_o = 1'b1;
+          if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
+            mode6_o = 1'b0;
+          end
         end
         EXTEST: begin
-          mode1_o    = 1'b1;
-          mode5_o    = 1'b1;
-          mode6_o    = 1'b1;
+          if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
+            mode1_o = 1'b1;
+          end
+          if ((EnabledBSRLength == External) || (EnabledBSRLength == All)) begin
+            mode5_o = 1'b1;
+          end
         end
         default:;
       endcase
     end
   end
-  else begin
-    assign mode1_o = 1'b0;
-    assign mode2_o = 1'b0;
-    assign mode5_o = 1'b0;
-    assign mode6_o = 1'b0;
-  end
 
-  always_ff @(posedge tck_i, negedge trst_ni) begin
-    if (!trst_ni) begin
-      testmode_clk_pulse_q <= '0;
-    end else begin
-      testmode_clk_pulse_q <= testmode_clk_pulse_d;
+  if (EnabledBSRLength != None) begin
+    always_ff @(posedge tck_i, negedge trst_ni) begin
+      if (!trst_ni) begin
+        testmode_clk_pulse_q <= '0;
+      end else begin
+        testmode_clk_pulse_q <= testmode_clk_pulse_d;
+      end
     end
   end
 
@@ -376,21 +412,29 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
       isc_done_q               <= '0;
       isc_disable_completing_q <= '0;
     end else begin
-      isc_enabled_q            <= isc_enabled_d;
-      isc_done_q               <= isc_done_d;
-      isc_disable_completing_q <= isc_disable_completing_d;
+      if (isc_ext_prog_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric is beeing configured by cpu
+        isc_enabled_q            <= 1'b1;
+        isc_done_q               <= '0;
+        isc_disable_completing_q <= '0;
+      end 
+      else if (isc_ext_conf_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric was configured by cpu
+        isc_enabled_q            <= '0;
+        isc_done_q               <= 1'b1;
+        isc_disable_completing_q <= '0;
+      end
+      else begin
+        isc_enabled_q            <= isc_enabled_d;
+        isc_done_q               <= isc_done_d;
+        isc_disable_completing_q <= isc_disable_completing_d;
+      end
     end
   end
-
-  assign tap_isc_state_q = tap_isc_state_e'({isc_enabled_q, isc_done_q, isc_disable_completing_q});
-
 
   // ----------------
   // TAP ISC FSM
   // ----------------
-  // TODO test mode, depending on IEEE1149
-  // TODO io states as described in IEEE1532 section 4.2
-  // TODO NOOP does something different from bypass relevant for io state
+  assign tap_isc_state_q = tap_isc_state_e'({isc_enabled_q, isc_done_q, isc_disable_completing_q});
+
   always_comb begin : p_tap_isc_fsm
     isc_enabled_d            = isc_enabled_q;
     isc_done_d               = isc_done_q;

@@ -23,6 +23,10 @@ module fpga_dm import soc_pkg::*; #(
     // ISC_PROGRAM
     output logic [31:0] jtag_bitstream_o,
     output logic        jtag_bitstream_valid_o,
+    input  logic        fabric_busy_i,
+    input  logic        fabric_configured_i,
+    input  logic        fabric_bitstream_valid_i,
+    input  logic [31:0] fabric_bitstream_data_i,
 
     // Boundary scan registers
     // GPIOs
@@ -111,10 +115,10 @@ module fpga_dm import soc_pkg::*; #(
     // ejtag controls "enable jtag" alternate pinout function. It is only ever reset by trst. 
     logic ejtag_d, ejtag_q, ejtag_valid;
     // ISC Program
-    logic        isc_pdata_valid;
+    logic        isc_pdata_valid, isc_ext_prog, isc_ext_conf;
     logic [31:0] isc_pdata;
     // USERCODE
-    logic [31:0] usercode_d, usercode_q;
+    logic [31:0] jtag_usercode_q, usercode_q;
     logic        usercode_valid_d, usercode_valid_q;
     // Boundary scan registers
     logic tck_n, dm_clear;
@@ -122,7 +126,6 @@ module fpga_dm import soc_pkg::*; #(
     logic boundary_scan_tdi, boundary_scan_tdo;
     logic capture_bsr_select, shift_bsr_select, update_bsr_select;
 
-    // TODO: make this IEEE 1149.1 and IEEE 1532 compatible
     // TODO use raw_pld driver in openocd-> need to create raw bitfile with commands first....
     // ----------------
     // TAP
@@ -155,25 +158,41 @@ module fpga_dm import soc_pkg::*; #(
         .ejtag_valid_o  ( ejtag_valid ),
         .ejtag_i        ( ejtag_q     ),
         // Usercode
-        .usercode_i     ( usercode_q  ),
+        .usercode_i     ( jtag_usercode_q  ),
         // Jtag programming data
         .isc_pdata_valid_o ( isc_pdata_valid ),
-        .isc_pdata_o       ( isc_pdata       )
+        .isc_pdata_o       ( isc_pdata       ),
+        .isc_ext_prog_i    ( isc_ext_prog    ),
+        .isc_ext_conf_i    ( isc_ext_conf    )
     );
 
     // ----------------
     // USERCODE
     // ----------------
-    assign usercode_valid_d = isc_pdata_valid & (isc_pdata == BITFILE_START);
-    assign usercode_d       = usercode_valid_q ? isc_pdata : usercode_q;
-    always_ff @(posedge tck_i or negedge trst_ni) begin
-        if (!trst_ni) begin
+    assign usercode_valid_d = fabric_bitstream_valid_i & (fabric_bitstream_data_i == BITFILE_START);
+    always_ff @(posedge clk_i, negedge rst_ni) begin
+        if (!rst_ni) begin
             usercode_q       <= '0;
             usercode_valid_q <= 1'b0;
         end else begin
-            usercode_q       <= usercode_d;
-            usercode_valid_q <= usercode_valid_d;
+            if (usercode_valid_q & fabric_bitstream_valid_i) begin
+                usercode_q <= fabric_bitstream_data_i;
+            end
+
+            if (fabric_bitstream_valid_i) begin
+                usercode_valid_q <= 1'b0;
+            end
+            
+            if (usercode_valid_d) begin
+                usercode_valid_q <= 1'b1;
+            end
         end
+    end
+
+    // Sync whole usercode into tclk domain, this will never be used faster than 10 tclk cycles 
+    // after changing usercode_q (because of the IEEE1149.1 state machine and fabric programming taking many cycles)
+    always_ff @(posedge tck_i) begin
+        jtag_usercode_q <= usercode_q;
     end
 
     // ----------------
@@ -197,9 +216,9 @@ module fpga_dm import soc_pkg::*; #(
     assign en_jtag_receiver_o = en_jtag_receiver_d[1];
 
     // ----------------
-    // PROGRAM CDC
+    // PROGRAM
     // ----------------
-    cdc_2phase_clearable #(.T(logic [31:0])) i_cdc_req (
+    cdc_2phase_clearable #(.T(logic [31:0])) i_cdc_jtag_out (
         .src_rst_ni  ( trst_ni                ),
         .src_clear_i ( dm_clear               ),
         .src_clk_i   ( tck_i                  ),
@@ -213,6 +232,16 @@ module fpga_dm import soc_pkg::*; #(
         .dst_valid_o ( jtag_bitstream_valid_o ),
         .dst_ready_i ( 1'b1                   )
     );
+
+    // Sync fabric_configured_i and fabric_busy_i as single pulse
+    logic [2:0] isc_ext_prog_d;
+    logic [2:0] isc_ext_conf_d;
+    always_ff @(posedge tck_i) begin
+        isc_ext_prog_d <= {isc_ext_prog_d[1:0], fabric_busy_i};
+        isc_ext_conf_d <= {isc_ext_conf_d[1:0], fabric_configured_i};
+    end
+    assign isc_ext_prog = ~isc_ext_prog_d[2] & isc_ext_prog_d[1];
+    assign isc_ext_conf = ~isc_ext_conf_d[2] & isc_ext_conf_d[1];
 
     // ----------------
     // Boundary scan registers

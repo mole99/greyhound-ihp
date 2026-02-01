@@ -137,17 +137,16 @@ jtag_bsr_all = {
     'bsr_length': 309,
 }
 
-jtag_isc = {
-    'flash0_slot0': '',
+jtag_cpu = {
+    'flash0_slot0': '../../../firmware/write_fpga/write_fpga.hex',
     'flash0_slot1': '',
     'flash1_slot0': '',
     'flash1_slot1': '',
     'connect_flash1': False,
     'dump_waveforms': True,
-    'isc':'',
 }
 
-enabled = jtag_bsr_all
+enabled = jtag_cpu
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -550,6 +549,7 @@ async def setup_for_jtag(dut):
 
 @cocotb.test(skip=(enabled!=jtag_bsr_none and enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_enable(dut):
+    """Permanently enable jtag interface"""
     jtag = await setup_for_jtag(dut)
 
     # Test interface enabled
@@ -564,7 +564,9 @@ async def test_jtag_enable(dut):
 
 @cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_sample(dut):
+    """JTAG SAMPLE command"""
     jtag = await setup_for_jtag(dut)
+
     # Set outputs
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         # GPIOs
@@ -606,6 +608,12 @@ async def test_jtag_sample(dut):
         ret_val = [0xaaaaa_aaaaaaaa_aaa00000_00000000_00000000_00000000_00000000_00000000_00000000_00000000,
                    0x1afeaf_abfafeaf_abf80000_000001ef_67ab23cd_45890555_55555a22_f7b3d591_e6a2c407_77777774]
 
+    # Change isc state to operational (without device programming)
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
     await jtag.read("SAMPLE", device=1)
     assert(jtag.ret_val == ret_val[0])
 
@@ -635,7 +643,9 @@ async def test_jtag_sample(dut):
 
 @cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_extest(dut):
+    """JTAG EXTEST command, with stepping through ICS (IEEE1532) testmode"""
     jtag = await setup_for_jtag(dut)
+
     # Set extest inputs
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         # GPIOs
@@ -698,6 +708,24 @@ async def test_jtag_extest(dut):
                      0x1cd73c_d6388638_863861ef_67ab23cd_45890aaa_aaaab000_00000000_00000000_00000000_00000000,
                      0x1cd73c_d73cd73c_d73861ef_67ab23cd_45890aaa_aaaab000_00000000_f7b3d591_e6a2c484_00000000]
 
+    # Test isc preload
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    await jtag.write("PRELOAD", write_val, device=1)
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(jtag.ret_val == ret_val[0])
+    await jtag.write("BYPASS", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+
+    # Change isc state to operational (without device programming) and test testmode behaviour
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0x1) # ISC Accessed
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    await jtag.write("EXTEST", write_val, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
     # Test if preload holds the value until test
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
@@ -755,7 +783,9 @@ async def test_jtag_extest(dut):
 
 @cocotb.test(skip=(enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
 async def test_jtag_intest(dut):
+    """JTAG INTEST command"""
     jtag = await setup_for_jtag(dut)
+
     # Set intest outputs
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         # GPIOs
@@ -819,6 +849,12 @@ async def test_jtag_intest(dut):
                      0x19c779_c728c328_c3380000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123454_00000000,
                      0x19c779_c779c779_c7780000_0000001a_bfafeaff_aefaff7b_3d5916d2_00000000_0c123456_479a8b11]
 
+    # Change isc state to operational (without device programming)
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
     # Test if preload holds the value until test
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
@@ -871,22 +907,118 @@ async def test_jtag_intest(dut):
 
     await ClockCycles(dut.io_clock_PAD, 10)
 
-@cocotb.test(skip=enabled!=jtag_isc)
-async def test_jtag_isc(dut):
-    jtag = await setup_for_jtag(dut)
-    # TODO test isc cycle in combination with spi/CPU
-    # TODO also test USERCODE instr
-    # Test ics functions with simple device programming
-    # TODO check pattern from fig 6 page 26 IEEE1532 after writing JTAG instr.
-    # TODO test in/extest after programming
-    await jtag.write("ISC_ENABLE", 0x1, device=1)
-    await jtag.write("ISC_PROGRAM", 0xdeadbeef, device=1)
-    await jtag.write("ISC_PROGRAM", 0x1c0ffee1, device=1)
-    await jtag.write("ISC_NOOP", 0x1, device=1)
-    await jtag.write("ISC_DISABLE", 0x1, device=1)
-    await jtag.write("ISC_ENABLE", 0x1, device=1)
+async def write_bitstream_jtag(filename, jtag):
+    with open(filename, 'br') as f:
+        data = f.read(4)
+        while data:
+            number = int.from_bytes(data, "big")
+            await jtag.write("ISC_PROGRAM", number, device=1)
+            data = f.read(4)
 
-    await ClockCycles(dut.io_clock_PAD, 100)
+@cocotb.test(skip=(enabled!=jtag_bsr_none and enabled!=jtag_bsr_external and enabled!=jtag_bsr_internal and enabled != jtag_bsr_all))
+async def test_jtag_isc(dut):
+    """ISC (IEEE1532) device programming, with USERCODE command support"""
+    jtag = await setup_for_jtag(dut)
+
+    # Test USERCODE
+    await jtag.read("USERCODE", device=1)
+    assert(jtag.ret_val == 0x0)
+
+    # Program device over jtag
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    await write_bitstream_jtag('../../../ip/fabric/user_designs/all_ones/all_ones.bit', jtag)
+    
+    # Finished programming
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    # Should be back in accessed state
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    
+    # Test NOOP
+    await jtag.write("ISC_NOOP", 0x1, device=1)
+    await jtag.write("ISC_NOOP", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
+    
+    # Test Operational
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
+    await jtag.write("BYPASS", 0x1, device=1)
+
+    # Should be in operational state
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+
+    # Check program
+    assert(dut.io_config_busy_PAD.value == 0)
+    assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
+
+    # Test USERCODE
+    await jtag.read("USERCODE", device=1)
+    assert(jtag.ret_val == 0x1)
+
+    await ClockCycles(dut.io_clock_PAD, 10)
+
+@cocotb.test(skip=enabled!=jtag_cpu)
+async def test_jtag_spi_cpu(dut):
+    """Program fabric with jtag and cpu"""
+    jtag = await setup_for_jtag(dut)
+
+    # Program with cpu, jtag not running but in jtag mode
+    cocotb.log.info("Waiting for configuration to start.")
+    await RisingEdge(dut.io_config_busy_PAD)
+    cocotb.log.info("Waiting for configuration to end.")
+    await FallingEdge(dut.io_config_busy_PAD)
+
+    # Clock jtag port (to update the fpga io's)
+    await jtag.write("BYPASS", 0x1, device=1)
+    await jtag.write("BYPASS", 0x1, device=1)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
+
+    # Check if device is programmed
+    await jtag.read("USERCODE", device=1)
+    assert(jtag.ret_val == 0x1)
+
+    # Reprogram device (only reprogram parts as to save sim time)
+    await jtag.write("ISC_ENABLE", 0x1, device=1)
+    bitstream = [0x00aaff01, 0x00000002, 0x00000000, 0x00000000, 0xfab0fab1, 0x00000001,
+                 0x00000000, 0xcb940000, 0xc9900000, 0xc9900000, 0xc3840000, 0xc1800000, 
+                 0xcb940000, 0xc3840000, 0xc3840000, 0xc9900000, 0xcf9c0000, 0xc1800000,
+                 0xcb940000, 0xc5880000, 0xcb940000, 0xc3840000, 0xcd980000, 0x00000000,
+                 0x00100000]
+
+    for i in range(len(bitstream)):
+        await jtag.write("ISC_PROGRAM", bitstream[i], device=1)
+
+    await jtag.write("ISC_DISABLE", 0x1, device=1)
+    await jtag.read("USERCODE", device=1)
+    assert(jtag.ret_val == 0x2)
+    assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
+    assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
+
+    # Keep running in system mode until fabric is reconfigured
+    # Test if isc state changes when fabric is busy
+    for _ in range(100):
+        await jtag.write("BYPASS", 0x1, device=1)
+        await jtag.write("ISC_NOOP", 0x1, device=1)
+
+    await jtag.read("USERCODE", device=1)
+    assert(jtag.ret_val == 0x3)
+    assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
+
+    await jtag.write("EJTAG", 0x0, device=1)
+    await ClockCycles(dut.io_clock_PAD, 10)
+    cocotb.log.info("JTAG interface disabled.")
+
+    await ClockCycles(dut.io_clock_PAD, 10)
 
 if __name__ == "__main__":
 
@@ -1121,5 +1253,5 @@ if __name__ == "__main__":
         test_module="FMD_QNC_greyhound_ihp_tb,",
         plusargs=plusargs,
         waves=True,
-        extra_env = {"COCOTB_RESOLVE_X": "RANDOM"}, # Needed because JTAG pins are not always reserved
+        extra_env = {"COCOTB_RESOLVE_X": "ZEROS"}, # Needed because JTAG pins are not always reserved
     )
