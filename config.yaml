@@ -55,7 +55,6 @@ VERILOG_FILES:
 - dir::ip/common_cells/src/lzc.sv
 - dir::ip/common_cells/src/cdc_2phase_clearable.sv
 - dir::ip/common_cells/src/deprecated/fifo_v2.sv
-- dir::ip/common_cells/src/fifo_v3.sv
 - dir::ip/common_cells/src/cdc_reset_ctrlr.sv
 - dir::ip/common_cells/src/sync.sv
 - dir::ip/common_cells/src/cdc_4phase.sv
@@ -98,7 +97,12 @@ VERILOG_FILES:
 - dir::ip/riscv-dbg/src/dm_mem.sv
 - dir::ip/riscv-dbg/debug_rom/debug_rom.sv
 - dir::ip/riscv-dbg/debug_rom/debug_rom_one_scratch.sv
-- dir::src/riscv-dbg/tc_clk_wrapper.sv
+- dir::src/debug/tc_clk_wrapper.sv
+- dir::src/debug/fpga_dm_jtag_tap.sv
+- dir::src/debug/fpga_dm.sv
+- dir::src/debug/fpga_boundary_cell_inout.sv
+- dir::src/debug/fpga_boundary_cell_output.sv
+- dir::src/debug/fpga_boundary_cell_input.sv
 
 # INCLUDES
 VERILOG_INCLUDE_DIRS:

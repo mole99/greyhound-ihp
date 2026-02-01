@@ -38,42 +38,24 @@ endmodule
 
 (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:25.8" *)
 module \DMC$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL.CACHE (A, clk, rst_n, Do, hit, line, wr);
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire [15:0] _004_;
-  wire _005_;
-  wire [15:0] _006_;
-  wire _007_;
-  wire [255:0] _008_;
-  wire _009_;
-  wire [14:0] _010_;
-  wire _011_;
-  wire [8:0] _012_;
-  wire [255:0] _013_;
+  wire _00_;
+  wire _01_;
+  wire _02_;
+  wire _03_;
+  wire [1:0] _04_;
+  wire _05_;
+  wire [1:0] _06_;
+  wire _07_;
+  wire [255:0] _08_;
+  wire _09_;
+  wire [17:0] _10_;
+  wire _11_;
+  wire [8:0] _12_;
+  wire [255:0] _13_;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:69.13-70.41" *)
-  wire [15:0] _014_;
-  wire [7:0] _015_;
-  wire [3:0] _016_;
-  wire [1:0] _017_;
-  wire _018_;
-  wire _019_;
-  wire _020_;
-  wire _021_;
-  wire _022_;
-  wire _023_;
-  wire _024_;
-  wire _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
+  wire [1:0] _14_;
+  wire _15_;
+  wire _16_;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:31.37" *)
   input [23:0] A;
   wire [23:0] A;
@@ -81,7 +63,7 @@ module \DMC$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL.CACHE (A, clk, rst_n, Do, hit,
   output [31:0] Do;
   wire [31:0] Do;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:48.33" *)
-  reg [15:0] VALID;
+  reg [1:0] VALID;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:28.37" *)
   input clk;
   wire clk;
@@ -89,7 +71,7 @@ module \DMC$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL.CACHE (A, clk, rst_n, Do, hit,
   output hit;
   wire hit;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:53.33" *)
-  wire [3:0] index;
+  wire index;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:35.37" *)
   input [255:0] line;
   wire [255:0] line;
@@ -100,157 +82,58 @@ module \DMC$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL.CACHE (A, clk, rst_n, Do, hit,
   input rst_n;
   wire rst_n;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:54.33" *)
-  wire [14:0] tag;
+  wire [17:0] tag;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:52.33" *)
   wire [2:0] word_offset;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:36.37" *)
   input wr;
   wire wr;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:46.33" *)
-  reg [255:0] LINES [15:0];
+  reg [255:0] LINES [1:0];
   always_ff @(posedge clk) begin
-    if (_008_[255])
-      LINES[A[8:5]] <= line;
+    if (_08_[255])
+      LINES[A[5]] <= line;
   end
-  assign _013_ = LINES[A[8:5]];
+  assign _13_ = LINES[A[5]];
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:47.33" *)
-  reg [14:0] TAGS [15:0];
+  reg [17:0] TAGS [1:0];
   always_ff @(posedge clk) begin
-    if (_008_[255])
-      TAGS[A[8:5]] <= A[23:9];
+    if (_08_[255])
+      TAGS[A[5]] <= A[23:6];
   end
-  assign _010_ = TAGS[A[8:5]];
-  assign _000_ = A[8:5] < (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) 5'h10;
-  wire [255:0] _111_ = _013_;
-  assign Do = _111_[$signed({ 1'h0, _012_ }) +: 32];
-  assign _001_ = A[8:5] >= (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h0;
-  assign _002_ = _001_ && (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _000_;
-  assign _003_ = _002_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h1 : 1'h0;
-  assign _009_ = _000_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _005_ : 1'hx;
-  assign _008_[255] = _007_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:74.13-74.36" *) 1'h1 : 1'h0;
-  assign _011_ = _010_ == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.37-57.55" *) A[23:9];
-  assign hit = _009_ & (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.56" *) _011_;
-  assign _012_ = A[4:2] * (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:60.30-60.44" *) 6'h20;
-  assign _015_[0] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[1] : VALID[0];
-  assign _015_[1] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[3] : VALID[2];
-  assign _015_[2] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[5] : VALID[4];
-  assign _015_[3] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[7] : VALID[6];
-  assign _015_[4] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[9] : VALID[8];
-  assign _015_[5] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[11] : VALID[10];
-  assign _015_[6] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[13] : VALID[12];
-  assign _015_[7] = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[15] : VALID[14];
-  assign _016_[0] = A[6] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _015_[1] : _015_[0];
-  assign _016_[1] = A[6] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _015_[3] : _015_[2];
-  assign _016_[2] = A[6] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _015_[5] : _015_[4];
-  assign _016_[3] = A[6] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _015_[7] : _015_[6];
-  assign _017_[0] = A[7] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _016_[1] : _016_[0];
-  assign _017_[1] = A[7] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _016_[3] : _016_[2];
-  assign _018_ = A[8] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _017_[1] : _017_[0];
-  assign _019_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h0;
-  assign _020_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h1;
-  assign _021_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h2;
-  assign _022_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h3;
-  assign _023_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h4;
-  assign _024_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h5;
-  assign _025_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h6;
-  assign _026_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h7;
-  assign _027_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h8;
-  assign _028_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'h9;
-  assign _029_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'ha;
-  assign _030_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'hb;
-  assign _031_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'hc;
-  assign _032_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'hd;
-  assign _033_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'he;
-  assign _034_ = A[8:5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 4'hf;
-  assign _004_[0] = _019_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[1] = _020_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[2] = _021_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[3] = _022_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[4] = _023_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[5] = _024_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[6] = _025_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[7] = _026_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[8] = _027_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[9] = _028_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[10] = _029_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[11] = _030_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[12] = _031_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[13] = _032_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[14] = _033_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _004_[15] = _034_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _003_ : 1'h0;
-  assign _006_ = VALID | _004_;
+  assign _10_ = TAGS[A[5]];
+  assign _00_ = A[5] < (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) 2'h2;
+  assign _05_ = A[5] ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) VALID[1] : VALID[0];
+  wire [255:0] _37_ = _13_;
+  assign Do = _37_[$signed({ 1'h0, _12_ }) +: 32];
+  assign _01_ = A[5] >= (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h0;
+  assign _02_ = _01_ && (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _00_;
+  assign _03_ = _02_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h1 : 1'h0;
+  assign _09_ = _00_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.33" *) _05_ : 1'hx;
+  assign _08_[255] = _07_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:74.13-74.36" *) 1'h1 : 1'h0;
+  assign _11_ = _10_ == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.37-57.55" *) A[23:6];
+  assign hit = _09_ & (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:57.21-57.56" *) _11_;
+  assign _12_ = A[4:2] * (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:60.30-60.44" *) 6'h20;
+  assign _15_ = A[5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h0;
+  assign _16_ = A[5] == (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) 1'h1;
+  assign _04_[0] = _15_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _03_ : 1'h0;
+  assign _04_[1] = _16_ ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.40" *) _03_ : 1'h0;
+  assign _06_ = VALID | _04_;
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) VALID[0] <= 1'h0;
-    else VALID[0] <= _014_[0];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[10] <= 1'h0;
-    else VALID[10] <= _014_[10];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[11] <= 1'h0;
-    else VALID[11] <= _014_[11];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[12] <= 1'h0;
-    else VALID[12] <= _014_[12];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[13] <= 1'h0;
-    else VALID[13] <= _014_[13];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[14] <= 1'h0;
-    else VALID[14] <= _014_[14];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[15] <= 1'h0;
-    else VALID[15] <= _014_[15];
+    else VALID[0] <= _14_[0];
   (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) VALID[1] <= 1'h0;
-    else VALID[1] <= _014_[1];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[2] <= 1'h0;
-    else VALID[2] <= _014_[2];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[3] <= 1'h0;
-    else VALID[3] <= _014_[3];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[4] <= 1'h0;
-    else VALID[4] <= _014_[4];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[5] <= 1'h0;
-    else VALID[5] <= _014_[5];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[6] <= 1'h0;
-    else VALID[6] <= _014_[6];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[7] <= 1'h0;
-    else VALID[7] <= _014_[7];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[8] <= 1'h0;
-    else VALID[8] <= _014_[8];
-  (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:64.5" *)
-  always_ff @(posedge clk, negedge rst_n)
-    if (!rst_n) VALID[9] <= 1'h0;
-    else VALID[9] <= _014_[9];
-  assign _007_ = wr ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:73.16-76.12|ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:73.9-76.12" *) 1'h1 : 1'h0;
-  assign _014_ = wr ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.41|ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:69.13-70.41" *) _006_ : VALID;
-  assign _008_[254:0] = { _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255], _008_[255] };
-  assign index = A[8:5];
+    else VALID[1] <= _14_[1];
+  assign _07_ = wr ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:73.16-76.12|ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:73.9-76.12" *) 1'h1 : 1'h0;
+  assign _14_ = wr ? (* src = "ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:70.17-70.41|ip/EF_QSPI_XIP_CTRL/hdl/rtl/DMC.v:69.13-70.41" *) _06_ : VALID;
+  assign _08_[254:0] = { _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255], _08_[255] };
+  assign index = A[5];
   assign offset = A[4:0];
-  assign tag = A[23:9];
+  assign tag = A[23:6];
   assign word_offset = A[4:2];
-  assign _005_ = _018_;
 endmodule
 
 (* src = "ip/EF_PSRAM_CTRL/hdl/rtl/EF_PSRAM_CTRL.v:37.8" *)

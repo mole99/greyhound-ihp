@@ -173,7 +173,6 @@ module greyhound_soc_tb;
         .fetch_enable_i,
         .core_sleep_o,
 
-        // JTAG TODO
         .jtag_tck_i     (  ),
         .jtag_tdi_i     (  ),
         .jtag_tdo_o     (  ),

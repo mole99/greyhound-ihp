@@ -183,6 +183,7 @@ package soc_pkg;
     };
 
     // Supported boundary scan register length for the fabric fpga
+    // The bsr length will limit the cache to 8 lines for None and external and 2 lines for Internal and All
     typedef enum logic [1:0] {
         None,       // No bsr is implemented run everything through the bypass register (0 bit)
         External,   // Only the bsr for the west IOs is implemented (64 bit)

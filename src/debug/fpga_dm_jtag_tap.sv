@@ -174,6 +174,9 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     if (EnabledBSRLength != None) begin
       boundary_scan_o = boundary_scan_i;
     end
+    else begin
+      boundary_scan_o = 1'b0;
+    end
 
     if (capture_dr) begin
       if (idcode_select)        idcode_d        = IdcodeValue;
@@ -213,10 +216,6 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     end
   end
 
-  if (EnabledBSRLength == None) begin
-    assign boundary_scan_o = '0;
-  end
-
   // ----------------
   // Data reg select
   // ----------------
@@ -251,7 +250,6 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   logic testmode_clk_pulse_d, testmode_clk_pulse_q;
   logic isc_highZ, isc_update_dr;
   if (EnabledBSRLength == None) begin
-    assign clk_bsr_select_o     = '0;
     assign capture_bsr_select_o = '0;
     assign shift_bsr_select_o   = '0;
     assign update_bsr_select_o  = '0;
@@ -259,7 +257,6 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     assign testmode_clk_pulse_o = '0;
   end
   else begin
-    assign clk_bsr_select_o     = boundary_scan_select;
     assign capture_bsr_select_o = boundary_scan_select & capture_dr;
     assign shift_bsr_select_o   = boundary_scan_select & shift_dr;
     assign update_bsr_select_o  = boundary_scan_select & isc_update_dr & ~isc_highZ;
