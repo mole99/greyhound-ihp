@@ -14,7 +14,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
 from cocotb.regression import TestFactory
-from cocotb.runner import get_runner
+from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
 
 hello_world = {
@@ -35,7 +35,7 @@ bitstream_upload = {
     'dump_waveforms': True,
 }
 
-enabled = hello_world
+enabled = bitstream_upload
 
 # Process control
 sem_openocd = threading.Semaphore(0)
@@ -46,7 +46,7 @@ ev_stop_printing = threading.Event()
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/freq*1000, 'ns')
-    await cocotb.start(c.start())
+    cocotb.start_soon(c.start())
 
 async def start_up(dut):
     """ Startup sequence """
@@ -309,13 +309,12 @@ if __name__ == "__main__":
         telnet_thread = threading.Thread(target=run_telnet, daemon=True)
         telnet_thread.start()
 
+    testbench_path = Path(__file__).resolve().parent
     sim         = os.getenv("SIM", "icarus")
-    pdk_root    = os.getenv("PDK_ROOT", Path("~/.ciel").expanduser())
+    pdk_root    = os.getenv("PDK_ROOT", testbench_path / '../../IHP-Open-PDK')
     pdk         = os.getenv("PDK", "ihp-sg13g2")
     scl         = os.getenv("SCL", "sg13g2_stdcell")
     gl          = os.getenv("GL", False)
-
-    testbench_path = Path(__file__).resolve().parent
     
     includes = [testbench_path / '../../rtl/include']
     
@@ -348,12 +347,12 @@ if __name__ == "__main__":
         testbench_path / '../greyhound_soc_dbg_tb/SimJTAG.sv',
         
         # SRAM models
-        testbench_path / '../../ip' / "RM_IHPSG13_1P_1024x32_c2_bm_bist" / "verilog" / "RM_IHPSG13_1P_1024x32_c2_bm_bist.v",
-        testbench_path / '../../ip' / "RM_IHPSG13_1P_1024x32_c2_bm_bist" / "verilog" / "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_1P_1024x32_c2_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
         
         # BRAM models
-        testbench_path / '../../ip' / "RM_IHPSG13_2P_1024x16_c2_bm_bist" / "verilog" / "RM_IHPSG13_2P_1024x16_c2_bm_bist.v",
-        testbench_path / '../../ip' / "RM_IHPSG13_2P_1024x16_c2_bm_bist" / "verilog" / "RM_IHPSG13_2P_core_behavioral_bm_bist_ideal.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_2P_1024x16_c2_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_2P_core_behavioral_bm_bist_ideal.v",
         
         # IO Pad models
         Path(pdk_root) / pdk / "libs.ref" / "sg13g2_io" / "verilog" / "sg13g2_io.v",
@@ -517,7 +516,7 @@ if __name__ == "__main__":
 
     runner = get_runner(sim)
     runner.build(
-        verilog_sources=verilog_sources,
+        sources=verilog_sources,
         hdl_toplevel=hdl_toplevel,
         defines=defines,
         always=True,

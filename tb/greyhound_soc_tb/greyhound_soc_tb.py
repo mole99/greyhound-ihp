@@ -9,7 +9,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
 from cocotb.regression import TestFactory
-from cocotb.runner import get_runner
+from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
 
 hello_world = {
@@ -25,7 +25,7 @@ enabled = custom_instruction
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/50*1000, 'ns')
-    await cocotb.start(c.start())
+    cocotb.start_soon(c.start())
 
 async def reset(reset, active_low=True, time_ns=1000):
     """ Reset dut """
@@ -93,13 +93,11 @@ async def test_custom_instruction(dut):
     assert data == b'0xDEADBEEF\n'
 
 if __name__ == "__main__":
-
+    testbench_path = Path(__file__).resolve().parent
     sim         = os.getenv("SIM", "icarus")
-    pdk_root    = os.getenv("PDK_ROOT", "~/.ciel")
+    pdk_root    = os.getenv("PDK_ROOT", testbench_path / '../../IHP-Open-PDK')
     pdk         = os.getenv("PDK", "ihp-sg13g2")
     scl         = os.getenv("SCL", "sg13g2_stdcell")
-
-    testbench_path = Path(__file__).resolve().parent
     
     verilog_sources = [
         testbench_path / 'greyhound_soc_tb.sv',
@@ -121,7 +119,7 @@ if __name__ == "__main__":
 
     runner = get_runner(sim)
     runner.build(
-        verilog_sources=verilog_sources,
+        sources=verilog_sources,
         hdl_toplevel=hdl_toplevel,
         defines=defines,
         always=True,

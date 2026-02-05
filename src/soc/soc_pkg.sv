@@ -191,5 +191,5 @@ package soc_pkg;
         All         // External and internal bsr are implemented (309 bit)
     } supported_bsr_e;
 
-    localparam supported_bsr_e EnabledBSRLength = All;
+    localparam supported_bsr_e EnabledBSRLength = None;
 endpackage

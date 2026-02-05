@@ -10,8 +10,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
 from cocotb.regression import TestFactory
-from cocotb.runner import get_runner
-#from cocotb_tools.runner import get_runner
+from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
 from cocotbext.spi import SpiBus, SpiConfig, SpiMaster
 import logging
@@ -147,12 +146,12 @@ jtag_cpu = {
     'dump_waveforms': True,
 }
 
-enabled = hello_world
+enabled = jtag_cpu
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/freq*1000, 'ns')
-    await cocotb.start(c.start())
+    cocotb.start_soon(c.start())
 
 async def reset(system_reset, tap_reset, active_low=True, time_ns=1000):
     """ Reset dut """
@@ -317,7 +316,7 @@ async def test_fpga_all_ones(dut):
     print("Writing bitstream via SPI!")
 
     # Configure FPGA via SPI
-    spi_coroutine = await cocotb.start(write_bitstream_spi('../../../ip/fabric/user_designs/all_ones/all_ones.bit', spi_master))
+    spi_coroutine = cocotb.start_soon(write_bitstream_spi('../../../ip/fabric/user_designs/all_ones/all_ones.bit', spi_master))
 
     # Wait until FPGA is configured
     await spi_coroutine
@@ -734,7 +733,6 @@ async def test_jtag_extest(dut):
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("EXTEST", write_val, device=1)
     if gl:
-        print("%x == %x" % ((jtag.ret_val & mask_val), (ret_val[0] & mask_val)))
         assert((jtag.ret_val & mask_val) == (ret_val[0] & mask_val))
     else:
         assert(jtag.ret_val == ret_val[0])
@@ -1055,24 +1053,14 @@ async def test_jtag_isc(dut):
     await jtag.write("BYPASS", 0x1, device=1)
     await jtag.write("EXTEST", write_val, device=1)
     if gl:
-        print("RET_VAL ex: %x" % (jtag.ret_val))
         assert((jtag.ret_val & mask_val) == (ret_val_ex & mask_val))
     else:
         assert(jtag.ret_val == ret_val_ex)
-
-    await jtag.read("SAMPLE", device=1)
-    if gl:
-        print("SAMPLE_VAL: %x" % (jtag.ret_val))
-        #assert(jtag.ret_val == )
-    else:
-        True
-        #assert(jtag.ret_val == )
 
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
     await jtag.write("INTEST", write_val, device=1)
     if gl:
-        print("RET_VAL in: %x" % (jtag.ret_val))
         assert((jtag.ret_val & mask_val) == (ret_val_in & mask_val))
     else:
         assert(jtag.ret_val == ret_val_in)
@@ -1139,15 +1127,13 @@ async def test_jtag_cpu(dut):
     await ClockCycles(dut.io_clock_PAD, 10)
 
 if __name__ == "__main__":
-
+    testbench_path = Path(__file__).resolve().parent
     sim         = os.getenv("SIM", "icarus")
-    pdk_root    = os.getenv("PDK_ROOT", Path("~/.ciel").expanduser())
+    pdk_root    = os.getenv("PDK_ROOT", testbench_path / '../../IHP-Open-PDK')
     pdk         = os.getenv("PDK", "ihp-sg13g2")
     scl         = os.getenv("SCL", "sg13g2_stdcell")
     gl          = os.getenv("GL", False)
 
-    testbench_path = Path(__file__).resolve().parent
-    
     includes = [testbench_path / '../../rtl/include']
     
     verilog_sources = []
@@ -1178,18 +1164,18 @@ if __name__ == "__main__":
         testbench_path / 'spiflash_powered.v',
         
         # SRAM models
-        testbench_path / '../../ip' / "RM_IHPSG13_1P_1024x32_c2_bm_bist" / "verilog" / "RM_IHPSG13_1P_1024x32_c2_bm_bist.v",
-        testbench_path / '../../ip' / "RM_IHPSG13_1P_1024x32_c2_bm_bist" / "verilog" / "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_1P_1024x32_c2_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
         
         # BRAM models
-        testbench_path / '../../ip' / "RM_IHPSG13_2P_1024x16_c2_bm_bist" / "verilog" / "RM_IHPSG13_2P_1024x16_c2_bm_bist.v",
-        testbench_path / '../../ip' / "RM_IHPSG13_2P_1024x16_c2_bm_bist" / "verilog" / "RM_IHPSG13_2P_core_behavioral_bm_bist_ideal.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_2P_1024x16_c2_bm_bist.v",
+        Path(pdk_root) / pdk / "libs.ref" / "sg13g2_sram" / "verilog" / "RM_IHPSG13_2P_core_behavioral_bm_bist_ideal.v",
         
         # IO Pad models
         Path(pdk_root) / pdk / "libs.ref" / "sg13g2_io" / "verilog" / "sg13g2_io.v",
         
     ]
-    
+
     # Add FPGA fabric
     verilog_sources.append(testbench_path / f'../../ip/fabric/macro/{pdk}/fabulous/eFPGA.v')
 
@@ -1345,7 +1331,7 @@ if __name__ == "__main__":
 
     runner = get_runner(sim)
     runner.build(
-        verilog_sources=verilog_sources,
+        sources=verilog_sources,
         hdl_toplevel=hdl_toplevel,
         defines=defines,
         always=True,

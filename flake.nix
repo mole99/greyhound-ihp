@@ -38,6 +38,8 @@
             in
             {
               cocotbext-spi = callPythonPackage ./nix/cocotbext-spi.nix { };
+              cocotbext-uart = callPythonPackage ./nix/cocotbext-uart.nix { };
+              cocotbext-jtag = callPythonPackage ./nix/cocotbext-jtag.nix { };
             }
           ))
           ];
@@ -76,6 +78,10 @@
           # Verification
           cocotb
           cocotbext-spi
+          cocotbext-uart
+          cocotb-bus
+          cocotbext-jtag
+          standard-telnetlib
         ];
       }) {};
     });

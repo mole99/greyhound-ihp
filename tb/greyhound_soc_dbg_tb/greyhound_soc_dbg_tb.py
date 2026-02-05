@@ -13,7 +13,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
 from cocotb.regression import TestFactory
-from cocotb.runner import get_runner
+from cocotb_tools.runner import get_runner
 from cocotbext.uart import UartSource, UartSink
 
 hello_world = {
@@ -34,7 +34,8 @@ ev_stop_printing = threading.Event()
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/50*1000, 'ns')
-    await cocotb.start(c.start())
+    cocotb.start_soon(c.start())
+    cocotb.log.info("Startus3")
 
 async def reset(reset, active_low=True, time_ns=1000):
     """ Reset dut """
@@ -59,8 +60,10 @@ async def test_hello_world(dut):
     uart_source = UartSource(dut.uart0_rx, baud=115200, bits=8)
     uart_sink = UartSink(dut.uart0_tx, baud=115200, bits=8)
 
+    cocotb.log.info("Startus1")
     # Start up
     await start_up(dut)
+    cocotb.log.info("Startus2")
 
     # Wait for UART to get clocked, OpenOCD to connect to JTAG interface and GDB to startup
     await ClockCycles(dut.clk_i, int(50000*5.5))
@@ -207,12 +210,11 @@ if __name__ == "__main__":
     gdb_thread = threading.Thread(target=run_gdb, daemon=True)
     gdb_thread.start()
 
+    testbench_path = Path(__file__).resolve().parent
     sim         = os.getenv("SIM", "icarus")
-    pdk_root    = os.getenv("PDK_ROOT", "~/.ciel")
+    pdk_root    = os.getenv("PDK_ROOT", testbench_path / '../../IHP-Open-PDK')
     pdk         = os.getenv("PDK", "ihp-sg13g2")
     scl         = os.getenv("SCL", "sg13g2_stdcell")
-
-    testbench_path = Path(__file__).resolve().parent
     
     verilog_sources = [
         testbench_path / 'greyhound_soc_dbg_tb.sv',
@@ -235,7 +237,7 @@ if __name__ == "__main__":
 
     runner = get_runner(sim)
     runner.build(
-        verilog_sources=verilog_sources,
+        sources=verilog_sources,
         hdl_toplevel=hdl_toplevel,
         defines=defines,
         always=True,
