@@ -40830,7 +40830,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   wire _01_;
   wire _02_;
   wire _03_;
-  (* src = "src/debug/fpga_dm.sv:204.13-206.16" *)
+  (* src = "src/debug/fpga_dm.sv:212.13-214.16" *)
   wire _04_;
   wire _05_;
   wire _06_;
@@ -40863,19 +40863,29 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   (* src = "src/debug/fpga_dm.sv:116.29" *)
   wire ejtag_valid;
   (* hdlname = "en_jtag_receiver_d" *)
-  (* src = "src/debug/fpga_dm.sv:211.17" *)
+  (* src = "src/debug/fpga_dm.sv:219.17" *)
   reg [1:0] en_jtag_receiver_d;
+  (* hdlname = "fabric_bitstream_data_q" *)
+  (* src = "src/debug/fpga_dm.sv:173.18" *)
+  reg [31:0] fabric_bitstream_data_q;
+  (* hdlname = "fabric_bitstream_valid_q" *)
+  (* src = "src/debug/fpga_dm.sv:172.11" *)
+  reg fabric_bitstream_valid_q;
+  (* hdlname = "highZ" *)
+  (* src = "src/debug/fpga_dm.sv:125.39" *)
+  (* unused_bits = "0" *)
+  wire highZ;
   (* hdlname = "isc_ext_conf" *)
   (* src = "src/debug/fpga_dm.sv:118.49" *)
   wire isc_ext_conf;
   (* hdlname = "isc_ext_conf_d" *)
-  (* src = "src/debug/fpga_dm.sv:237.17" *)
+  (* src = "src/debug/fpga_dm.sv:245.17" *)
   reg [2:0] isc_ext_conf_d;
   (* hdlname = "isc_ext_prog" *)
   (* src = "src/debug/fpga_dm.sv:118.35" *)
   wire isc_ext_prog;
   (* hdlname = "isc_ext_prog_d" *)
-  (* src = "src/debug/fpga_dm.sv:236.17" *)
+  (* src = "src/debug/fpga_dm.sv:244.17" *)
   reg [2:0] isc_ext_prog_d;
   (* hdlname = "isc_pdata" *)
   (* src = "src/debug/fpga_dm.sv:119.18" *)
@@ -40927,45 +40937,51 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
   (* hdlname = "usercode_valid_q" *)
   (* src = "src/debug/fpga_dm.sv:122.36" *)
   reg usercode_valid_q;
-  assign _00_ = fabric_bitstream_data_i == (* src = "src/debug/fpga_dm.sv:171.59-171.99" *) 24'haaff01;
-  assign usercode_valid_d = fabric_bitstream_valid_i & (* src = "src/debug/fpga_dm.sv:171.31-171.100" *) _00_;
-  assign _01_ = ~ (* src = "src/debug/fpga_dm.sv:248.27-248.45" *) isc_ext_prog_d[2];
-  assign isc_ext_prog = _01_ & (* src = "src/debug/fpga_dm.sv:248.27-248.65" *) isc_ext_prog_d[1];
-  assign _02_ = ~ (* src = "src/debug/fpga_dm.sv:249.27-249.45" *) isc_ext_conf_d[2];
-  assign isc_ext_conf = _02_ & (* src = "src/debug/fpga_dm.sv:249.27-249.65" *) isc_ext_conf_d[1];
-  assign _03_ = usercode_valid_q & (* src = "src/debug/fpga_dm.sv:177.17-177.60" *) fabric_bitstream_valid_i;
-  (* src = "src/debug/fpga_dm.sv:200.5" *)
+  assign _01_ = fabric_bitstream_data_q == (* src = "src/debug/fpga_dm.sv:179.59-179.99" *) 24'haaff01;
+  assign _00_ = ~ (* src = "src/debug/fpga_dm.sv:256.27-256.45" *) isc_ext_prog_d[2];
+  assign usercode_valid_d = fabric_bitstream_valid_q & (* src = "src/debug/fpga_dm.sv:179.31-179.100" *) _01_;
+  assign isc_ext_prog = _00_ & (* src = "src/debug/fpga_dm.sv:256.27-256.65" *) isc_ext_prog_d[1];
+  assign _02_ = ~ (* src = "src/debug/fpga_dm.sv:257.27-257.45" *) isc_ext_conf_d[2];
+  assign isc_ext_conf = _02_ & (* src = "src/debug/fpga_dm.sv:257.27-257.65" *) isc_ext_conf_d[1];
+  assign _03_ = usercode_valid_q & (* src = "src/debug/fpga_dm.sv:185.17-185.60" *) fabric_bitstream_valid_q;
+  (* src = "src/debug/fpga_dm.sv:208.5" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) ejtag_q <= 1'h0;
     else ejtag_q <= _04_;
-  (* src = "src/debug/fpga_dm.sv:212.5" *)
+  (* src = "src/debug/fpga_dm.sv:220.5" *)
   always_ff @(posedge clk_i)
     en_jtag_receiver_d <= { en_jtag_receiver_d[0], ejtag_q };
-  (* src = "src/debug/fpga_dm.sv:238.5" *)
+  (* src = "src/debug/fpga_dm.sv:174.5" *)
+  always_ff @(posedge clk_i)
+    fabric_bitstream_data_q <= fabric_bitstream_data_i;
+  (* src = "src/debug/fpga_dm.sv:174.5" *)
+  always_ff @(posedge clk_i)
+    fabric_bitstream_valid_q <= fabric_bitstream_valid_i;
+  (* src = "src/debug/fpga_dm.sv:246.5" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) isc_ext_conf_d <= 3'h0;
     else isc_ext_conf_d <= { isc_ext_conf_d[1:0], fabric_configured_i };
-  (* src = "src/debug/fpga_dm.sv:238.5" *)
+  (* src = "src/debug/fpga_dm.sv:246.5" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) isc_ext_prog_d <= 3'h0;
     else isc_ext_prog_d <= { isc_ext_prog_d[1:0], fabric_busy_i };
-  (* src = "src/debug/fpga_dm.sv:193.5" *)
+  (* src = "src/debug/fpga_dm.sv:201.5" *)
   always_ff @(posedge tck_i)
     jtag_usercode_q <= usercode_q;
-  (* src = "src/debug/fpga_dm.sv:172.5" *)
+  (* src = "src/debug/fpga_dm.sv:180.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) usercode_q <= 32'd0;
     else usercode_q <= _07_;
-  (* src = "src/debug/fpga_dm.sv:172.5" *)
+  (* src = "src/debug/fpga_dm.sv:180.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) usercode_valid_q <= 1'h0;
     else usercode_valid_q <= _05_;
-  assign _04_ = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:205.17-205.36|src/debug/fpga_dm.sv:204.13-206.16" *) ejtag_d : ejtag_q;
-  assign _05_ = usercode_valid_d ? (* src = "src/debug/fpga_dm.sv:186.17-186.42|src/debug/fpga_dm.sv:185.13-187.16" *) 1'h1 : _06_;
-  assign _06_ = fabric_bitstream_valid_i ? (* src = "src/debug/fpga_dm.sv:182.17-182.42|src/debug/fpga_dm.sv:181.13-183.16" *) 1'h0 : usercode_valid_q;
-  assign _07_ = _03_ ? (* src = "src/debug/fpga_dm.sv:178.17-178.55|src/debug/fpga_dm.sv:177.13-179.16" *) fabric_bitstream_data_i : usercode_q;
+  assign _05_ = usercode_valid_d ? (* src = "src/debug/fpga_dm.sv:194.17-194.42|src/debug/fpga_dm.sv:193.13-195.16" *) 1'h1 : _06_;
+  assign _06_ = fabric_bitstream_valid_q ? (* src = "src/debug/fpga_dm.sv:190.17-190.42|src/debug/fpga_dm.sv:189.13-191.16" *) 1'h0 : usercode_valid_q;
+  assign _07_ = _03_ ? (* src = "src/debug/fpga_dm.sv:186.17-186.55|src/debug/fpga_dm.sv:185.13-187.16" *) fabric_bitstream_data_q : usercode_q;
+  assign _04_ = ejtag_valid ? (* src = "src/debug/fpga_dm.sv:213.17-213.36|src/debug/fpga_dm.sv:212.13-214.16" *) ejtag_d : ejtag_q;
   (* hdlname = "i_cdc_jtag_out" *)
-  (* src = "src/debug/fpga_dm.sv:220.46" *)
+  (* src = "src/debug/fpga_dm.sv:228.46" *)
   \cdc_2phase_clearable$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_cdc_jtag_out  i_cdc_jtag_out (
     .dst_clear_i(1'h0),
     .dst_clk_i(clk_i),
@@ -40991,6 +41007,7 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
     .ejtag_valid_o(ejtag_valid),
     .isc_ext_conf_i(isc_ext_conf),
     .isc_ext_prog_i(isc_ext_prog),
+    .isc_highZ_o(highZ),
     .isc_pdata_o(isc_pdata),
     .isc_pdata_valid_o(isc_pdata_valid),
     .mode1_o(mode1),
@@ -41038,8 +41055,8 @@ module \fpga_dm$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm (clk_i, rst_ni, cl
 endmodule
 
 (* src = "src/debug/fpga_dm_jtag_tap.sv:21.8" *)
-module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap (tck_i, tms_i, trst_ni, td_i, td_o, tck_no, dm_rst_o, ejtag_o, ejtag_valid_o, ejtag_i, usercode_i, isc_pdata_valid_o, isc_pdata_o, isc_ext_prog_i, isc_ext_conf_i, mode1_o, mode2_o, mode5_o, mode6_o, boundary_scan_o, boundary_scan_i
-, capture_bsr_select_o, shift_bsr_select_o, update_bsr_select_o, testmode_o, testmode_clk_pulse_o);
+module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap (tck_i, tms_i, trst_ni, td_i, td_o, tck_no, dm_rst_o, ejtag_o, ejtag_valid_o, ejtag_i, usercode_i, isc_pdata_valid_o, isc_pdata_o, isc_ext_prog_i, isc_ext_conf_i, mode1_o, mode2_o, mode5_o, mode6_o, isc_highZ_o, boundary_scan_o
+, boundary_scan_i, capture_bsr_select_o, shift_bsr_select_o, update_bsr_select_o, testmode_o, testmode_clk_pulse_o);
   (* hdlname = "tck_i" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:30.23" *)
   input tck_i;
@@ -41067,7 +41084,7 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag
   (* hdlname = "dm_rst_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:37.23" *)
   output dm_rst_o;
-  wire dm_rst_o;
+  reg dm_rst_o;
   (* hdlname = "ejtag_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:39.23" *)
   output ejtag_o;
@@ -41116,47 +41133,51 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag
   (* src = "src/debug/fpga_dm_jtag_tap.sv:53.23" *)
   output mode6_o;
   reg mode6_o;
-  (* hdlname = "boundary_scan_o" *)
+  (* hdlname = "isc_highZ_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:54.23" *)
+  output isc_highZ_o;
+  wire isc_highZ_o;
+  (* hdlname = "boundary_scan_o" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:55.23" *)
   output boundary_scan_o;
   wire boundary_scan_o;
   (* hdlname = "boundary_scan_i" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:55.23" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:56.23" *)
   input boundary_scan_i;
   wire boundary_scan_i;
   (* hdlname = "capture_bsr_select_o" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:56.23" *)
-  output capture_bsr_select_o;
-  wire capture_bsr_select_o;
-  (* hdlname = "shift_bsr_select_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:57.23" *)
-  output shift_bsr_select_o;
-  wire shift_bsr_select_o;
-  (* hdlname = "update_bsr_select_o" *)
+  output capture_bsr_select_o;
+  reg capture_bsr_select_o;
+  (* hdlname = "shift_bsr_select_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:58.23" *)
-  output update_bsr_select_o;
-  wire update_bsr_select_o;
-  (* hdlname = "testmode_o" *)
+  output shift_bsr_select_o;
+  reg shift_bsr_select_o;
+  (* hdlname = "update_bsr_select_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:59.23" *)
-  output testmode_o;
-  wire testmode_o;
-  (* hdlname = "testmode_clk_pulse_o" *)
+  output update_bsr_select_o;
+  reg update_bsr_select_o;
+  (* hdlname = "testmode_o" *)
   (* src = "src/debug/fpga_dm_jtag_tap.sv:60.23" *)
+  output testmode_o;
+  reg testmode_o;
+  (* hdlname = "testmode_clk_pulse_o" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:61.23" *)
   output testmode_clk_pulse_o;
-  wire testmode_clk_pulse_o;
+  reg testmode_clk_pulse_o;
   wire _000_;
-  wire [3:0] _001_;
+  wire _001_;
   wire [1:0] _002_;
   wire [3:0] _003_;
-  wire [2:0] _004_;
-  wire [1:0] _005_;
-  wire [2:0] _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire [3:0] _011_;
-  wire [3:0] _012_;
+  wire _004_;
+  wire [3:0] _005_;
+  wire [3:0] _006_;
+  wire [3:0] _007_;
+  wire [2:0] _008_;
+  wire [1:0] _009_;
+  wire [2:0] _010_;
+  wire _011_;
+  wire _012_;
   wire _013_;
   wire _014_;
   wire _015_;
@@ -41164,77 +41185,77 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag
   wire _017_;
   wire _018_;
   wire _019_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:184.7-184.56" *)
   wire _020_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:185.7-185.59" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:185.7-185.56" *)
   wire _021_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:186.7-186.59" *)
   wire _022_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:192.7-192.56" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *)
   wire _023_;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:193.7-193.56" *)
   wire _024_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:196.9-196.51" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:194.7-194.56" *)
   wire _025_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:197.9-197.51" *)
   wire _026_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:205.7-205.54" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *)
   wire _027_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.7-182.63" *)
-  wire [31:0] _028_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:183.7-183.62" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:206.7-206.54" *)
+  wire _028_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:183.7-183.63" *)
   wire [31:0] _029_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:184.7-184.62" *)
   wire [31:0] _030_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:190.7-190.78" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *)
   wire [31:0] _031_;
   (* src = "src/debug/fpga_dm_jtag_tap.sv:191.7-191.78" *)
   wire [31:0] _032_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:192.7-192.78" *)
   wire [31:0] _033_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *)
-  wire _034_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:468.9-470.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *)
+  wire [31:0] _034_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *)
   wire _035_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:478.9-480.12" *)
   wire _036_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
   wire _037_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *)
   wire _038_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:473.9-476.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *)
   wire _039_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:483.9-486.12" *)
   wire _040_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
   wire _041_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:452.9-454.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *)
   wire _042_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:457.9-459.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:462.9-464.12" *)
   wire _043_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:467.9-469.12" *)
   wire _044_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *)
   wire _045_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
   wire _046_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:186.7-186.54" *)
-  wire [31:0] _047_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *)
+  wire _047_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:187.7-187.54" *)
   wire [31:0] _048_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:194.7-194.81" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *)
   wire [31:0] _049_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:195.7-195.81" *)
   wire [31:0] _050_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:204.7-204.63" *)
-  wire _051_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:123.5-125.8" *)
-  wire [4:0] _052_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:113.5-115.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *)
+  wire [31:0] _051_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:205.7-205.63" *)
+  wire _052_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:124.5-126.8" *)
   wire [4:0] _053_;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:118.5-120.8" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:114.5-116.8" *)
   wire [4:0] _054_;
-  wire _055_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:119.5-121.8" *)
+  wire [4:0] _055_;
   wire _056_;
   wire _057_;
   wire _058_;
@@ -41264,422 +41285,468 @@ module \fpga_dm_jtag_tap$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag
   wire _082_;
   wire _083_;
   (* hdlname = "boundary_scan_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:157.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:158.16" *)
   wire boundary_scan_select;
   (* hdlname = "bypass_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:166.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:167.16" *)
   wire bypass_d;
   (* hdlname = "bypass_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:166.26" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:167.26" *)
   reg bypass_q;
+  (* hdlname = "capture_bsr_select_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:253.9" *)
+  wire capture_bsr_select_d;
   (* hdlname = "capture_dr" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.30" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.30" *)
   wire capture_dr;
   (* hdlname = "capture_ir" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.9" *)
   wire capture_ir;
   (* hdlname = "ejtag_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:159.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:160.16" *)
   wire ejtag_select;
   (* hdlname = "idcode_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:154.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:155.16" *)
   wire [31:0] idcode_d;
   (* hdlname = "idcode_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:154.26" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:155.26" *)
   reg [31:0] idcode_q;
   (* hdlname = "idcode_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:155.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:156.16" *)
   wire idcode_select;
   (* hdlname = "isc_disable_completing_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.35" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:83.35" *)
   wire isc_disable_completing_d;
   (* hdlname = "isc_disable_completing_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:83.9" *)
   reg isc_disable_completing_q;
   (* hdlname = "isc_disable_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:164.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:165.16" *)
   wire isc_disable_select;
   (* hdlname = "isc_done_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.21" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.21" *)
   wire isc_done_d;
   (* hdlname = "isc_done_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:82.9" *)
   reg isc_done_q;
   (* hdlname = "isc_enable_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:163.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:164.16" *)
   wire isc_enable_select;
   (* hdlname = "isc_enabled_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.24" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.24" *)
   wire isc_enabled_d;
   (* hdlname = "isc_enabled_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:81.9" *)
   reg isc_enabled_q;
-  (* hdlname = "isc_highZ" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:251.9" *)
-  wire isc_highZ;
+  (* hdlname = "isc_highZ_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:252.9" *)
+  wire isc_highZ_d;
+  (* hdlname = "isc_highZ_q" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:252.22" *)
+  reg isc_highZ_q;
   (* hdlname = "isc_pdata_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:160.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:161.16" *)
   wire [31:0] isc_pdata_d;
   (* hdlname = "isc_pdata_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:160.29" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:161.29" *)
   reg [31:0] isc_pdata_q;
   (* hdlname = "isc_pdata_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:161.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:162.16" *)
   wire isc_pdata_select;
-  (* hdlname = "isc_update_dr" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:251.20" *)
-  wire isc_update_dr;
   (* hdlname = "jtag_ir_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:105.25" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.12" *)
   wire [4:0] jtag_ir_d;
   (* hdlname = "jtag_ir_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:105.36" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.23" *)
   reg [4:0] jtag_ir_q;
   (* hdlname = "jtag_ir_shift_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:103.25" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:104.25" *)
   wire [4:0] jtag_ir_shift_d;
   (* hdlname = "jtag_ir_shift_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:103.42" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:104.42" *)
   reg [4:0] jtag_ir_shift_q;
   (* hdlname = "mode1_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:304.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:350.9" *)
   wire mode1_d;
   (* hdlname = "mode2_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:304.18" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:350.18" *)
   wire mode2_d;
   (* hdlname = "mode5_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:304.27" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:350.27" *)
   wire mode5_d;
   (* hdlname = "mode6_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:304.36" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:350.36" *)
   wire mode6_d;
+  (* hdlname = "shift_bsr_select_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:253.31" *)
+  wire shift_bsr_select_d;
   (* hdlname = "shift_dr" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.20" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.20" *)
   wire shift_dr;
   (* hdlname = "shift_ir" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.21" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.21" *)
   wire shift_ir;
   (* hdlname = "tap_isc_state_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:78.19" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.19" *)
   wire [2:0] tap_isc_state_q;
   (* hdlname = "tap_state_d" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:77.28" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:78.28" *)
   wire [3:0] tap_state_d;
   (* hdlname = "tap_state_q" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:77.15" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:78.15" *)
   reg [3:0] tap_state_q;
   (* hdlname = "tck_n" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:364.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:293.9" *)
   wire tck_n;
   (* hdlname = "tdo_mux" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:388.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:398.9" *)
   wire tdo_mux;
   (* hdlname = "test_logic_reset" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.42" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.42" *)
   wire test_logic_reset;
+  (* hdlname = "testmode_clk_pulse_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:251.31" *)
+  wire testmode_clk_pulse_d;
+  (* hdlname = "testmode_clk_pulseo_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:251.53" *)
+  wire testmode_clk_pulseo_d;
+  (* hdlname = "testmode_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:253.72" *)
+  wire testmode_d;
+  (* hdlname = "update_bsr_select_d" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:253.51" *)
+  wire update_bsr_select_d;
   (* hdlname = "update_dr" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:79.9" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:80.9" *)
   wire update_dr;
   (* hdlname = "update_ir" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:106.31" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:107.31" *)
   wire update_ir;
   (* hdlname = "usercode_select" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:156.16" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:157.16" *)
   wire usercode_select;
-  assign _000_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:533.23-533.50" *) 1'h1 : 1'h0;
-  assign _001_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:536.23-536.51" *) 4'h8 : 4'h4;
-  assign _002_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:540.23-540.59" *) 2'h2 : 2'h1;
-  assign _003_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:544.23-544.59" *) 4'h0 : 4'ha;
-  assign _004_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:552.23-552.50" *) 3'h4 : 3'h3;
-  assign _005_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:563.23-563.51" *) 2'h3 : 2'h1;
-  assign _006_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:570.23-570.51" *) 3'h7 : 3'h3;
-  assign _007_ = jtag_ir_q != (* src = "src/debug/fpga_dm_jtag_tap.sv:481.27-481.51" *) 5'h16;
-  assign _008_ = isc_ext_prog_i & (* src = "src/debug/fpga_dm_jtag_tap.sv:481.9-481.52" *) _007_;
-  assign _009_ = isc_ext_conf_i & (* src = "src/debug/fpga_dm_jtag_tap.sv:487.9-487.52" *) _007_;
-  assign _010_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:511.23-511.61" *) 1'h0 : 1'h1;
-  assign _011_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:519.23-519.57" *) 4'h9 : 4'h3;
-  assign _012_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:530.23-530.51" *) 4'h8 : 4'h6;
-  assign _013_ = | { _061_, _060_ };
-  assign _014_ = | { _067_, _066_, _065_, _064_, _061_, _060_, _059_ };
-  assign _015_ = | { _067_, _066_, _065_ };
-  assign _016_ = | { _057_, _055_ };
-  assign _017_ = | { _082_, _075_, _068_ };
-  assign _018_ = | { _073_, _072_ };
-  assign _019_ = | { _080_, _079_ };
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:584.3" *)
+  assign _000_ = isc_ext_conf_i & (* src = "src/debug/fpga_dm_jtag_tap.sv:497.9-497.52" *) _012_;
+  assign _001_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:521.23-521.61" *) 1'h0 : 1'h1;
+  assign _002_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:525.23-525.59" *) 2'h2 : 2'h1;
+  assign _003_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:529.23-529.57" *) 4'h9 : 4'h3;
+  assign _004_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:533.23-533.50" *) 1'h1 : 1'h0;
+  assign _005_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:540.23-540.51" *) 4'h8 : 4'h6;
+  assign _006_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:546.23-546.51" *) 4'h8 : 4'h4;
+  assign _007_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:554.23-554.59" *) 4'h0 : 4'ha;
+  assign _008_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:562.23-562.50" *) 3'h4 : 3'h3;
+  assign _009_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:573.23-573.51" *) 2'h3 : 2'h1;
+  assign _010_ = tms_i ? (* src = "src/debug/fpga_dm_jtag_tap.sv:580.23-580.51" *) 3'h7 : 3'h3;
+  assign _011_ = ! (* src = "src/debug/fpga_dm_jtag_tap.sv:617.20-617.49" *) tap_state_q;
+  assign _012_ = jtag_ir_q != (* src = "src/debug/fpga_dm_jtag_tap.sv:491.27-491.51" *) 5'h16;
+  assign _013_ = isc_ext_prog_i & (* src = "src/debug/fpga_dm_jtag_tap.sv:491.9-491.52" *) _012_;
+  assign _014_ = | { _062_, _061_ };
+  assign _015_ = | { _068_, _067_, _066_, _065_, _062_, _061_, _060_ };
+  assign _016_ = | { _068_, _067_, _066_ };
+  assign _017_ = | { _058_, _056_ };
+  assign _018_ = | { _083_, _076_, _069_ };
+  assign _019_ = | { _074_, _073_ };
+  assign _020_ = | { _081_, _080_ };
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:594.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) bypass_q <= 1'h0;
     else bypass_q <= bypass_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:584.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) capture_bsr_select_o <= 1'h0;
+    else capture_bsr_select_o <= 1'h0;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:612.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) dm_rst_o <= 1'h0;
+    else dm_rst_o <= _011_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:594.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) idcode_q <= 32'd73687041;
     else idcode_q <= idcode_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:428.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:438.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_disable_completing_q <= 1'h0;
     else isc_disable_completing_q <= isc_disable_completing_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:428.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:438.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_done_q <= 1'h0;
     else isc_done_q <= isc_done_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:428.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:438.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) isc_enabled_q <= 1'h0;
     else isc_enabled_q <= isc_enabled_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:584.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:334.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) isc_highZ_q <= 1'h0;
+    else isc_highZ_q <= 1'h0;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:594.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) isc_pdata_q <= 32'd0;
     else isc_pdata_q <= isc_pdata_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:134.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:135.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) jtag_ir_q <= 5'h01;
     else jtag_ir_q <= jtag_ir_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:134.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:135.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) jtag_ir_shift_q <= 5'h00;
     else jtag_ir_shift_q <= jtag_ir_shift_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:365.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:375.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) mode1_o <= 1'h0;
     else mode1_o <= 1'h0;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:365.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:375.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) mode2_o <= 1'h0;
     else mode2_o <= 1'h0;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:365.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:375.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) mode5_o <= 1'h0;
     else mode5_o <= 1'h0;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:365.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:375.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) mode6_o <= 1'h0;
     else mode6_o <= 1'h0;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:584.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) shift_bsr_select_o <= 1'h0;
+    else shift_bsr_select_o <= 1'h0;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:594.3" *)
   always_ff @(posedge tck_i, negedge trst_ni)
     if (!trst_ni) tap_state_q <= 4'h0;
     else tap_state_q <= tap_state_d;
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:417.3" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:427.3" *)
   always_ff @(posedge tck_n, negedge trst_ni)
     if (!trst_ni) td_o <= 1'h0;
     else td_o <= tdo_mux;
-  assign isc_disable_completing_d = _009_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:487.54-491.8|src/debug/fpga_dm_jtag_tap.sv:487.5-491.8" *) 1'h0 : _037_;
-  assign isc_done_d = _009_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:487.54-491.8|src/debug/fpga_dm_jtag_tap.sv:487.5-491.8" *) 1'h1 : _041_;
-  assign isc_enabled_d = _009_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:487.54-491.8|src/debug/fpga_dm_jtag_tap.sv:487.5-491.8" *) 1'h0 : _046_;
-  assign _037_ = _008_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:481.54-485.8|src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *) 1'h0 : _036_;
-  assign _041_ = _008_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:481.54-485.8|src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *) 1'h0 : _040_;
-  assign _046_ = _008_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:481.54-485.8|src/debug/fpga_dm_jtag_tap.sv:481.5-485.8" *) 1'h1 : _045_;
-  assign _039_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:473.32-476.12|src/debug/fpga_dm_jtag_tap.sv:473.9-476.12" *) 1'h0 : isc_done_q;
-  assign _055_ = { isc_enabled_q, isc_done_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:473.9-476.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *) 2'h2;
-  assign _035_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:469.11-469.43|src/debug/fpga_dm_jtag_tap.sv:468.9-470.12" *) isc_disable_completing_q : 1'h0;
-  assign _056_ = { isc_enabled_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:468.9-470.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *) 1'h1;
-  assign _034_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:461.33-465.12|src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *) 1'h1 : isc_disable_completing_q;
-  assign _038_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:461.33-465.12|src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *) 1'h1 : isc_done_q;
-  assign _044_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:461.33-465.12|src/debug/fpga_dm_jtag_tap.sv:461.9-465.12" *) 1'h0 : _043_;
-  assign _043_ = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:458.11-458.32|src/debug/fpga_dm_jtag_tap.sv:457.9-459.12" *) 1'h0 : 1'h1;
-  assign _042_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:453.11-453.32|src/debug/fpga_dm_jtag_tap.sv:452.9-454.12" *) 1'h1 : 1'h0;
-  assign _057_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:452.9-454.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *) { isc_enabled_q, isc_done_q, isc_disable_completing_q };
-  function [0:0] _134_;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:294.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) testmode_clk_pulse_o <= 1'h0;
+    else testmode_clk_pulse_o <= 1'h0;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:294.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) testmode_o <= 1'h0;
+    else testmode_o <= 1'h0;
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:273.3" *)
+  always_ff @(posedge tck_i, negedge trst_ni)
+    if (!trst_ni) update_bsr_select_o <= 1'h0;
+    else update_bsr_select_o <= 1'h0;
+  assign isc_disable_completing_d = _000_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:497.54-501.8|src/debug/fpga_dm_jtag_tap.sv:497.5-501.8" *) 1'h0 : _038_;
+  assign isc_done_d = _000_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:497.54-501.8|src/debug/fpga_dm_jtag_tap.sv:497.5-501.8" *) 1'h1 : _042_;
+  assign isc_enabled_d = _000_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:497.54-501.8|src/debug/fpga_dm_jtag_tap.sv:497.5-501.8" *) 1'h0 : _047_;
+  assign _038_ = _013_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:491.54-495.8|src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *) 1'h0 : _037_;
+  assign _042_ = _013_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:491.54-495.8|src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *) 1'h0 : _041_;
+  assign _047_ = _013_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:491.54-495.8|src/debug/fpga_dm_jtag_tap.sv:491.5-495.8" *) 1'h1 : _046_;
+  assign _040_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:483.32-486.12|src/debug/fpga_dm_jtag_tap.sv:483.9-486.12" *) 1'h0 : isc_done_q;
+  assign _056_ = { isc_enabled_q, isc_done_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:483.9-486.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *) 2'h2;
+  assign _043_ = isc_enable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:483.32-486.12|src/debug/fpga_dm_jtag_tap.sv:483.9-486.12" *) 1'h1 : 1'h0;
+  assign _036_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:479.11-479.43|src/debug/fpga_dm_jtag_tap.sv:478.9-480.12" *) isc_disable_completing_q : 1'h0;
+  assign _057_ = { isc_enabled_q, isc_disable_completing_q } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:478.9-480.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *) 1'h1;
+  assign _035_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:471.33-475.12|src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *) 1'h1 : isc_disable_completing_q;
+  assign _039_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:471.33-475.12|src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *) 1'h1 : isc_done_q;
+  assign _045_ = isc_disable_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:471.33-475.12|src/debug/fpga_dm_jtag_tap.sv:471.9-475.12" *) 1'h0 : _044_;
+  assign _044_ = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:468.11-468.32|src/debug/fpga_dm_jtag_tap.sv:467.9-469.12" *) 1'h0 : 1'h1;
+  assign _058_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:462.9-464.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *) { isc_enabled_q, isc_done_q, isc_disable_completing_q };
+  function [0:0] _142_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:468.9-470.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:478.9-480.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _134_ = b[0:0];
+        _142_ = b[0:0];
       2'b1?:
-        _134_ = b[1:1];
+        _142_ = b[1:1];
       default:
-        _134_ = a;
+        _142_ = a;
     endcase
   endfunction
-  assign _036_ = _134_(isc_disable_completing_q, { _034_, _035_ }, { isc_enabled_q, _056_ });
-  function [0:0] _135_;
+  assign _037_ = _142_(isc_disable_completing_q, { _035_, _036_ }, { isc_enabled_q, _057_ });
+  function [0:0] _143_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:473.9-476.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:483.9-486.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _135_ = b[0:0];
+        _143_ = b[0:0];
       2'b1?:
-        _135_ = b[1:1];
+        _143_ = b[1:1];
       default:
-        _135_ = a;
+        _143_ = a;
     endcase
   endfunction
-  assign _040_ = _135_(isc_done_q, { _038_, _039_ }, { isc_enabled_q, _055_ });
-  function [0:0] _136_;
+  assign _041_ = _143_(isc_done_q, { _039_, _040_ }, { isc_enabled_q, _056_ });
+  function [0:0] _144_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:473.9-476.12|src/debug/fpga_dm_jtag_tap.sv:450.5-479.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:483.9-486.12|src/debug/fpga_dm_jtag_tap.sv:460.5-489.12" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _136_ = b[0:0];
+        _144_ = b[0:0];
       2'b1?:
-        _136_ = b[1:1];
+        _144_ = b[1:1];
       default:
-        _136_ = a;
+        _144_ = a;
     endcase
   endfunction
-  assign _045_ = _136_(1'h0, { _044_, _042_ }, { isc_enabled_q, _016_ });
-  function [0:0] _137_;
+  assign _046_ = _144_(1'h0, { _045_, _043_ }, { isc_enabled_q, _017_ });
+  function [0:0] _145_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:402.25-402.50|src/debug/fpga_dm_jtag_tap.sv:396.7-404.14" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:412.25-412.50|src/debug/fpga_dm_jtag_tap.sv:406.7-414.14" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _137_ = b[0:0];
+        _145_ = b[0:0];
       2'b1?:
-        _137_ = b[1:1];
+        _145_ = b[1:1];
       default:
-        _137_ = a;
+        _145_ = a;
     endcase
   endfunction
-  assign _058_ = _137_(bypass_q, { idcode_q[0], isc_pdata_q[0] }, { _013_, _059_ });
-  assign _059_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:402.25-402.50|src/debug/fpga_dm_jtag_tap.sv:396.7-404.14" *) 5'h16;
-  assign _060_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:398.25-398.47|src/debug/fpga_dm_jtag_tap.sv:396.7-404.14" *) 2'h2;
-  assign _061_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:397.25-397.47|src/debug/fpga_dm_jtag_tap.sv:396.7-404.14" *) 1'h1;
-  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:393.7-393.36|src/debug/fpga_dm_jtag_tap.sv:392.5-405.8" *) jtag_ir_shift_q[0] : _058_;
-  assign isc_disable_select = _062_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:286.20-286.46|src/debug/fpga_dm_jtag_tap.sv:284.5-288.12" *) 1'h1 : 1'h0;
-  assign _062_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:286.20-286.46|src/debug/fpga_dm_jtag_tap.sv:284.5-288.12" *) 5'h15;
-  assign isc_enable_select = _063_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:285.20-285.46|src/debug/fpga_dm_jtag_tap.sv:284.5-288.12" *) 1'h1 : 1'h0;
-  assign _063_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:285.20-285.46|src/debug/fpga_dm_jtag_tap.sv:284.5-288.12" *) 5'h14;
-  assign isc_pdata_select = _059_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:240.23-240.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 1'h1 : 1'h0;
-  assign ejtag_select = _064_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:237.23-237.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 1'h1 : 1'h0;
-  assign _064_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:237.23-237.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 5'h10;
-  assign _065_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:236.23-236.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 3'h5;
-  assign _066_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:235.23-235.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 3'h4;
-  assign _067_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:234.23-234.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 2'h3;
-  assign boundary_scan_select = _015_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:236.23-236.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 1'h1 : 1'h0;
-  assign usercode_select = _060_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:233.23-233.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 1'h1 : 1'h0;
-  assign idcode_select = _061_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:232.23-232.51|src/debug/fpga_dm_jtag_tap.sv:230.5-244.12" *) 1'h1 : 1'h0;
-  assign bypass_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:208.27-216.8|src/debug/fpga_dm_jtag_tap.sv:208.5-216.8" *) 1'h0 : _026_;
-  assign isc_pdata_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:208.27-216.8|src/debug/fpga_dm_jtag_tap.sv:208.5-216.8" *) 32'd0 : _050_;
-  assign idcode_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:208.27-216.8|src/debug/fpga_dm_jtag_tap.sv:208.5-216.8" *) 32'd73687041 : _033_;
-  assign _027_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:205.29-205.54|src/debug/fpga_dm_jtag_tap.sv:205.7-205.54" *) 1'h1 : 1'h0;
-  assign _051_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:204.29-204.63|src/debug/fpga_dm_jtag_tap.sv:204.7-204.63" *) isc_enabled_q : 1'h0;
-  assign isc_pdata_valid_o = isc_update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:203.20-206.8|src/debug/fpga_dm_jtag_tap.sv:203.5-206.8" *) _051_ : 1'h0;
-  assign ejtag_valid_o = isc_update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:203.20-206.8|src/debug/fpga_dm_jtag_tap.sv:203.5-206.8" *) _027_ : 1'h0;
-  assign _025_ = boundary_scan_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:196.35-196.51|src/debug/fpga_dm_jtag_tap.sv:196.9-196.51" *) td_i : _024_;
-  assign _049_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:194.33-194.81|src/debug/fpga_dm_jtag_tap.sv:194.7-194.81" *) { td_i, isc_pdata_q[31:1] } : _048_;
-  assign _024_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:193.33-193.56|src/debug/fpga_dm_jtag_tap.sv:193.7-193.56" *) td_i : _023_;
-  assign _023_ = _014_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:192.33-192.56|src/debug/fpga_dm_jtag_tap.sv:192.7-192.56" *) _022_ : td_i;
-  assign _032_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:191.33-191.78|src/debug/fpga_dm_jtag_tap.sv:191.7-191.78" *) { td_i, idcode_q[31:1] } : _031_;
-  assign _031_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:190.33-190.78|src/debug/fpga_dm_jtag_tap.sv:190.7-190.78" *) { td_i, idcode_q[31:1] } : _030_;
-  assign _026_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:189.19-201.8|src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *) _025_ : _022_;
-  assign _050_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:189.19-201.8|src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *) _049_ : _048_;
-  assign _033_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:189.19-201.8|src/debug/fpga_dm_jtag_tap.sv:189.5-201.8" *) _032_ : _030_;
-  assign _047_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:186.33-186.54|src/debug/fpga_dm_jtag_tap.sv:186.7-186.54" *) 32'd0 : isc_pdata_q;
-  assign _021_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.33-185.59|src/debug/fpga_dm_jtag_tap.sv:185.7-185.59" *) ejtag_i : _020_;
-  assign _020_ = _014_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:184.33-184.56|src/debug/fpga_dm_jtag_tap.sv:184.7-184.56" *) bypass_q : 1'h0;
-  assign _029_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:183.33-183.62|src/debug/fpga_dm_jtag_tap.sv:183.7-183.62" *) usercode_i : _028_;
-  assign _028_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.33-182.63|src/debug/fpga_dm_jtag_tap.sv:182.7-182.63" *) 32'd73687041 : idcode_q;
-  assign _022_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:181.21-187.8|src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *) _021_ : bypass_q;
-  assign _048_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:181.21-187.8|src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *) _047_ : isc_pdata_q;
-  assign _030_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:181.21-187.8|src/debug/fpga_dm_jtag_tap.sv:181.5-187.8" *) _029_ : idcode_q;
-  function [3:0] _179_;
+  assign _059_ = _145_(bypass_q, { idcode_q[0], isc_pdata_q[0] }, { _014_, _060_ });
+  assign _060_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:412.25-412.50|src/debug/fpga_dm_jtag_tap.sv:406.7-414.14" *) 5'h16;
+  assign _061_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:408.25-408.47|src/debug/fpga_dm_jtag_tap.sv:406.7-414.14" *) 2'h2;
+  assign _062_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:407.25-407.47|src/debug/fpga_dm_jtag_tap.sv:406.7-414.14" *) 1'h1;
+  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:403.7-403.36|src/debug/fpga_dm_jtag_tap.sv:402.5-415.8" *) jtag_ir_shift_q[0] : _059_;
+  assign isc_disable_select = _063_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:321.20-321.46|src/debug/fpga_dm_jtag_tap.sv:319.5-323.12" *) 1'h1 : 1'h0;
+  assign _063_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:321.20-321.46|src/debug/fpga_dm_jtag_tap.sv:319.5-323.12" *) 5'h15;
+  assign isc_enable_select = _064_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:320.20-320.46|src/debug/fpga_dm_jtag_tap.sv:319.5-323.12" *) 1'h1 : 1'h0;
+  assign _064_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:320.20-320.46|src/debug/fpga_dm_jtag_tap.sv:319.5-323.12" *) 5'h14;
+  assign isc_pdata_select = _060_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:241.23-241.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 1'h1 : 1'h0;
+  assign ejtag_select = _065_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:238.23-238.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 1'h1 : 1'h0;
+  assign _065_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:238.23-238.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 5'h10;
+  assign _066_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:237.23-237.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 3'h5;
+  assign _067_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:236.23-236.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 3'h4;
+  assign _068_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:235.23-235.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 2'h3;
+  assign boundary_scan_select = _016_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:237.23-237.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 1'h1 : 1'h0;
+  assign usercode_select = _061_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:234.23-234.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 1'h1 : 1'h0;
+  assign idcode_select = _062_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:233.23-233.51|src/debug/fpga_dm_jtag_tap.sv:231.5-245.12" *) 1'h1 : 1'h0;
+  assign bypass_d = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:209.27-217.8|src/debug/fpga_dm_jtag_tap.sv:209.5-217.8" *) 1'h0 : _027_;
+  assign isc_pdata_d = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:209.27-217.8|src/debug/fpga_dm_jtag_tap.sv:209.5-217.8" *) 32'd0 : _051_;
+  assign idcode_d = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:209.27-217.8|src/debug/fpga_dm_jtag_tap.sv:209.5-217.8" *) 32'd73687041 : _034_;
+  assign _028_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:206.29-206.54|src/debug/fpga_dm_jtag_tap.sv:206.7-206.54" *) 1'h1 : 1'h0;
+  assign _052_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:205.29-205.63|src/debug/fpga_dm_jtag_tap.sv:205.7-205.63" *) isc_enabled_q : 1'h0;
+  assign isc_pdata_valid_o = update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:204.20-207.8|src/debug/fpga_dm_jtag_tap.sv:204.5-207.8" *) _052_ : 1'h0;
+  assign ejtag_valid_o = update_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:204.20-207.8|src/debug/fpga_dm_jtag_tap.sv:204.5-207.8" *) _028_ : 1'h0;
+  assign _026_ = boundary_scan_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:197.35-197.51|src/debug/fpga_dm_jtag_tap.sv:197.9-197.51" *) td_i : _025_;
+  assign _050_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:195.33-195.81|src/debug/fpga_dm_jtag_tap.sv:195.7-195.81" *) { td_i, isc_pdata_q[31:1] } : _049_;
+  assign _025_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:194.33-194.56|src/debug/fpga_dm_jtag_tap.sv:194.7-194.56" *) td_i : _024_;
+  assign _024_ = _015_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:193.33-193.56|src/debug/fpga_dm_jtag_tap.sv:193.7-193.56" *) _023_ : td_i;
+  assign _033_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:192.33-192.78|src/debug/fpga_dm_jtag_tap.sv:192.7-192.78" *) { td_i, idcode_q[31:1] } : _032_;
+  assign _032_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:191.33-191.78|src/debug/fpga_dm_jtag_tap.sv:191.7-191.78" *) { td_i, idcode_q[31:1] } : _031_;
+  assign _027_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:190.19-202.8|src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *) _026_ : _023_;
+  assign _051_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:190.19-202.8|src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *) _050_ : _049_;
+  assign _034_ = shift_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:190.19-202.8|src/debug/fpga_dm_jtag_tap.sv:190.5-202.8" *) _033_ : _031_;
+  assign _048_ = isc_pdata_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:187.33-187.54|src/debug/fpga_dm_jtag_tap.sv:187.7-187.54" *) 32'd0 : isc_pdata_q;
+  assign _022_ = ejtag_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:186.33-186.59|src/debug/fpga_dm_jtag_tap.sv:186.7-186.59" *) ejtag_i : _021_;
+  assign _021_ = _015_ ? (* src = "src/debug/fpga_dm_jtag_tap.sv:185.33-185.56|src/debug/fpga_dm_jtag_tap.sv:185.7-185.56" *) bypass_q : 1'h0;
+  assign _030_ = usercode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:184.33-184.62|src/debug/fpga_dm_jtag_tap.sv:184.7-184.62" *) usercode_i : _029_;
+  assign _029_ = idcode_select ? (* src = "src/debug/fpga_dm_jtag_tap.sv:183.33-183.63|src/debug/fpga_dm_jtag_tap.sv:183.7-183.63" *) 32'd73687041 : idcode_q;
+  assign _023_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.21-188.8|src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *) _022_ : bypass_q;
+  assign _049_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.21-188.8|src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *) _048_ : isc_pdata_q;
+  assign _031_ = capture_dr ? (* src = "src/debug/fpga_dm_jtag_tap.sv:182.21-188.8|src/debug/fpga_dm_jtag_tap.sv:182.5-188.8" *) _030_ : idcode_q;
+  function [3:0] _187_;
     input [3:0] a;
     input [47:0] b;
     input [11:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
-    (* src = "src/debug/fpga_dm_jtag_tap.sv:576.17-579.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *)
+    (* src = "src/debug/fpga_dm_jtag_tap.sv:586.17-589.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *)
     (* parallel_case *)
     casez (s)
       12'b???????????1:
-        _179_ = b[3:0];
+        _187_ = b[3:0];
       12'b??????????1?:
-        _179_ = b[7:4];
+        _187_ = b[7:4];
       12'b?????????1??:
-        _179_ = b[11:8];
+        _187_ = b[11:8];
       12'b????????1???:
-        _179_ = b[15:12];
+        _187_ = b[15:12];
       12'b???????1????:
-        _179_ = b[19:16];
+        _187_ = b[19:16];
       12'b??????1?????:
-        _179_ = b[23:20];
+        _187_ = b[23:20];
       12'b?????1??????:
-        _179_ = b[27:24];
+        _187_ = b[27:24];
       12'b????1???????:
-        _179_ = b[31:28];
+        _187_ = b[31:28];
       12'b???1????????:
-        _179_ = b[35:32];
+        _187_ = b[35:32];
       12'b??1?????????:
-        _179_ = b[39:36];
+        _187_ = b[39:36];
       12'b?1??????????:
-        _179_ = b[43:40];
+        _187_ = b[43:40];
       12'b1???????????:
-        _179_ = b[47:44];
+        _187_ = b[47:44];
       default:
-        _179_ = a;
+        _187_ = a;
     endcase
   endfunction
-  assign tap_state_d = _179_(4'hx, { 3'h0, _010_, _011_, 3'h2, _000_, _012_, 3'h3, _000_, _001_, _003_, 1'h1, _004_, 2'h3, _005_, 2'h3, _002_, 1'h1, _006_, 2'h0, _002_ }, { _083_, _081_, _019_, _078_, _077_, _076_, _074_, _018_, _071_, _070_, _069_, _017_ });
-  assign _068_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:576.17-579.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'hf;
-  assign _069_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:570.9-570.52|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'he;
-  assign _070_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:567.9-567.51|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'hd;
-  assign _071_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:563.9-563.52|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'hc;
-  assign _072_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:558.16-561.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'hb;
-  assign _073_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:550.18-553.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'ha;
-  assign _074_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:544.9-544.60|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'h9;
-  assign _075_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:538.17-541.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 4'h8;
-  assign _076_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:536.9-536.52|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 3'h7;
-  assign _077_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:533.9-533.51|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 3'h6;
-  assign _078_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:530.9-530.52|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 3'h5;
-  assign _079_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:525.16-528.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 3'h4;
-  assign _080_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:521.18-524.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 2'h3;
-  assign _081_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:519.9-519.58|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 2'h2;
-  assign _082_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:515.9-515.60|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1;
-  assign _083_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:510.23-513.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) tap_state_q;
-  assign dm_rst_o = _083_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:510.23-513.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign update_ir = _068_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:576.17-579.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign shift_ir = _072_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:558.16-561.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign capture_ir = _073_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:550.18-553.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign capture_dr = _080_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:521.18-524.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign shift_dr = _079_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:525.16-528.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign isc_update_dr = _075_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:538.17-541.10|src/debug/fpga_dm_jtag_tap.sv:509.5-581.12" *) 1'h1 : 1'h0;
-  assign jtag_ir_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:127.27-131.8|src/debug/fpga_dm_jtag_tap.sv:127.5-131.8" *) 5'h01 : _052_;
-  assign jtag_ir_shift_d = dm_rst_o ? (* src = "src/debug/fpga_dm_jtag_tap.sv:127.27-131.8|src/debug/fpga_dm_jtag_tap.sv:127.5-131.8" *) 5'h00 : _054_;
-  assign _052_ = update_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:124.7-124.46|src/debug/fpga_dm_jtag_tap.sv:123.5-125.8" *) jtag_ir_shift_q : jtag_ir_q;
-  assign _054_ = capture_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:119.7-119.45|src/debug/fpga_dm_jtag_tap.sv:118.5-120.8" *) 5'h05 : _053_;
-  assign _053_ = shift_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:114.7-114.63|src/debug/fpga_dm_jtag_tap.sv:113.5-115.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
+  assign tap_state_d = _187_(4'hx, { 3'h0, _001_, _003_, 3'h2, _004_, _005_, 3'h3, _004_, _006_, _007_, 1'h1, _008_, 2'h3, _009_, 2'h3, _002_, 1'h1, _010_, 2'h0, _002_ }, { _011_, _082_, _020_, _079_, _078_, _077_, _075_, _019_, _072_, _071_, _070_, _018_ });
+  assign _069_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:586.17-589.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'hf;
+  assign _070_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:580.9-580.52|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'he;
+  assign _071_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:577.9-577.51|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'hd;
+  assign _072_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:573.9-573.52|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'hc;
+  assign _073_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:568.16-571.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'hb;
+  assign _074_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:560.18-563.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'ha;
+  assign _075_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:554.9-554.60|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'h9;
+  assign _076_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:548.17-551.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 4'h8;
+  assign _077_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:546.9-546.52|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 3'h7;
+  assign _078_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:543.9-543.51|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 3'h6;
+  assign _079_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:540.9-540.52|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 3'h5;
+  assign _080_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:535.16-538.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 3'h4;
+  assign _081_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:531.18-534.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 2'h3;
+  assign _082_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:529.9-529.58|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 2'h2;
+  assign _083_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:525.9-525.60|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1;
+  assign test_logic_reset = _011_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:520.23-523.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign update_ir = _069_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:586.17-589.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign shift_ir = _073_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:568.16-571.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign capture_ir = _074_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:560.18-563.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign capture_dr = _081_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:531.18-534.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign shift_dr = _080_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:535.16-538.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign update_dr = _076_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/fpga_dm_jtag_tap.sv:548.17-551.10|src/debug/fpga_dm_jtag_tap.sv:519.5-591.12" *) 1'h1 : 1'h0;
+  assign jtag_ir_d = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:128.27-132.8|src/debug/fpga_dm_jtag_tap.sv:128.5-132.8" *) 5'h01 : _053_;
+  assign jtag_ir_shift_d = test_logic_reset ? (* src = "src/debug/fpga_dm_jtag_tap.sv:128.27-132.8|src/debug/fpga_dm_jtag_tap.sv:128.5-132.8" *) 5'h00 : _055_;
+  assign _053_ = update_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:125.7-125.46|src/debug/fpga_dm_jtag_tap.sv:124.5-126.8" *) jtag_ir_shift_q : jtag_ir_q;
+  assign _055_ = capture_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:120.7-120.45|src/debug/fpga_dm_jtag_tap.sv:119.5-121.8" *) 5'h05 : _054_;
+  assign _054_ = shift_ir ? (* src = "src/debug/fpga_dm_jtag_tap.sv:115.7-115.63|src/debug/fpga_dm_jtag_tap.sv:114.5-116.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
   (* hdlname = "i_tck_inv" *)
-  (* src = "src/debug/fpga_dm_jtag_tap.sv:411.19" *)
+  (* src = "src/debug/fpga_dm_jtag_tap.sv:421.19" *)
   \tc_clk_inverter$FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.i_tck_inv  i_tck_inv (
     .clk_i(tck_i),
     .clk_o(tck_n)
   );
   assign boundary_scan_o = 1'h0;
-  assign capture_bsr_select_o = 1'h0;
+  assign capture_bsr_select_d = 1'h0;
   assign ejtag_o = bypass_q;
-  assign isc_highZ = 1'h0;
+  assign isc_highZ_d = 1'h0;
+  assign isc_highZ_o = isc_highZ_q;
   assign isc_pdata_o = isc_pdata_q;
   assign mode1_d = 1'h0;
   assign mode2_d = 1'h0;
   assign mode5_d = 1'h0;
   assign mode6_d = 1'h0;
-  assign shift_bsr_select_o = 1'h0;
+  assign shift_bsr_select_d = 1'h0;
   assign tap_isc_state_q = { isc_enabled_q, isc_done_q, isc_disable_completing_q };
   assign tck_no = tck_n;
-  assign test_logic_reset = dm_rst_o;
-  assign testmode_clk_pulse_o = 1'h0;
-  assign testmode_o = 1'h0;
-  assign update_bsr_select_o = 1'h0;
-  assign update_dr = isc_update_dr;
+  assign testmode_clk_pulse_d = 1'h0;
+  assign testmode_clk_pulseo_d = 1'h0;
+  assign testmode_d = 1'h0;
+  assign update_bsr_select_d = 1'h0;
 endmodule
 
 (* src = "src/greyhound_ihp.sv:7.8" *)

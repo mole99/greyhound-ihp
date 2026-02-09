@@ -122,7 +122,7 @@ module fpga_dm import soc_pkg::*; #(
     logic        usercode_valid_d, usercode_valid_q;
     // Boundary scan registers
     logic tck_n, dm_clear;
-    logic mode1, mode2, mode5, mode6;
+    logic mode1, mode2, mode5, mode6, highZ;
     logic boundary_scan_tdi, boundary_scan_tdo;
     logic capture_bsr_select, shift_bsr_select, update_bsr_select;
 
@@ -144,6 +144,7 @@ module fpga_dm import soc_pkg::*; #(
         .mode2_o              ( mode2              ),
         .mode5_o              ( mode5              ),
         .mode6_o              ( mode6              ),
+        .isc_highZ_o          ( highZ              ),
         .boundary_scan_o      ( boundary_scan_tdo  ),
         .boundary_scan_i      ( boundary_scan_tdi  ),
         .capture_bsr_select_o ( capture_bsr_select ),
@@ -168,17 +169,24 @@ module fpga_dm import soc_pkg::*; #(
     // ----------------
     // USERCODE
     // ----------------
-    assign usercode_valid_d = fabric_bitstream_valid_i & (fabric_bitstream_data_i == BITFILE_START);
+    logic fabric_bitstream_valid_q;
+    logic [31:0] fabric_bitstream_data_q;
+    always_ff @(posedge clk_i) begin
+        fabric_bitstream_data_q <= fabric_bitstream_data_i; // Pipeline bitstream after mux
+        fabric_bitstream_valid_q <= fabric_bitstream_valid_i;
+    end
+    
+    assign usercode_valid_d = fabric_bitstream_valid_q & (fabric_bitstream_data_q == BITFILE_START);
     always_ff @(posedge clk_i, negedge rst_ni) begin
         if (!rst_ni) begin
             usercode_q       <= '0;
             usercode_valid_q <= 1'b0;
         end else begin
-            if (usercode_valid_q & fabric_bitstream_valid_i) begin
-                usercode_q <= fabric_bitstream_data_i;
+            if (usercode_valid_q & fabric_bitstream_valid_q) begin
+                usercode_q <= fabric_bitstream_data_q;
             end
 
-            if (fabric_bitstream_valid_i) begin
+            if (fabric_bitstream_valid_q) begin
                 usercode_valid_q <= 1'b0;
             end
             
@@ -188,7 +196,7 @@ module fpga_dm import soc_pkg::*; #(
         end
     end
 
-    // Sync whole usercode into tclk domain, this will never be used faster than 10 tclk cycles 
+    // Sync whole usercode into tclk domain, this will never be used faster than 2 tclk cycles, and if used faster the result is undefined anyway...
     // after changing usercode_q (because of the IEEE1149.1 state machine and fabric programming taking many cycles)
     always_ff @(posedge tck_i) begin
         jtag_usercode_q <= usercode_q;
@@ -278,6 +286,7 @@ module fpga_dm import soc_pkg::*; #(
                 .mode2_i ( mode2 ),
                 .mode5_i ( mode5 ),
                 .mode6_i ( mode6 ),
+                .highZ_i ( highZ ),
                 // Daisy chain connection
                 .td_i ( boundary_scan_io_west_td[i]   ),
                 .td_o ( boundary_scan_io_west_td[i+1] ),
@@ -323,6 +332,7 @@ module fpga_dm import soc_pkg::*; #(
                 .output_data_i ( fabric_irq_i[i] ),
                 // Mode configuration
                 .mode1_i ( mode1 ),
+                .highZ_i ( highZ ),
                 // Daisy chain connection
                 .td_i ( boundary_scan_irq_td[i]   ),
                 .td_o ( boundary_scan_irq_td[i+1] ),
@@ -394,6 +404,7 @@ module fpga_dm import soc_pkg::*; #(
                 .output_data_i ( boundary_scan_custom_instr_out_packed[0][i] ),
                 // Mode configuration
                 .mode1_i ( mode1 ),
+                .highZ_i ( highZ ),
                 // Daisy chain connection
                 .td_i ( boundary_scan_custom_instr_out_td[i]   ),
                 .td_o ( boundary_scan_custom_instr_out_td[i+1] ),
@@ -470,6 +481,7 @@ module fpga_dm import soc_pkg::*; #(
                 .output_data_i ( boundary_scan_obi_periph_out_packed[0][i] ),
                 // Mode configuration
                 .mode1_i ( mode1 ),
+                .highZ_i ( highZ ),
                 // Daisy chain connection
                 .td_i ( boundary_scan_obi_periph_out_td[i]   ),
                 .td_o ( boundary_scan_obi_periph_out_td[i+1] ),

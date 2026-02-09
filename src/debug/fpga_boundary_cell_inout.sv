@@ -19,6 +19,7 @@ module fpga_boundary_cell_inout (
     input  logic mode2_i,
     input  logic mode5_i,
     input  logic mode6_i,
+    input  logic highZ_i,
     // Daisy chain connection
     input  logic td_i,
     output logic td_o,
@@ -27,19 +28,20 @@ module fpga_boundary_cell_inout (
     output logic pin_o,
     output logic enable_pin_o
 );
-    logic output_enable, output_enable_q;
+    logic output_enable, output_enable_q, pino_d;
     logic tdo_d, tdo_q;
     logic pino_g11_d, pino_g11_q;
     logic pino_g1, input_data;
 
     // Control cell
-    assign enable_pin_o  = mode6_i & output_enable;
+    assign enable_pin_o  = mode6_i & output_enable & ~highZ_i;
     assign output_enable = mode5_i ? output_enable_q : output_enable_i;
     assign tdo_d         = shift_bsr_select_i ? pino_g11_q : output_enable;
     assign td_o          = tdo_q;
 
     // Combined input/output cell
-    assign pin_o        = mode5_i ? input_data : output_data_i;
+    assign pino_d       = mode5_i ? input_data : output_data_i;
+    assign pin_o        = highZ_i ? 1'b0 : pino_d;
     assign pino_g1      = (output_enable & ~mode5_i) ? pin_o : input_data_o;
     assign pino_g11_d   = shift_bsr_select_i ? td_i : pino_g1;
     assign input_data_o = mode2_i ? input_data : pin_i;
