@@ -294,13 +294,13 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   always_ff @(posedge tck_i, negedge trst_ni) begin
     if (!trst_ni) begin
       testmode_o           <= 1'b0;
-      testmode_clk_pulse_o <= 1'b0;
+      testmode_clk_pulse_o <= 1'b1;
       testmode_clk_pulse_q <= 1'b0;
     end
     else begin
       if (EnabledBSRLength == None) begin
         testmode_o           <= 1'b0;
-        testmode_clk_pulse_o <= 1'b0;
+        testmode_clk_pulse_o <= 1'b1;
         testmode_clk_pulse_q <= 1'b0;
       end
       else begin

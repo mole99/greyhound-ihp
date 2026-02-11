@@ -65,9 +65,9 @@ Here are the STA results after PnR for the SoC:
 
 | corner              | BSR=None  | BSR=External | BSR=Internal | BSR=All   |
 |---------------------|-----------|--------------|--------------|-----------|
-| nom_fast_1p32V_m40C | 67 MHz    | 66 MHz       | 66 MHz       | 64 MHz    |
-| nom_typ_1p20V_25C   | 55 MHz    | 54 MHz       | 54 MHz       | 52 MHz    |
-| nom_slow_1p08V_125C | 39 MHz    | 35 MHz       | 35 MHz       | 35 MHz    |
+| nom_fast_1p32V_m40C | 92 MHz    | 81 MHz       | 82 MHz       | 85 MHz    |
+| nom_typ_1p20V_25C   | 64 MHz    | 53 MHz       | 54 MHz       | 57 MHz    |
+| nom_slow_1p08V_125C | 40 MHz    | 33 MHz       | 34 MHz       | 36 MHz    |
 
 ## FPGA Fabric
 

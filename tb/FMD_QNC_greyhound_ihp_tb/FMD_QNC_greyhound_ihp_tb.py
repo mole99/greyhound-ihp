@@ -147,7 +147,7 @@ jtag_cpu = {
     'dump_waveforms': True,
 }
 
-enabled = jtag_cpu
+enabled = fpga_all_zeros
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -725,8 +725,11 @@ async def test_jtag_extest(dut):
     # Test isc preload
     if not gl:
         assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x0) # ISC Unprogrammed
+
     await jtag.write("PRELOAD", write_val, device=1)
-    assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+    
     await test_instr_force_run(jtag, "EXTEST", write_val)
     if gl:
         assert((jtag.ret_val & mask_val) == (ret_val[0] & mask_val))
@@ -742,7 +745,9 @@ async def test_jtag_extest(dut):
     if not gl:
         assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0b1) # ISC Accessed
     
-    assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+    
     await test_instr_force_run(jtag, "EXTEST", write_val)
     if not gl:
         assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_enabled_q.value == 0x1) # ISC Accessed
@@ -751,7 +756,9 @@ async def test_jtag_extest(dut):
     if not gl:
         assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.isc_disable_completing_q.value == 0x1) # ISC Complete
     
-    assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        assert(dut.io_gpio_PAD.value == LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z"))
+
     await test_instr_force_run(jtag, "EXTEST", write_val)
     if not gl:
         assert(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fpga_dm.i_dm_jtag_tap.tap_isc_state_q.value == 0x2) # ISC Operational
@@ -760,7 +767,9 @@ async def test_jtag_extest(dut):
     await jtag.write("PRELOAD", write_val, device=1)
     await jtag.write("BYPASS", 0x1, device=1)
 
-    assert(dut.io_gpio_PAD.value == LogicArray("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        assert(dut.io_gpio_PAD.value == LogicArray("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
+        
     # Check for correct extest scan reg value, when input changes (output is set by test vector)
     await test_instr_force_run(jtag, "EXTEST", write_val)
     if gl:
