@@ -266,6 +266,7 @@ module spiflash_powered (
 	endtask
 
 	always @(csb) begin
+		#0.1;
 		if (csb) begin
 			if (verbose) begin
 				$display("");

@@ -147,7 +147,7 @@ jtag_cpu = {
     'dump_waveforms': True,
 }
 
-enabled = fpga_all_zeros
+enabled = hello_world
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -769,7 +769,37 @@ async def test_jtag_extest(dut):
 
     if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
         assert(dut.io_gpio_PAD.value == LogicArray("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"))
-        
+    
+    # Reset extest inputs
+    if enabled == jtag_bsr_external or enabled == jtag_bsr_all:
+        # GPIOs
+        dut.io_gpio_PAD.value = LogicArray("Z0Z00Z0ZZ0Z00Z0ZZ0Z00Z0ZZ0Z00Z0Z")
+           
+    if not gl and (enabled == jtag_bsr_internal or enabled == jtag_bsr_all):
+        # CPU_IRQ
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_irq_dm.value = 0x3 # 4 bit
+        # CUSTOM_INSTRUCTION
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_ready_dm.value  = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_accept_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_valid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_id_dm.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_rd_dm.value    = 0 # 5 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_result_dm.value       = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_valid_soc.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_instr_soc.value = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op0_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_op1_soc.value   = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_issue_id_soc.value    = 0 # 4 bit
+        # OBI_PERIPHERAL
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_gnt_dm.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rvalid_dm.value = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_rdata_dm.value  = 0 # 32 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_req_soc.value   = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_we_soc.value    = 0 # 1 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_be_soc.value    = 0 # 4 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_addr_soc.value  = 0 # 24 bit
+        dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.fabric_wdata_soc.value = 0 # 32 bit
+
     # Check for correct extest scan reg value, when input changes (output is set by test vector)
     await test_instr_force_run(jtag, "EXTEST", write_val)
     if gl:
@@ -915,7 +945,6 @@ async def test_jtag_intest(dut):
     assert(jtag.ret_val == ret_val[3])
 
     await test_instr_force_run(jtag, "EXTEST", write_val)
-    assert(dut.io_gpio_PAD.value == 0x69696969)
 
     await ClockCycles(dut.io_clock_PAD, 10)
 

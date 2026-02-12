@@ -266,7 +266,7 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     assign update_bsr_select_d   = boundary_scan_select & (tap_state_d == UpdateDr);
     assign testmode_d            = (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
     assign testmode_clk_pulseo_d = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
-    assign testmode_clk_pulse_d  = tap_state_d == RunTestIdle | ((tap_state_q == UpdateIr) & testmode_o);
+    assign testmode_clk_pulse_d  = tap_state_d == RunTestIdle;
   end
 
   // Buffered output signals
@@ -294,13 +294,18 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   always_ff @(posedge tck_i, negedge trst_ni) begin
     if (!trst_ni) begin
       testmode_o           <= 1'b0;
-      testmode_clk_pulse_o <= 1'b1;
+      if (EnabledBSRLength == None) begin
+        testmode_clk_pulse_o <= 1'b0;
+      end 
+      else begin
+        testmode_clk_pulse_o <= 1'b1;
+      end
       testmode_clk_pulse_q <= 1'b0;
     end
     else begin
       if (EnabledBSRLength == None) begin
         testmode_o           <= 1'b0;
-        testmode_clk_pulse_o <= 1'b1;
+        testmode_clk_pulse_o <= 1'b0;
         testmode_clk_pulse_q <= 1'b0;
       end
       else begin
