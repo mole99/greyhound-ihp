@@ -79,5 +79,7 @@ jobs:
         with:
           name: greyhound_image
           path: |
-            img/FMD_QNC_greyhound_ihp.png
-            img/FMD_QNC_greyhound_ihp_small.png
+            img/FMD_QNC_greyhound_ihp_white.png
+            img/FMD_QNC_greyhound_ihp_white_small.png
+            img/FMD_QNC_greyhound_ihp_black.png
+            img/FMD_QNC_greyhound_ihp_black_small.png
