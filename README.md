@@ -5,8 +5,8 @@ Greyhound's embedded FPGA can be used as a custom instruction extension, as a pe
 Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](https://github.com/IHP-GmbH/IHP-Open-PDK).
 
 <p align="center">
-  <a href="img/FMD_QNC_greyhound_ihp.png">
-    <img src="img/FMD_QNC_greyhound_ihp_small.png" alt="chip layout" width=35%>
+  <a href="img/FMD_QNC_greyhound_ihp_white.png">
+    <img src="img/FMD_QNC_greyhound_ihp_white_small.png" alt="chip layout" width=35%>
   </a>
 </p>
 
