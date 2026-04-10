@@ -30,11 +30,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764011051,
-        "narHash": "sha256-M7SZyPZiqZUR/EiiBJnmyUbOi5oE/03tCeFrTiUZchI=",
+        "lastModified": 1768818222,
+        "narHash": "sha256-460jc0+CZfyaO8+w8JNtlClB2n4ui1RbHfPTLkpwhU8=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "17ed8d9744ebe70424659b0ef74ad6d41fc87071",
+        "rev": "255a2b1725a20d060f566e4755dbf571bbbb5f76",
         "type": "github"
       },
       "original": {
@@ -50,7 +50,7 @@
         "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
         "revCount": 69,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz?rev=ff81ac966bb2cae68946d5ed5fc4994f96d0ffec&revCount=69"
+        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -65,16 +65,16 @@
         "nix-eda": "nix-eda"
       },
       "locked": {
-        "lastModified": 1769435453,
-        "narHash": "sha256-g6bQMg9W0gbvJzVvO4ESeAtswbBoUVY3NXLK4UdOcGs=",
+        "lastModified": 1774611666,
+        "narHash": "sha256-NrfZm7GlFxIEIqaPB2SubKMV7DdqYzRtdRfIePMqwgM=",
         "owner": "librelane",
         "repo": "librelane",
-        "rev": "c277d6ba461200a7c59f6de760850d1f117e7758",
+        "rev": "156f82dadc3ac58d958b6d497e5427a63dd59896",
         "type": "github"
       },
       "original": {
         "owner": "librelane",
-        "ref": "dev",
+        "ref": "3.0.1",
         "repo": "librelane",
         "type": "github"
       }
@@ -84,16 +84,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1768053828,
-        "narHash": "sha256-u45uYnM8W7NXq7hCVwxPuASDZY4tLwLIlk9y9PamvMU=",
+        "lastModified": 1773918136,
+        "narHash": "sha256-nSKBMGP8/ZC7qB3Lzd+FwM8REqOxlh8wpYDf2hlK6Gg=",
         "owner": "fossi-foundation",
         "repo": "nix-eda",
-        "rev": "229ea0b01ac497ae4df3441f48533c2249db13df",
+        "rev": "8f990fb77529c09e540e453cd836af9930ec58db",
         "type": "github"
       },
       "original": {
         "owner": "fossi-foundation",
-        "ref": "6.0.1",
+        "ref": "6.11.0",
         "repo": "nix-eda",
         "type": "github"
       }

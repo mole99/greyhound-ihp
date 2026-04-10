@@ -9,7 +9,7 @@
   };
 
   inputs = {
-    librelane.url = github:librelane/librelane/dev;
+    librelane.url = github:librelane/librelane/3.0.1;
   };
 
   outputs = {
@@ -48,36 +48,40 @@
       inherit (self.legacyPackages.${system}.python3.pkgs);
     });
     
-    devShells = nix-eda.forAllSystems (system: let
-      pkgs = (self.legacyPackages.${system});
-      callPackage = lib.callPackageWith pkgs;
-    in {
-      default = callPackage (pkgs.createLibreLaneShell {
-        extra-packages = with pkgs; [
-          # Simulation
-          iverilog
-          verilator
-          
-          # Waveform viewing
-          gtkwave
-          
-          # FPGA
-          nextpnr
-          
-          # Debug
-          openocd
-          gdb
-          
-          # Image scaling
-          imagemagick
-        ];
-        
-        extra-python-packages = with pkgs.python3.pkgs; [
-          # Verification
-          cocotb
-          cocotbext-spi
-        ];
-      }) {};
-    });
+    devShells = nix-eda.forAllSystems (
+      system:
+      let
+        pkgs = (self.legacyPackages.${system});
+        callPackage = lib.callPackageWith pkgs;
+      in
+      {
+        default = pkgs.librelane-shell.override ({
+          extra-packages = with pkgs; [
+            # Simulation
+            iverilog
+            verilator
+            
+            # Waveform viewing
+            gtkwave
+            
+            # FPGA
+            nextpnr
+            
+            # Debug
+            openocd
+            gdb
+            
+            # Image scaling
+            imagemagick
+          ];
+          extra-python-packages = ps: with ps; [
+            # Verification
+            cocotb
+            cocotbext-spi
+            pytest
+          ];
+        });
+      }
+    );
   };
 }
