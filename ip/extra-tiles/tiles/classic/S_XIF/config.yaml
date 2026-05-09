@@ -1,0 +1,31 @@
+meta:
+  version: 2
+  flow: FABulousTile
+  substituting_steps:
+    # Don't resize the buffers
+    OpenROAD.Resizer*: null
+    OpenROAD.RepairDesign*: null
+
+FABULOUS_TILE_DIR: dir::. #tiles/S_XIF
+
+# Basics
+DESIGN_NAME: S_XIF
+FABULOUS_SUPERTILE: true
+VERILOG_FILES:
+  - dir::../../../models_pack.v
+  - dir::../../../custom.v
+FABULOUS_EXTERNAL_SIDE: S
+
+# Disable timing driven placement
+# as it would resize the buffers
+PL_TIME_DRIVEN: false
+
+# Seems to add a few buffers too
+PL_ROUTABILITY_DRIVEN: false
+
+# Clock
+CLOCK_PERIOD: 20
+CLOCK_PORT: Tile_X0Y0_E_GBUF_END[0]
+
+# Custom PDN because of horizontal tiles
+PDN_CFG: dir::S_XIF_pdn_cfg.tcl

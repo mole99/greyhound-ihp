@@ -1,0 +1,90 @@
+{
+  "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+  "modules": {
+    "CPU_IRQ": {
+      "attributes": {
+        "dynports": 1,
+        "top": 1,
+        "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:16.1-36.10"
+      },
+      "parameter_default_values": {
+        "NUM_IRQ": 4,
+        "NoConfigBits": 0
+      },
+      "ports": {
+        "IRQ": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5 ]
+        },
+        "IRQ_top": {
+          "direction": "output",
+          "bits": [ 6, 7, 8, 9 ]
+        },
+        "CONFIGURED_top": {
+          "direction": "input",
+          "bits": [ 10 ]
+        }
+      },
+      "cells": {
+        "$and$/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:34$1": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": 0,
+            "A_WIDTH": 4,
+            "B_SIGNED": 0,
+            "B_WIDTH": 4,
+            "Y_WIDTH": 4
+          },
+          "attributes": {
+            "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:34.20-34.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5 ],
+            "B": [ 10, 10, 10, 10 ],
+            "Y": [ 6, 7, 8, 9 ]
+          }
+        }
+      },
+      "netnames": {
+        "$and$/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:34$1_Y": {
+          "hide_name": 1,
+          "bits": [ 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:34.20-34.51"
+          }
+        },
+        "CONFIGURED_top": {
+          "hide_name": 0,
+          "bits": [ 10 ],
+          "attributes": {
+            "EXTERNAL": 1,
+            "FABulous": 1,
+            "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:28.59-28.73"
+          }
+        },
+        "IRQ": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5 ],
+          "attributes": {
+            "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:23.32-23.35"
+          }
+        },
+        "IRQ_top": {
+          "hide_name": 0,
+          "bits": [ 6, 7, 8, 9 ],
+          "attributes": {
+            "EXTERNAL": 1,
+            "FABulous": 1,
+            "src": "/home/leo/Repositories/greyhound-ihp/fabrics/classic_fabric_greyhound/../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/../../../primitives/CPU_IRQ/fabulous/CPU_IRQ.v:26.57-26.64"
+          }
+        }
+      }
+    }
+  }
+}

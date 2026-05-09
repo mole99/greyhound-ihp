@@ -1,0 +1,61 @@
+meta:
+  version: 2
+  flow: FABulousFabric
+  substituting_steps:
+    # Save some time
+    Magic.DRC: null
+    KLayout.DRC: null
+
+# No antenna repair - we don't have
+# standard cells at the top-level
+GRT_ANTENNA_REPAIR_ITERS: 0
+DRT_ANTENNA_REPAIR_ITERS: 0
+
+# Basics
+DESIGN_NAME: classic_fabric_greyhound
+VERILOG_FILES: []
+
+# No extract-unique, because the power straps
+# are connected in the top-level integration
+MAGIC_EXT_UNIQUE: notopports
+
+# Unfortunately needed
+GRT_ALLOW_CONGESTION: true
+
+# FABulous config
+FABULOUS_FABRIC_CONFIG: dir::classic_fabric_greyhound.csv
+FABULOUS_TILE_LIBRARY:
+- dir::../../ip/fabulous-tiles/tiles/classic/
+- dir::../../ip/extra-tiles/tiles/classic/
+
+FABULOUS_TILE_SPACING: 0
+FABULOUS_HALO_SPACING: [ 0, 0, 0, 0 ]
+
+# Use the minimum length for pins
+# that satisfies the minimum area constraint
+IO_PIN_H_LENGTH: null
+IO_PIN_V_LENGTH: null
+
+# Save on file space by sharing same cells
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+#KLAYOUT_CONFLICT_RESOLUTION: SkipNewCell
+    
+# Clock
+#CLOCK_PERIOD: 20
+#CLOCK_PORT: UserCLK
+
+# Timing model generation
+FABULOUS_TIMING_MODEL: PHYSICAL
+
+# PDK specific
+pdk::sky130*:
+    # Routing
+    RT_MAX_LAYER: met4
+
+pdk::gf180mcu*:
+    # Routing
+    RT_MAX_LAYER: Metal4
+
+pdk::ihp-sg13*:
+    # Routing
+    RT_MAX_LAYER: TopMetal1

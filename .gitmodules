@@ -21,3 +21,6 @@
 [submodule "ip/common_cells"]
 	path = ip/common_cells
 	url = ../common_cells.git
+[submodule "ip/fabulous-tiles"]
+	path = ip/fabulous-tiles
+	url = ../../mole99/fabulous-tiles.git

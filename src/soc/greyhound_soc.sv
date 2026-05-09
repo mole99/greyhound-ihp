@@ -562,7 +562,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     EF_QSPI_XIP_CTRL_AHBL 
     #(
-        .NUM_LINES      ( 16 ), 
+        .NUM_LINES      ( 8 ), 
         .LINE_SIZE      ( 32 ), 
         .RESET_CYCLES   ( 999 ) 
     )
