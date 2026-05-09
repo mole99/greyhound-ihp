@@ -193,6 +193,9 @@ jobs:
           path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
           key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
           fail-on-cache-miss: true
+      - name: Copy the Fabric
+        run: |
+          make classic_fabric_greyhound-copy
       - name: Enable the PDK
         run: |
           PDK=${{ env.pdk }} nix develop --command make clone-pdk
