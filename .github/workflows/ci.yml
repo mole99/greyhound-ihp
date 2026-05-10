@@ -70,7 +70,7 @@ jobs:
       matrix:
         pdk: [ihp-sg13g2]
         tile_library: [classic]
-    name: Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
+    name: Extra Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
     steps:
       - uses: actions/checkout@v6
         with:
@@ -138,7 +138,7 @@ jobs:
           path: ip/extra-tiles/tiles
           key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
           fail-on-cache-miss: true
-      - name: Stitch the tiles
+      - name: Stitch the Fabric
         run: |
           PDK=${{ matrix.pdk }} nix develop --command make ${{ matrix.fabrics }}
       - name: Upload Macro Folder
@@ -154,6 +154,9 @@ jobs:
         with:
           path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
           key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+      - name: Copy the Fabric
+        run: |
+          make classic_fabric_greyhound-copy
       - name: Implement the User Designs
         run: |
           cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabrics }} nix develop --command make all
