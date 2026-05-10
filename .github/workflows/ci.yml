@@ -172,6 +172,7 @@ jobs:
     env:
       pdk: sky130A
     needs: [fabrics]
+    name: Build the Chip
     steps:
       - uses: actions/checkout@v6
         with:
