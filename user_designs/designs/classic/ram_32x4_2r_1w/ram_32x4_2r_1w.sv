@@ -21,20 +21,6 @@ module ram_32x4_2r_1w (
     output wire [3:0] word_c
 );
 
-    logic clk1_buf;
-
-    (* keep, BEL="X0Y9.A" *) GBUF clock1_buf (
-      .IN   (clk1),
-      .OUT  (clk1_buf)
-    );
-
-    logic clk2_buf;
-
-    (* keep, BEL="X0Y9.B" *) GBUF clock2_buf (
-      .IN   (clk2),
-      .OUT  (clk2_buf)
-    );
-
     localparam WIDTH = 4;
     localparam DEPTH = 5;
 
@@ -63,7 +49,7 @@ module ram_32x4_2r_1w (
       .C_REG  (1'b0)
       ) RAM_32x4_2R_1W (
         // Port A - Write
-        .A_CLK    (clk1_buf),
+        .A_CLK    (clk1),
         .A_ADDR0  (A_ADDR[0]),
         .A_ADDR1  (A_ADDR[1]),
         .A_ADDR2  (A_ADDR[2]),
@@ -76,7 +62,7 @@ module ram_32x4_2r_1w (
         .A_DIN3   (A_DIN[3]),
 
         // Port B - Read
-        .B_CLK    (clk2_buf),
+        .B_CLK    (clk2),
         .B_ADDR0  (B_ADDR[0]),
         .B_ADDR1  (B_ADDR[1]),
         .B_ADDR2  (B_ADDR[2]),

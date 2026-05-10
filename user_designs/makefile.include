@@ -37,13 +37,15 @@ endif
 
 ifeq ($(FABRIC),classic_fabric_greyhound)
 EXTRA_PLIBS_PATH 	+= -extra-plib ../../../../ip/fabulous-tiles/primitives/TT_PROJECT/yosys/primitives/TT_PROJECT.v \
-   			   -extra-plib ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x32_1RW/yosys/primitives/IHP_SRAM_1024x32_1RW.v
+   			   -extra-plib ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x32_1RW/yosys/primitives/IHP_SRAM_1024x32_1RW.v \
+      			   -extra-plib ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x16_2RW/yosys/primitives/IHP_SRAM_1024x16_2RW.v
 endif
 
 EXTRA_MAPS_PATH		 = -extra-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/lut_map.v \
 			   -extra-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/ff_map.v \
 			   -extra-map ../../../../ip/fabulous-tiles/primitives/IOBUF/yosys/techmap/IOBUF_map.v \
-			   -extra-map ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x32_1RW/yosys/techmap/IHP_SRAM_1024x32_1RW_map.v
+			   -extra-map ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x32_1RW/yosys/techmap/IHP_SRAM_1024x32_1RW_map.v \
+   			   -extra-map ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x16_2RW/yosys/techmap/IHP_SRAM_1024x16_2RW_map.v
 
 ifeq ($(TILE_LIBRARY),classic)
 EXTRA_MAPS_PATH		+= -extra-map ../../../../ip/fabulous-tiles/primitives/RAM_32x4_2R_1W/yosys/techmap/RAM_32x4_2R_1W_map.v
@@ -54,7 +56,9 @@ EXTRA_MLIBMAPS_PATH	 = -extra-mlibmap ../../../../ip/fabulous-tiles/primitives/R
 endif
 
 ifeq ($(FABRIC),classic_fabric_greyhound)
+# TODO: I need to override here or IHP_SRAM_1024x32_1RW is not inferred. Why?
 EXTRA_MLIBMAPS_PATH	 = -extra-mlibmap ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x32_1RW/yosys/memlib/IHP_SRAM_1024x32_1RW_lib.txt
+EXTRA_MLIBMAPS_PATH	 += -extra-mlibmap ../../../../ip/fabulous-tiles/primitives/IHP_SRAM_1024x16_2RW/yosys/memlib/IHP_SRAM_1024x16_2RW_lib.txt
 endif
 
 CLKBUF_MAP_PATH		 = -clkbuf-map ../../../../ip/fabulous-tiles/primitives/GBUF/yosys/techmap/GBUF_map.v
