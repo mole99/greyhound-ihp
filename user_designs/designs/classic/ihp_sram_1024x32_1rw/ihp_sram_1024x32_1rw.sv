@@ -14,13 +14,6 @@ module ihp_sram_1024x32_1rw (
     input  wire [7:0] ram_din_byte,
     output wire [7:0] ram_dout_byte
 );
-
-    logic clk1_buf;
-
-    GBUF clock1_buf (
-      .IN   (clk1),
-      .OUT  (clk1_buf)
-    );
     
     logic [31:0] ram_din;
     logic [31:0] ram_dout;
@@ -28,7 +21,7 @@ module ihp_sram_1024x32_1rw (
     assign ram_din = ram_din_byte << (8 * ram_byte_sel);
 
     IHP_SRAM_1024x32_1RW_wrapper IHP_SRAM_1024x32_1RW_wrapper (
-        .CLK    (clk1_buf),
+        .CLK    (clk1),
         .ADDR   (ram_addr),
         .DIN    (ram_din),
         .BM     ({{8{ram_byte_sel == 2'd3}}, {8{ram_byte_sel == 2'd2}}, {8{ram_byte_sel == 2'd1}}, {8{ram_byte_sel == 2'd0}}}),
