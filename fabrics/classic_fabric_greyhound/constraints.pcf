@@ -1,6 +1,6 @@
 # SoC clock
 
-set_io sys_clk  X0Y17/F
+set_io sys_clk  X0Y17/A
 
 # All I/Os
 

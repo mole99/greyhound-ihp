@@ -14,10 +14,10 @@ module SW_IO_term
  //E
         input  [3:0] W_GBUF_FEED_END,        //Port(Name=W_GBUF_FEED_END,IO=INPUT,XOffset=-1,YOffset=0,WireCount=4,Side=E)
         output  [3:0] E_GBUF_BEG,        //Port(Name=E_GBUF_BEG,IO=OUTPUT,XOffset=1,YOffset=0,WireCount=4,Side=E)
+        input  A_OUT_top,
+        output  A_IN_top,
+        output  A_EN_top,
         input  SYS_RESET_RESET_top,
-        input  IOBUF_OUT_top,
-        output  IOBUF_IN_top,
-        output  IOBUF_EN_top,
     //Tile IO ports from BELs
         input  [FrameBitsPerRow-1:0] FrameData, //CONFIG_PORT
         output  [FrameBitsPerRow-1:0] FrameData_O,
@@ -27,6 +27,10 @@ module SW_IO_term
 );
  //signal declarations
  //BEL ports (e.g., slices)
+wire A_CLK;
+wire A_IN;
+wire A_EN;
+wire A_OUT;
 wire GBUF_A_IN;
 wire GBUF_A_OUT;
 wire GBUF_B_IN;
@@ -36,10 +40,6 @@ wire GBUF_C_OUT;
 wire GBUF_D_IN;
 wire GBUF_D_OUT;
 wire SYS_RESET_RESET;
-wire IOBUF_CLK;
-wire IOBUF_IN;
-wire IOBUF_EN;
-wire IOBUF_OUT;
  //Jump wires
  //internal configuration data signal to daisy-chain all BELs (if any and in the order they are listed in the fabric.csv)
 wire[NoConfigBits-1:0] ConfigBits;
@@ -593,44 +593,44 @@ SW_IO_term_ConfigMem
 
 
  //BEL component instantiations
+IOBUF Inst_A_IOBUF (
+    .CLK(A_CLK),
+    .IN(A_IN),
+    .EN(A_EN),
+    .OUT(A_OUT),
+    .IN_top(A_IN_top),
+    .EN_top(A_EN_top),
+    .OUT_top(A_OUT_top),
+    .ConfigBits(ConfigBits[3-1:0])
+);
+
 GBUF Inst_GBUF_A_GBUF (
     .IN(GBUF_A_IN),
     .OUT(GBUF_A_OUT),
-    .ConfigBits(ConfigBits[1-1:0])
+    .ConfigBits(ConfigBits[4-1:3])
 );
 
 GBUF Inst_GBUF_B_GBUF (
     .IN(GBUF_B_IN),
     .OUT(GBUF_B_OUT),
-    .ConfigBits(ConfigBits[2-1:1])
+    .ConfigBits(ConfigBits[5-1:4])
 );
 
 GBUF Inst_GBUF_C_GBUF (
     .IN(GBUF_C_IN),
     .OUT(GBUF_C_OUT),
-    .ConfigBits(ConfigBits[3-1:2])
+    .ConfigBits(ConfigBits[6-1:5])
 );
 
 GBUF Inst_GBUF_D_GBUF (
     .IN(GBUF_D_IN),
     .OUT(GBUF_D_OUT),
-    .ConfigBits(ConfigBits[4-1:3])
+    .ConfigBits(ConfigBits[7-1:6])
 );
 
 SYS_RESET Inst_SYS_RESET_SYS_RESET (
     .RESET(SYS_RESET_RESET),
     .RESET_top(SYS_RESET_RESET_top)
-);
-
-IOBUF Inst_IOBUF_IOBUF (
-    .CLK(IOBUF_CLK),
-    .IN(IOBUF_IN),
-    .EN(IOBUF_EN),
-    .OUT(IOBUF_OUT),
-    .IN_top(IOBUF_IN_top),
-    .EN_top(IOBUF_EN_top),
-    .OUT_top(IOBUF_OUT_top),
-    .ConfigBits(ConfigBits[7-1:4])
 );
 
 SW_IO_term_switch_matrix Inst_SW_IO_term_switch_matrix (
@@ -642,12 +642,12 @@ SW_IO_term_switch_matrix Inst_SW_IO_term_switch_matrix (
     .W_GBUF_FEED_END1(W_GBUF_FEED_END[1]),
     .W_GBUF_FEED_END2(W_GBUF_FEED_END[2]),
     .W_GBUF_FEED_END3(W_GBUF_FEED_END[3]),
+    .A_OUT(A_OUT),
     .GBUF_A_OUT(GBUF_A_OUT),
     .GBUF_B_OUT(GBUF_B_OUT),
     .GBUF_C_OUT(GBUF_C_OUT),
     .GBUF_D_OUT(GBUF_D_OUT),
     .SYS_RESET_RESET(SYS_RESET_RESET),
-    .IOBUF_OUT(IOBUF_OUT),
     .N_GBUF_BEG0(N_GBUF_BEG[0]),
     .N_GBUF_BEG1(N_GBUF_BEG[1]),
     .N_GBUF_BEG2(N_GBUF_BEG[2]),
@@ -656,13 +656,13 @@ SW_IO_term_switch_matrix Inst_SW_IO_term_switch_matrix (
     .E_GBUF_BEG1(E_GBUF_BEG[1]),
     .E_GBUF_BEG2(E_GBUF_BEG[2]),
     .E_GBUF_BEG3(E_GBUF_BEG[3]),
+    .A_CLK(A_CLK),
+    .A_IN(A_IN),
+    .A_EN(A_EN),
     .GBUF_A_IN(GBUF_A_IN),
     .GBUF_B_IN(GBUF_B_IN),
     .GBUF_C_IN(GBUF_C_IN),
     .GBUF_D_IN(GBUF_D_IN),
-    .IOBUF_CLK(IOBUF_CLK),
-    .IOBUF_IN(IOBUF_IN),
-    .IOBUF_EN(IOBUF_EN),
     .ConfigBits(ConfigBits[26-1:7]),
     .ConfigBits_N(ConfigBits_N[26-1:7])
 );

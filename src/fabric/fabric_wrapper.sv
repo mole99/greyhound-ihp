@@ -196,7 +196,7 @@ module fabric_wrapper #(
         .FrameData      (FrameData_i),
         .FrameStrobe    (FrameStrobe_i),
 
-        .Tile_X0Y17_IOBUF_OUT_top(io_clock_in_i),
+        .Tile_X0Y17_A_OUT_top(io_clock_in_i),
 
         // West I/Os
         .Tile_X0Y1_A_OUT_top(io_west_in_i[0]),
