@@ -16,7 +16,7 @@ W_IO2,LUT4x8_ha,LUT4x8_ha,RegFile,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,MACC_top,LUT4x8_
 W_IO2,LUT4x8_ha,LUT4x8_ha,RegFile,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,MACC_bot,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,E_IHP_SRAM_bot
 W_IO2,LUT4x8_ha,LUT4x8_ha,RegFile,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,MACC_top,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,E_IHP_SRAM_top
 W_IO2,LUT4x8_ha,LUT4x8_ha,RegFile,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,MACC_bot,LUT4x8_ha,LUT4x8_ha,LUT4x8_ha,E_IHP_SRAM_bot
-SW_term,S_WARMBOOT,S_CPU_IRQ,S_term_RegFile,S_OBI_left,S_OBI_middle,S_OBI_right,S_term_MACC,S_XIF_left,S_XIF_middle,S_XIF_right,SE_term
+SW_IO_term,S_WARMBOOT,S_CPU_IRQ,S_term_RegFile,S_OBI_left,S_OBI_middle,S_OBI_right,S_term_MACC,S_XIF_left,S_XIF_middle,S_XIF_right,SE_term
 FabricEnd,,,,,,,,,
 ,,,,,,,,,
 ParametersBegin,,,,,,,,,
@@ -54,6 +54,7 @@ Tile,../../ip/fabulous-tiles/tiles/classic/E_IHP_SRAM/E_IHP_SRAM_bot/E_IHP_SRAM_
 Tile,../../ip/fabulous-tiles/tiles/classic/E_IHP_BRAM/E_IHP_BRAM_top/E_IHP_BRAM_top.csv,,,,,,,,
 Tile,../../ip/fabulous-tiles/tiles/classic/E_IHP_BRAM/E_IHP_BRAM_bot/E_IHP_BRAM_bot.csv,,,,,,,,
 ,,,,,,,,,
+Tile,../../ip/extra-tiles/tiles/classic/SW_IO_term/SW_IO_term.csv,,,,,,,,
 Tile,../../ip/extra-tiles/tiles/classic/S_CPU_IRQ/S_CPU_IRQ.csv,,,,,,,,
 Tile,../../ip/extra-tiles/tiles/classic/S_OBI/S_OBI_left/S_OBI_left.csv,,,,,,,,
 Tile,../../ip/extra-tiles/tiles/classic/S_OBI/S_OBI_middle/S_OBI_middle.csv,,,,,,,,

@@ -19,6 +19,10 @@ VERILOG_FILES: []
 # are connected in the top-level integration
 MAGIC_EXT_UNIQUE: notopports
 
+# Set power/ground names
+VDD_NETS: [VPWR]
+GND_NETS: [VGND]
+
 # Unfortunately needed
 GRT_ALLOW_CONGESTION: true
 
@@ -45,7 +49,7 @@ PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 #CLOCK_PORT: UserCLK
 
 # Timing model generation
-FABULOUS_TIMING_MODEL: PHYSICAL
+#FABULOUS_TIMING_MODEL: PHYSICAL
 
 # PDK specific
 pdk::sky130*:
@@ -56,6 +60,10 @@ pdk::gf180mcu*:
     # Routing
     RT_MAX_LAYER: Metal4
 
-pdk::ihp-sg13*:
+pdk::ihp-sg13g2:
     # Routing
     RT_MAX_LAYER: TopMetal1
+
+pdk::ihp-sg13cmos5l:
+    # Routing
+    RT_MAX_LAYER: Metal4

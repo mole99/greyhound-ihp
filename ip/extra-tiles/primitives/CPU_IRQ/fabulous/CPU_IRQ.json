@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+  "creator": "Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 21.1.2 -fPIC -O3)",
   "modules": {
     "CPU_IRQ": {
       "attributes": {

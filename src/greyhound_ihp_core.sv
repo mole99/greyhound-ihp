@@ -420,6 +420,9 @@ module greyhound_ihp_core (
         .configured_i   (fabric_config_configured),
         .sys_reset_i    (fabric_config_busy),
         
+        // Clock I/O
+        .io_clock_in_i  (clk_i),
+        
         // I/Os West
         .io_west_in_i    (fabric_io_west_in_i),
         .io_west_out_o   (fabric_io_west_out_o),

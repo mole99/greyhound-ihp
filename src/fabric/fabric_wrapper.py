@@ -5,6 +5,7 @@ FABRIC_HEIGHT = 18
 FABRIC_WIDTH = 12
 FABRIC_NUM_IO_WEST = 32
 BELS_PER_IO_TILE = ['A', 'B']
+CLOCK_IO_BEL = 'X0Y17_IOBUF'
 NUM_SRAM = 4
 NUM_BRAM = 4
 SRAM_WIDTH = 32
@@ -40,6 +41,9 @@ module fabric_wrapper #(
         print(f'    // Fabric is configured')
         print("""    input                                configured_i,""")
         print("""    input                                sys_reset_i,\n""")
+
+        print(f'    // I/O Clock')
+        print("""    input                                io_clock_in_i,\n""")
 
         # I/Os
         print(f'    // I/Os South')
@@ -126,6 +130,9 @@ module fabric_wrapper #(
         print(f"""        .FrameData      (FrameData_i),""")
         print(f"""        .FrameStrobe    (FrameStrobe_i),\n""")
 
+        # Clock I/O
+        print(f"""        .Tile_{CLOCK_IO_BEL}_OUT_top(io_clock_in_i),\n"""),
+
         # I/Os
         print(f"""        // West I/Os""")
         num_bels = len(BELS_PER_IO_TILE)
@@ -152,6 +159,52 @@ module fabric_wrapper #(
         print(f"""        .Tile_{CPU_IRQ_LOC}_IRQ_top2(fabric_irq_o[2]),""")
         print(f"""        .Tile_{CPU_IRQ_LOC}_IRQ_top3(fabric_irq_o[3]),""")
         print(f"""        .Tile_{CPU_IRQ_LOC}_CONFIGURED_top(configured_i),\n""")
+
+        # S_XIF
+        for index, s_xif_coords in enumerate(['X9Y17']):
+            print(f'        // S_XIF {index}')
+
+            print(f'        .Tile_{s_xif_coords}_ISSUE_READY_top(fabric_issue_ready_o),')
+            print(f'        .Tile_{s_xif_coords}_ISSUE_ACCEPT_top(fabric_issue_accept_o),')
+            print(f'        .Tile_{s_xif_coords}_ISSUE_VALID_top(fabric_issue_valid_i),')
+            for j in range(32):
+                print(f'        .Tile_{s_xif_coords}_ISSUE_INSTR_top{j}(fabric_issue_instr_i[{j}]),')
+            for j in range(32):
+                print(f'        .Tile_{s_xif_coords}_ISSUE_OPA_top{j}(fabric_issue_op0_i[{j}]),')
+            for j in range(32):
+                print(f'        .Tile_{s_xif_coords}_ISSUE_OPB_top{j}(fabric_issue_op1_i[{j}]),')
+            for j in range(4):
+                print(f'        .Tile_{s_xif_coords}_ISSUE_ID_top{j}(fabric_issue_id_i[{j}]),')
+
+            print(f'        .Tile_{s_xif_coords}_RESULT_VALID_top(fabric_result_valid_o),')
+            for j in range(4):
+                print(f'        .Tile_{s_xif_coords}_RESULT_ID_top{j}(fabric_result_id_o[{j}]),')
+            for j in range(5):
+                print(f'        .Tile_{s_xif_coords}_RESULT_RD_top{j}(fabric_result_rd_o[{j}]),')
+            for j in range(32):
+                print(f'        .Tile_{s_xif_coords}_RESULT_top{j}(fabric_result_o[{j}]),')
+
+            print('')
+
+        # S_OBI
+        for index, s_obi_coords in enumerate(['X5Y17']):
+            print(f'        // S_OBI {index}')
+
+            print(f'        .Tile_{s_obi_coords}_REQ_top(fabric_obi_req_i),')
+            print(f'        .Tile_{s_obi_coords}_WE_top(fabric_obi_we_i),')
+            for j in range(4):
+                print(f'        .Tile_{s_obi_coords}_BE_top{j}(fabric_obi_be_i[{j}]),')
+            for j in range(24):
+                print(f'        .Tile_{s_obi_coords}_ADDR_top{j}(fabric_obi_addr_i[{j}]),')
+            for j in range(32):
+                print(f'        .Tile_{s_obi_coords}_WDATA_top{j}(fabric_obi_wdata_i[{j}]),')
+
+            print(f'        .Tile_{s_obi_coords}_GNT_top(fabric_obi_gnt_o),')
+            print(f'        .Tile_{s_obi_coords}_RVALID_top(fabric_obi_rvalid_o),')
+            for j in range(32):
+                print(f'        .Tile_{s_obi_coords}_RDATA_top{j}(fabric_obi_rdata_o[{j}]),')
+
+            print('')
 
         # BRAM
         for i, BRAM_LOC in enumerate(BRAM_LOCS):
