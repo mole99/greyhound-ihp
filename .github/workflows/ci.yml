@@ -206,7 +206,7 @@ jobs:
           PDK=${{ env.pdk }} nix develop --command make clone-pdk
       - name: Build the Chip
         run: |
-          PDK=${{ env.pdk }} nix develop --command make librelane
+          PDK=${{ env.pdk }} nix develop --command make librelane-nodrc
       - name: Create summary
         run: |
           echo "# Manufacturability" >> $GITHUB_STEP_SUMMARY
