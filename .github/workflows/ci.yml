@@ -88,13 +88,13 @@ jobs:
           derivation: github:mole99/librelane_plugin_fabulous
       - name: Get the tile library hash
         run: |
-          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Cache the tiles
         uses: actions/cache@v5
         id: cache
         with:
           path: ip/extra-tiles/tiles
-          key: cache-extra-tiles-${{ matrix.tile_library }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          key: cache-extra-tiles-${{ matrix.tile_library }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
       - name: Implement the tiles
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
@@ -126,6 +126,7 @@ jobs:
         run: |
           echo "TILE_LIBRARY=$(echo "${{ matrix.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
           echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Restore the tiles
         uses: actions/cache/restore@v5
         with:
@@ -136,14 +137,14 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: ip/extra-tiles/tiles
-          key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
           fail-on-cache-miss: true
       - name: Cache the Fabric
         uses: actions/cache@v5
         id: cache
         with:
           path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
-          key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
       - name: Stitch the Fabric
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
@@ -190,13 +191,12 @@ jobs:
           nix_system: x86_64-linux
       - name: Get the tile library
         run: |
-          echo "TILE_LIBRARY=classic" >> $GITHUB_ENV
-          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Restore the Fabric classic_fabric_greyhound
         uses: actions/cache/restore@v5
         with:
           path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
-          key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
           fail-on-cache-miss: true
       - name: Copy the Fabric
         run: |
