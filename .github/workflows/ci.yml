@@ -170,7 +170,7 @@ jobs:
   chip:
     runs-on: ubuntu-24.04
     env:
-      pdk: sky130A
+      pdk: ihp-sg13g2
     needs: [fabrics]
     name: Build the Chip
     steps:
