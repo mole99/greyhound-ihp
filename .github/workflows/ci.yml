@@ -138,7 +138,14 @@ jobs:
           path: ip/extra-tiles/tiles
           key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
           fail-on-cache-miss: true
+      - name: Cache the Fabric
+        uses: actions/cache@v5
+        id: cache
+        with:
+          path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
+          key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
       - name: Stitch the Fabric
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           PDK=${{ matrix.pdk }} nix develop --command make ${{ matrix.fabric }}
       - name: Upload Macro Folder
@@ -148,15 +155,9 @@ jobs:
           name: ${{ matrix.fabric }}_${{ matrix.pdk }}
           path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
           include-hidden-files: true
-      - name: Cache the Fabric
-        uses: actions/cache@v5
-        id: cache
-        with:
-          path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
-          key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
       - name: Copy the Fabric
         run: |
-          make classic_fabric_greyhound-copy
+          make ${{ matrix.fabric }}-copy
       - name: Implement the User Designs
         run: |
           cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
