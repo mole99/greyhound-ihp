@@ -49,7 +49,6 @@ jobs:
         uses: ./.github/actions/build_nix
         with:
           nix_system: x86_64-linux
-          derivation: github:mole99/librelane_plugin_fabulous
       - name: Get the tile library hash
         run: |
           echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
@@ -85,7 +84,6 @@ jobs:
         uses: ./.github/actions/build_nix
         with:
           nix_system: x86_64-linux
-          derivation: github:mole99/librelane_plugin_fabulous
       - name: Get the tile library hash
         run: |
           echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
