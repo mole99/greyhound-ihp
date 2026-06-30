@@ -117,7 +117,11 @@ librelane: $(PDK_ROOT)/$(PDK) ## Run LibreLane to implement Greyhound
 
 librelane-nodrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
 	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC
-.PHONY: librelane
+.PHONY: librelane-nodrc
+
+librelane-ci: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
+	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC --skip KLayout.Density --condensed
+.PHONY: librelane-ci
 
 librelane-klayoutdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without magic DRC
 	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip Magic.DRC

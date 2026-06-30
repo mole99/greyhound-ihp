@@ -206,15 +206,18 @@ jobs:
         run: |
           PDK=${{ env.pdk }} nix develop --command make librelane-nodrc
       - name: Create summary
+        if: success() || failure()
         run: |
           echo "# Manufacturability" >> $GITHUB_STEP_SUMMARY
           cat librelane/runs/*/*-misc-reportmanufacturability/manufacturability.rpt >> $GITHUB_STEP_SUMMARY
       - name: Upload GDS
+        if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           name: greyhound_gds
           path: final/gds/*
       - name: Upload image
+        if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
           name: greyhound_image
