@@ -205,6 +205,8 @@ The soc needs a special instruction (ejtag) to enable the jtag interface. This w
 
 To program the fabric one has to cycle through ISC_ENABLE -> ISC_PROGRAMM (write complete bitstream) -> ISC_DISABLE (signals complete programming) -> BYPASS (to activate the design). When the fabric is programmed by the cpu it will be forced into the ISC Accessed state while programming and then back to the operational state, if a jtag clk is present. Without jtag clk this transition will not happen. As a result, when the BSR is present jtag clk can only be disconnected once the fabric is in operational mode.
 
+Since JTAG uses oversampling to read tdi and write tdo the test clock must be around `cpu clock`/10 or lower. This results in a max test clock of 5MHz when running at 50MHz CPU clock.
+
 | Length              | Register configuration |
 |---------------------|------------------------|
 | None (0 bits)       | No BSR                 |

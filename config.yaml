@@ -41,7 +41,6 @@ VERILOG_FILES:
 - dir::ip/cv32e40x/rtl/include/cv32e40x_pkg.sv
 - dir::ip/obi/src/obi_pkg.sv
 - dir::ip/riscv-dbg/src/dm_pkg.sv
-- dir::ip/common_cells/src/cdc_reset_ctrlr_pkg.sv
 # RTL_OBI
 - dir::ip/obi/src/obi_intf.sv
 - dir::ip/obi/src/obi_mux.sv
@@ -53,11 +52,8 @@ VERILOG_FILES:
 - dir::ip/common_cells/src/rr_arb_tree.sv
 - dir::ip/common_cells/src/delta_counter.sv
 - dir::ip/common_cells/src/lzc.sv
-- dir::ip/common_cells/src/cdc_2phase_clearable.sv
 - dir::ip/common_cells/src/deprecated/fifo_v2.sv
-- dir::ip/common_cells/src/cdc_reset_ctrlr.sv
 - dir::ip/common_cells/src/sync.sv
-- dir::ip/common_cells/src/cdc_4phase.sv
 # Core and SoC
 - dir::ip/cv32e40x/rtl/*.sv
 - dir::src/soc/greyhound_soc.sv
@@ -71,6 +67,7 @@ VERILOG_FILES:
 # Fabric Wrapper
 - dir::ip/fabric/rtl/fabric_wrapper.sv
 # Fabric Config
+- dir::ip/fabric_config/controller_io_interface.sv
 - dir::ip/fabric_config/fabric_config.sv
 - dir::ip/fabric_config/fabric_spi_controller.sv
 - dir::ip/fabric_config/fabric_spi_receiver.sv
@@ -87,9 +84,8 @@ VERILOG_FILES:
 # Util
 - dir::ip/EF_IP_UTIL/hdl/ef_util_lib.v
 # Debug
-- dir::ip/riscv-dbg/src/dmi_jtag.sv
-- dir::ip/riscv-dbg/src/dmi_jtag_tap.sv
-- dir::ip/riscv-dbg/src/dmi_cdc.sv
+- dir::src/debug/soc_dmi_jtag.sv
+- dir::src/debug/soc_dmi_jtag_tap.sv
 - dir::ip/riscv-dbg/src/dm_obi_top.sv
 - dir::ip/riscv-dbg/src/dm_top.sv
 - dir::ip/riscv-dbg/src/dm_csrs.sv
@@ -208,11 +204,11 @@ FP_OBSTRUCTIONS:
 
 PL_TARGET_DENSITY_PCT: 56 # 43 # 53
 
-PL_MAX_DISPLACEMENT_X: 1300 # 1000
-PL_MAX_DISPLACEMENT_Y: 400 # 300
+PL_MAX_DISPLACEMENT_X: 1600 # 1000
+PL_MAX_DISPLACEMENT_Y: 600 # 300
 
-PL_RESIZER_HOLD_SLACK_MARGIN: 0.25
-PL_RESIZER_HOLD_MAX_BUFFER_PCT: 75
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.4
+PL_RESIZER_HOLD_MAX_BUFFER_PCT: 90
 
 PL_RESIZER_FIX_HOLD_FIRST: True
 PL_RESIZER_ALLOW_SETUP_VIOS: True

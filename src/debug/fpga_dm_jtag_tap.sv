@@ -27,12 +27,13 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // xxxxxxxxxxx      manufacturer id
   // 1                required by standard
 ) (
-  input  logic        tck_i,    // JTAG test clock pad
+  input  logic        clk_i,
+  input  logic        jclk_rising_i,  // JTAG clk rising
+  input  logic        jclk_falling_i, // JTAG clk falling
   input  logic        tms_i,    // JTAG test mode select pad
-  input  logic        trst_ni,  // JTAG test reset pad
+  input  logic        trst_n_sync_i,  // JTAG test reset pad
   input  logic        td_i,     // JTAG test data input pad
   output logic        td_o,     // JTAG test data output pad
-  output logic        tck_no,
   // Synchronous reset of the dmi module triggered by JTAG TAP
   output logic        dm_rst_o,
   // Control if jtag interface is enabled
@@ -57,7 +58,6 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   output logic        capture_bsr_select_o,
   output logic        shift_bsr_select_o,
   output logic        update_bsr_select_o,
-  output logic        testmode_o, 
   output logic        testmode_clk_pulse_o
 );
 
@@ -77,10 +77,12 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
 
   tap_state_e tap_state_q, tap_state_d;
   tap_isc_state_e tap_isc_state_q;
+  logic update_dr_d, update_dr_q;
   logic update_dr, shift_dr, capture_dr;
   logic isc_enabled_q, isc_enabled_d;
   logic isc_done_q, isc_done_d;
   logic isc_disable_completing_q, isc_disable_completing_d;
+  logic testmode;
 
   typedef enum logic [IrLength-1:0] {
     BYPASS0        = 'h0,
@@ -132,11 +134,11 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     end
   end
 
-  always_ff @(posedge tck_i, negedge trst_ni) begin : p_jtag_ir_reg
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin : p_jtag_ir_reg
+    if (!trst_n_sync_i) begin
       jtag_ir_shift_q <= '0;
       jtag_ir_q       <= IDCODE;
-    end else begin
+    end else if (jclk_rising_i) begin
       jtag_ir_shift_q <= jtag_ir_shift_d;
       jtag_ir_q       <= jtag_ir_d;
     end
@@ -265,18 +267,18 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     assign shift_bsr_select_d    = boundary_scan_select & (tap_state_d == ShiftDr);
     assign update_bsr_select_d   = boundary_scan_select & (tap_state_d == UpdateDr);
     assign testmode_d            = (jtag_ir_d == EXTEST) | (jtag_ir_d == INTEST);
-    assign testmode_clk_pulseo_d = ~testmode_o | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
+    assign testmode_clk_pulseo_d = ~testmode | (testmode_clk_pulse_d & ~testmode_clk_pulse_q);
     assign testmode_clk_pulse_d  = tap_state_d == RunTestIdle;
   end
 
   // Buffered output signals
-  always_ff @(posedge tck_i, negedge trst_ni) begin
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin
+    if (!trst_n_sync_i) begin
       capture_bsr_select_o <= 1'b0;
       shift_bsr_select_o   <= 1'b0;
       update_bsr_select_o  <= 1'b0;
     end
-    else begin
+    else if (jclk_rising_i) begin
       if (EnabledBSRLength == None) begin
         capture_bsr_select_o <= 1'b0;
         shift_bsr_select_o   <= 1'b0;
@@ -290,10 +292,9 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     end
   end
 
-  logic tck_n;
-  always_ff @(posedge tck_i, negedge trst_ni) begin
-    if (!trst_ni) begin
-      testmode_o           <= 1'b0;
+  always_ff @(posedge clk_i) begin
+    if (!trst_n_sync_i) begin
+      testmode <= 1'b0;
       if (EnabledBSRLength == None) begin
         testmode_clk_pulse_o <= 1'b0;
       end 
@@ -304,16 +305,16 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     end
     else begin
       if (EnabledBSRLength == None) begin
-        testmode_o           <= 1'b0;
+        if (jclk_rising_i) testmode <= 1'b0;
         testmode_clk_pulse_o <= 1'b0;
         testmode_clk_pulse_q <= 1'b0;
       end
       else begin
-        testmode_o           <= testmode_d;
+        if (jclk_rising_i) testmode <= testmode_d;
         testmode_clk_pulse_o <= testmode_clk_pulseo_d;
         testmode_clk_pulse_q <= testmode_clk_pulse_d;
       end
-    end
+    end 
   end
 
   // Determine ISC mode
@@ -330,17 +331,17 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
 
   if (EnabledBSRLength != None) begin
     // Determine ISC highZ (Sets known IO state, when unprogrammed)
-    assign isc_highZ_d = (tap_isc_state_q != Operational) & ~testmode_o & ejtag_i;
+    assign isc_highZ_d = (tap_isc_state_q != Operational) & ~testmode & ejtag_i;
   end
   else begin
     assign isc_highZ_d = 1'b0;
   end
 
-  always_ff @(posedge tck_i, negedge trst_ni) begin
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin
+    if (!trst_n_sync_i) begin
       isc_highZ_q <= 1'b0;
     end
-    else begin
+    else if (jclk_rising_i) begin
       if (EnabledBSRLength != None) begin
         isc_highZ_q <= isc_highZ_d;
       end
@@ -377,8 +378,8 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   end
 
   // Buffer mode signals, fixes some slack timing
-  always_ff @(posedge tck_i, negedge trst_ni) begin
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin
+    if (!trst_n_sync_i) begin
       mode1_o <= 1'b0;
       mode2_o <= 1'b0;
       mode5_o <= 1'b0;
@@ -389,7 +390,7 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
         mode6_o <= 1'b0;
       end
     end
-    else begin
+    else if (jclk_rising_i) begin
       mode1_o <= mode1_d;
       mode2_o <= mode2_d;
       mode5_o <= mode5_d;
@@ -423,16 +424,11 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // ----------------
   // DFT
   // ----------------
-  tc_clk_inverter i_tck_inv (
-    .clk_i ( tck_i ),
-    .clk_o ( tck_n )
-  );
-
   // TDO changes state at negative edge of TCK
-  always_ff @(posedge tck_n, negedge trst_ni) begin : p_tdo_regs
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin : p_tdo_regs
+    if (!trst_n_sync_i) begin
       td_o     <= 1'b0;
-    end else begin
+    end else if (jclk_falling_i) begin
       td_o     <= tdo_mux;
     end
   end
@@ -440,8 +436,8 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
   // ----------------
   // ISC IR logic
   // ----------------
-  always_ff @(posedge tck_n, negedge trst_ni) begin : isc_state
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin : isc_state
+    if (!trst_n_sync_i) begin
       isc_enabled_q            <= '0;
       isc_done_q               <= '0;
       isc_disable_completing_q <= '0;
@@ -461,37 +457,39 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     isc_enabled_d            = isc_enabled_q;
     isc_done_d               = isc_done_q;
     isc_disable_completing_d = isc_disable_completing_q;
-    
-    unique casez (tap_isc_state_q)
-      Unprogrammed: begin
-        if (isc_enable_select) begin
-          isc_enabled_d = 1'b1;
-        end
-      end
-      IscAccessed: begin
-        if (test_logic_reset) begin
-          isc_enabled_d = 1'b0;
-        end
 
-        if (isc_disable_select) begin
-          isc_disable_completing_d = isc_enabled_q;
-          isc_enabled_d            = 1'b0;
-          isc_done_d               = 1'b1;
+    if (jclk_falling_i) begin
+      unique casez (tap_isc_state_q)
+        Unprogrammed: begin
+          if (isc_enable_select) begin
+            isc_enabled_d = 1'b1;
+          end
         end
-      end
-      IscComplete: begin
-        if (!isc_disable_select) begin
-          isc_disable_completing_d = 1'b0;
+        IscAccessed: begin
+          if (test_logic_reset) begin
+            isc_enabled_d = 1'b0;
+          end
+
+          if (isc_disable_select) begin
+            isc_disable_completing_d = isc_enabled_q;
+            isc_enabled_d            = 1'b0;
+            isc_done_d               = 1'b1;
+          end
         end
-      end
-      Operational: begin
-        if (isc_enable_select) begin
-          isc_enabled_d = 1'b1;
-          isc_done_d    = 1'b0;
+        IscComplete: begin
+          if (!isc_disable_select) begin
+            isc_disable_completing_d = 1'b0;
+          end
         end
-      end
-      default: ;
-    endcase
+        Operational: begin
+          if (isc_enable_select) begin
+            isc_enabled_d = 1'b1;
+            isc_done_d    = 1'b0;
+          end
+        end
+        default: ;
+      endcase
+    end
 
     if (isc_ext_prog_i & (jtag_ir_q != ISC_PROGRAM)) begin // Fabric is beeing configured by cpu
       isc_enabled_d            = 1'b1;
@@ -515,7 +513,7 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
 
     capture_dr       = 1'b0;
     shift_dr         = 1'b0;
-    update_dr        = 1'b0;
+    update_dr_d      = 1'b0;
 
     capture_ir       = 1'b0;
     shift_ir         = 1'b0;
@@ -551,7 +549,7 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
         tap_state_d = (tms_i) ? UpdateDr : ShiftDr;
       end
       UpdateDr: begin
-        update_dr = 1'b1;
+        update_dr_d = 1'b1;
         tap_state_d = (tms_i) ? SelectDrScan : RunTestIdle;
       end
       // IR Path
@@ -596,29 +594,35 @@ module fpga_dm_jtag_tap import soc_pkg::*; #(
     endcase
   end
 
-  always_ff @(posedge tck_i or negedge trst_ni) begin : p_regs
-    if (!trst_ni) begin
+  assign update_dr = update_dr_d && !update_dr_q;
+
+  always_ff @(posedge clk_i) begin : p_regs
+    if (!trst_n_sync_i) begin
       tap_state_q <= TestLogicReset;
       idcode_q    <= IdcodeValue;
       bypass_q    <= 1'b0;
       isc_pdata_q <= '0;
+      update_dr_q <= '0;
     end else begin
-      tap_state_q <= tap_state_d;
-      idcode_q    <= idcode_d;
-      bypass_q    <= bypass_d;
-      isc_pdata_q <= isc_pdata_d;
+      update_dr_q <= update_dr_d; // Single out en pulse
+
+      if (jclk_rising_i) begin
+        tap_state_q <= tap_state_d;
+        idcode_q    <= idcode_d;
+        bypass_q    <= bypass_d;
+        isc_pdata_q <= isc_pdata_d;
+      end
     end
   end
 
   // Pass through JTAG signals to debug custom DR logic.
   // In case of a single TAP those are just feed-through.
-  assign tck_no = tck_n;
   // Buffer out clear signal
-  always_ff @(posedge tck_i or negedge trst_ni) begin
-    if (!trst_ni) begin
+  always_ff @(posedge clk_i) begin
+    if (!trst_n_sync_i) begin
       dm_rst_o <= 1'b0;
     end
-    else begin
+    else if (jclk_rising_i) begin
       dm_rst_o <= (tap_state_q == TestLogicReset);
     end
   end

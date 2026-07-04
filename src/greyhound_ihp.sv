@@ -104,42 +104,37 @@ module greyhound_ihp (
     end
     
     assign rst_n_sync = rst_nd[1];
-
-    // Sync fpga_mode_i
-    logic [1:0] fpga_mode_d;
-    logic fpga_mode_sync;
-    always_ff @(posedge clk_i) begin
-        fpga_mode_d <= {fpga_mode_d[0], fpga_mode_i};
-    end
-    assign fpga_mode_sync = fpga_mode_d[1];
     
     // Config busy
     assign config_busy_o = fabric_config_busy;
     
-    logic [31:0] spi_bitstream_data, spi_controller_bitstream_data_o, spi_receiver_bitstream_data_o;
-    logic        spi_bitstream_valid, spi_controller_bitstream_valid_o, spi_receiver_bitstream_valid_o;
+    logic [31:0] spi_bitstream_data, spi_controller_bitstream_data, spi_receiver_bitstream_data;
+    logic        spi_bitstream_valid, spi_controller_bitstream_valid, spi_receiver_bitstream_valid;
     
     // JTAG receiver
     logic [31:0] jtag_bitstream_data;
     logic        jtag_bitstream_valid;
 
     // JTAG boundary scan
-    logic jtag_tck, jtag_tdi, jtag_tdo, jtag_tms;
+    logic jtag_tdi, jtag_tdo, jtag_tms;
+    logic en_jtag_receiver, jtag_trst_n_sync;
 
     // SPI receiver
-    logic spi_receiver_sclk_i;
-    logic spi_receiver_cs_ni;
-    logic spi_receiver_mosi_i;
-    logic spi_receiver_miso_o;
+    logic spi_receiver_cs_n;
+    logic spi_receiver_mosi;
+    logic spi_receiver_miso;
+    logic spi_receiver_enable;
     
+    logic c_clk_rising, c_clk_falling;
+
     // SPI controller
-    logic spi_controller_sclk_o;
-    logic spi_controller_cs_no;
-    logic spi_controller_mosi_o;
-    logic spi_controller_miso_i;
+    logic spi_controller_sclk;
+    logic spi_controller_cs_n;
+    logic spi_controller_mosi;
+    logic spi_controller_miso;
     
-    logic spi_controller_start_i;
-    logic [3:0] spi_controller_slot_i;
+    logic spi_controller_start;
+    logic [3:0] spi_controller_slot;
     
     // I/Os West
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_in_i;
@@ -147,8 +142,8 @@ module greyhound_ihp (
     wire [FABRIC_NUM_IO_WEST-1:0]      fabric_io_west_oe_o;
 
     // WARMBOOT
-    wire        fabric_warmboot_boot_o;
-    wire  [3:0] fabric_warmboot_slot_o;
+    wire        fabric_warmboot_boot;
+    wire  [3:0] fabric_warmboot_slot;
     wire        fabric_warmboot_reset_i;
 
     // CPU_IRQ
@@ -199,205 +194,113 @@ module greyhound_ihp (
     wire [31:0]     fabric_rdata_dm;
     
     // CPU trigger reconfiguration
-    wire            cpu_warmboot_boot_o;
-    wire [3:0]      cpu_warmboot_slot_o;
-    
-    // At startup, trigger configuration
-    // when fpga_mode_sync == 1'b0
-    logic startup_trigger;
-    always_ff @(posedge clk_i, negedge rst_n_sync) begin
-        if (!rst_n_sync) begin
-            startup_trigger <= 1'b1;
-        end else begin
-            startup_trigger <= 1'b0;
-        end
-    end
-    
-    // Due to lack of pins fpga_mode_i is double used
-    // Rename for clarity
-    logic jtag_trst_ni_sync, en_jtag_receiver, jtag_trst_n_module_sync, jtag_trst_n_module_sync_d;
-    assign jtag_trst_ni_sync = fpga_mode_sync;
- 
-    // Create a rst_n signal for the jtag test logic, when jtag receiver is enabled
-    assign jtag_trst_n_module_sync_d = (en_jtag_receiver | !rst_n_sync) ? jtag_trst_ni_sync : 1'b1;
-    always_ff @(posedge clk_i) begin
-        jtag_trst_n_module_sync <= jtag_trst_n_module_sync_d;
-    end
+    wire            cpu_warmboot_boot;
+    wire [3:0]      cpu_warmboot_slot;
 
-    assign jtag_tck = fpga_sclk_i;
+    logic fabric_busy;
 
-    always_comb begin
-        jtag_tms         = 1'b0;
-        jtag_tdi         = 1'b0;
-        fpga_miso_o      = 1'b0;
+    assign fabric_busy = fabric_config_busy || fabric_spi_controller_busy;
 
-        // On reset, set SPI to tri-state
-        if (!rst_n_sync) begin
-            // Default output
-            fpga_sclk_o = 1'b0;
-            fpga_cs_n_o = 1'b0;
-            fpga_mosi_o = 1'b0;
-            fpga_miso_o = 1'b0;
-        
-            // Tri-state
-            fpga_sclk_oe_o = 1'b0;
-            fpga_cs_n_oe_o = 1'b0;
-            fpga_mosi_oe_o = 1'b0;
-            fpga_miso_oe_o = 1'b0;
-            
-            // Receiver not selected
-            spi_receiver_sclk_i = 1'b0;
-            spi_receiver_cs_ni  = 1'b1;
-            spi_receiver_mosi_i = 1'b0;
-            
-            // Controller not selected
-            spi_controller_miso_i = 1'b0;
-            
-            // No bitstream
-            spi_bitstream_data  = '0;
-            spi_bitstream_valid = '0;
-            
-            // Slot and trigger
-            spi_controller_slot_i   = '0;
-            spi_controller_start_i  = '0;
+    controller_io_interface controller_io_interface (
+        // IOs
+        .clk_i          ( clk_i          ),
+        .rst_n_sync_i   ( rst_n_sync     ),
+        .mode_i         ( fpga_mode_i    ), // fpga_mode
+        .c_clk_i        ( fpga_sclk_i    ), // sclk/jtck
+        .select_i       ( fpga_cs_n_i    ), // cs_n/tms
+        .pico_i         ( fpga_mosi_i    ), // mosi/tdi
+        .poci_i         ( fpga_miso_i    ), // miso/tdo
+        .select_o       ( fpga_cs_n_o    ), // cs_n/tms
+        .pico_o         ( fpga_mosi_o    ), // mosi/tdi
+        .poci_o         ( fpga_miso_o    ), // miso/tdo
+        .c_clk_o        ( fpga_sclk_o    ), // sclk/jtck
+        .c_clk_oe_o     ( fpga_sclk_oe_o ), // sclk/jtck
+        .select_oe_o    ( fpga_cs_n_oe_o ), // cs_n/tms
+        .pico_oe_o      ( fpga_mosi_oe_o ), // mosi/tdi
+        .poci_oe_o      ( fpga_miso_oe_o ), // miso/tdo
 
-            if (jtag_trst_ni_sync) begin
-                // srst pulled, trst not -> do special init (configure for jtag input instead of spi)
-                // Run init sequence through jtag interface
-                jtag_tms = fpga_cs_n_i;
-                jtag_tdi = fpga_mosi_i;
-                // Enable tdo output in this case
-                fpga_miso_oe_o = 1'b1;
-                fpga_miso_o = jtag_tdo;
-            end
-        end else begin
-            // Default output
-            fpga_sclk_o = 1'b0;
-            fpga_cs_n_o = 1'b0;
-            fpga_mosi_o = 1'b0;
-            fpga_miso_o = 1'b0;
-            
-            // Receiver not selected
-            spi_receiver_sclk_i = 1'b0;
-            spi_receiver_cs_ni  = 1'b1;
-            spi_receiver_mosi_i = 1'b0;
-            
-            // Controller not selected
-            spi_controller_miso_i = 1'b0;
+        // SPI controller
+        .spi_controller_cs_ni               ( spi_controller_cs_n            ),
+        .spi_controller_mosi_i              ( spi_controller_mosi            ),
+        .spi_controller_miso_o              ( spi_controller_miso            ),
+        .spi_controller_sclk_i              ( spi_controller_sclk            ),
+        .spi_controller_slot_o              ( spi_controller_slot            ),
+        .spi_controller_start_o             ( spi_controller_start           ),
+        .spi_controller_bitstream_data_i    ( spi_controller_bitstream_data  ),
+        .spi_controller_bitstream_valid_i   ( spi_controller_bitstream_valid ),
+        .fabric_warmboot_boot_i             ( fabric_warmboot_boot           ),
+        .fabric_warmboot_slot_i             ( fabric_warmboot_slot           ),
+        .cpu_warmboot_boot_i                ( cpu_warmboot_boot              ),
+        .cpu_warmboot_slot_i                ( cpu_warmboot_slot              ),
+        .fabric_busy_i                      ( fabric_busy                    ),
 
-            if (fpga_mode_sync == 1'b0) begin
-                // SPI Controller
-                fpga_sclk_oe_o = 1'b1;
-                fpga_cs_n_oe_o = 1'b1;
-                fpga_mosi_oe_o = 1'b1;
-                fpga_miso_oe_o = 1'b0;
-                
-                fpga_sclk_o = spi_controller_sclk_o;
-                fpga_cs_n_o = spi_controller_cs_no;
-                fpga_mosi_o = spi_controller_mosi_o;
-                spi_controller_miso_i = fpga_miso_i;
-                
-                // Re-route bitstream
-                spi_bitstream_data  = spi_controller_bitstream_data_o;
-                spi_bitstream_valid = spi_controller_bitstream_valid_o;
-                
-                // Slot and trigger
-                spi_controller_start_i  = startup_trigger || ((fabric_warmboot_boot_o || cpu_warmboot_boot_o) && !(fabric_config_busy || fabric_spi_controller_busy));
-                spi_controller_slot_i   = startup_trigger ? '0 : cpu_warmboot_boot_o ? cpu_warmboot_slot_o : fabric_warmboot_slot_o;
-                
-            end else begin
-                // SPI receiver
-                fpga_sclk_oe_o = 1'b0;
-                fpga_cs_n_oe_o = 1'b0;
-                fpga_mosi_oe_o = 1'b0;
-                fpga_miso_oe_o = 1'b1;
-                
-                spi_receiver_sclk_i = fpga_sclk_i;
-                spi_receiver_cs_ni  = fpga_cs_n_i;
-                spi_receiver_mosi_i = fpga_mosi_i;
-                fpga_miso_o = spi_receiver_miso_o;
-                
-                // Re-route bitstream
-                spi_bitstream_data  = spi_receiver_bitstream_data_o;
-                spi_bitstream_valid = spi_receiver_bitstream_valid_o;
-                
-                // Slot and trigger
-                spi_controller_start_i  = '0;
-                spi_controller_slot_i   = '0;
-            end
-        end
+        // SPI receiver
+        .spi_receiver_cs_no             ( spi_receiver_cs_n            ),
+        .spi_receiver_mosi_o            ( spi_receiver_mosi            ),
+        .spi_receiver_miso_i            ( spi_receiver_miso            ),
+        .spi_receiver_enable_o          ( spi_receiver_enable          ),
+        .spi_receiver_bitstream_data_i  ( spi_receiver_bitstream_data  ),
+        .spi_receiver_bitstream_valid_i ( spi_receiver_bitstream_valid ),
 
-        if (en_jtag_receiver) begin
-            // JTAG receiver is enabled
-            fpga_sclk_oe_o = 1'b0;
-            fpga_cs_n_oe_o = 1'b0;
-            fpga_mosi_oe_o = 1'b0;
-            fpga_miso_oe_o = 1'b1;
+        .spi_bitstream_data_o           ( spi_bitstream_data  ),
+        .spi_bitstream_valid_o          ( spi_bitstream_valid ),
 
-            // Receiver not selected
-            spi_receiver_sclk_i = 1'b0;
-            spi_receiver_cs_ni  = 1'b1;
-            spi_receiver_mosi_i = 1'b0;
-            
-            // Controller not selected
-            spi_controller_miso_i = 1'b0;
+        // JTAG
+        .en_jtag_receiver_i ( en_jtag_receiver ),
+        .jtag_tdo_i         ( jtag_tdo         ),
+        .jtag_tms_o         ( jtag_tms         ),
+        .jtag_tdi_o         ( jtag_tdi         ),
+        .jtag_trst_n_sync_o ( jtag_trst_n_sync ),
 
-            // JTAG receiver
-            jtag_tms = fpga_cs_n_i;
-            jtag_tdi = fpga_mosi_i;
-            fpga_miso_o = jtag_tdo;
+        .c_clk_rising_o     ( c_clk_rising  ),
+        .c_clk_falling_o    ( c_clk_falling )
+    );
 
-            // No spi bitstream
-            spi_bitstream_data  = '0;
-            spi_bitstream_valid = '0;
-            
-            // Slot and trigger
-            spi_controller_slot_i   = '0;
-            spi_controller_start_i  = '0;
-        end
-    end
-    
     fabric_spi_receiver fabric_spi_receiver (
         .clk_i  (clk),
         .rst_ni (rst_n_sync),
         
         // Bitstream data
-        .bitstream_data_o   (spi_receiver_bitstream_data_o),
-        .bitstream_valid_o  (spi_receiver_bitstream_valid_o),
+        .bitstream_data_o   (spi_receiver_bitstream_data),
+        .bitstream_valid_o  (spi_receiver_bitstream_valid),
         
         // Enable the SPI receiver
-        .enable_i   (fpga_mode_sync == 1'b1),
+        .enable_i   (spi_receiver_enable),
         
         // SPI
-        .sclk_i     (spi_receiver_sclk_i),
-        .cs_ni      (spi_receiver_cs_ni),
-        .mosi_i     (spi_receiver_mosi_i),
-        .miso_o     (spi_receiver_miso_o)
+        .sclk_falling_i (c_clk_falling),
+        .cs_ni          (spi_receiver_cs_n),
+        .mosi_i         (spi_receiver_mosi),
+        .miso_o         (spi_receiver_miso)
     );
 
     logic [31:0] bitstream_data;
     logic        bitstream_valid;
     wire fpga_jtag_tdi;
+    logic [31:0] usercode;
     fpga_dm #(
         .FABRIC_NUM_IO_WEST ( FABRIC_NUM_IO_WEST )
     ) fpga_dm (
         .clk_i                  ( clk_i                   ),
-        .rst_ni                 ( rst_ni                  ),
+        .rst_ni                 ( rst_n_sync              ),
         .clk_o                  ( clk                     ),
-        .tck_i                  ( jtag_tck                ),
+        .jclk_rising_i          ( c_clk_rising            ),
+        .jclk_falling_i         ( c_clk_falling           ),
         .tms_i                  ( jtag_tms                ),
-        .trst_ni                ( jtag_trst_n_module_sync ),
+        .trst_n_sync_i          ( jtag_trst_n_sync        ),
         .td_i                   ( fpga_jtag_tdi           ),
         .td_o                   ( jtag_tdo                ),
         // EJTAG
         .en_jtag_receiver_o     ( en_jtag_receiver        ),
         // ISC Program
-        .jtag_bitstream_o       ( jtag_bitstream_data     ),
-        .jtag_bitstream_valid_o ( jtag_bitstream_valid    ),
-        .fabric_busy_i          ( fabric_config_busy      ),
-        .fabric_configured_i    ( fabric_config_configured ),
-        .fabric_bitstream_valid_i ( bitstream_valid         ),
-        .fabric_bitstream_data_i  ( bitstream_data          ),
+        .jtag_bitstream_o         ( jtag_bitstream_data      ),
+        .jtag_bitstream_valid_o   ( jtag_bitstream_valid     ),
+        .fabric_busy_i            ( fabric_config_busy       ),
+        .fabric_configured_i      ( fabric_config_configured ),
+        .fabric_bitstream_valid_i ( bitstream_valid          ),
+        .fabric_bitstream_data_i  ( bitstream_data           ),
+        // USERCODE
+        .usercode_o             ( usercode                ),
         // Boundary scan register (intercept all relevant fabric connections)
         // GPIOs
         // to boundary
@@ -469,21 +372,21 @@ module greyhound_ihp (
         .rst_ni (rst_n_sync),
         
         // Start reading data at selected slot
-        .start_i    (spi_controller_start_i),
-        .slot_i     (spi_controller_slot_i),
+        .start_i    (spi_controller_start),
+        .slot_i     (spi_controller_slot),
         
         // Bitstream data
-        .bitstream_data_o    (spi_controller_bitstream_data_o),
-        .bitstream_valid_o   (spi_controller_bitstream_valid_o),
+        .bitstream_data_o    (spi_controller_bitstream_data),
+        .bitstream_valid_o   (spi_controller_bitstream_valid),
         
         // Reading in progress
         .busy_o     (fabric_spi_controller_busy),
         
         // SPI
-        .sclk_o     (spi_controller_sclk_o),
-        .cs_no      (spi_controller_cs_no),
-        .mosi_o     (spi_controller_mosi_o),
-        .miso_i     (spi_controller_miso_i)
+        .sclk_o     (spi_controller_sclk),
+        .cs_no      (spi_controller_cs_n),
+        .mosi_o     (spi_controller_mosi),
+        .miso_i     (spi_controller_miso)
     );
     
     // Mux bitstreams: SPI (controller/receiver) <-> CPU    
@@ -542,8 +445,8 @@ module greyhound_ihp (
         .fabric_io_west_oe_o,
 
         // WARMBOOT
-        .fabric_warmboot_boot_o,
-        .fabric_warmboot_slot_o,
+        .fabric_warmboot_boot_o  (fabric_warmboot_boot),
+        .fabric_warmboot_slot_o  (fabric_warmboot_slot),
         .fabric_warmboot_reset_i,
 
         // CPU_IRQ
@@ -614,7 +517,7 @@ module greyhound_ihp (
         
         // Fabric config is currently
         // configuring the fabric
-        .fabric_config_busy_i   (fabric_config_busy || fabric_spi_controller_busy),
+        .fabric_config_busy_i   (fabric_busy),
         
         // Fabric has been configured
         .fabric_configured_i   (fabric_config_configured),
@@ -624,8 +527,8 @@ module greyhound_ihp (
         .bitstream_data_o   (bitstream_data_cpu),
         
         // Trigger fabric reconfiguration
-        .warmboot_boot_o    (cpu_warmboot_boot_o),
-        .warmboot_slot_o    (cpu_warmboot_slot_o),
+        .warmboot_boot_o    (cpu_warmboot_boot),
+        .warmboot_slot_o    (cpu_warmboot_slot),
         
         // Custom instruction interface to fabric
         .fabric_issue_ready_i   (fabric_issue_ready_soc),
@@ -682,11 +585,14 @@ module greyhound_ihp (
         .core_sleep_o   ( core_sleep_o   ),
 
         // JTAG
-        .jtag_tck_i     ( jtag_tck           ),
-        .jtag_tdi_i     ( jtag_tdi           ),
-        .jtag_tdo_o     ( fpga_jtag_tdi      ),
-        .jtag_tms_i     ( jtag_tms           ),
-        .jtag_trst_ni   ( jtag_trst_n_module_sync )
+        .jclk_i             ( clk_i            ),
+        .jclk_rising_i      ( c_clk_rising     ),
+        .jclk_falling_i     ( c_clk_falling    ),
+        .jtag_tdi_i         ( jtag_tdi         ),
+        .jtag_tdo_o         ( fpga_jtag_tdi    ),
+        .jtag_tms_i         ( jtag_tms         ),
+        .jtag_trst_n_sync_i ( jtag_trst_n_sync ),
+        .usercode_i         ( usercode         )
     );
     
     // Connect SRAM to the SoC

@@ -10,9 +10,10 @@ module fpga_dm import soc_pkg::*; #(
     output logic        clk_o,
 
     // JTAG tap
-    input  logic        tck_i,
+    input  logic        jclk_rising_i,
+    input  logic        jclk_falling_i,
     input  logic        tms_i,
-    input  logic        trst_ni,
+    input  logic        trst_n_sync_i,
     input  logic        td_i,
     output logic        td_o,
 
@@ -27,6 +28,9 @@ module fpga_dm import soc_pkg::*; #(
     input  logic        fabric_configured_i,
     input  logic        fabric_bitstream_valid_i,
     input  logic [31:0] fabric_bitstream_data_i,
+
+    // USERCODE
+    output logic [31:0] usercode_o,
 
     // Boundary scan registers
     // GPIOs
@@ -90,38 +94,29 @@ module fpga_dm import soc_pkg::*; #(
 );
     localparam logic [31:0] BITFILE_START = 32'h00AAFF01;
 
-    logic clk_fabric_m, testmode, clk_enable;
+    logic clk_enable;
 
     if (EnabledBSRLength == None) begin
         assign clk_o = clk_i;
     end
-    else begin
-        // Mux FPGA and tclk to create a glitch free intest clk if desired
-        tc_clk_mux2 i_dft_tck_mux (
-            .clk0_i    ( clk_i        ),
-            .clk1_i    ( tck_i        ),
-            .clk_sel_i ( testmode     ),
-            .clk_o     ( clk_fabric_m )
-        );
-
+    else begin // TODO correct clk tree gen
         // Gate the input clock with the enable signal to create an intest clk
         tc_clk_gating i_clk_gate (
-            .clk_i     ( clk_fabric_m ),
-            .en_i      ( clk_enable   ),
-            .clk_o     ( clk_o        )
+            .clk_i     ( clk_i      ),
+            .en_i      ( clk_enable ),
+            .clk_o     ( clk_o      )
         );
     end
 
     // ejtag controls "enable jtag" alternate pinout function. It is only ever reset by trst. 
     logic ejtag_d, ejtag_q, ejtag_valid;
     // ISC Program
-    logic        isc_pdata_valid, isc_ext_prog, isc_ext_conf;
-    logic [31:0] isc_pdata;
+    logic isc_ext_prog, isc_ext_conf;
     // USERCODE
-    logic [31:0] jtag_usercode_q, usercode_q;
+    logic [31:0] usercode_q, usercode_tap;
     logic        usercode_valid_d, usercode_valid_q;
     // Boundary scan registers
-    logic tck_n, dm_clear;
+    logic dm_clear;
     logic mode1, mode2, mode5, mode6, highZ;
     logic boundary_scan_tdi, boundary_scan_tdo;
     logic capture_bsr_select, shift_bsr_select, update_bsr_select;
@@ -132,14 +127,15 @@ module fpga_dm import soc_pkg::*; #(
     fpga_dm_jtag_tap #(
         .IdcodeValue ( GreyhoundJtagIdCodeFPGA )
     ) i_dm_jtag_tap (
-        // JTAG tap 
-        .tck_i,
+        // JTAG tap
+        .clk_i,
+        .jclk_rising_i,
+        .jclk_falling_i,
         .tms_i,
-        .trst_ni,
+        .trst_n_sync_i,
         .td_i,
         .td_o,
         // Boundary scan registers
-        .tck_no               ( tck_n              ),
         .mode1_o              ( mode1              ),
         .mode2_o              ( mode2              ),
         .mode5_o              ( mode5              ),
@@ -150,7 +146,6 @@ module fpga_dm import soc_pkg::*; #(
         .capture_bsr_select_o ( capture_bsr_select ),
         .shift_bsr_select_o   ( shift_bsr_select   ),
         .update_bsr_select_o  ( update_bsr_select  ),
-        .testmode_o           ( testmode           ),
         .testmode_clk_pulse_o ( clk_enable         ),
         .dm_rst_o             ( dm_clear           ),
         // Control if jtag interface is enabled
@@ -158,55 +153,44 @@ module fpga_dm import soc_pkg::*; #(
         .ejtag_valid_o  ( ejtag_valid ),
         .ejtag_i        ( ejtag_q     ),
         // Usercode
-        .usercode_i     ( jtag_usercode_q  ),
+        .usercode_i     ( usercode_tap ),
         // Jtag programming data
-        .isc_pdata_valid_o ( isc_pdata_valid ),
-        .isc_pdata_o       ( isc_pdata       ),
-        .isc_ext_prog_i    ( isc_ext_prog    ),
-        .isc_ext_conf_i    ( isc_ext_conf    )
+        .isc_pdata_valid_o ( jtag_bitstream_valid_o ),
+        .isc_pdata_o       ( jtag_bitstream_o       ),
+        .isc_ext_prog_i    ( isc_ext_prog           ),
+        .isc_ext_conf_i    ( isc_ext_conf           )
     );
 
     // ----------------
     // USERCODE
     // ----------------
-    logic fabric_bitstream_valid_q;
-    logic [31:0] fabric_bitstream_data_q;
-    always_ff @(posedge clk_i) begin
-        fabric_bitstream_data_q <= fabric_bitstream_data_i; // Pipeline bitstream after mux
-        fabric_bitstream_valid_q <= fabric_bitstream_valid_i;
-    end
-    
-    assign usercode_valid_d = fabric_bitstream_valid_q & (fabric_bitstream_data_q == BITFILE_START);
+    assign usercode_valid_d = fabric_bitstream_valid_i & (fabric_bitstream_data_i == BITFILE_START);
     always_ff @(posedge clk_i, negedge rst_ni) begin
         if (!rst_ni) begin
             usercode_q       <= '0;
             usercode_valid_q <= 1'b0;
+            usercode_tap     <= '0;
+            usercode_o       <= '0;
         end else begin
-            if (usercode_valid_q & fabric_bitstream_valid_q) begin
-                usercode_q <= fabric_bitstream_data_q;
-            end
+            usercode_tap <= usercode_q; // Pipeline usercode to prevent hold violations
+            usercode_o   <= usercode_q;
 
-            if (fabric_bitstream_valid_q) begin
+            if (usercode_valid_q && fabric_bitstream_valid_i) begin
+                usercode_q <= fabric_bitstream_data_i;
                 usercode_valid_q <= 1'b0;
             end
-            
+
             if (usercode_valid_d) begin
                 usercode_valid_q <= 1'b1;
             end
         end
     end
 
-    // Sync whole usercode into tclk domain, this will never be used faster than 2 tclk cycles, and if used faster the result is undefined anyway...
-    // after changing usercode_q (because of the IEEE1149.1 state machine and fabric programming taking many cycles)
-    always_ff @(posedge tck_i) begin
-        jtag_usercode_q <= usercode_q;
-    end
-
     // ----------------
     // EJTAG
     // ----------------
-    always_ff @(posedge tck_i or negedge trst_ni) begin
-        if (!trst_ni) begin
+    always_ff @(posedge clk_i) begin
+        if (!trst_n_sync_i) begin
             ejtag_q <= 1'b0;
         end else begin
             if (ejtag_valid) begin
@@ -214,37 +198,16 @@ module fpga_dm import soc_pkg::*; #(
             end
         end
     end
-
-    // Sync en_jtag_receiver
-    logic [1:0] en_jtag_receiver_d;
-    always_ff @(posedge clk_i) begin
-        en_jtag_receiver_d <= {en_jtag_receiver_d[0], ejtag_q};
-    end
-    assign en_jtag_receiver_o = en_jtag_receiver_d[1];
+    assign en_jtag_receiver_o = ejtag_q;
 
     // ----------------
     // PROGRAM
     // ----------------
-    cdc_2phase_clearable #(.T(logic [31:0])) i_cdc_jtag_out (
-        .src_rst_ni  ( trst_ni                ),
-        .src_clear_i ( dm_clear               ),
-        .src_clk_i   ( tck_i                  ),
-        .src_data_i  ( isc_pdata              ),
-        .src_valid_i ( isc_pdata_valid        ),
-
-        .dst_rst_ni  ( rst_ni                 ),
-        .dst_clear_i ( 1'b0                   ),
-        .dst_clk_i   ( clk_i                  ),
-        .dst_data_o  ( jtag_bitstream_o       ),
-        .dst_valid_o ( jtag_bitstream_valid_o ),
-        .dst_ready_i ( 1'b1                   )
-    );
-
-    // Sync fabric_configured_i and fabric_busy_i as single pulse
+    // fabric_configured_i and fabric_busy_i as single pulse
     logic [2:0] isc_ext_prog_d;
     logic [2:0] isc_ext_conf_d;
-    always_ff @(posedge tck_i, negedge trst_ni) begin
-        if (!trst_ni) begin
+    always_ff @(posedge clk_i) begin
+        if (!trst_n_sync_i) begin
             isc_ext_prog_d <= '0;
             isc_ext_conf_d <= '0;
         end
@@ -270,9 +233,10 @@ module fpga_dm import soc_pkg::*; #(
         assign boundary_scan_io_west_td[0] = boundary_scan_tdo;
         for (genvar i = 0; i<FABRIC_NUM_IO_WEST; i++) begin : BSR_IO_WEST
             fpga_boundary_cell_inout fpga_boundary_cell_io_west (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),
@@ -320,9 +284,10 @@ module fpga_dm import soc_pkg::*; #(
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
         for (genvar i = 0; i<4; i++) begin : BSR_CPU_IRQ
             fpga_boundary_cell_output fpga_boundary_cell_out_irq (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),
@@ -347,7 +312,7 @@ module fpga_dm import soc_pkg::*; #(
     
     // CUSTOM_INSTRUCTION (145 bit)
     wire boundary_scan_custom_instr_in_td [101:0];
-    wire [101:0] boundary_scan_custom_instr_in_packed [1:0];
+    wire [100:0] boundary_scan_custom_instr_in_packed [1:0];
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
         // Pack and unpack instruction input
         assign boundary_scan_custom_instr_in_packed[0] = {fabric_issue_valid_i, fabric_issue_instr_i, fabric_issue_op0_i, fabric_issue_op1_i, fabric_issue_id_i};
@@ -355,9 +320,10 @@ module fpga_dm import soc_pkg::*; #(
         assign boundary_scan_custom_instr_in_td[0] = boundary_scan_irq_td[4];
         for (genvar i = 0; i<101; i++) begin : BSR_CUSTOM_INSTRUCTION_INPUT
             fpga_boundary_cell_input fpga_boundary_cell_in_custom_instruction (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),
@@ -384,7 +350,7 @@ module fpga_dm import soc_pkg::*; #(
     end
 
     wire boundary_scan_custom_instr_out_td [44:0];
-    wire [44:0] boundary_scan_custom_instr_out_packed [1:0];
+    wire [43:0] boundary_scan_custom_instr_out_packed [1:0];
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
         // Pack and unpack instruction output
         assign boundary_scan_custom_instr_out_packed[0] = {fabric_issue_ready_i, fabric_issue_accept_i, fabric_result_valid_i, fabric_result_id_i, fabric_result_rd_i, fabric_result_i};
@@ -392,9 +358,10 @@ module fpga_dm import soc_pkg::*; #(
         assign boundary_scan_custom_instr_out_td[0] = boundary_scan_custom_instr_in_td[101];
         for (genvar i = 0; i<44; i++) begin : BSR_CUSTOM_INSTRUCTION_OUTPUT
             fpga_boundary_cell_output fpga_boundary_cell_out_custom_instruction (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),
@@ -424,7 +391,7 @@ module fpga_dm import soc_pkg::*; #(
 
     // OBI_PERIPHERAL (96 bit)
     wire boundary_scan_obi_periph_in_td [62:0];
-    wire [62:0] boundary_scan_obi_periph_in_packed [1:0];
+    wire [61:0] boundary_scan_obi_periph_in_packed [1:0];
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
         // Pack and unpack instruction input
         assign boundary_scan_obi_periph_in_packed[0] = {fabric_obi_req_i, fabric_obi_we_i, fabric_obi_be_i, fabric_obi_addr_i, fabric_obi_wdata_i};
@@ -432,9 +399,10 @@ module fpga_dm import soc_pkg::*; #(
         assign boundary_scan_obi_periph_in_td[0] = boundary_scan_custom_instr_out_td[44];
         for (genvar i = 0; i<62; i++) begin : BSR_OBI_PERIPHERAL_INPUT
             fpga_boundary_cell_input fpga_boundary_cell_in_custom_instruction (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),
@@ -461,7 +429,7 @@ module fpga_dm import soc_pkg::*; #(
     end
 
     wire boundary_scan_obi_periph_out_td [34:0];
-    wire [34:0] boundary_scan_obi_periph_out_packed [1:0];
+    wire [33:0] boundary_scan_obi_periph_out_packed [1:0];
     if ((EnabledBSRLength == Internal) || (EnabledBSRLength == All)) begin
         // Pack and unpack instruction output
         assign boundary_scan_obi_periph_out_packed[0] = {fabric_obi_gnt_i, fabric_obi_rvalid_i, fabric_obi_rdata_i};
@@ -469,9 +437,10 @@ module fpga_dm import soc_pkg::*; #(
         assign boundary_scan_obi_periph_out_td[0] = boundary_scan_obi_periph_in_td[62];
         for (genvar i = 0; i<34; i++) begin : BSR_OBI_PERIPHERAL_OUTPUT
             fpga_boundary_cell_output fpga_boundary_cell_out_custom_instruction (
-                .tclk_i   ( tck_i    ),
-                .tclk_ni  ( tck_n    ),
-                .trst_ni  ( trst_ni  ),
+                .clk_i,
+                .jclk_rising_i,
+                .jclk_falling_i,
+                .trst_n_sync_i,
                 .tclear_i ( dm_clear ),
                 // Gated clk signals
                 .capture_bsr_select_i ( capture_bsr_select ),

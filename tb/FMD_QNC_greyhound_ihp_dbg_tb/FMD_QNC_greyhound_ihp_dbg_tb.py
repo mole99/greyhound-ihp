@@ -60,7 +60,7 @@ async def start_up(dut):
     # Wait for jtag to be enabled
     gl = os.getenv("GL", False)
     if gl:
-        await ClockCycles(dut.io_clock_PAD, int(50*4)) # Wait for 4µs
+        await ClockCycles(dut.io_clock_PAD, int(50*8)) # Wait for 8µs
     else:
         await RisingEdge(dut.FMD_QNC_greyhound_ihp.i_greyhound_ihp.en_jtag_receiver)
     
@@ -80,7 +80,7 @@ async def test_hello_world(dut):
     await start_up(dut)
 
     # Wait for UART to get clocked, OpenOCD to connect to JTAG interface and GDB to startup
-    await ClockCycles(dut.io_clock_PAD, int(50000*5.5))
+    await ClockCycles(dut.io_clock_PAD, int(50000*8.5))
 
     # Send char
     await uart_source.write(b'A')
@@ -110,8 +110,8 @@ async def test_bitstream_upload(dut):
     await start_up(dut)
 
     # Wait for telnet bitstream upload (takes ~22ms sim time)
-    for i in range(22):
-        cocotb.log.info("Progress: %3d %%" % (int(i*4.5)))
+    for i in range(56):
+        cocotb.log.info("Progress: %3d %%" % (int(i*1.79)))
         await ClockCycles(dut.io_clock_PAD, 50000)
 
     # Check result
@@ -210,7 +210,7 @@ def run_gdb():
     riscv = os.getenv('RISCV', default='/opt/riscv')
     gdb_args = [riscv + "/bin/riscv32-unknown-elf-gdb", 
                 "../../firmware/hello_world_dbg/hello_world.elf",
-                "-ex", "set remotetimeout 10",
+                "-ex", "set remotetimeout 100",
                 "-ex", "tar ext :3333",
                 "-ex", "set hello={ 'H', 'e', 'l', 'l', 'o', ' ', 'J', 'T', 'A', 'G', '!', '\n', 0 }",
                 "-ex", "echo Exit GDB after next command\n",

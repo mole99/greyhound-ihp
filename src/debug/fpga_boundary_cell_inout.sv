@@ -3,9 +3,10 @@
 
 // IO cell in accordance to IEEE1149.1 Figure 11-38, adjusted for non gated clk and tap device used here
 module fpga_boundary_cell_inout (
-    input  logic tclk_i,
-    input  logic tclk_ni,
-    input  logic trst_ni,
+    input  logic clk_i,
+    input  logic jclk_rising_i,
+    input  logic jclk_falling_i,
+    input  logic trst_n_sync_i,
     input  logic tclear_i,
     // Gated clk
     input  logic capture_bsr_select_i,
@@ -47,12 +48,12 @@ module fpga_boundary_cell_inout (
     assign input_data_o = mode2_i ? input_data : pin_i;
 
     // Boundary regs
-    always_ff @(posedge tclk_i, negedge trst_ni) begin
-        if (!trst_ni) begin
+    always_ff @(posedge clk_i) begin
+        if (!trst_n_sync_i) begin
             pino_g11_q <= '0;
             tdo_q      <= '0;
         end
-        else begin
+        else if (jclk_rising_i) begin
             if (tclear_i) begin
                 pino_g11_q <= '0;
                 tdo_q      <= '0;
@@ -64,12 +65,12 @@ module fpga_boundary_cell_inout (
         end
     end
 
-    always_ff @(posedge tclk_ni, negedge trst_ni) begin
-        if (!trst_ni) begin
+    always_ff @(posedge clk_i) begin
+        if (!trst_n_sync_i) begin
             output_enable_q <= '0;
             input_data      <= '0;
         end
-        else begin
+        else if (jclk_falling_i) begin
             if (tclear_i) begin
                 output_enable_q <= '0;
                 input_data      <= '0;

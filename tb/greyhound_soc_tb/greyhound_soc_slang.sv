@@ -3795,3666 +3795,6 @@ module \UART_TX$greyhound_soc.i_EF_UART_AHBL.instance_to_wrap.uart_tx (clk, tx, 
   assign tx = tx_reg;
 endmodule
 
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:54.8" *)
-module \cdc_2phase_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req (src_rst_ni, src_clk_i, src_clear_i, src_data_i, src_valid_i, src_ready_o, dst_rst_ni, dst_clk_i, dst_clear_i, dst_clear_pending_o, dst_data_o, dst_valid_o, dst_ready_i, src_clear_pending_o);
-  (* hdlname = "src_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:59.16" *)
-  input src_rst_ni;
-  wire src_rst_ni;
-  (* hdlname = "src_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:60.16" *)
-  input src_clk_i;
-  wire src_clk_i;
-  (* hdlname = "src_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:61.16" *)
-  input src_clear_i;
-  wire src_clear_i;
-  (* hdlname = "src_data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:63.16" *)
-  input [40:0] src_data_i;
-  wire [40:0] src_data_i;
-  (* hdlname = "src_valid_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:64.16" *)
-  input src_valid_i;
-  wire src_valid_i;
-  (* hdlname = "src_ready_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:65.16" *)
-  output src_ready_o;
-  wire src_ready_o;
-  (* hdlname = "dst_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:67.16" *)
-  input dst_rst_ni;
-  wire dst_rst_ni;
-  (* hdlname = "dst_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:68.16" *)
-  input dst_clk_i;
-  wire dst_clk_i;
-  (* hdlname = "dst_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:69.16" *)
-  input dst_clear_i;
-  wire dst_clear_i;
-  (* hdlname = "dst_clear_pending_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:70.16" *)
-  output dst_clear_pending_o;
-  wire dst_clear_pending_o;
-  (* hdlname = "dst_data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:71.16" *)
-  output [40:0] dst_data_o;
-  wire [40:0] dst_data_o;
-  (* hdlname = "dst_valid_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:72.16" *)
-  output dst_valid_o;
-  wire dst_valid_o;
-  (* hdlname = "dst_ready_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:73.16" *)
-  input dst_ready_i;
-  wire dst_ready_i;
-  (* hdlname = "src_clear_pending_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:62.16" *)
-  output src_clear_pending_o;
-  wire src_clear_pending_o;
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_ack" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:88.35" *)
-  wire async_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_data" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:89.31" *)
-  wire [40:0] async_data;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:87.35" *)
-  wire async_req;
-  (* hdlname = "s_dst_clear_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:81.16" *)
-  reg s_dst_clear_ack_q;
-  (* hdlname = "s_dst_clear_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:80.16" *)
-  wire s_dst_clear_req;
-  (* hdlname = "s_dst_isolate_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:84.16" *)
-  reg s_dst_isolate_ack_q;
-  (* hdlname = "s_dst_isolate_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:83.16" *)
-  wire s_dst_isolate_req;
-  (* hdlname = "s_dst_valid" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:82.16" *)
-  wire s_dst_valid;
-  (* hdlname = "s_src_clear_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:76.16" *)
-  reg s_src_clear_ack_q;
-  (* hdlname = "s_src_clear_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:75.16" *)
-  wire s_src_clear_req;
-  (* hdlname = "s_src_isolate_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:79.16" *)
-  reg s_src_isolate_ack_q;
-  (* hdlname = "s_src_isolate_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:78.16" *)
-  wire s_src_isolate_req;
-  (* hdlname = "s_src_ready" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:77.16" *)
-  wire s_src_ready;
-  assign _00_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:111.35-111.53" *) s_src_isolate_req;
-  assign _01_ = src_valid_i & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:111.21-111.53" *) _00_;
-  assign src_ready_o = s_src_ready & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:118.24-118.56" *) _00_;
-  assign _02_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:131.35-131.53" *) s_dst_isolate_req;
-  assign _03_ = dst_ready_i & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:131.21-131.53" *) _02_;
-  assign dst_valid_o = s_dst_valid & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:137.24-137.56" *) _02_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:172.3" *)
-  always_ff @(posedge dst_clk_i, negedge dst_rst_ni)
-    if (!dst_rst_ni) s_dst_clear_ack_q <= 1'h0;
-    else s_dst_clear_ack_q <= s_dst_clear_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:172.3" *)
-  always_ff @(posedge dst_clk_i, negedge dst_rst_ni)
-    if (!dst_rst_ni) s_dst_isolate_ack_q <= 1'h0;
-    else s_dst_isolate_ack_q <= s_dst_isolate_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:162.3" *)
-  always_ff @(posedge src_clk_i, negedge src_rst_ni)
-    if (!src_rst_ni) s_src_clear_ack_q <= 1'h0;
-    else s_src_clear_ack_q <= s_src_clear_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:162.3" *)
-  always_ff @(posedge src_clk_i, negedge src_rst_ni)
-    if (!src_rst_ni) s_src_isolate_ack_q <= 1'h0;
-    else s_src_isolate_ack_q <= s_src_isolate_req;
-  (* hdlname = "i_cdc_reset_ctrlr" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:143.5" *)
-  \cdc_reset_ctrlr$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr  i_cdc_reset_ctrlr (
-    .a_clear_ack_i(s_src_clear_ack_q),
-    .a_clear_i(src_clear_i),
-    .a_clear_o(s_src_clear_req),
-    .a_clk_i(src_clk_i),
-    .a_isolate_ack_i(s_src_isolate_ack_q),
-    .a_isolate_o(s_src_isolate_req),
-    .a_rst_ni(src_rst_ni),
-    .b_clear_ack_i(s_dst_clear_ack_q),
-    .b_clear_i(dst_clear_i),
-    .b_clear_o(s_dst_clear_req),
-    .b_clk_i(dst_clk_i),
-    .b_isolate_ack_i(s_dst_isolate_ack_q),
-    .b_isolate_o(s_dst_isolate_req),
-    .b_rst_ni(dst_rst_ni)
-  );
-  (* hdlname = "i_dst" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:125.5" *)
-  \cdc_2phase_dst_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_dst  i_dst (
-    .async_ack_o(async_ack),
-    .async_data_i(async_data),
-    .async_req_i(async_req),
-    .clear_i(s_dst_clear_req),
-    .clk_i(dst_clk_i),
-    .data_o(dst_data_o),
-    .ready_i(_03_),
-    .rst_ni(dst_rst_ni),
-    .valid_o(s_dst_valid)
-  );
-  (* hdlname = "i_src" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:106.5" *)
-  \cdc_2phase_src_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_src  i_src (
-    .async_ack_i(async_ack),
-    .async_data_o(async_data),
-    .async_req_o(async_req),
-    .clear_i(s_src_clear_req),
-    .clk_i(src_clk_i),
-    .data_i(src_data_i),
-    .ready_o(s_src_ready),
-    .rst_ni(src_rst_ni),
-    .valid_i(_01_)
-  );
-  assign dst_clear_pending_o = s_dst_isolate_req;
-  assign src_clear_pending_o = s_src_isolate_req;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:54.8" *)
-module \cdc_2phase_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp (src_rst_ni, src_clk_i, src_clear_i, src_data_i, src_valid_i, src_ready_o, dst_rst_ni, dst_clk_i, dst_clear_i, dst_clear_pending_o, dst_data_o, dst_valid_o, dst_ready_i, src_clear_pending_o);
-  (* hdlname = "src_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:59.16" *)
-  input src_rst_ni;
-  wire src_rst_ni;
-  (* hdlname = "src_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:60.16" *)
-  input src_clk_i;
-  wire src_clk_i;
-  (* hdlname = "src_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:61.16" *)
-  input src_clear_i;
-  wire src_clear_i;
-  (* hdlname = "src_data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:63.16" *)
-  input [33:0] src_data_i;
-  wire [33:0] src_data_i;
-  (* hdlname = "src_valid_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:64.16" *)
-  input src_valid_i;
-  wire src_valid_i;
-  (* hdlname = "src_ready_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:65.16" *)
-  output src_ready_o;
-  wire src_ready_o;
-  (* hdlname = "dst_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:67.16" *)
-  input dst_rst_ni;
-  wire dst_rst_ni;
-  (* hdlname = "dst_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:68.16" *)
-  input dst_clk_i;
-  wire dst_clk_i;
-  (* hdlname = "dst_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:69.16" *)
-  input dst_clear_i;
-  wire dst_clear_i;
-  (* hdlname = "dst_clear_pending_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:70.16" *)
-  output dst_clear_pending_o;
-  wire dst_clear_pending_o;
-  (* hdlname = "dst_data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:71.16" *)
-  output [33:0] dst_data_o;
-  wire [33:0] dst_data_o;
-  (* hdlname = "dst_valid_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:72.16" *)
-  output dst_valid_o;
-  wire dst_valid_o;
-  (* hdlname = "dst_ready_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:73.16" *)
-  input dst_ready_i;
-  wire dst_ready_i;
-  (* hdlname = "src_clear_pending_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:62.16" *)
-  output src_clear_pending_o;
-  wire src_clear_pending_o;
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_ack" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:88.35" *)
-  wire async_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_data" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:89.31" *)
-  wire [33:0] async_data;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:87.35" *)
-  wire async_req;
-  (* hdlname = "s_dst_clear_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:81.16" *)
-  reg s_dst_clear_ack_q;
-  (* hdlname = "s_dst_clear_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:80.16" *)
-  wire s_dst_clear_req;
-  (* hdlname = "s_dst_isolate_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:84.16" *)
-  reg s_dst_isolate_ack_q;
-  (* hdlname = "s_dst_isolate_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:83.16" *)
-  wire s_dst_isolate_req;
-  (* hdlname = "s_dst_valid" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:82.16" *)
-  wire s_dst_valid;
-  (* hdlname = "s_src_clear_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:76.16" *)
-  reg s_src_clear_ack_q;
-  (* hdlname = "s_src_clear_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:75.16" *)
-  wire s_src_clear_req;
-  (* hdlname = "s_src_isolate_ack_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:79.16" *)
-  reg s_src_isolate_ack_q;
-  (* hdlname = "s_src_isolate_req" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:78.16" *)
-  wire s_src_isolate_req;
-  (* hdlname = "s_src_ready" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:77.16" *)
-  wire s_src_ready;
-  assign _00_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:111.35-111.53" *) s_src_isolate_req;
-  assign _01_ = src_valid_i & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:111.21-111.53" *) _00_;
-  assign src_ready_o = s_src_ready & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:118.24-118.56" *) _00_;
-  assign _02_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:131.35-131.53" *) s_dst_isolate_req;
-  assign _03_ = dst_ready_i & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:131.21-131.53" *) _02_;
-  assign dst_valid_o = s_dst_valid & (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:137.24-137.56" *) _02_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:172.3" *)
-  always_ff @(posedge dst_clk_i, negedge dst_rst_ni)
-    if (!dst_rst_ni) s_dst_clear_ack_q <= 1'h0;
-    else s_dst_clear_ack_q <= s_dst_clear_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:172.3" *)
-  always_ff @(posedge dst_clk_i, negedge dst_rst_ni)
-    if (!dst_rst_ni) s_dst_isolate_ack_q <= 1'h0;
-    else s_dst_isolate_ack_q <= s_dst_isolate_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:162.3" *)
-  always_ff @(posedge src_clk_i, negedge src_rst_ni)
-    if (!src_rst_ni) s_src_clear_ack_q <= 1'h0;
-    else s_src_clear_ack_q <= s_src_clear_req;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:162.3" *)
-  always_ff @(posedge src_clk_i, negedge src_rst_ni)
-    if (!src_rst_ni) s_src_isolate_ack_q <= 1'h0;
-    else s_src_isolate_ack_q <= s_src_isolate_req;
-  (* hdlname = "i_cdc_reset_ctrlr" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:143.5" *)
-  \cdc_reset_ctrlr$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr  i_cdc_reset_ctrlr (
-    .a_clear_ack_i(s_src_clear_ack_q),
-    .a_clear_i(src_clear_i),
-    .a_clear_o(s_src_clear_req),
-    .a_clk_i(src_clk_i),
-    .a_isolate_ack_i(s_src_isolate_ack_q),
-    .a_isolate_o(s_src_isolate_req),
-    .a_rst_ni(src_rst_ni),
-    .b_clear_ack_i(s_dst_clear_ack_q),
-    .b_clear_i(dst_clear_i),
-    .b_clear_o(s_dst_clear_req),
-    .b_clk_i(dst_clk_i),
-    .b_isolate_ack_i(s_dst_isolate_ack_q),
-    .b_isolate_o(s_dst_isolate_req),
-    .b_rst_ni(dst_rst_ni)
-  );
-  (* hdlname = "i_dst" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:125.5" *)
-  \cdc_2phase_dst_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_dst  i_dst (
-    .async_ack_o(async_ack),
-    .async_data_i(async_data),
-    .async_req_i(async_req),
-    .clear_i(s_dst_clear_req),
-    .clk_i(dst_clk_i),
-    .data_o(dst_data_o),
-    .ready_i(_03_),
-    .rst_ni(dst_rst_ni),
-    .valid_o(s_dst_valid)
-  );
-  (* hdlname = "i_src" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:106.5" *)
-  \cdc_2phase_src_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_src  i_src (
-    .async_ack_i(async_ack),
-    .async_data_o(async_data),
-    .async_req_o(async_req),
-    .clear_i(s_src_clear_req),
-    .clk_i(src_clk_i),
-    .data_i(src_data_i),
-    .ready_o(s_src_ready),
-    .rst_ni(src_rst_ni),
-    .valid_i(_01_)
-  );
-  assign dst_clear_pending_o = s_dst_isolate_req;
-  assign src_clear_pending_o = s_src_isolate_req;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:269.8" *)
-module \cdc_2phase_dst_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_dst (clk_i, rst_ni, data_o, clear_i, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:274.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:273.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:276.16" *)
-  output [40:0] data_o;
-  wire [40:0] data_o;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:275.16" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:278.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:277.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:279.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:280.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:281.16" *)
-  input [40:0] async_data_i;
-  wire [40:0] async_data_i;
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:306.14-308.8" *)
-  wire _05_;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.8" *)
-  wire ack_dst_d;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.19" *)
-  reg ack_dst_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:288.5" *)
-  wire [40:0] data_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:288.17" *)
-  reg [40:0] data_dst_q;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.30" *)
-  wire req_synced;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced_q1" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.42" *)
-  reg req_synced_q1;
-  assign _00_ = valid_o && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:306.18-306.36" *) ready_i;
-  assign valid_o = ack_dst_q != (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:335.21-335.47" *) req_synced_q1;
-  assign _01_ = ~ (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:307.19-307.29" *) ack_dst_q;
-  assign _02_ = req_synced != (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.9-315.36" *) req_synced_q1;
-  assign _03_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.40-315.48" *) valid_o;
-  assign _04_ = _02_ && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.9-315.48" *) _03_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:322.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  always_ff @(posedge clk_i)
-    data_dst_q[40:34] <= data_dst_d[40:34];
-  always_ff @(posedge clk_i)
-    data_dst_q[31:0] <= data_dst_d[31:0];
-  always_ff @(posedge clk_i)
-    data_dst_q[33:32] <= data_dst_d[33:32];
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:322.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_synced_q1 <= 1'h0;
-    else req_synced_q1 <= req_synced;
-  assign data_dst_d = _04_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:316.7-316.33|ip/common_cells/src/cdc_2phase_clearable.sv:315.5-317.8" *) async_data_i : data_dst_q;
-  assign _05_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:307.7-307.30|ip/common_cells/src/cdc_2phase_clearable.sv:306.14-308.8" *) _01_ : ack_dst_q;
-  assign ack_dst_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:305.7-305.24|ip/common_cells/src/cdc_2phase_clearable.sv:304.5-308.8" *) 1'h0 : _05_;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:294.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = data_dst_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:269.8" *)
-module \cdc_2phase_dst_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_dst (clk_i, rst_ni, data_o, clear_i, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:274.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:273.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:276.16" *)
-  output [33:0] data_o;
-  wire [33:0] data_o;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:275.16" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:278.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:277.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:279.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:280.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:281.16" *)
-  input [33:0] async_data_i;
-  wire [33:0] async_data_i;
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:306.14-308.8" *)
-  wire _05_;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.8" *)
-  wire ack_dst_d;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.19" *)
-  reg ack_dst_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:288.5" *)
-  wire [33:0] data_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:288.17" *)
-  reg [33:0] data_dst_q;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.30" *)
-  wire req_synced;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced_q1" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:286.42" *)
-  reg req_synced_q1;
-  assign _00_ = valid_o && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:306.18-306.36" *) ready_i;
-  assign valid_o = ack_dst_q != (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:335.21-335.47" *) req_synced_q1;
-  assign _01_ = ~ (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:307.19-307.29" *) ack_dst_q;
-  assign _02_ = req_synced != (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.9-315.36" *) req_synced_q1;
-  assign _03_ = ! (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.40-315.48" *) valid_o;
-  assign _04_ = _02_ && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:315.9-315.48" *) _03_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:322.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  always_ff @(posedge clk_i)
-    data_dst_q[33:2] <= data_dst_d[33:2];
-  always_ff @(posedge clk_i)
-    data_dst_q[1:0] <= data_dst_d[1:0];
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:322.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_synced_q1 <= 1'h0;
-    else req_synced_q1 <= req_synced;
-  assign data_dst_d = _04_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:316.7-316.33|ip/common_cells/src/cdc_2phase_clearable.sv:315.5-317.8" *) async_data_i : data_dst_q;
-  assign _05_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:307.7-307.30|ip/common_cells/src/cdc_2phase_clearable.sv:306.14-308.8" *) _01_ : ack_dst_q;
-  assign ack_dst_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:305.7-305.24|ip/common_cells/src/cdc_2phase_clearable.sv:304.5-308.8" *) 1'h0 : _05_;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:294.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = data_dst_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:199.8" *)
-module \cdc_2phase_src_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_src (clk_i, rst_ni, data_i, clear_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:204.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:203.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:206.16" *)
-  input [40:0] data_i;
-  wire [40:0] data_i;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:205.16" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:207.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:208.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:209.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:210.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:211.16" *)
-  output [40:0] async_data_o;
-  wire [40:0] async_data_o;
-  wire _00_;
-  wire _01_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *)
-  wire [40:0] _02_;
-  wire _03_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.32" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:217.5" *)
-  wire [40:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:217.17" *)
-  reg [40:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.21" *)
-  reg req_src_q;
-  assign _00_ = valid_i && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.18-237.36" *) ready_o;
-  assign ready_o = req_src_q == (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:254.21-254.44" *) ack_synced;
-  assign _01_ = ~ (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:238.20-238.30" *) req_src_q;
-  always_ff @(posedge clk_i)
-    data_src_q[40:34] <= data_src_d[40:34];
-  always_ff @(posedge clk_i)
-    data_src_q[31:0] <= data_src_d[31:0];
-  always_ff @(posedge clk_i)
-    data_src_q[33:32] <= data_src_d[33:32];
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:245.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h0;
-    else req_src_q <= req_src_d;
-  assign _02_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.38-240.8|ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *) data_i : data_src_q;
-  assign _03_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.38-240.8|ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *) _01_ : req_src_q;
-  assign req_src_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:235.7-235.25|ip/common_cells/src/cdc_2phase_clearable.sv:234.5-240.8" *) 1'h0 : _03_;
-  assign data_src_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:235.7-235.25|ip/common_cells/src/cdc_2phase_clearable.sv:234.5-240.8" *) data_src_q : _02_;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:222.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_2phase_clearable.sv:199.8" *)
-module \cdc_2phase_src_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_src (clk_i, rst_ni, data_i, clear_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:204.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:203.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:206.16" *)
-  input [33:0] data_i;
-  wire [33:0] data_i;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:205.16" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:207.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:208.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:209.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:210.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:211.16" *)
-  output [33:0] async_data_o;
-  wire [33:0] async_data_o;
-  wire _00_;
-  wire _01_;
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *)
-  wire [33:0] _02_;
-  wire _03_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.32" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:217.5" *)
-  wire [33:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:217.17" *)
-  reg [33:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:215.21" *)
-  reg req_src_q;
-  assign _00_ = valid_i && (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.18-237.36" *) ready_o;
-  assign ready_o = req_src_q == (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:254.21-254.44" *) ack_synced;
-  assign _01_ = ~ (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:238.20-238.30" *) req_src_q;
-  always_ff @(posedge clk_i)
-    data_src_q[33:2] <= data_src_d[33:2];
-  always_ff @(posedge clk_i)
-    data_src_q[1:0] <= data_src_d[1:0];
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:245.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h0;
-    else req_src_q <= req_src_d;
-  assign _02_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.38-240.8|ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *) data_i : data_src_q;
-  assign _03_ = _00_ ? (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:237.38-240.8|ip/common_cells/src/cdc_2phase_clearable.sv:237.14-240.8" *) _01_ : req_src_q;
-  assign req_src_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:235.7-235.25|ip/common_cells/src/cdc_2phase_clearable.sv:234.5-240.8" *) 1'h0 : _03_;
-  assign data_src_d = clear_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:235.7-235.25|ip/common_cells/src/cdc_2phase_clearable.sv:234.5-240.8" *) data_src_q : _02_;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_2phase_clearable.sv:222.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:205.8" *)
-module \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst (clk_i, rst_ni, data_o, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:211.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:210.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:212.16" *)
-  output [1:0] data_o;
-  wire [1:0] data_o;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:214.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:213.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:215.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:216.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:217.16" *)
-  input [1:0] async_data_i;
-  wire [1:0] async_data_i;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *)
-  wire _00_;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *)
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire [1:0] _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.10" *)
-  wire ack_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.21" *)
-  reg ack_dst_q;
-  (* hdlname = "data_valid" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:225.10" *)
-  wire data_valid;
-  (* hdlname = "output_ready" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:227.10" *)
-  wire output_ready;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:223.10" *)
-  wire req_synced;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:293.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:284.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _02_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) state_q : 2'h0;
-  assign _03_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 2'h2;
-  assign _00_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) 1'h1 : 1'h0;
-  assign _04_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 1'h1;
-  assign _01_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 1'h1 : 1'h0;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _08_, _04_, _02_ }, { _06_, _05_, _03_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:252.9-259.12|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) state_q;
-  assign _07_ = ready_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:255.13-255.41|ip/common_cells/src/cdc_4phase.sv:254.11-258.14" *) 2'h2 : 2'h1;
-  assign _08_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:252.33-259.12|ip/common_cells/src/cdc_4phase.sv:252.9-259.12" *) _07_ : state_q;
-  function [0:0] _21_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _21_ = b[0:0];
-      2'b1?:
-        _21_ = b[1:1];
-      default:
-        _21_ = a;
-    endcase
-  endfunction
-  assign valid_o = _21_(1'h0, { _00_, 1'h1 }, { _06_, _05_ });
-  function [0:0] _22_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _22_ = b[0:0];
-      2'b1?:
-        _22_ = b[1:1];
-      default:
-        _22_ = a;
-    endcase
-  endfunction
-  assign ack_dst_d = _22_(1'h0, { _01_, _00_ }, { _05_, _03_ });
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:236.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = async_data_i;
-  assign data_valid = valid_o;
-  assign output_ready = ready_i;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:205.8" *)
-module \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst (clk_i, rst_ni, data_o, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:211.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:210.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:212.16" *)
-  output [1:0] data_o;
-  wire [1:0] data_o;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:214.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:213.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:215.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:216.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:217.16" *)
-  input [1:0] async_data_i;
-  wire [1:0] async_data_i;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *)
-  wire _00_;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *)
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire [1:0] _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.10" *)
-  wire ack_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.21" *)
-  reg ack_dst_q;
-  (* hdlname = "data_valid" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:225.10" *)
-  wire data_valid;
-  (* hdlname = "output_ready" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:227.10" *)
-  wire output_ready;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:223.10" *)
-  wire req_synced;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:293.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:284.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _02_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) state_q : 2'h0;
-  assign _03_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 2'h2;
-  assign _00_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) 1'h1 : 1'h0;
-  assign _04_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 1'h1;
-  assign _01_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 1'h1 : 1'h0;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _08_, _04_, _02_ }, { _06_, _05_, _03_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:252.9-259.12|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) state_q;
-  assign _07_ = ready_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:255.13-255.41|ip/common_cells/src/cdc_4phase.sv:254.11-258.14" *) 2'h2 : 2'h1;
-  assign _08_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:252.33-259.12|ip/common_cells/src/cdc_4phase.sv:252.9-259.12" *) _07_ : state_q;
-  function [0:0] _21_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _21_ = b[0:0];
-      2'b1?:
-        _21_ = b[1:1];
-      default:
-        _21_ = a;
-    endcase
-  endfunction
-  assign valid_o = _21_(1'h0, { _00_, 1'h1 }, { _06_, _05_ });
-  function [0:0] _22_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _22_ = b[0:0];
-      2'b1?:
-        _22_ = b[1:1];
-      default:
-        _22_ = a;
-    endcase
-  endfunction
-  assign ack_dst_d = _22_(1'h0, { _01_, _00_ }, { _05_, _03_ });
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:236.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = async_data_i;
-  assign data_valid = valid_o;
-  assign output_ready = ready_i;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:205.8" *)
-module \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst (clk_i, rst_ni, data_o, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:211.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:210.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:212.16" *)
-  output [1:0] data_o;
-  wire [1:0] data_o;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:214.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:213.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:215.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:216.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:217.16" *)
-  input [1:0] async_data_i;
-  wire [1:0] async_data_i;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *)
-  wire _00_;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *)
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire [1:0] _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.10" *)
-  wire ack_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.21" *)
-  reg ack_dst_q;
-  (* hdlname = "data_valid" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:225.10" *)
-  wire data_valid;
-  (* hdlname = "output_ready" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:227.10" *)
-  wire output_ready;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:223.10" *)
-  wire req_synced;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:293.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:284.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _02_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) state_q : 2'h0;
-  assign _03_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 2'h2;
-  assign _00_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) 1'h1 : 1'h0;
-  assign _04_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 1'h1;
-  assign _01_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 1'h1 : 1'h0;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _08_, _04_, _02_ }, { _06_, _05_, _03_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:252.9-259.12|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) state_q;
-  assign _07_ = ready_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:255.13-255.41|ip/common_cells/src/cdc_4phase.sv:254.11-258.14" *) 2'h2 : 2'h1;
-  assign _08_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:252.33-259.12|ip/common_cells/src/cdc_4phase.sv:252.9-259.12" *) _07_ : state_q;
-  function [0:0] _21_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _21_ = b[0:0];
-      2'b1?:
-        _21_ = b[1:1];
-      default:
-        _21_ = a;
-    endcase
-  endfunction
-  assign valid_o = _21_(1'h0, { _00_, 1'h1 }, { _06_, _05_ });
-  function [0:0] _22_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _22_ = b[0:0];
-      2'b1?:
-        _22_ = b[1:1];
-      default:
-        _22_ = a;
-    endcase
-  endfunction
-  assign ack_dst_d = _22_(1'h0, { _01_, _00_ }, { _05_, _03_ });
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:236.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = async_data_i;
-  assign data_valid = valid_o;
-  assign output_ready = ready_i;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:205.8" *)
-module \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst (clk_i, rst_ni, data_o, ready_i, valid_o, async_req_i, async_ack_o, async_data_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:211.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:210.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:212.16" *)
-  output [1:0] data_o;
-  wire [1:0] data_o;
-  (* hdlname = "ready_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:214.16" *)
-  input ready_i;
-  wire ready_i;
-  (* hdlname = "valid_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:213.16" *)
-  output valid_o;
-  wire valid_o;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:215.16" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:216.16" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "async_data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:217.16" *)
-  input [1:0] async_data_i;
-  wire [1:0] async_data_i;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *)
-  wire _00_;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *)
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire [1:0] _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.10" *)
-  wire ack_dst_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_dst_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:221.21" *)
-  reg ack_dst_q;
-  (* hdlname = "data_valid" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:225.10" *)
-  wire data_valid;
-  (* hdlname = "output_ready" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:227.10" *)
-  wire output_ready;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:223.10" *)
-  wire req_synced;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:231.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:293.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) ack_dst_q <= 1'h0;
-    else ack_dst_q <= ack_dst_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:284.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _02_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) state_q : 2'h0;
-  assign _03_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 2'h2;
-  assign _00_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:272.33-275.12|ip/common_cells/src/cdc_4phase.sv:272.9-275.12" *) 1'h1 : 1'h0;
-  assign _04_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) 1'h1;
-  assign _01_ = ready_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:264.35-267.12|ip/common_cells/src/cdc_4phase.sv:264.9-267.12" *) 1'h1 : 1'h0;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _08_, _04_, _02_ }, { _06_, _05_, _03_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:252.9-259.12|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *) state_q;
-  assign _07_ = ready_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:255.13-255.41|ip/common_cells/src/cdc_4phase.sv:254.11-258.14" *) 2'h2 : 2'h1;
-  assign _08_ = req_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:252.33-259.12|ip/common_cells/src/cdc_4phase.sv:252.9-259.12" *) _07_ : state_q;
-  function [0:0] _21_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:262.28-268.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _21_ = b[0:0];
-      2'b1?:
-        _21_ = b[1:1];
-      default:
-        _21_ = a;
-    endcase
-  endfunction
-  assign valid_o = _21_(1'h0, { _00_, 1'h1 }, { _06_, _05_ });
-  function [0:0] _22_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:270.26-276.10|ip/common_cells/src/cdc_4phase.sv:249.5-281.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _22_ = b[0:0];
-      2'b1?:
-        _22_ = b[1:1];
-      default:
-        _22_ = a;
-    endcase
-  endfunction
-  assign ack_dst_d = _22_(1'h0, { _01_, _00_ }, { _05_, _03_ });
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:236.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_req_i),
-    .serial_o(req_synced)
-  );
-  assign async_ack_o = ack_dst_q;
-  assign data_o = async_data_i;
-  assign data_valid = valid_o;
-  assign output_ready = ready_i;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:92.8" *)
-module \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src (clk_i, rst_ni, data_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:100.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:99.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:101.16" *)
-  input [1:0] data_i;
-  wire [1:0] data_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:102.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:103.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:104.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:105.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:106.16" *)
-  output [1:0] async_data_o;
-  wire [1:0] async_data_o;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *)
-  wire [1:0] _00_;
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:114.10" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.5" *)
-  wire [1:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.17" *)
-  reg [1:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.21" *)
-  reg req_src_q;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) data_src_q <= 2'h1;
-    else data_src_q <= data_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h1;
-    else req_src_q <= req_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:172.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _01_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 2'h2;
-  assign _02_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:159.33-164.12|ip/common_cells/src/cdc_4phase.sv:159.9-164.12" *) state_q : 2'h0;
-  assign _04_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 1'h1;
-  assign _03_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 1'h0 : 1'h1;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _07_, _04_, _02_ }, { _06_, _05_, _01_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) state_q;
-  assign _07_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 2'h1 : state_q;
-  assign _00_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) data_i : data_src_q;
-  assign _08_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 1'h1 : 1'h0;
-  assign data_src_d = _06_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _00_ : data_src_q;
-  function [0:0] _23_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _23_ = b[0:0];
-      2'b1?:
-        _23_ = b[1:1];
-      default:
-        _23_ = a;
-    endcase
-  endfunction
-  assign req_src_d = _23_(1'h0, { _08_, _03_ }, { _06_, _05_ });
-  assign ready_o = _01_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _03_ : 1'h0;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:122.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:92.8" *)
-module \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src (clk_i, rst_ni, data_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:100.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:99.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:101.16" *)
-  input [1:0] data_i;
-  wire [1:0] data_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:102.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:103.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:104.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:105.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:106.16" *)
-  output [1:0] async_data_o;
-  wire [1:0] async_data_o;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *)
-  wire [1:0] _00_;
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:114.10" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.5" *)
-  wire [1:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.17" *)
-  reg [1:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.21" *)
-  reg req_src_q;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) data_src_q <= 2'h1;
-    else data_src_q <= data_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h1;
-    else req_src_q <= req_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:172.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _01_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 2'h2;
-  assign _02_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:159.33-164.12|ip/common_cells/src/cdc_4phase.sv:159.9-164.12" *) state_q : 2'h0;
-  assign _04_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 1'h1;
-  assign _03_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 1'h0 : 1'h1;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _07_, _04_, _02_ }, { _06_, _05_, _01_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) state_q;
-  assign _07_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 2'h1 : state_q;
-  assign _00_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) data_i : data_src_q;
-  assign _08_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 1'h1 : 1'h0;
-  assign data_src_d = _06_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _00_ : data_src_q;
-  function [0:0] _23_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _23_ = b[0:0];
-      2'b1?:
-        _23_ = b[1:1];
-      default:
-        _23_ = a;
-    endcase
-  endfunction
-  assign req_src_d = _23_(1'h0, { _08_, _03_ }, { _06_, _05_ });
-  assign ready_o = _01_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _03_ : 1'h0;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:122.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:92.8" *)
-module \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src (clk_i, rst_ni, data_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:100.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:99.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:101.16" *)
-  input [1:0] data_i;
-  wire [1:0] data_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:102.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:103.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:104.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:105.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:106.16" *)
-  output [1:0] async_data_o;
-  wire [1:0] async_data_o;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *)
-  wire [1:0] _00_;
-  wire _01_;
-  wire [1:0] _02_;
-  wire _03_;
-  wire [1:0] _04_;
-  wire _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:114.10" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.5" *)
-  wire [1:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.17" *)
-  reg [1:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.21" *)
-  reg req_src_q;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) data_src_q <= 2'h1;
-    else data_src_q <= data_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h1;
-    else req_src_q <= req_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:172.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _01_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 2'h2;
-  assign _02_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:159.33-164.12|ip/common_cells/src/cdc_4phase.sv:159.9-164.12" *) state_q : 2'h0;
-  assign _04_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 2'h2 : state_q;
-  assign _05_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 1'h1;
-  assign _03_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 1'h0 : 1'h1;
-  function [1:0] _17_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _17_ = b[1:0];
-      3'b?1?:
-        _17_ = b[3:2];
-      3'b1??:
-        _17_ = b[5:4];
-      default:
-        _17_ = a;
-    endcase
-  endfunction
-  assign state_d = _17_(2'h0, { _07_, _04_, _02_ }, { _06_, _05_, _01_ });
-  assign _06_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) state_q;
-  assign _07_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 2'h1 : state_q;
-  assign _00_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) data_i : data_src_q;
-  assign _08_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 1'h1 : 1'h0;
-  assign data_src_d = _06_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _00_ : data_src_q;
-  function [0:0] _23_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _23_ = b[0:0];
-      2'b1?:
-        _23_ = b[1:1];
-      default:
-        _23_ = a;
-    endcase
-  endfunction
-  assign req_src_d = _23_(1'h0, { _08_, _03_ }, { _06_, _05_ });
-  assign ready_o = _01_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _03_ : 1'h0;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:122.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_4phase.sv:92.8" *)
-module \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src (clk_i, rst_ni, data_i, valid_i, ready_o, async_req_o, async_ack_i, async_data_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:100.16" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:99.16" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "data_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:101.16" *)
-  input [1:0] data_i;
-  wire [1:0] data_i;
-  (* hdlname = "valid_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:102.16" *)
-  input valid_i;
-  wire valid_i;
-  (* hdlname = "ready_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:103.16" *)
-  output ready_o;
-  wire ready_o;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:104.16" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:105.16" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_data_o" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:106.16" *)
-  output [1:0] async_data_o;
-  wire [1:0] async_data_o;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *)
-  wire [1:0] _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire [1:0] _05_;
-  wire _06_;
-  wire [1:0] _07_;
-  wire [1:0] _08_;
-  (* dont_touch = "true" *)
-  (* hdlname = "ack_synced" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:114.10" *)
-  wire ack_synced;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.5" *)
-  wire [1:0] data_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "data_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:112.17" *)
-  reg [1:0] data_src_q;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.10" *)
-  wire req_src_d;
-  (* dont_touch = "true" *)
-  (* hdlname = "req_src_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:110.21" *)
-  reg req_src_q;
-  (* hdlname = "state_d" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.11" *)
-  wire [1:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:117.20" *)
-  reg [1:0] state_q;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) data_src_q <= 2'h1;
-    else data_src_q <= data_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:181.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) req_src_q <= 1'h1;
-    else req_src_q <= req_src_d;
-  (* src = "ip/common_cells/src/cdc_4phase.sv:172.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) state_q <= 2'h0;
-    else state_q <= state_d;
-  assign _01_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 1'h0 : 1'h1;
-  assign _02_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 1'h1;
-  function [1:0] _14_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _14_ = b[1:0];
-      3'b?1?:
-        _14_ = b[3:2];
-      3'b1??:
-        _14_ = b[5:4];
-      default:
-        _14_ = a;
-    endcase
-  endfunction
-  assign state_d = _14_(2'h0, { _05_, _08_, _07_ }, { _04_, _02_, _03_ });
-  assign _03_ = state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) 2'h2;
-  assign _04_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) state_q;
-  assign _05_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 2'h1 : state_q;
-  assign _00_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) data_i : data_src_q;
-  assign _06_ = valid_i ? (* src = "ip/common_cells/src/cdc_4phase.sv:145.22-149.12|ip/common_cells/src/cdc_4phase.sv:145.9-149.12" *) 1'h1 : 1'h0;
-  assign data_src_d = _04_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:136.13-150.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _00_ : data_src_q;
-  function [0:0] _21_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_4phase.sv:151.24-157.10|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _21_ = b[0:0];
-      2'b1?:
-        _21_ = b[1:1];
-      default:
-        _21_ = a;
-    endcase
-  endfunction
-  assign req_src_d = _21_(1'h0, { _06_, _01_ }, { _04_, _02_ });
-  assign ready_o = _03_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_4phase.sv:159.9-164.12|ip/common_cells/src/cdc_4phase.sv:135.5-169.12" *) _01_ : 1'h0;
-  assign _07_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:159.33-164.12|ip/common_cells/src/cdc_4phase.sv:159.9-164.12" *) state_q : 2'h0;
-  assign _08_ = ack_synced ? (* src = "ip/common_cells/src/cdc_4phase.sv:153.33-156.12|ip/common_cells/src/cdc_4phase.sv:153.9-156.12" *) 2'h2 : state_q;
-  (* hdlname = "i_sync" *)
-  (* src = "ip/common_cells/src/cdc_4phase.sv:122.5" *)
-  \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src.i_sync  i_sync (
-    .clk_i(clk_i),
-    .rst_ni(rst_ni),
-    .serial_i(async_ack_i),
-    .serial_o(ack_synced)
-  );
-  assign async_data_o = data_src_q;
-  assign async_req_o = req_src_q;
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:109.8" *)
-module \cdc_reset_ctrlr$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr (a_clk_i, a_rst_ni, a_clear_i, a_clear_o, a_clear_ack_i, a_isolate_o, a_isolate_ack_i, b_clk_i, b_rst_ni, b_clear_i, b_clear_o, b_clear_ack_i, b_isolate_o, b_isolate_ack_i);
-  (* hdlname = "a_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:121.16" *)
-  input a_clk_i;
-  wire a_clk_i;
-  (* hdlname = "a_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:122.16" *)
-  input a_rst_ni;
-  wire a_rst_ni;
-  (* hdlname = "a_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:123.16" *)
-  input a_clear_i;
-  wire a_clear_i;
-  (* hdlname = "a_clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:124.16" *)
-  output a_clear_o;
-  wire a_clear_o;
-  (* hdlname = "a_clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:125.15" *)
-  input a_clear_ack_i;
-  wire a_clear_ack_i;
-  (* hdlname = "a_isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:126.16" *)
-  output a_isolate_o;
-  wire a_isolate_o;
-  (* hdlname = "a_isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:127.16" *)
-  input a_isolate_ack_i;
-  wire a_isolate_ack_i;
-  (* hdlname = "b_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:129.16" *)
-  input b_clk_i;
-  wire b_clk_i;
-  (* hdlname = "b_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:130.16" *)
-  input b_rst_ni;
-  wire b_rst_ni;
-  (* hdlname = "b_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:131.16" *)
-  input b_clear_i;
-  wire b_clear_i;
-  (* hdlname = "b_clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:132.16" *)
-  output b_clear_o;
-  wire b_clear_o;
-  (* hdlname = "b_clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:133.16" *)
-  input b_clear_ack_i;
-  wire b_clear_ack_i;
-  (* hdlname = "b_isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:134.16" *)
-  output b_isolate_o;
-  wire b_isolate_o;
-  (* hdlname = "b_isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:135.16" *)
-  input b_isolate_ack_i;
-  wire b_isolate_ack_i;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:143.31" *)
-  wire async_a2b_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:141.21" *)
-  wire [1:0] async_a2b_next_phase;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:139.16" *)
-  wire async_a2b_req;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:139.31" *)
-  wire async_b2a_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:145.21" *)
-  wire [1:0] async_b2a_next_phase;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:143.16" *)
-  wire async_b2a_req;
-  (* hdlname = "i_cdc_reset_ctrlr_half_a" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:150.5" *)
-  \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a  i_cdc_reset_ctrlr_half_a (
-    .async_ack_i(async_b2a_ack),
-    .async_ack_o(async_a2b_ack),
-    .async_next_phase_i(async_b2a_next_phase),
-    .async_next_phase_o(async_a2b_next_phase),
-    .async_req_i(async_b2a_req),
-    .async_req_o(async_a2b_req),
-    .clear_ack_i(a_clear_ack_i),
-    .clear_i(a_clear_i),
-    .clear_o(a_clear_o),
-    .clk_i(a_clk_i),
-    .isolate_ack_i(a_isolate_ack_i),
-    .isolate_o(a_isolate_o),
-    .rst_ni(a_rst_ni)
-  );
-  (* hdlname = "i_cdc_reset_ctrlr_half_b" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:169.5" *)
-  \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b  i_cdc_reset_ctrlr_half_b (
-    .async_ack_i(async_a2b_ack),
-    .async_ack_o(async_b2a_ack),
-    .async_next_phase_i(async_a2b_next_phase),
-    .async_next_phase_o(async_b2a_next_phase),
-    .async_req_i(async_a2b_req),
-    .async_req_o(async_b2a_req),
-    .clear_ack_i(b_clear_ack_i),
-    .clear_i(b_clear_i),
-    .clear_o(b_clear_o),
-    .clk_i(b_clk_i),
-    .isolate_ack_i(b_isolate_ack_i),
-    .isolate_o(b_isolate_o),
-    .rst_ni(b_rst_ni)
-  );
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:109.8" *)
-module \cdc_reset_ctrlr$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr (a_clk_i, a_rst_ni, a_clear_i, a_clear_o, a_clear_ack_i, a_isolate_o, a_isolate_ack_i, b_clk_i, b_rst_ni, b_clear_i, b_clear_o, b_clear_ack_i, b_isolate_o, b_isolate_ack_i);
-  (* hdlname = "a_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:121.16" *)
-  input a_clk_i;
-  wire a_clk_i;
-  (* hdlname = "a_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:122.16" *)
-  input a_rst_ni;
-  wire a_rst_ni;
-  (* hdlname = "a_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:123.16" *)
-  input a_clear_i;
-  wire a_clear_i;
-  (* hdlname = "a_clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:124.16" *)
-  output a_clear_o;
-  wire a_clear_o;
-  (* hdlname = "a_clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:125.15" *)
-  input a_clear_ack_i;
-  wire a_clear_ack_i;
-  (* hdlname = "a_isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:126.16" *)
-  output a_isolate_o;
-  wire a_isolate_o;
-  (* hdlname = "a_isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:127.16" *)
-  input a_isolate_ack_i;
-  wire a_isolate_ack_i;
-  (* hdlname = "b_clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:129.16" *)
-  input b_clk_i;
-  wire b_clk_i;
-  (* hdlname = "b_rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:130.16" *)
-  input b_rst_ni;
-  wire b_rst_ni;
-  (* hdlname = "b_clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:131.16" *)
-  input b_clear_i;
-  wire b_clear_i;
-  (* hdlname = "b_clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:132.16" *)
-  output b_clear_o;
-  wire b_clear_o;
-  (* hdlname = "b_clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:133.16" *)
-  input b_clear_ack_i;
-  wire b_clear_ack_i;
-  (* hdlname = "b_isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:134.16" *)
-  output b_isolate_o;
-  wire b_isolate_o;
-  (* hdlname = "b_isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:135.16" *)
-  input b_isolate_ack_i;
-  wire b_isolate_ack_i;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:143.31" *)
-  wire async_a2b_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:141.21" *)
-  wire [1:0] async_a2b_next_phase;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_a2b_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:139.16" *)
-  wire async_a2b_req;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:139.31" *)
-  wire async_b2a_ack;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:145.21" *)
-  wire [1:0] async_b2a_next_phase;
-  (* dont_touch = "true" *)
-  (* hdlname = "async_b2a_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:143.16" *)
-  wire async_b2a_req;
-  (* hdlname = "i_cdc_reset_ctrlr_half_a" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:150.5" *)
-  \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a  i_cdc_reset_ctrlr_half_a (
-    .async_ack_i(async_b2a_ack),
-    .async_ack_o(async_a2b_ack),
-    .async_next_phase_i(async_b2a_next_phase),
-    .async_next_phase_o(async_a2b_next_phase),
-    .async_req_i(async_b2a_req),
-    .async_req_o(async_a2b_req),
-    .clear_ack_i(a_clear_ack_i),
-    .clear_i(a_clear_i),
-    .clear_o(a_clear_o),
-    .clk_i(a_clk_i),
-    .isolate_ack_i(a_isolate_ack_i),
-    .isolate_o(a_isolate_o),
-    .rst_ni(a_rst_ni)
-  );
-  (* hdlname = "i_cdc_reset_ctrlr_half_b" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:169.5" *)
-  \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b  i_cdc_reset_ctrlr_half_b (
-    .async_ack_i(async_a2b_ack),
-    .async_ack_o(async_b2a_ack),
-    .async_next_phase_i(async_a2b_next_phase),
-    .async_next_phase_o(async_b2a_next_phase),
-    .async_req_i(async_a2b_req),
-    .async_req_o(async_b2a_req),
-    .clear_ack_i(b_clear_ack_i),
-    .clear_i(b_clear_i),
-    .clear_o(b_clear_o),
-    .clk_i(b_clk_i),
-    .isolate_ack_i(b_isolate_ack_i),
-    .isolate_o(b_isolate_o),
-    .rst_ni(b_rst_ni)
-  );
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:187.8" *)
-module \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a (clk_i, rst_ni, clear_i, async_req_o, async_ack_i, async_req_i, async_ack_o, isolate_o, isolate_ack_i, clear_o, clear_ack_i, async_next_phase_o, async_next_phase_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:199.30" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:200.30" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:201.30" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:208.30" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:209.30" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:211.30" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:212.30" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:202.30" *)
-  output isolate_o;
-  wire isolate_o;
-  (* hdlname = "isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:203.30" *)
-  input isolate_ack_i;
-  wire isolate_ack_i;
-  (* hdlname = "clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:204.30" *)
-  output clear_o;
-  wire clear_o;
-  (* hdlname = "clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:205.30" *)
-  input clear_ack_i;
-  wire clear_ack_i;
-  (* hdlname = "async_next_phase_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:207.30" *)
-  output [1:0] async_next_phase_o;
-  wire [1:0] async_next_phase_o;
-  (* hdlname = "async_next_phase_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:210.30" *)
-  input [1:0] async_next_phase_i;
-  wire [1:0] async_next_phase_i;
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *)
-  wire [3:0] _012_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *)
-  wire [3:0] _013_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *)
-  wire [3:0] _014_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *)
-  wire [3:0] _015_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *)
-  wire [3:0] _016_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *)
-  wire [3:0] _017_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *)
-  wire [3:0] _018_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *)
-  wire [3:0] _019_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *)
-  wire [3:0] _020_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *)
-  wire [3:0] _021_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *)
-  wire [3:0] _022_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *)
-  wire [3:0] _023_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *)
-  wire [3:0] _024_;
-  wire _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire [1:0] _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
-  wire _047_;
-  (* hdlname = "initiator_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:263.30" *)
-  wire initiator_clear_out;
-  (* hdlname = "initiator_clear_seq_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:259.30" *)
-  wire [1:0] initiator_clear_seq_phase;
-  (* hdlname = "initiator_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:262.30" *)
-  wire initiator_isolate_out;
-  (* hdlname = "initiator_phase_transition_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:261.30" *)
-  wire initiator_phase_transition_ack;
-  (* hdlname = "initiator_phase_transition_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:260.30" *)
-  wire initiator_phase_transition_req;
-  (* hdlname = "initiator_state_d" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.21" *)
-  wire [3:0] initiator_state_d;
-  (* hdlname = "initiator_state_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.40" *)
-  reg [3:0] initiator_state_q;
-  (* hdlname = "receiver_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:419.9" *)
-  wire receiver_clear_out;
-  (* hdlname = "receiver_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:418.9" *)
-  wire receiver_isolate_out;
-  (* hdlname = "receiver_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:415.21" *)
-  wire [1:0] receiver_next_phase;
-  (* hdlname = "receiver_phase_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.29" *)
-  wire receiver_phase_ack;
-  (* hdlname = "receiver_phase_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:414.21" *)
-  reg [1:0] receiver_phase_q;
-  (* hdlname = "receiver_phase_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.9" *)
-  wire receiver_phase_req;
-  assign _001_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.13-284.60" *) isolate_ack_i;
-  assign _000_ = receiver_phase_req && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:441.18-441.58" *) receiver_phase_ack;
-  assign clear_o = initiator_clear_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:526.20-526.61" *) receiver_clear_out;
-  assign isolate_o = initiator_isolate_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:527.22-527.67" *) receiver_isolate_out;
-  assign _002_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.13-317.58" *) clear_ack_i;
-  assign _003_ = | { _028_, _027_, _026_ };
-  assign _004_ = | { _035_, _034_, _032_ };
-  assign _006_ = | { _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ };
-  assign _007_ = | { _034_, _033_, _032_ };
-  assign _008_ = | { _029_, _028_, _026_ };
-  assign _009_ = | { _035_, _032_ };
-  assign _010_ = | { _046_, _044_, _043_, _041_, _040_, _039_ };
-  assign _005_ = | { _043_, _042_, _041_ };
-  assign _011_ = | { _046_, _045_, _044_ };
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:371.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) initiator_state_q <= 4'h1;
-    else initiator_state_q <= initiator_state_d;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:438.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) receiver_phase_q <= 2'h0;
-    else receiver_phase_q <= _038_;
-  function [0:0] _064_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _064_ = b[0:0];
-      2'b1?:
-        _064_ = b[1:1];
-      default:
-        _064_ = a;
-    endcase
-  endfunction
-  assign _025_ = _064_(1'hx, 2'h2, { _027_, _008_ });
-  assign _026_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h3;
-  assign _027_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:501.28-504.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h2;
-  assign _028_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:496.30-499.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 1'h1;
-  assign _029_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:491.27-494.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) receiver_phase_q;
-  function [0:0] _069_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _069_ = b[0:0];
-      2'b1?:
-        _069_ = b[1:1];
-      default:
-        _069_ = a;
-    endcase
-  endfunction
-  assign _030_ = _069_(1'hx, 2'h1, { _029_, _003_ });
-  assign receiver_clear_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _031_ : _025_;
-  assign receiver_isolate_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _036_ : _030_;
-  assign receiver_phase_ack = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _037_ : 1'h0;
-  function [0:0] _073_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _073_ = b[0:0];
-      2'b1?:
-        _073_ = b[1:1];
-      default:
-        _073_ = a;
-    endcase
-  endfunction
-  assign _031_ = _073_(1'hx, 2'h2, { _033_, _004_ });
-  assign _032_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h3;
-  assign _033_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:467.28-472.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h2;
-  assign _034_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:460.30-465.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 1'h1;
-  assign _035_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:454.27-458.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) receiver_next_phase;
-  function [0:0] _078_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _078_ = b[0:0];
-      2'b1?:
-        _078_ = b[1:1];
-      default:
-        _078_ = a;
-    endcase
-  endfunction
-  assign _036_ = _078_(1'hx, 2'h1, { _035_, _007_ });
-  function [0:0] _079_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _079_ = b[0:0];
-      3'b?1?:
-        _079_ = b[1:1];
-      3'b1??:
-        _079_ = b[2:2];
-      default:
-        _079_ = a;
-    endcase
-  endfunction
-  assign _037_ = _079_(1'hx, { isolate_ack_i, clear_ack_i, 1'h1 }, { _034_, _033_, _009_ });
-  assign _038_ = _000_ ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:442.7-442.47|ip/common_cells/src/cdc_reset_ctrlr.sv:441.14-443.8" *) receiver_next_phase : receiver_phase_q;
-  assign _018_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:361.11-361.36|ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *) 4'h0 : initiator_state_q;
-  assign _039_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 4'h8;
-  assign _017_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:351.11-351.40|ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *) 4'h8 : initiator_state_q;
-  assign _040_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h7;
-  assign _016_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:341.11-341.42|ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *) 4'h7 : initiator_state_q;
-  assign _041_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h5;
-  assign _015_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:331.11-331.42|ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *) 4'h7 : initiator_state_q;
-  assign _042_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:326.23-333.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h6;
-  assign _024_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:322.11-322.52|ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *) 4'h5 : initiator_state_q;
-  assign _043_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:312.14-324.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h4;
-  assign _013_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:320.11-320.46|ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *) 4'h6 : _024_;
-  assign _014_ = _002_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:318.11-318.42|ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *) 4'h7 : _013_;
-  assign _023_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:308.11-308.37|ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *) 4'h4 : initiator_state_q;
-  assign _044_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:302.31-310.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h2;
-  assign _022_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:298.11-298.37|ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *) 4'h4 : initiator_state_q;
-  assign _045_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:293.25-300.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h3;
-  assign _019_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:289.11-289.54|ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *) 4'h2 : initiator_state_q;
-  assign _046_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:279.16-291.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1;
-  assign _020_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:287.11-287.48|ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *) 4'h3 : _019_;
-  assign _021_ = _001_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:285.11-285.37|ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *) 4'h4 : _020_;
-  function [3:0] _101_;
-    input [3:0] a;
-    input [35:0] b;
-    input [8:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      9'b????????1:
-        _101_ = b[3:0];
-      9'b???????1?:
-        _101_ = b[7:4];
-      9'b??????1??:
-        _101_ = b[11:8];
-      9'b?????1???:
-        _101_ = b[15:12];
-      9'b????1????:
-        _101_ = b[19:16];
-      9'b???1?????:
-        _101_ = b[23:20];
-      9'b??1??????:
-        _101_ = b[27:24];
-      9'b?1???????:
-        _101_ = b[31:28];
-      9'b1????????:
-        _101_ = b[35:32];
-      default:
-        _101_ = a;
-    endcase
-  endfunction
-  assign initiator_state_d = _101_(4'h1, { _012_, _021_, _022_, _023_, _014_, _015_, _016_, _017_, _018_ }, { _047_, _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ });
-  assign _047_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) initiator_state_q;
-  assign _012_ = clear_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:275.11-275.39|ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *) 4'h1 : initiator_state_q;
-  assign initiator_clear_out = _005_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_isolate_out = _006_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_phase_transition_req = _010_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  function [1:0] _107_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _107_ = b[1:0];
-      3'b?1?:
-        _107_ = b[3:2];
-      3'b1??:
-        _107_ = b[5:4];
-      default:
-        _107_ = a;
-    endcase
-  endfunction
-  assign initiator_clear_seq_phase = _107_(2'h0, 6'h1b, { _011_, _005_, _040_ });
-  (* hdlname = "i_state_transition_cdc_dst" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:427.5" *)
-  \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst  i_state_transition_cdc_dst (
-    .async_ack_o(async_ack_o),
-    .async_data_i(async_next_phase_i),
-    .async_req_i(async_req_i),
-    .clk_i(clk_i),
-    .data_o(receiver_next_phase),
-    .ready_i(receiver_phase_ack),
-    .rst_ni(rst_ni),
-    .valid_o(receiver_phase_req)
-  );
-  (* hdlname = "i_state_transition_cdc_src" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:398.5" *)
-  \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src  i_state_transition_cdc_src (
-    .async_ack_i(async_ack_i),
-    .async_data_o(async_next_phase_o),
-    .async_req_o(async_req_o),
-    .clk_i(clk_i),
-    .data_i(initiator_clear_seq_phase),
-    .ready_o(initiator_phase_transition_ack),
-    .rst_ni(rst_ni),
-    .valid_i(initiator_phase_transition_req)
-  );
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:187.8" *)
-module \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b (clk_i, rst_ni, clear_i, async_req_o, async_ack_i, async_req_i, async_ack_o, isolate_o, isolate_ack_i, clear_o, clear_ack_i, async_next_phase_o, async_next_phase_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:199.30" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:200.30" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:201.30" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:208.30" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:209.30" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:211.30" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:212.30" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:202.30" *)
-  output isolate_o;
-  wire isolate_o;
-  (* hdlname = "isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:203.30" *)
-  input isolate_ack_i;
-  wire isolate_ack_i;
-  (* hdlname = "clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:204.30" *)
-  output clear_o;
-  wire clear_o;
-  (* hdlname = "clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:205.30" *)
-  input clear_ack_i;
-  wire clear_ack_i;
-  (* hdlname = "async_next_phase_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:207.30" *)
-  output [1:0] async_next_phase_o;
-  wire [1:0] async_next_phase_o;
-  (* hdlname = "async_next_phase_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:210.30" *)
-  input [1:0] async_next_phase_i;
-  wire [1:0] async_next_phase_i;
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *)
-  wire [3:0] _012_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *)
-  wire [3:0] _013_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *)
-  wire [3:0] _014_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *)
-  wire [3:0] _015_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *)
-  wire [3:0] _016_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *)
-  wire [3:0] _017_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *)
-  wire [3:0] _018_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *)
-  wire [3:0] _019_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *)
-  wire [3:0] _020_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *)
-  wire [3:0] _021_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *)
-  wire [3:0] _022_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *)
-  wire [3:0] _023_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *)
-  wire [3:0] _024_;
-  wire _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire [1:0] _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
-  wire _047_;
-  (* hdlname = "initiator_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:263.30" *)
-  wire initiator_clear_out;
-  (* hdlname = "initiator_clear_seq_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:259.30" *)
-  wire [1:0] initiator_clear_seq_phase;
-  (* hdlname = "initiator_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:262.30" *)
-  wire initiator_isolate_out;
-  (* hdlname = "initiator_phase_transition_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:261.30" *)
-  wire initiator_phase_transition_ack;
-  (* hdlname = "initiator_phase_transition_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:260.30" *)
-  wire initiator_phase_transition_req;
-  (* hdlname = "initiator_state_d" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.21" *)
-  wire [3:0] initiator_state_d;
-  (* hdlname = "initiator_state_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.40" *)
-  reg [3:0] initiator_state_q;
-  (* hdlname = "receiver_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:419.9" *)
-  wire receiver_clear_out;
-  (* hdlname = "receiver_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:418.9" *)
-  wire receiver_isolate_out;
-  (* hdlname = "receiver_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:415.21" *)
-  wire [1:0] receiver_next_phase;
-  (* hdlname = "receiver_phase_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.29" *)
-  wire receiver_phase_ack;
-  (* hdlname = "receiver_phase_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:414.21" *)
-  reg [1:0] receiver_phase_q;
-  (* hdlname = "receiver_phase_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.9" *)
-  wire receiver_phase_req;
-  assign _001_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.13-284.60" *) isolate_ack_i;
-  assign _000_ = receiver_phase_req && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:441.18-441.58" *) receiver_phase_ack;
-  assign clear_o = initiator_clear_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:526.20-526.61" *) receiver_clear_out;
-  assign isolate_o = initiator_isolate_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:527.22-527.67" *) receiver_isolate_out;
-  assign _002_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.13-317.58" *) clear_ack_i;
-  assign _003_ = | { _028_, _027_, _026_ };
-  assign _004_ = | { _035_, _034_, _032_ };
-  assign _006_ = | { _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ };
-  assign _007_ = | { _034_, _033_, _032_ };
-  assign _008_ = | { _029_, _028_, _026_ };
-  assign _009_ = | { _035_, _032_ };
-  assign _010_ = | { _046_, _044_, _043_, _041_, _040_, _039_ };
-  assign _005_ = | { _043_, _042_, _041_ };
-  assign _011_ = | { _046_, _045_, _044_ };
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:371.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) initiator_state_q <= 4'h1;
-    else initiator_state_q <= initiator_state_d;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:438.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) receiver_phase_q <= 2'h0;
-    else receiver_phase_q <= _038_;
-  function [0:0] _064_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _064_ = b[0:0];
-      2'b1?:
-        _064_ = b[1:1];
-      default:
-        _064_ = a;
-    endcase
-  endfunction
-  assign _025_ = _064_(1'hx, 2'h2, { _027_, _008_ });
-  assign _026_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h3;
-  assign _027_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:501.28-504.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h2;
-  assign _028_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:496.30-499.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 1'h1;
-  assign _029_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:491.27-494.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) receiver_phase_q;
-  function [0:0] _069_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _069_ = b[0:0];
-      2'b1?:
-        _069_ = b[1:1];
-      default:
-        _069_ = a;
-    endcase
-  endfunction
-  assign _030_ = _069_(1'hx, 2'h1, { _029_, _003_ });
-  assign receiver_clear_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _031_ : _025_;
-  assign receiver_isolate_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _036_ : _030_;
-  assign receiver_phase_ack = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _037_ : 1'h0;
-  function [0:0] _073_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _073_ = b[0:0];
-      2'b1?:
-        _073_ = b[1:1];
-      default:
-        _073_ = a;
-    endcase
-  endfunction
-  assign _031_ = _073_(1'hx, 2'h2, { _033_, _004_ });
-  assign _032_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h3;
-  assign _033_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:467.28-472.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h2;
-  assign _034_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:460.30-465.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 1'h1;
-  assign _035_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:454.27-458.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) receiver_next_phase;
-  function [0:0] _078_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _078_ = b[0:0];
-      2'b1?:
-        _078_ = b[1:1];
-      default:
-        _078_ = a;
-    endcase
-  endfunction
-  assign _036_ = _078_(1'hx, 2'h1, { _035_, _007_ });
-  function [0:0] _079_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _079_ = b[0:0];
-      3'b?1?:
-        _079_ = b[1:1];
-      3'b1??:
-        _079_ = b[2:2];
-      default:
-        _079_ = a;
-    endcase
-  endfunction
-  assign _037_ = _079_(1'hx, { isolate_ack_i, clear_ack_i, 1'h1 }, { _034_, _033_, _009_ });
-  assign _038_ = _000_ ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:442.7-442.47|ip/common_cells/src/cdc_reset_ctrlr.sv:441.14-443.8" *) receiver_next_phase : receiver_phase_q;
-  assign _018_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:361.11-361.36|ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *) 4'h0 : initiator_state_q;
-  assign _039_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 4'h8;
-  assign _017_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:351.11-351.40|ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *) 4'h8 : initiator_state_q;
-  assign _040_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h7;
-  assign _016_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:341.11-341.42|ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *) 4'h7 : initiator_state_q;
-  assign _041_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h5;
-  assign _015_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:331.11-331.42|ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *) 4'h7 : initiator_state_q;
-  assign _042_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:326.23-333.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h6;
-  assign _024_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:322.11-322.52|ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *) 4'h5 : initiator_state_q;
-  assign _043_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:312.14-324.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h4;
-  assign _013_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:320.11-320.46|ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *) 4'h6 : _024_;
-  assign _014_ = _002_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:318.11-318.42|ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *) 4'h7 : _013_;
-  assign _023_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:308.11-308.37|ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *) 4'h4 : initiator_state_q;
-  assign _044_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:302.31-310.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h2;
-  assign _022_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:298.11-298.37|ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *) 4'h4 : initiator_state_q;
-  assign _045_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:293.25-300.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h3;
-  assign _019_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:289.11-289.54|ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *) 4'h2 : initiator_state_q;
-  assign _046_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:279.16-291.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1;
-  assign _020_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:287.11-287.48|ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *) 4'h3 : _019_;
-  assign _021_ = _001_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:285.11-285.37|ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *) 4'h4 : _020_;
-  function [3:0] _101_;
-    input [3:0] a;
-    input [35:0] b;
-    input [8:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      9'b????????1:
-        _101_ = b[3:0];
-      9'b???????1?:
-        _101_ = b[7:4];
-      9'b??????1??:
-        _101_ = b[11:8];
-      9'b?????1???:
-        _101_ = b[15:12];
-      9'b????1????:
-        _101_ = b[19:16];
-      9'b???1?????:
-        _101_ = b[23:20];
-      9'b??1??????:
-        _101_ = b[27:24];
-      9'b?1???????:
-        _101_ = b[31:28];
-      9'b1????????:
-        _101_ = b[35:32];
-      default:
-        _101_ = a;
-    endcase
-  endfunction
-  assign initiator_state_d = _101_(4'h1, { _012_, _021_, _022_, _023_, _014_, _015_, _016_, _017_, _018_ }, { _047_, _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ });
-  assign _047_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) initiator_state_q;
-  assign _012_ = clear_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:275.11-275.39|ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *) 4'h1 : initiator_state_q;
-  assign initiator_clear_out = _005_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_isolate_out = _006_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_phase_transition_req = _010_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  function [1:0] _107_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _107_ = b[1:0];
-      3'b?1?:
-        _107_ = b[3:2];
-      3'b1??:
-        _107_ = b[5:4];
-      default:
-        _107_ = a;
-    endcase
-  endfunction
-  assign initiator_clear_seq_phase = _107_(2'h0, 6'h1b, { _011_, _005_, _040_ });
-  (* hdlname = "i_state_transition_cdc_dst" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:427.5" *)
-  \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst  i_state_transition_cdc_dst (
-    .async_ack_o(async_ack_o),
-    .async_data_i(async_next_phase_i),
-    .async_req_i(async_req_i),
-    .clk_i(clk_i),
-    .data_o(receiver_next_phase),
-    .ready_i(receiver_phase_ack),
-    .rst_ni(rst_ni),
-    .valid_o(receiver_phase_req)
-  );
-  (* hdlname = "i_state_transition_cdc_src" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:398.5" *)
-  \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src  i_state_transition_cdc_src (
-    .async_ack_i(async_ack_i),
-    .async_data_o(async_next_phase_o),
-    .async_req_o(async_req_o),
-    .clk_i(clk_i),
-    .data_i(initiator_clear_seq_phase),
-    .ready_o(initiator_phase_transition_ack),
-    .rst_ni(rst_ni),
-    .valid_i(initiator_phase_transition_req)
-  );
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:187.8" *)
-module \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a (clk_i, rst_ni, clear_i, async_req_o, async_ack_i, async_req_i, async_ack_o, isolate_o, isolate_ack_i, clear_o, clear_ack_i, async_next_phase_o, async_next_phase_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:199.30" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:200.30" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:201.30" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:208.30" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:209.30" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:211.30" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:212.30" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:202.30" *)
-  output isolate_o;
-  wire isolate_o;
-  (* hdlname = "isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:203.30" *)
-  input isolate_ack_i;
-  wire isolate_ack_i;
-  (* hdlname = "clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:204.30" *)
-  output clear_o;
-  wire clear_o;
-  (* hdlname = "clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:205.30" *)
-  input clear_ack_i;
-  wire clear_ack_i;
-  (* hdlname = "async_next_phase_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:207.30" *)
-  output [1:0] async_next_phase_o;
-  wire [1:0] async_next_phase_o;
-  (* hdlname = "async_next_phase_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:210.30" *)
-  input [1:0] async_next_phase_i;
-  wire [1:0] async_next_phase_i;
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *)
-  wire [3:0] _012_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *)
-  wire [3:0] _013_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *)
-  wire [3:0] _014_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *)
-  wire [3:0] _015_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *)
-  wire [3:0] _016_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *)
-  wire [3:0] _017_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *)
-  wire [3:0] _018_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *)
-  wire [3:0] _019_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *)
-  wire [3:0] _020_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *)
-  wire [3:0] _021_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *)
-  wire [3:0] _022_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *)
-  wire [3:0] _023_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *)
-  wire [3:0] _024_;
-  wire [1:0] _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
-  wire _047_;
-  (* hdlname = "initiator_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:263.30" *)
-  wire initiator_clear_out;
-  (* hdlname = "initiator_clear_seq_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:259.30" *)
-  wire [1:0] initiator_clear_seq_phase;
-  (* hdlname = "initiator_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:262.30" *)
-  wire initiator_isolate_out;
-  (* hdlname = "initiator_phase_transition_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:261.30" *)
-  wire initiator_phase_transition_ack;
-  (* hdlname = "initiator_phase_transition_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:260.30" *)
-  wire initiator_phase_transition_req;
-  (* hdlname = "initiator_state_d" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.21" *)
-  wire [3:0] initiator_state_d;
-  (* hdlname = "initiator_state_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.40" *)
-  reg [3:0] initiator_state_q;
-  (* hdlname = "receiver_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:419.9" *)
-  wire receiver_clear_out;
-  (* hdlname = "receiver_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:418.9" *)
-  wire receiver_isolate_out;
-  (* hdlname = "receiver_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:415.21" *)
-  wire [1:0] receiver_next_phase;
-  (* hdlname = "receiver_phase_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.29" *)
-  wire receiver_phase_ack;
-  (* hdlname = "receiver_phase_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:414.21" *)
-  reg [1:0] receiver_phase_q;
-  (* hdlname = "receiver_phase_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.9" *)
-  wire receiver_phase_req;
-  assign _001_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.13-284.60" *) isolate_ack_i;
-  assign _000_ = receiver_phase_req && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:441.18-441.58" *) receiver_phase_ack;
-  assign clear_o = initiator_clear_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:526.20-526.61" *) receiver_clear_out;
-  assign isolate_o = initiator_isolate_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:527.22-527.67" *) receiver_isolate_out;
-  assign _002_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.13-317.58" *) clear_ack_i;
-  assign _003_ = | { _033_, _031_, _030_, _028_, _027_, _026_ };
-  assign _005_ = | { _033_, _032_, _031_ };
-  assign _006_ = | { _039_, _038_, _036_ };
-  assign _007_ = | { _038_, _037_, _036_ };
-  assign _004_ = | { _030_, _029_, _028_ };
-  assign _008_ = | { _045_, _044_, _042_ };
-  assign _009_ = | { _033_, _032_, _031_, _030_, _029_, _028_, _027_, _026_ };
-  assign _010_ = | { _044_, _043_, _042_ };
-  assign _011_ = | { _045_, _042_ };
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:371.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) initiator_state_q <= 4'h1;
-    else initiator_state_q <= initiator_state_d;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:438.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) receiver_phase_q <= 2'h0;
-    else receiver_phase_q <= _025_;
-  assign _025_ = _000_ ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:442.7-442.47|ip/common_cells/src/cdc_reset_ctrlr.sv:441.14-443.8" *) receiver_next_phase : receiver_phase_q;
-  assign _018_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:361.11-361.36|ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *) 4'h0 : initiator_state_q;
-  assign _026_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 4'h8;
-  assign _017_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:351.11-351.40|ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *) 4'h8 : initiator_state_q;
-  assign _027_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h7;
-  assign _016_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:341.11-341.42|ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *) 4'h7 : initiator_state_q;
-  assign _028_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h5;
-  assign _015_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:331.11-331.42|ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *) 4'h7 : initiator_state_q;
-  assign _029_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:326.23-333.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h6;
-  assign _024_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:322.11-322.52|ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *) 4'h5 : initiator_state_q;
-  assign _030_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:312.14-324.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h4;
-  assign _013_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:320.11-320.46|ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *) 4'h6 : _024_;
-  assign _014_ = _002_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:318.11-318.42|ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *) 4'h7 : _013_;
-  assign _023_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:308.11-308.37|ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *) 4'h4 : initiator_state_q;
-  assign _031_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:302.31-310.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h2;
-  assign _022_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:298.11-298.37|ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *) 4'h4 : initiator_state_q;
-  assign _032_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:293.25-300.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h3;
-  assign _019_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:289.11-289.54|ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *) 4'h2 : initiator_state_q;
-  assign _033_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:279.16-291.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1;
-  assign _020_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:287.11-287.48|ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *) 4'h3 : _019_;
-  assign _021_ = _001_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:285.11-285.37|ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *) 4'h4 : _020_;
-  function [3:0] _085_;
-    input [3:0] a;
-    input [35:0] b;
-    input [8:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      9'b????????1:
-        _085_ = b[3:0];
-      9'b???????1?:
-        _085_ = b[7:4];
-      9'b??????1??:
-        _085_ = b[11:8];
-      9'b?????1???:
-        _085_ = b[15:12];
-      9'b????1????:
-        _085_ = b[19:16];
-      9'b???1?????:
-        _085_ = b[23:20];
-      9'b??1??????:
-        _085_ = b[27:24];
-      9'b?1???????:
-        _085_ = b[31:28];
-      9'b1????????:
-        _085_ = b[35:32];
-      default:
-        _085_ = a;
-    endcase
-  endfunction
-  assign initiator_state_d = _085_(4'h1, { _012_, _021_, _022_, _023_, _014_, _015_, _016_, _017_, _018_ }, { _034_, _033_, _032_, _031_, _030_, _029_, _028_, _027_, _026_ });
-  assign _034_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) initiator_state_q;
-  assign _012_ = clear_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:275.11-275.39|ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *) 4'h1 : initiator_state_q;
-  assign initiator_clear_out = _004_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_isolate_out = _009_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_phase_transition_req = _003_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  function [1:0] _091_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _091_ = b[1:0];
-      3'b?1?:
-        _091_ = b[3:2];
-      3'b1??:
-        _091_ = b[5:4];
-      default:
-        _091_ = a;
-    endcase
-  endfunction
-  assign initiator_clear_seq_phase = _091_(2'h0, 6'h1b, { _005_, _004_, _027_ });
-  function [0:0] _092_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _092_ = b[0:0];
-      2'b1?:
-        _092_ = b[1:1];
-      default:
-        _092_ = a;
-    endcase
-  endfunction
-  assign _035_ = _092_(1'hx, 2'h2, { _037_, _006_ });
-  assign _036_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h3;
-  assign _037_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:501.28-504.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h2;
-  assign _038_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:496.30-499.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 1'h1;
-  assign _039_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:491.27-494.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) receiver_phase_q;
-  function [0:0] _097_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _097_ = b[0:0];
-      2'b1?:
-        _097_ = b[1:1];
-      default:
-        _097_ = a;
-    endcase
-  endfunction
-  assign _040_ = _097_(1'hx, 2'h1, { _039_, _007_ });
-  assign receiver_clear_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _041_ : _035_;
-  assign receiver_isolate_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _046_ : _040_;
-  assign receiver_phase_ack = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _047_ : 1'h0;
-  function [0:0] _101_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _101_ = b[0:0];
-      2'b1?:
-        _101_ = b[1:1];
-      default:
-        _101_ = a;
-    endcase
-  endfunction
-  assign _041_ = _101_(1'hx, 2'h2, { _043_, _008_ });
-  assign _042_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h3;
-  assign _043_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:467.28-472.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h2;
-  assign _044_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:460.30-465.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 1'h1;
-  assign _045_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:454.27-458.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) receiver_next_phase;
-  function [0:0] _106_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _106_ = b[0:0];
-      2'b1?:
-        _106_ = b[1:1];
-      default:
-        _106_ = a;
-    endcase
-  endfunction
-  assign _046_ = _106_(1'hx, 2'h1, { _045_, _010_ });
-  function [0:0] _107_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _107_ = b[0:0];
-      3'b?1?:
-        _107_ = b[1:1];
-      3'b1??:
-        _107_ = b[2:2];
-      default:
-        _107_ = a;
-    endcase
-  endfunction
-  assign _047_ = _107_(1'hx, { isolate_ack_i, clear_ack_i, 1'h1 }, { _044_, _043_, _011_ });
-  (* hdlname = "i_state_transition_cdc_dst" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:427.5" *)
-  \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst  i_state_transition_cdc_dst (
-    .async_ack_o(async_ack_o),
-    .async_data_i(async_next_phase_i),
-    .async_req_i(async_req_i),
-    .clk_i(clk_i),
-    .data_o(receiver_next_phase),
-    .ready_i(receiver_phase_ack),
-    .rst_ni(rst_ni),
-    .valid_o(receiver_phase_req)
-  );
-  (* hdlname = "i_state_transition_cdc_src" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:398.5" *)
-  \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src  i_state_transition_cdc_src (
-    .async_ack_i(async_ack_i),
-    .async_data_o(async_next_phase_o),
-    .async_req_o(async_req_o),
-    .clk_i(clk_i),
-    .data_i(initiator_clear_seq_phase),
-    .ready_o(initiator_phase_transition_ack),
-    .rst_ni(rst_ni),
-    .valid_i(initiator_phase_transition_req)
-  );
-endmodule
-
-(* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:187.8" *)
-module \cdc_reset_ctrlr_half$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b (clk_i, rst_ni, clear_i, async_req_o, async_ack_i, async_req_i, async_ack_o, isolate_o, isolate_ack_i, clear_o, clear_ack_i, async_next_phase_o, async_next_phase_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:199.30" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:200.30" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "clear_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:201.30" *)
-  input clear_i;
-  wire clear_i;
-  (* hdlname = "async_req_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:208.30" *)
-  output async_req_o;
-  wire async_req_o;
-  (* hdlname = "async_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:209.30" *)
-  input async_ack_i;
-  wire async_ack_i;
-  (* hdlname = "async_req_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:211.30" *)
-  input async_req_i;
-  wire async_req_i;
-  (* hdlname = "async_ack_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:212.30" *)
-  output async_ack_o;
-  wire async_ack_o;
-  (* hdlname = "isolate_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:202.30" *)
-  output isolate_o;
-  wire isolate_o;
-  (* hdlname = "isolate_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:203.30" *)
-  input isolate_ack_i;
-  wire isolate_ack_i;
-  (* hdlname = "clear_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:204.30" *)
-  output clear_o;
-  wire clear_o;
-  (* hdlname = "clear_ack_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:205.30" *)
-  input clear_ack_i;
-  wire clear_ack_i;
-  (* hdlname = "async_next_phase_o" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:207.30" *)
-  output [1:0] async_next_phase_o;
-  wire [1:0] async_next_phase_o;
-  (* hdlname = "async_next_phase_i" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:210.30" *)
-  input [1:0] async_next_phase_i;
-  wire [1:0] async_next_phase_i;
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *)
-  wire [3:0] _012_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *)
-  wire [3:0] _013_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *)
-  wire [3:0] _014_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *)
-  wire [3:0] _015_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *)
-  wire [3:0] _016_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *)
-  wire [3:0] _017_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *)
-  wire [3:0] _018_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *)
-  wire [3:0] _019_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *)
-  wire [3:0] _020_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *)
-  wire [3:0] _021_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *)
-  wire [3:0] _022_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *)
-  wire [3:0] _023_;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *)
-  wire [3:0] _024_;
-  wire _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire [1:0] _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
-  wire _047_;
-  (* hdlname = "initiator_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:263.30" *)
-  wire initiator_clear_out;
-  (* hdlname = "initiator_clear_seq_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:259.30" *)
-  wire [1:0] initiator_clear_seq_phase;
-  (* hdlname = "initiator_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:262.30" *)
-  wire initiator_isolate_out;
-  (* hdlname = "initiator_phase_transition_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:261.30" *)
-  wire initiator_phase_transition_ack;
-  (* hdlname = "initiator_phase_transition_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:260.30" *)
-  wire initiator_phase_transition_req;
-  (* hdlname = "initiator_state_d" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.21" *)
-  wire [3:0] initiator_state_d;
-  (* hdlname = "initiator_state_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:255.40" *)
-  reg [3:0] initiator_state_q;
-  (* hdlname = "receiver_clear_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:419.9" *)
-  wire receiver_clear_out;
-  (* hdlname = "receiver_isolate_out" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:418.9" *)
-  wire receiver_isolate_out;
-  (* hdlname = "receiver_next_phase" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:415.21" *)
-  wire [1:0] receiver_next_phase;
-  (* hdlname = "receiver_phase_ack" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.29" *)
-  wire receiver_phase_ack;
-  (* hdlname = "receiver_phase_q" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:414.21" *)
-  reg [1:0] receiver_phase_q;
-  (* hdlname = "receiver_phase_req" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:416.9" *)
-  wire receiver_phase_req;
-  assign _001_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:284.13-284.60" *) isolate_ack_i;
-  assign _000_ = receiver_phase_req && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:441.18-441.58" *) receiver_phase_ack;
-  assign clear_o = initiator_clear_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:526.20-526.61" *) receiver_clear_out;
-  assign isolate_o = initiator_isolate_out || (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:527.22-527.67" *) receiver_isolate_out;
-  assign _002_ = initiator_phase_transition_ack && (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:317.13-317.58" *) clear_ack_i;
-  assign _003_ = | { _028_, _027_, _026_ };
-  assign _004_ = | { _035_, _034_, _032_ };
-  assign _006_ = | { _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ };
-  assign _007_ = | { _034_, _033_, _032_ };
-  assign _008_ = | { _029_, _028_, _026_ };
-  assign _009_ = | { _035_, _032_ };
-  assign _010_ = | { _046_, _044_, _043_, _041_, _040_, _039_ };
-  assign _005_ = | { _043_, _042_, _041_ };
-  assign _011_ = | { _046_, _045_, _044_ };
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:371.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) initiator_state_q <= 4'h1;
-    else initiator_state_q <= initiator_state_d;
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:438.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) receiver_phase_q <= 2'h0;
-    else receiver_phase_q <= _038_;
-  function [0:0] _064_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _064_ = b[0:0];
-      2'b1?:
-        _064_ = b[1:1];
-      default:
-        _064_ = a;
-    endcase
-  endfunction
-  assign _025_ = _064_(1'hx, 2'h2, { _027_, _008_ });
-  assign _026_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h3;
-  assign _027_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:501.28-504.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 2'h2;
-  assign _028_ = receiver_phase_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:496.30-499.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) 1'h1;
-  assign _029_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:491.27-494.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *) receiver_phase_q;
-  function [0:0] _069_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:506.33-509.12|ip/common_cells/src/cdc_reset_ctrlr.sv:490.7-516.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _069_ = b[0:0];
-      2'b1?:
-        _069_ = b[1:1];
-      default:
-        _069_ = a;
-    endcase
-  endfunction
-  assign _030_ = _069_(1'hx, 2'h1, { _029_, _003_ });
-  assign receiver_clear_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _031_ : _025_;
-  assign receiver_isolate_out = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _036_ : _030_;
-  assign receiver_phase_ack = receiver_phase_req ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14|ip/common_cells/src/cdc_reset_ctrlr.sv:452.5-517.8" *) _037_ : 1'h0;
-  function [0:0] _073_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _073_ = b[0:0];
-      2'b1?:
-        _073_ = b[1:1];
-      default:
-        _073_ = a;
-    endcase
-  endfunction
-  assign _031_ = _073_(1'hx, 2'h2, { _033_, _004_ });
-  assign _032_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h3;
-  assign _033_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:467.28-472.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 2'h2;
-  assign _034_ = receiver_next_phase == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:460.30-465.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) 1'h1;
-  assign _035_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:454.27-458.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *) receiver_next_phase;
-  function [0:0] _078_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _078_ = b[0:0];
-      2'b1?:
-        _078_ = b[1:1];
-      default:
-        _078_ = a;
-    endcase
-  endfunction
-  assign _036_ = _078_(1'hx, 2'h1, { _035_, _007_ });
-  function [0:0] _079_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:474.33-478.12|ip/common_cells/src/cdc_reset_ctrlr.sv:453.7-485.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _079_ = b[0:0];
-      3'b?1?:
-        _079_ = b[1:1];
-      3'b1??:
-        _079_ = b[2:2];
-      default:
-        _079_ = a;
-    endcase
-  endfunction
-  assign _037_ = _079_(1'hx, { isolate_ack_i, clear_ack_i, 1'h1 }, { _034_, _033_, _009_ });
-  assign _038_ = _000_ ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:442.7-442.47|ip/common_cells/src/cdc_reset_ctrlr.sv:441.14-443.8" *) receiver_next_phase : receiver_phase_q;
-  assign _018_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:361.11-361.36|ip/common_cells/src/cdc_reset_ctrlr.sv:360.9-362.12" *) 4'h0 : initiator_state_q;
-  assign _039_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 4'h8;
-  assign _017_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:351.11-351.40|ip/common_cells/src/cdc_reset_ctrlr.sv:350.9-352.12" *) 4'h8 : initiator_state_q;
-  assign _040_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h7;
-  assign _016_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:341.11-341.42|ip/common_cells/src/cdc_reset_ctrlr.sv:340.9-342.12" *) 4'h7 : initiator_state_q;
-  assign _041_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h5;
-  assign _015_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:331.11-331.42|ip/common_cells/src/cdc_reset_ctrlr.sv:330.9-332.12" *) 4'h7 : initiator_state_q;
-  assign _042_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:326.23-333.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h6;
-  assign _024_ = clear_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:322.11-322.52|ip/common_cells/src/cdc_reset_ctrlr.sv:321.18-323.12" *) 4'h5 : initiator_state_q;
-  assign _043_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:312.14-324.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 3'h4;
-  assign _013_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:320.11-320.46|ip/common_cells/src/cdc_reset_ctrlr.sv:319.18-323.12" *) 4'h6 : _024_;
-  assign _014_ = _002_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:318.11-318.42|ip/common_cells/src/cdc_reset_ctrlr.sv:317.9-323.12" *) 4'h7 : _013_;
-  assign _023_ = initiator_phase_transition_ack ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:308.11-308.37|ip/common_cells/src/cdc_reset_ctrlr.sv:307.9-309.12" *) 4'h4 : initiator_state_q;
-  assign _044_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:302.31-310.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h2;
-  assign _022_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:298.11-298.37|ip/common_cells/src/cdc_reset_ctrlr.sv:297.9-299.12" *) 4'h4 : initiator_state_q;
-  assign _045_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:293.25-300.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 2'h3;
-  assign _019_ = isolate_ack_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:289.11-289.54|ip/common_cells/src/cdc_reset_ctrlr.sv:288.18-290.12" *) 4'h2 : initiator_state_q;
-  assign _046_ = initiator_state_q == (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:279.16-291.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1;
-  assign _020_ = initiator_phase_transition_ack ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:287.11-287.48|ip/common_cells/src/cdc_reset_ctrlr.sv:286.18-290.12" *) 4'h3 : _019_;
-  assign _021_ = _001_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:285.11-285.37|ip/common_cells/src/cdc_reset_ctrlr.sv:284.9-290.12" *) 4'h4 : _020_;
-  function [3:0] _101_;
-    input [3:0] a;
-    input [35:0] b;
-    input [8:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      9'b????????1:
-        _101_ = b[3:0];
-      9'b???????1?:
-        _101_ = b[7:4];
-      9'b??????1??:
-        _101_ = b[11:8];
-      9'b?????1???:
-        _101_ = b[15:12];
-      9'b????1????:
-        _101_ = b[19:16];
-      9'b???1?????:
-        _101_ = b[23:20];
-      9'b??1??????:
-        _101_ = b[27:24];
-      9'b?1???????:
-        _101_ = b[31:28];
-      9'b1????????:
-        _101_ = b[35:32];
-      default:
-        _101_ = a;
-    endcase
-  endfunction
-  assign initiator_state_d = _101_(4'h1, { _012_, _021_, _022_, _023_, _014_, _015_, _016_, _017_, _018_ }, { _047_, _046_, _045_, _044_, _043_, _042_, _041_, _040_, _039_ });
-  assign _047_ = ! (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) initiator_state_q;
-  assign _012_ = clear_i ? (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:275.11-275.39|ip/common_cells/src/cdc_reset_ctrlr.sv:274.9-276.12" *) 4'h1 : initiator_state_q;
-  assign initiator_clear_out = _005_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:335.29-343.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_isolate_out = _006_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  assign initiator_phase_transition_req = _010_ ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:355.17-363.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *) 1'h1 : 1'h0;
-  function [1:0] _107_;
-    input [1:0] a;
-    input [5:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:345.19-353.10|ip/common_cells/src/cdc_reset_ctrlr.sv:272.5-368.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _107_ = b[1:0];
-      3'b?1?:
-        _107_ = b[3:2];
-      3'b1??:
-        _107_ = b[5:4];
-      default:
-        _107_ = a;
-    endcase
-  endfunction
-  assign initiator_clear_seq_phase = _107_(2'h0, 6'h1b, { _011_, _005_, _040_ });
-  (* hdlname = "i_state_transition_cdc_dst" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:427.5" *)
-  \cdc_4phase_dst$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst  i_state_transition_cdc_dst (
-    .async_ack_o(async_ack_o),
-    .async_data_i(async_next_phase_i),
-    .async_req_i(async_req_i),
-    .clk_i(clk_i),
-    .data_o(receiver_next_phase),
-    .ready_i(receiver_phase_ack),
-    .rst_ni(rst_ni),
-    .valid_o(receiver_phase_req)
-  );
-  (* hdlname = "i_state_transition_cdc_src" *)
-  (* src = "ip/common_cells/src/cdc_reset_ctrlr.sv:398.5" *)
-  \cdc_4phase_src$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src  i_state_transition_cdc_src (
-    .async_ack_i(async_ack_i),
-    .async_data_o(async_next_phase_o),
-    .async_req_o(async_req_o),
-    .clk_i(clk_i),
-    .data_i(initiator_clear_seq_phase),
-    .ready_o(initiator_phase_transition_ack),
-    .rst_ni(rst_ni),
-    .valid_i(initiator_phase_transition_req)
-  );
-endmodule
-
 (* src = "ip/cv32e40x/rtl/cv32e40x_a_decoder.sv:29.8" *)
 module \cv32e40x_a_decoder$greyhound_soc.cv32e40x_core.id_stage_i.decoder_i.a_decoder.a_decoder_i (instr_rdata_i, decoder_ctrl_o);
   (* hdlname = "instr_rdata_i" *)
@@ -11063,92 +7403,22 @@ module \cv32e40x_b_decoder$greyhound_soc.cv32e40x_core.id_stage_i.decoder_i.b_de
   wire _31_;
   wire _32_;
   assign _00_ = | (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:159.19-159.51" *) instr_rdata_i[24:20];
-  assign _04_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:330.13-335.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 9'h125;
-  assign _05_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:228.21-343.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *) 5'h13;
-  assign _06_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:322.13-327.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 9'h1a1;
-  assign _07_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:314.13-319.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 9'h121;
-  assign _08_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:306.13-311.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 8'ha1;
-  assign _09_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:296.13-301.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 9'h185;
-  assign _10_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:288.13-293.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3029;
-  assign _11_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:280.13-285.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3021;
-  assign _12_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:271.13-276.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h34c5;
-  assign _13_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:263.13-268.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 13'h143d;
-  assign _14_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:254.13-259.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3011;
-  assign _15_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:246.13-251.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3009;
-  function [54:0] _46_;
-    input [54:0] a;
-    input [659:0] b;
-    input [11:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:330.13-335.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *)
-    (* parallel_case *)
-    casez (s)
-      12'b???????????1:
-        _46_ = b[54:0];
-      12'b??????????1?:
-        _46_ = b[109:55];
-      12'b?????????1??:
-        _46_ = b[164:110];
-      12'b????????1???:
-        _46_ = b[219:165];
-      12'b???????1????:
-        _46_ = b[274:220];
-      12'b??????1?????:
-        _46_ = b[329:275];
-      12'b?????1??????:
-        _46_ = b[384:330];
-      12'b????1???????:
-        _46_ = b[439:385];
-      12'b???1????????:
-        _46_ = b[494:440];
-      12'b??1?????????:
-        _46_ = b[549:495];
-      12'b?1??????????:
-        _46_ = b[604:550];
-      12'b1???????????:
-        _46_ = b[659:605];
-      default:
-        _46_ = a;
-    endcase
-  endfunction
-  assign _03_ = _46_(55'h027d4400000100, 660'h880a88060000011415100c000002232a201800000464544030000008d0a88060000010915100c000002142a20180000044a344030000008c468806000001148d100c000002391a20180000047a34403000000, { _16_, _15_, _14_, _13_, _12_, _11_, _10_, _09_, _08_, _07_, _06_, _04_ });
-  assign _16_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:238.13-243.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3001;
-  function [54:0] _48_;
-    input [54:0] a;
-    input [109:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:228.21-343.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _48_ = b[54:0];
-      2'b1?:
-        _48_ = b[109:55];
-      default:
-        _48_ = a;
-    endcase
-  endfunction
-  assign decoder_ctrl_o = _48_(55'h027d4400000100, { _02_, _03_ }, { _17_, _05_ });
-  assign _17_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:54.18-226.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *) 6'h33;
-  assign _18_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:183.13-187.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2a;
-  assign _19_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:176.13-180.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2b;
-  assign _20_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:169.13-173.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h29;
-  assign _21_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:154.13-164.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h24;
+  assign _04_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:169.13-173.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h29;
+  assign _05_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:54.18-226.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *) 6'h33;
+  assign _06_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:154.13-164.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h24;
   assign _01_ = _00_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:160.17-160.60|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:159.15-161.18" *) 55'h027d4400000100 : 55'h42a54403000000;
-  assign _22_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:139.13-143.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h181;
-  assign _23_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:132.13-136.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h104;
-  assign _24_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:125.13-129.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h106;
-  assign _25_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:118.13-122.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h107;
-  assign _26_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:110.13-114.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2f;
-  assign _27_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:103.13-107.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2e;
-  assign _28_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:96.13-100.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2d;
-  assign _29_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:89.13-93.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2c;
-  assign _30_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:80.13-84.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h86;
-  assign _31_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:73.13-77.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h84;
-  function [54:0] _65_;
+  assign _07_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:146.13-150.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h185;
+  assign _08_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:139.13-143.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h181;
+  assign _09_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:132.13-136.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h104;
+  assign _10_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:125.13-129.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h106;
+  assign _11_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:118.13-122.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h107;
+  assign _12_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:110.13-114.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2f;
+  assign _13_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:103.13-107.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2e;
+  assign _14_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:96.13-100.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2d;
+  assign _15_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:89.13-93.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2c;
+  assign _16_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:80.13-84.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h86;
+  assign _17_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:73.13-77.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h84;
+  function [54:0] _49_;
     input [54:0] a;
     input [1099:0] b;
     input [19:0] s;
@@ -11158,51 +7428,121 @@ module \cv32e40x_b_decoder$greyhound_soc.cv32e40x_core.id_stage_i.decoder_i.b_de
     (* parallel_case *)
     casez (s)
       20'b???????????????????1:
-        _65_ = b[54:0];
+        _49_ = b[54:0];
       20'b??????????????????1?:
-        _65_ = b[109:55];
+        _49_ = b[109:55];
       20'b?????????????????1??:
-        _65_ = b[164:110];
+        _49_ = b[164:110];
       20'b????????????????1???:
-        _65_ = b[219:165];
+        _49_ = b[219:165];
       20'b???????????????1????:
-        _65_ = b[274:220];
+        _49_ = b[274:220];
       20'b??????????????1?????:
-        _65_ = b[329:275];
+        _49_ = b[329:275];
       20'b?????????????1??????:
-        _65_ = b[384:330];
+        _49_ = b[384:330];
       20'b????????????1???????:
-        _65_ = b[439:385];
+        _49_ = b[439:385];
       20'b???????????1????????:
-        _65_ = b[494:440];
+        _49_ = b[494:440];
       20'b??????????1?????????:
-        _65_ = b[549:495];
+        _49_ = b[549:495];
       20'b?????????1??????????:
-        _65_ = b[604:550];
+        _49_ = b[604:550];
       20'b????????1???????????:
-        _65_ = b[659:605];
+        _49_ = b[659:605];
       20'b???????1????????????:
-        _65_ = b[714:660];
+        _49_ = b[714:660];
       20'b??????1?????????????:
-        _65_ = b[769:715];
+        _49_ = b[769:715];
       20'b?????1??????????????:
-        _65_ = b[824:770];
+        _49_ = b[824:770];
       20'b????1???????????????:
-        _65_ = b[879:825];
+        _49_ = b[879:825];
       20'b???1????????????????:
-        _65_ = b[934:880];
+        _49_ = b[934:880];
       20'b??1?????????????????:
-        _65_ = b[989:935];
+        _49_ = b[989:935];
       20'b?1??????????????????:
-        _65_ = b[1044:990];
+        _49_ = b[1044:990];
       20'b1???????????????????:
-        _65_ = b[1099:1045];
+        _49_ = b[1099:1045];
       default:
-        _65_ = a;
+        _49_ = a;
     endcase
   endfunction
-  assign _02_ = _65_(55'h027d4400000100, { 660'h8882880e0000011205101c000002260a203800000478144070000008d42880e0000011f05101c000002370a20380000045e144070000008b82880e0000011605101c000002210a20380000044a14407000000, _01_, 385'h11385101c0000022b0a203800000454144070000008c42880e0000011485101c000002390a20380000047a14407000000 }, { _32_, _31_, _30_, _29_, _28_, _27_, _26_, _25_, _24_, _23_, _22_, _09_, _21_, _20_, _19_, _18_, _08_, _07_, _06_, _04_ });
-  assign _32_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:66.13-70.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h82;
+  assign _02_ = _49_(55'h027d4400000100, { 660'h8882880e0000011205101c000002260a203800000478144070000008d42880e0000011f05101c000002370a20380000045e144070000008b82880e0000011605101c000002210a20380000044a14407000000, _01_, 385'h11385101c0000022b0a203800000454144070000008c42880e0000011485101c000002390a20380000047a14407000000 }, { _24_, _17_, _16_, _15_, _14_, _13_, _12_, _11_, _10_, _09_, _08_, _07_, _06_, _04_, _23_, _22_, _21_, _20_, _19_, _18_ });
+  assign _18_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:213.13-217.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h125;
+  assign _19_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:206.13-210.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h1a1;
+  assign _20_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:199.13-203.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 9'h121;
+  assign _21_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:192.13-196.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'ha1;
+  assign _22_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:183.13-187.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2a;
+  assign _23_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:176.13-180.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 6'h2b;
+  assign _24_ = { instr_rdata_i[31:25], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:66.13-70.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:62.9-224.16" *) 8'h82;
+  assign _25_ = instr_rdata_i[6:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:228.21-343.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *) 5'h13;
+  assign _26_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:288.13-293.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3029;
+  assign _27_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:280.13-285.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3021;
+  assign _28_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:271.13-276.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h34c5;
+  assign _29_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:263.13-268.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 13'h143d;
+  assign _30_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:254.13-259.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3011;
+  assign _31_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:246.13-251.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3009;
+  function [54:0] _64_;
+    input [54:0] a;
+    input [659:0] b;
+    input [11:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:330.13-335.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *)
+    (* parallel_case *)
+    casez (s)
+      12'b???????????1:
+        _64_ = b[54:0];
+      12'b??????????1?:
+        _64_ = b[109:55];
+      12'b?????????1??:
+        _64_ = b[164:110];
+      12'b????????1???:
+        _64_ = b[219:165];
+      12'b???????1????:
+        _64_ = b[274:220];
+      12'b??????1?????:
+        _64_ = b[329:275];
+      12'b?????1??????:
+        _64_ = b[384:330];
+      12'b????1???????:
+        _64_ = b[439:385];
+      12'b???1????????:
+        _64_ = b[494:440];
+      12'b??1?????????:
+        _64_ = b[549:495];
+      12'b?1??????????:
+        _64_ = b[604:550];
+      12'b1???????????:
+        _64_ = b[659:605];
+      default:
+        _64_ = a;
+    endcase
+  endfunction
+  assign _03_ = _64_(55'h027d4400000100, 660'h880a88060000011415100c000002232a201800000464544030000008d0a88060000010915100c000002142a20180000044a344030000008c468806000001148d100c000002391a20180000047a34403000000, { _32_, _31_, _30_, _29_, _28_, _27_, _26_, _07_, _21_, _20_, _19_, _18_ });
+  assign _32_ = { instr_rdata_i[31:20], instr_rdata_i[14:12] } == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:238.13-243.16|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:235.9-342.16" *) 14'h3001;
+  function [54:0] _66_;
+    input [54:0] a;
+    input [109:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:228.21-343.10|ip/cv32e40x/rtl/cv32e40x_b_decoder.sv:52.5-350.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _66_ = b[54:0];
+      2'b1?:
+        _66_ = b[109:55];
+      default:
+        _66_ = a;
+    endcase
+  endfunction
+  assign decoder_ctrl_o = _66_(55'h027d4400000100, { _02_, _03_ }, { _05_, _25_ });
 endmodule
 
 (* src = "src/soc/cv32e40x_clock_gate.sv:4.8" *)
@@ -13265,15 +9605,15 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   wire _0389_;
   wire _0390_;
   wire _0391_;
-  wire [6:0] _0392_;
-  wire [6:0] _0393_;
-  wire [6:0] _0394_;
-  wire [6:0] _0395_;
-  wire [6:0] _0396_;
-  wire [6:0] _0397_;
-  wire [6:0] _0398_;
-  wire [6:0] _0399_;
-  wire [6:0] _0400_;
+  wire _0392_;
+  wire [3:0] _0393_;
+  wire [3:0] _0394_;
+  wire [3:0] _0395_;
+  wire [3:0] _0396_;
+  wire [3:0] _0397_;
+  wire _0398_;
+  wire _0399_;
+  wire _0400_;
   wire _0401_;
   wire _0402_;
   wire _0403_;
@@ -13282,11 +9622,11 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   wire _0406_;
   wire _0407_;
   wire _0408_;
-  wire [3:0] _0409_;
-  wire [3:0] _0410_;
-  wire [3:0] _0411_;
-  wire [3:0] _0412_;
-  wire [3:0] _0413_;
+  wire _0409_;
+  wire _0410_;
+  wire _0411_;
+  wire _0412_;
+  wire _0413_;
   wire _0414_;
   wire _0415_;
   wire _0416_;
@@ -13303,15 +9643,15 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   wire _0427_;
   wire _0428_;
   wire _0429_;
-  wire _0430_;
-  wire _0431_;
-  wire _0432_;
-  wire _0433_;
-  wire _0434_;
-  wire _0435_;
-  wire _0436_;
-  wire _0437_;
-  wire _0438_;
+  wire [6:0] _0430_;
+  wire [6:0] _0431_;
+  wire [6:0] _0432_;
+  wire [6:0] _0433_;
+  wire [6:0] _0434_;
+  wire [6:0] _0435_;
+  wire [6:0] _0436_;
+  wire [6:0] _0437_;
+  wire [6:0] _0438_;
   wire _0439_;
   (* hdlname = "async_debug_allowed" *)
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:199.9" *)
@@ -13865,11 +10205,11 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1341.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) sequence_in_progress_id <= 1'h0;
-    else sequence_in_progress_id <= _0425_;
+    else sequence_in_progress_id <= _0409_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1309.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) sequence_in_progress_wb <= 1'h0;
-    else sequence_in_progress_wb <= _0431_;
+    else sequence_in_progress_wb <= _0415_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1234.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) single_step_halt_if_q <= 1'h0;
@@ -13877,7 +10217,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1283.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) wb_counter_event <= 1'h0;
-    else wb_counter_event <= _0434_;
+    else wb_counter_event <= _0418_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1386.3" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) woke_to_debug_q <= 1'h0;
@@ -13889,61 +10229,12 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1481.7" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) \x_ext.commit_kill_q  <= 1'h0;
-    else \x_ext.commit_kill_q  <= _0435_;
+    else \x_ext.commit_kill_q  <= _0419_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1481.7" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) \x_ext.commit_valid_q  <= 1'h0;
-    else \x_ext.commit_valid_q  <= _0436_;
+    else \x_ext.commit_valid_q  <= _0420_;
   assign _0385_ = ctrl_fsm_cs == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 1'h1;
-  assign _0295_[5:4] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[5:4] : 2'h0;
-  assign _0286_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0285_;
-  assign _0218_[4] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 1'h0 : _0103_;
-  assign _0218_[5] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0301_[0] : 1'h0;
-  assign _0218_[3:0] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 4'h1 : _0104_;
-  assign _0301_[0] = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h1 : 1'h0;
-  assign _0386_ = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h0 : single_step_halt_if_q;
-  assign _0387_ = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0386_ : single_step_halt_if_q;
-  assign _0388_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0387_ : single_step_halt_if_q;
-  assign _0295_[3:0] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[3:0] : _0294_;
-  assign _0232_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0231_;
-  assign _0296_[5:4] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 2'h0 : _0295_[5:4];
-  assign _0282_[1] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0286_;
-  assign _0282_[0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0296_[3:0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 4'h5 : _0295_[3:0];
-  assign _0389_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) single_step_halt_if_q : _0388_;
-  assign _0297_[5:4] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h0 : _0296_[5:4];
-  assign _0277_[2:1] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h3 : _0282_;
-  assign _0277_[0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0374_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) _0371_ : 2'h3;
-  assign _0233_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) branch_taken_q : _0232_;
-  assign _0390_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) single_step_halt_if_q : _0389_;
-  assign _0297_[3:0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 4'h6 : _0296_[3:0];
-  assign _0251_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 1'h1 : 1'h0;
-  assign _0375_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 2'h3 : _0374_;
-  assign _0234_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) branch_taken_q : _0233_;
-  assign _0391_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) single_step_halt_if_q : _0390_;
-  assign _0392_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 7'h00 : _0297_;
-  assign _0393_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 7'hxx : _0392_;
-  assign _0394_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 7'hxx : _0393_;
-  assign _0395_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 7'hxx : _0394_;
-  assign _0396_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 7'hxx : _0395_;
-  assign _0397_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 7'hxx : _0396_;
-  assign _0398_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 7'hxx : _0397_;
-  assign _0399_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 7'hxx : _0398_;
-  assign _0400_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 7'hxx : _0399_;
-  assign _0298_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0400_ : 7'hxx;
-  assign _0320_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h7 : { single_step_halt_if_q, _0080_, _0086_ };
-  assign _0278_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h0 : _0277_;
-  assign _0401_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0391_;
-  assign _0299_[5:4] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h0 : _0298_[5:4];
-  assign _0297_[6] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : _0282_[1];
-  assign _0279_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 3'h7 : _0278_;
-  assign _0252_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0251_;
-  assign _0376_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h3 : _0375_;
-  assign _0235_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) branch_taken_q : _0234_;
-  assign _0343_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : debug_mode_q;
-  assign _0299_[3:0] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 4'h2 : _0298_[3:0];
-  assign _0323_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : 1'h0;
   assign _0321_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0320_;
   assign _0377_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0373_ : _0376_;
   assign _0300_[5:4] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 2'h0 : _0299_[5:4];
@@ -13960,7 +10251,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0351_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0302_ : 1'h1;
   assign _0361_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0360_ : 1'h0;
   assign _0236_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) branch_taken_q : _0235_;
-  assign _0402_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) single_step_halt_if_q : _0401_;
+  assign _0386_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) single_step_halt_if_q : _0439_;
   assign _0344_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) debug_mode_q : _0343_;
   assign _0300_[3:0] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) { 1'h0, _0217_[2:0] } : _0299_[3:0];
   assign _0324_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 1'h0 : _0323_;
@@ -13972,7 +10263,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0352_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h1 : _0351_;
   assign _0362_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 1'h0 : _0361_;
   assign _0237_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) branch_taken_q : _0236_;
-  assign _0403_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) single_step_halt_if_q : _0402_;
+  assign _0387_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) single_step_halt_if_q : _0386_;
   assign _0345_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) debug_mode_q : _0344_;
   assign _0262_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 2'h2 : ctrl_fsm_cs;
   assign _0300_[6] = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) _0302_ : _0299_[6];
@@ -13984,27 +10275,27 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0314_[3:1] = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) { single_step_halt_if_q, _0080_, _0086_ } : _0313_[3:1];
   assign _0322_[1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0325_;
   assign _0322_[0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) _0000_ : 1'h0;
-  assign _0404_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'hx : 1'h0;
-  assign _0405_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'hx : _0404_;
-  assign _0406_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'hx : _0405_;
-  assign _0407_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'hx : _0406_;
-  assign _0271_[0] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0407_ : 1'hx;
+  assign _0388_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'hx : 1'h0;
+  assign _0389_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'hx : _0388_;
+  assign _0390_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'hx : _0389_;
+  assign _0391_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'hx : _0390_;
+  assign _0271_[0] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0391_ : 1'hx;
   assign _0353_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h1 : _0352_;
   assign _0363_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0362_;
   assign _0238_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) branch_taken_q : _0237_;
-  assign _0408_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) single_step_halt_if_q : _0403_;
+  assign _0392_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) single_step_halt_if_q : _0387_;
   assign _0346_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) debug_mode_q : _0345_;
   assign _0263_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) ctrl_fsm_cs : _0262_;
   assign _0304_[3:0] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { 2'h2, _0092_ } : _0303_[3:0];
   assign _0332_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) _0093_ : 1'h0;
   assign _0331_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) exception_cause_wb : 11'h000;
   assign _0271_[3:1] = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 3'h7 : _0281_;
-  assign _0409_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0314_;
-  assign _0410_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hx : _0409_;
-  assign _0411_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'hx : _0410_;
-  assign _0412_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'hx : _0411_;
-  assign _0413_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hx : _0412_;
-  assign _0315_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0413_ : 4'hx;
+  assign _0393_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0314_;
+  assign _0394_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hx : _0393_;
+  assign _0395_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'hx : _0394_;
+  assign _0396_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 4'hx : _0395_;
+  assign _0397_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hx : _0396_;
+  assign _0315_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0397_ : 4'hx;
   assign _0255_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 1'h0 : _0254_;
   assign _0264_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 2'h3 : _0263_;
   assign _0316_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 4'hf : _0315_;
@@ -14015,7 +10306,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0364_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0363_;
   assign _0221_[1:0] = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) sync_debug_cause[1:0] : 2'h0;
   assign _0239_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) branch_taken_q : _0238_;
-  assign _0414_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) single_step_halt_if_q : _0408_;
+  assign _0398_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) single_step_halt_if_q : _0392_;
   assign _0347_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) debug_mode_q : _0346_;
   assign _0305_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 8'h80 : _0304_;
   assign _0333_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 1'h0 : _0332_;
@@ -14035,7 +10326,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0225_[9:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) irq_id_ctrl_i : 10'h000;
   assign _0222_[1:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 2'h0 : _0221_[1:0];
   assign _0240_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) branch_taken_q : _0239_;
-  assign _0415_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) single_step_halt_if_q : _0414_;
+  assign _0399_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) single_step_halt_if_q : _0398_;
   assign _0348_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) debug_mode_q : _0347_;
   assign _0265_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) ctrl_fsm_cs : _0264_;
   assign _0306_[3:0] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 4'h9 : _0305_[3:0];
@@ -14053,7 +10344,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0366_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 1'h0 : _0365_;
   assign _0226_[9:0] = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 10'h000 : _0225_[9:0];
   assign _0241_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) branch_taken_q : _0240_;
-  assign _0416_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) single_step_halt_if_q : _0415_;
+  assign _0400_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) single_step_halt_if_q : _0399_;
   assign _0349_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) debug_mode_q : _0348_;
   assign _0307_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 8'h80 : _0306_;
   assign _0288_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 11'h000 : _0287_;
@@ -14067,9 +10358,6 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0330_[2:1] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0329_[2:1];
   assign _0306_[7] = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 1'h1 : _0305_[7];
   assign _0275_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hf : _0274_;
-  assign _0228_[0] = if_id_pipe_i[190] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:757.13-757.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:756.20-762.14" *) 1'h1 : 1'h0;
-  assign _0371_ = id_ex_pipe_i[42] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:755.13-755.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:754.20-762.14" *) 2'h2 : { 1'h0, _0228_[0] };
-  assign _0372_ = ex_wb_pipe_i[53] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:753.13-753.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:752.11-762.14" *) 2'h3 : _0371_;
   assign _0250_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0249_;
   assign _0259_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h0 : _0258_;
   assign _0357_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0356_;
@@ -14077,14 +10365,14 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0227_[9:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 10'h000 : _0226_[9:0];
   assign _0224_[1:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 2'h0 : _0223_[1:0];
   assign _0242_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) branch_taken_q : _0241_;
-  assign _0417_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) single_step_halt_if_q : _0416_;
+  assign _0401_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) single_step_halt_if_q : _0400_;
   assign _0350_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) debug_mode_q : _0349_;
   assign _0267_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) ctrl_fsm_cs : _0266_;
   assign _0308_[3:0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 4'hc : _0307_[3:0];
   assign _0289_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 11'h000 : _0288_;
   assign _0330_[0] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0329_[0];
   assign _0319_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) { single_step_halt_if_q, _0080_, _0086_, 1'h0 } : _0318_;
-  function [1:0] _0923_;
+  function [1:0] _0871_;
     input [1:0] a;
     input [7:0] b;
     input [3:0] s;
@@ -14094,21 +10382,21 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       4'b???1:
-        _0923_ = b[1:0];
+        _0871_ = b[1:0];
       4'b??1?:
-        _0923_ = b[3:2];
+        _0871_ = b[3:2];
       4'b?1??:
-        _0923_ = b[5:4];
+        _0871_ = b[5:4];
       4'b1???:
-        _0923_ = b[7:6];
+        _0871_ = b[7:6];
       default:
-        _0923_ = a;
+        _0871_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_ns = _0923_(2'hx, { _0261_, _0268_, _0269_, 2'h1 }, { _0419_, _0385_, _0017_, _0418_ });
-  assign _0418_ = ctrl_fsm_cs == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 2'h3;
-  assign _0419_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:710.14-727.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) ctrl_fsm_cs;
-  function [0:0] _0926_;
+  assign ctrl_fsm_ns = _0871_(2'hx, { _0261_, _0268_, _0269_, 2'h1 }, { _0403_, _0385_, _0017_, _0402_ });
+  assign _0402_ = ctrl_fsm_cs == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 2'h3;
+  assign _0403_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:710.14-727.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) ctrl_fsm_cs;
+  function [0:0] _0874_;
     input [0:0] a;
     input [2:0] b;
     input [2:0] s;
@@ -14118,18 +10406,18 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       3'b??1:
-        _0926_ = b[0:0];
+        _0874_ = b[0:0];
       3'b?1?:
-        _0926_ = b[1:1];
+        _0874_ = b[1:1];
       3'b1??:
-        _0926_ = b[2:2];
+        _0874_ = b[2:2];
       default:
-        _0926_ = a;
+        _0874_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[199] = _0926_(1'h1, { _0310_[1], _0308_[7], 1'h0 }, { _0419_, _0385_, _0017_ });
+  assign ctrl_fsm_o[199] = _0874_(1'h1, { _0310_[1], _0308_[7], 1'h0 }, { _0403_, _0385_, _0017_ });
   assign ctrl_fsm_o[197:196] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0308_[5:4] : 2'h0;
-  function [3:0] _0928_;
+  function [3:0] _0876_;
     input [3:0] a;
     input [7:0] b;
     input [1:0] s;
@@ -14139,14 +10427,14 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _0928_ = b[3:0];
+        _0876_ = b[3:0];
       2'b1?:
-        _0928_ = b[7:4];
+        _0876_ = b[7:4];
       default:
-        _0928_ = a;
+        _0876_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[195:192] = _0928_(4'h0, { _0308_[3:0], 4'ha }, { _0385_, _0418_ });
+  assign ctrl_fsm_o[195:192] = _0876_(4'h0, { _0308_[3:0], 4'ha }, { _0385_, _0402_ });
   assign _0269_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 2'h1 : ctrl_fsm_cs;
   assign _0309_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h1 : 2'h3;
   assign _0219_[1:0] = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h0;
@@ -14155,7 +10443,7 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0310_ = fetch_enable_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:712.9-726.12" *) _0309_ : 2'h0;
   assign clic_ptr_in_progress_id_clear = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0250_ : 1'h0;
   assign csr_flush_ack_n = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0259_ : 1'h0;
-  function [1:0] _0937_;
+  function [1:0] _0885_;
     input [1:0] a;
     input [3:0] b;
     input [1:0] s;
@@ -14165,18 +10453,18 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _0937_ = b[1:0];
+        _0885_ = b[1:0];
       2'b1?:
-        _0937_ = b[3:2];
+        _0885_ = b[3:2];
       default:
-        _0937_ = a;
+        _0885_ = a;
     endcase
   endfunction
-  assign pipe_pc_mux_ctrl = _0937_(2'h3, { _0383_, _0384_ }, { _0385_, _0418_ });
+  assign pipe_pc_mux_ctrl = _0885_(2'h3, { _0383_, _0384_ }, { _0385_, _0402_ });
   assign fence_req_clr = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0357_ : 1'h1;
   assign fence_req_set = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0367_ : 1'h0;
   assign exc_cause[9:0] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0227_[9:0] : 10'h000;
-  function [2:0] _0941_;
+  function [2:0] _0889_;
     input [2:0] a;
     input [5:0] b;
     input [1:0] s;
@@ -14186,22 +10474,183 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _0941_ = b[2:0];
+        _0889_ = b[2:0];
       2'b1?:
-        _0941_ = b[5:3];
+        _0889_ = b[5:3];
       default:
-        _0941_ = a;
+        _0889_ = a;
     endcase
   endfunction
-  assign debug_cause_n = _0941_(3'h0, { 1'h0, _0220_[1:0], _0338_ }, { _0419_, _0385_ });
+  assign debug_cause_n = _0889_(3'h0, { 1'h0, _0220_[1:0], _0338_ }, { _0403_, _0385_ });
   assign _0243_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0242_ : branch_taken_q;
-  function [0:0] _0943_;
+  function [0:0] _0891_;
     input [0:0] a;
     input [1:0] b;
     input [1:0] s;
     (* full_case = 32'd1 *)
     (* parallel_case = 32'd1 *)
     (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _0891_ = b[0:0];
+      2'b1?:
+        _0891_ = b[1:1];
+      default:
+        _0891_ = a;
+    endcase
+  endfunction
+  assign _0404_ = _0891_(single_step_halt_if_q, { _0401_, 1'h0 }, { _0385_, _0402_ });
+  function [0:0] _0892_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _0892_ = b[0:0];
+      2'b1?:
+        _0892_ = b[1:1];
+      default:
+        _0892_ = a;
+    endcase
+  endfunction
+  assign debug_mode_n = _0892_(debug_mode_q, { _0350_, 1'h1 }, { _0385_, _0402_ });
+  assign _0260_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h1;
+  assign ctrl_fsm_o[171:161] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0289_ : 11'h000;
+  assign ctrl_fsm_o[149] = _0402_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 1'h1 : 1'h0;
+  assign ctrl_fsm_o[143:110] = _0402_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) { 1'h1, _0270_ } : 34'h000000000;
+  assign ctrl_fsm_o[72:71] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0336_ : 2'h0;
+  assign _0384_ = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) _0372_ : 2'h0;
+  assign _0337_ = etrigger_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1068.15-1068.49|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1067.13-1071.16" *) 3'h2 : 3'h4;
+  function [31:0] _0900_;
+    input [31:0] a;
+    input [127:0] b;
+    input [3:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:606.14-606.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *)
+    (* parallel_case *)
+    casez (s)
+      4'b???1:
+        _0900_ = b[31:0];
+      4'b??1?:
+        _0900_ = b[63:32];
+      4'b?1??:
+        _0900_ = b[95:64];
+      4'b1???:
+        _0900_ = b[127:96];
+      default:
+        _0900_ = a;
+    endcase
+  endfunction
+  assign ctrl_fsm_o[104:73] = _0900_(32'hxxxxxxxx, { ex_wb_pipe_i[125:94], id_ex_pipe_i[114:83], if_id_pipe_i[149:118], pc_if_i }, { _0408_, _0407_, _0406_, _0405_ });
+  assign _0405_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:606.14-606.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) pipe_pc_mux_ctrl;
+  assign _0406_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:605.14-605.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 1'h1;
+  assign _0407_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:604.14-604.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 2'h2;
+  assign _0408_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:603.14-603.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 2'h3;
+  assign _0409_ = ctrl_fsm_o[15] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1358.9-1358.41|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1357.7-1359.10" *) 1'h0 : _0411_;
+  assign _0410_ = _0177_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1352.11-1352.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1351.9-1353.12" *) 1'h0 : 1'h1;
+  assign _0411_ = sequence_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1346.9-1348.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1345.7-1354.10" *) _0410_ : _0412_;
+  assign _0412_ = _0176_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1347.11-1347.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1346.9-1348.12" *) 1'h1 : 1'h0;
+  assign _0413_ = _0170_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1331.11-1331.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1330.9-1332.12" *) 1'h0 : _0414_;
+  assign _0414_ = _0003_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1320.11-1320.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1319.9-1321.12" *) 1'h0 : 1'h1;
+  assign _0415_ = sequence_in_progress_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1314.9-1316.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1313.7-1333.10" *) _0413_ : _0416_;
+  assign _0416_ = _0166_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1315.11-1315.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1314.9-1316.12" *) 1'h1 : 1'h0;
+  assign _0417_ = _0162_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1301.11-1301.36|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1300.9-1302.12" *) 1'h0 : wb_counter_event;
+  assign _0418_ = _0161_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1297.9-1297.34|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1296.7-1303.10" *) 1'h1 : _0417_;
+  assign _0358_ = fence_req_set ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1274.9-1274.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1273.12-1275.10" *) 1'h1 : fence_req_q;
+  assign _0359_ = _0157_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1271.9-1271.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1270.7-1275.10" *) 1'h0 : _0358_;
+  assign _0419_ = _0198_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.65-1489.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.11-1492.14" *) 1'h0 : ctrl_fsm_o[12];
+  assign _0420_ = _0198_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.65-1489.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.11-1492.14" *) 1'h0 : _0199_;
+  assign _0342_ = debug_mode_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1431.11-1431.34|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12" *) debug_fsm_cs : 3'h2;
+  assign _0421_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 3'h4;
+  assign _0341_ = debug_mode_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1425.11-1425.33|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1424.9-1426.12" *) 3'h4 : debug_fsm_cs;
+  assign _0422_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1424.9-1426.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 2'h2;
+  function [2:0] _0923_;
+    input [2:0] a;
+    input [8:0] b;
+    input [2:0] s;
+    (* full_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *)
+    (* parallel_case *)
+    casez (s)
+      3'b??1:
+        _0923_ = b[2:0];
+      3'b?1?:
+        _0923_ = b[5:3];
+      3'b1??:
+        _0923_ = b[8:6];
+      default:
+        _0923_ = a;
+    endcase
+  endfunction
+  assign debug_fsm_ns = _0923_(3'h1, { _0340_, _0341_, _0342_ }, { _0423_, _0422_, _0421_ });
+  assign _0423_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1414.9-1420.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 1'h1;
+  assign _0339_ = debug_mode_n ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1416.13-1416.35|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1415.11-1419.14" *) 3'h4 : 3'h2;
+  assign _0340_ = _0189_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1415.11-1419.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1414.9-1420.12" *) _0339_ : debug_fsm_cs;
+  assign _0369_ = _0152_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1227.9-1227.31|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1226.16-1228.10" *) 1'h0 : nmi_pending_q;
+  assign _0370_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) 1'h1 : _0369_;
+  assign _0368_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) lsu_err_wb_i[0] : nmi_is_store_q;
+  assign _0244_ = clic_ptr_in_progress_id_clear ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1375.11-1375.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *) 1'h0 : 1'h1;
+  assign _0245_ = clic_ptr_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1369.9-1371.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *) _0244_ : 1'h0;
+  assign branch_taken_n = _0144_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1181.7-1181.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1180.5-1182.8" *) 1'h0 : _0243_;
+  assign single_step_halt_if_n = _0140_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1176.7-1176.36|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1175.5-1177.8" *) 1'h1 : _0404_;
+  assign ctrl_fsm_o[51:39] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0330_[13:1] : 13'h0000;
+  function [0:0] _0935_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _0935_ = b[0:0];
+      2'b1?:
+        _0935_ = b[1:1];
+      default:
+        _0935_ = a;
+    endcase
+  endfunction
+  assign ctrl_fsm_o[38] = _0935_(1'h0, { _0330_[0], _0125_ }, { _0385_, _0402_ });
+  assign _0216_[2:0] = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) { 2'h3, _0132_ } : 3'h0;
+  assign _0228_[0] = if_id_pipe_i[190] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1143.13-1143.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1142.20-1146.14" *) 1'h1 : 1'h0;
+  assign _0371_ = id_ex_pipe_i[42] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1141.13-1141.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1140.20-1146.14" *) 2'h2 : { 1'h0, _0228_[0] };
+  assign _0372_ = ex_wb_pipe_i[53] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1139.13-1139.38|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1138.11-1146.14" *) 2'h3 : _0371_;
+  assign _0270_ = _0126_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.49-1120.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *) { _0128_, 1'h1 } : 33'h000000000;
+  assign ctrl_fsm_o[200] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0311_ : 1'h1;
+  function [0:0] _0942_;
+    input [0:0] a;
+    input [2:0] b;
+    input [2:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
+    (* parallel_case *)
+    casez (s)
+      3'b??1:
+        _0942_ = b[0:0];
+      3'b?1?:
+        _0942_ = b[1:1];
+      3'b1??:
+        _0942_ = b[2:2];
+      default:
+        _0942_ = a;
+    endcase
+  endfunction
+  assign ctrl_fsm_o[198] = _0942_(1'h0, { _0310_[0], _0308_[6], 1'h1 }, { _0403_, _0385_, _0402_ });
+  function [0:0] _0943_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
     (* parallel_case *)
     casez (s)
       2'b?1:
@@ -14212,172 +10661,14 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
         _0943_ = a;
     endcase
   endfunction
-  assign _0420_ = _0943_(single_step_halt_if_q, { _0417_, 1'h0 }, { _0385_, _0418_ });
-  function [0:0] _0944_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _0944_ = b[0:0];
-      2'b1?:
-        _0944_ = b[1:1];
-      default:
-        _0944_ = a;
-    endcase
-  endfunction
-  assign debug_mode_n = _0944_(debug_mode_q, { _0350_, 1'h1 }, { _0385_, _0418_ });
-  assign _0260_ = debug_req_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.28-720.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:713.11-725.14" *) 2'h3 : 2'h1;
-  assign ctrl_fsm_o[171:161] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0289_ : 11'h000;
-  assign ctrl_fsm_o[149] = _0418_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) 1'h1 : 1'h0;
-  assign ctrl_fsm_o[143:110] = _0418_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) { 1'h1, _0270_ } : 34'h000000000;
-  assign ctrl_fsm_o[72:71] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0336_ : 2'h0;
-  assign _0384_ = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) _0372_ : 2'h0;
-  assign _0337_ = etrigger_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1068.15-1068.49|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1067.13-1071.16" *) 3'h2 : 3'h4;
-  function [31:0] _0952_;
-    input [31:0] a;
-    input [127:0] b;
-    input [3:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:606.14-606.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *)
-    (* parallel_case *)
-    casez (s)
-      4'b???1:
-        _0952_ = b[31:0];
-      4'b??1?:
-        _0952_ = b[63:32];
-      4'b?1??:
-        _0952_ = b[95:64];
-      4'b1???:
-        _0952_ = b[127:96];
-      default:
-        _0952_ = a;
-    endcase
-  endfunction
-  assign ctrl_fsm_o[104:73] = _0952_(32'hxxxxxxxx, { ex_wb_pipe_i[125:94], id_ex_pipe_i[114:83], if_id_pipe_i[149:118], pc_if_i }, { _0424_, _0423_, _0422_, _0421_ });
-  assign _0421_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:606.14-606.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) pipe_pc_mux_ctrl;
-  assign _0422_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:605.14-605.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 1'h1;
-  assign _0423_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:604.14-604.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 2'h2;
-  assign _0424_ = pipe_pc_mux_ctrl == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:603.14-603.51|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:602.5-608.12" *) 2'h3;
-  assign _0425_ = ctrl_fsm_o[15] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1358.9-1358.41|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1357.7-1359.10" *) 1'h0 : _0427_;
-  assign _0426_ = _0177_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1352.11-1352.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1351.9-1353.12" *) 1'h0 : 1'h1;
-  assign _0427_ = sequence_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1346.9-1348.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1345.7-1354.10" *) _0426_ : _0428_;
-  assign _0428_ = _0176_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1347.11-1347.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1346.9-1348.12" *) 1'h1 : 1'h0;
-  assign _0429_ = _0170_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1331.11-1331.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1330.9-1332.12" *) 1'h0 : _0430_;
-  assign _0430_ = _0003_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1320.11-1320.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1319.9-1321.12" *) 1'h0 : 1'h1;
-  assign _0431_ = sequence_in_progress_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1314.9-1316.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1313.7-1333.10" *) _0429_ : _0432_;
-  assign _0432_ = _0166_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1315.11-1315.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1314.9-1316.12" *) 1'h1 : 1'h0;
-  assign _0433_ = _0162_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1301.11-1301.36|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1300.9-1302.12" *) 1'h0 : wb_counter_event;
-  assign _0434_ = _0161_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1297.9-1297.34|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1296.7-1303.10" *) 1'h1 : _0433_;
-  assign _0358_ = fence_req_set ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1274.9-1274.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1273.12-1275.10" *) 1'h1 : fence_req_q;
-  assign _0359_ = _0157_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1271.9-1271.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1270.7-1275.10" *) 1'h0 : _0358_;
-  assign _0435_ = _0198_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.65-1489.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.11-1492.14" *) 1'h0 : ctrl_fsm_o[12];
-  assign _0436_ = _0198_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.65-1489.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1486.11-1492.14" *) 1'h0 : _0199_;
-  assign _0342_ = debug_mode_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1431.11-1431.34|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12" *) debug_fsm_cs : 3'h2;
-  assign _0437_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 3'h4;
-  assign _0341_ = debug_mode_n ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1425.11-1425.33|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1424.9-1426.12" *) 3'h4 : debug_fsm_cs;
-  assign _0438_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1424.9-1426.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 2'h2;
-  function [2:0] _0975_;
-    input [2:0] a;
-    input [8:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1430.9-1432.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _0975_ = b[2:0];
-      3'b?1?:
-        _0975_ = b[5:3];
-      3'b1??:
-        _0975_ = b[8:6];
-      default:
-        _0975_ = a;
-    endcase
-  endfunction
-  assign debug_fsm_ns = _0975_(3'h1, { _0340_, _0341_, _0342_ }, { _0439_, _0438_, _0437_ });
-  assign _0439_ = debug_fsm_cs == (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1414.9-1420.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1412.5-1438.12" *) 1'h1;
-  assign _0339_ = debug_mode_n ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1416.13-1416.35|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1415.11-1419.14" *) 3'h4 : 3'h2;
-  assign _0340_ = _0189_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1415.11-1419.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1414.9-1420.12" *) _0339_ : debug_fsm_cs;
-  assign _0369_ = _0152_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1227.9-1227.31|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1226.16-1228.10" *) 1'h0 : nmi_pending_q;
-  assign _0370_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) 1'h1 : _0369_;
-  assign _0368_ = _0150_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.51-1226.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1220.7-1228.10" *) lsu_err_wb_i[0] : nmi_is_store_q;
-  assign _0244_ = clic_ptr_in_progress_id_clear ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1375.11-1375.43|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1374.9-1376.12" *) 1'h0 : 1'h1;
-  assign _0245_ = clic_ptr_in_progress_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1369.9-1371.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1368.7-1377.10" *) _0244_ : 1'h0;
-  assign branch_taken_n = _0144_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1181.7-1181.29|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1180.5-1182.8" *) 1'h0 : _0243_;
-  assign single_step_halt_if_n = _0140_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1176.7-1176.36|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1175.5-1177.8" *) 1'h1 : _0420_;
-  assign ctrl_fsm_o[51:39] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0330_[13:1] : 13'h0000;
-  function [0:0] _0987_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _0987_ = b[0:0];
-      2'b1?:
-        _0987_ = b[1:1];
-      default:
-        _0987_ = a;
-    endcase
-  endfunction
-  assign ctrl_fsm_o[38] = _0987_(1'h0, { _0330_[0], _0125_ }, { _0385_, _0418_ });
-  assign _0216_[2:0] = _0129_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.46-1147.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1123.9-1158.12" *) { 2'h3, _0132_ } : 3'h0;
-  assign _0270_ = _0126_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.49-1120.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1117.9-1120.12" *) { _0128_, 1'h1 } : 33'h000000000;
-  assign ctrl_fsm_o[200] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0311_ : 1'h1;
-  function [0:0] _0991_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1099.20-1163.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _0991_ = b[0:0];
-      3'b?1?:
-        _0991_ = b[1:1];
-      3'b1??:
-        _0991_ = b[2:2];
-      default:
-        _0991_ = a;
-    endcase
-  endfunction
-  assign ctrl_fsm_o[198] = _0991_(1'h0, { _0310_[0], _0308_[6], 1'h1 }, { _0419_, _0385_, _0418_ });
-  function [0:0] _0992_;
-    input [0:0] a;
-    input [1:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _0992_ = b[0:0];
-      2'b1?:
-        _0992_ = b[1:1];
-      default:
-        _0992_ = a;
-    endcase
-  endfunction
-  assign ctrl_fsm_o[20] = _0992_(_0080_, { _0319_[2], _0312_ }, { _0385_, _0017_ });
+  assign ctrl_fsm_o[20] = _0943_(_0080_, { _0319_[2], _0312_ }, { _0385_, _0017_ });
   assign ctrl_fsm_o[19:18] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0319_[1:0] : { _0086_, 1'h0 };
   assign _0311_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : 1'h0;
   assign _0312_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h1 : _0080_;
   assign _0290_ = ctrl_fsm_o[105] ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.41-1097.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1086.9-1097.12" *) 1'h0 : 1'h1;
   assign ctrl_fsm_o[21] = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0319_[3] : single_step_halt_if_q;
   assign ctrl_fsm_o[17] = _0017_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1075.14-1098.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0290_ : 1'h0;
-  function [3:0] _0999_;
+  function [3:0] _0950_;
     input [3:0] a;
     input [7:0] b;
     input [1:0] s;
@@ -14387,14 +10678,14 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
     (* parallel_case *)
     casez (s)
       2'b?1:
-        _0999_ = b[3:0];
+        _0950_ = b[3:0];
       2'b1?:
-        _0999_ = b[7:4];
+        _0950_ = b[7:4];
       default:
-        _0999_ = a;
+        _0950_ = a;
     endcase
   endfunction
-  assign ctrl_fsm_o[16:13] = _0999_(4'h0, { _0275_, 1'h1, _0216_[2:0] }, { _0385_, _0418_ });
+  assign ctrl_fsm_o[16:13] = _0950_(4'h0, { _0275_, 1'h1, _0216_[2:0] }, { _0385_, _0402_ });
   assign _0338_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) _0337_ : { 1'h0, _0224_[1:0] };
   assign _0268_ = _0123_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1060.11-1072.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1059.9-1073.12" *) 2'h3 : _0267_;
   assign _0308_[7] = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 1'h1 : _0307_[7];
@@ -14412,6 +10703,55 @@ module \cv32e40x_controller_fsm$greyhound_soc.cv32e40x_core.controller_i.control
   assign _0285_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0284_ : 1'h0;
   assign _0294_ = _0105_ ? (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1025.13-1032.16|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:1024.20-1033.14" *) _0293_ : 4'h0;
   assign _0231_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0230_;
+  assign _0286_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) 1'h1 : _0285_;
+  assign _0295_[5:4] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[5:4] : 2'h0;
+  assign _0218_[4] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 1'h0 : _0103_;
+  assign _0218_[5] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0301_[0] : 1'h0;
+  assign _0218_[3:0] = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) 4'h1 : _0104_;
+  assign _0301_[0] = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h1 : 1'h0;
+  assign _0424_ = mcause_i[30] ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.35-1000.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18" *) 1'h0 : single_step_halt_if_q;
+  assign _0425_ = sys_mret_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:985.15-1008.18|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:978.13-1023.16" *) _0424_ : single_step_halt_if_q;
+  assign _0426_ = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0425_ : single_step_halt_if_q;
+  assign _0295_[3:0] = jump_taken_id ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.39-1024.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:972.20-1033.14" *) _0218_[3:0] : _0294_;
+  assign _0232_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0231_;
+  assign _0296_[5:4] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 2'h0 : _0295_[5:4];
+  assign _0282_[1] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : _0286_;
+  assign _0282_[0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0296_[3:0] = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) 4'h5 : _0295_[3:0];
+  assign _0427_ = branch_taken_ex ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.41-972.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:961.20-1033.14" *) single_step_halt_if_q : _0426_;
+  assign _0297_[5:4] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h0 : _0296_[5:4];
+  assign _0277_[2:1] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 2'h3 : _0282_;
+  assign _0277_[0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0374_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) _0371_ : 2'h3;
+  assign _0233_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) branch_taken_q : _0232_;
+  assign _0428_ = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) single_step_halt_if_q : _0427_;
+  assign _0297_[3:0] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 4'h6 : _0296_[3:0];
+  assign _0251_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 1'h1 : 1'h0;
+  assign _0375_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 2'h3 : _0374_;
+  assign _0234_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) branch_taken_q : _0233_;
+  assign _0429_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) single_step_halt_if_q : _0428_;
+  assign _0430_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 7'h00 : _0297_;
+  assign _0431_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 7'hxx : _0430_;
+  assign _0432_ = _0096_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.53-919.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:867.20-1033.14" *) 7'hxx : _0431_;
+  assign _0433_ = _0095_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.48-867.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:860.20-1033.14" *) 7'hxx : _0432_;
+  assign _0434_ = exception_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.53-860.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:838.11-1033.14" *) 7'hxx : _0433_;
+  assign _0435_ = _0091_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.64-837.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:826.18-1048.12" *) 7'hxx : _0434_;
+  assign _0436_ = _0090_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.62-826.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:777.18-1048.12" *) 7'hxx : _0435_;
+  assign _0437_ = _0089_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.66-777.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:765.18-1048.12" *) 7'hxx : _0436_;
+  assign _0438_ = _0005_ ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.41-765.12|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:730.9-1048.12" *) 7'hxx : _0437_;
+  assign _0298_ = _0385_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:728.19-1074.10|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:709.5-1170.12" *) _0438_ : 7'hxx;
+  assign _0320_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h7 : { single_step_halt_if_q, _0080_, _0086_ };
+  assign _0278_ = csr_wr_in_wb_flush_i ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.46-942.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:933.20-1033.14" *) 3'h0 : _0277_;
+  assign _0439_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0429_;
+  assign _0299_[5:4] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h0 : _0298_[5:4];
+  assign _0297_[6] = csr_flush_ack_q ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.41-961.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:942.20-1033.14" *) 1'h1 : _0282_[1];
+  assign _0279_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 3'h7 : _0278_;
+  assign _0252_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : _0251_;
+  assign _0376_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 2'h3 : _0375_;
+  assign _0235_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) branch_taken_q : _0234_;
+  assign _0343_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h0 : debug_mode_q;
+  assign _0299_[3:0] = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 4'h2 : _0298_[3:0];
+  assign _0323_ = dret_in_wb ? (* full_case = 32'd1 *) (* src = "ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.36-933.14|ip/cv32e40x/rtl/cv32e40x_controller_fsm.sv:919.20-1033.14" *) 1'h1 : 1'h0;
   assign _0216_[3] = 1'h1;
   assign _0217_[3] = 1'h0;
   assign _0218_[6] = 1'h1;
@@ -18561,163 +14901,163 @@ module \cv32e40x_csr$greyhound_soc.cv32e40x_core.cs_registers_i.debug_triggers_i
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[0] <= 1'h0;
-    else rdata_q[0] <= _31_;
+    else rdata_q[0] <= _14_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[10] <= 1'h0;
-    else rdata_q[10] <= _21_;
+    else rdata_q[10] <= _04_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[11] <= 1'h0;
-    else rdata_q[11] <= _20_;
+    else rdata_q[11] <= _03_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[12] <= 1'h0;
-    else rdata_q[12] <= _19_;
+    else rdata_q[12] <= _02_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[13] <= 1'h0;
-    else rdata_q[13] <= _18_;
+    else rdata_q[13] <= _01_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[14] <= 1'h0;
-    else rdata_q[14] <= _17_;
+    else rdata_q[14] <= _00_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[15] <= 1'h0;
-    else rdata_q[15] <= _16_;
+    else rdata_q[15] <= _31_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[16] <= 1'h0;
-    else rdata_q[16] <= _15_;
+    else rdata_q[16] <= _30_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[17] <= 1'h0;
-    else rdata_q[17] <= _14_;
+    else rdata_q[17] <= _29_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[18] <= 1'h0;
-    else rdata_q[18] <= _13_;
+    else rdata_q[18] <= _28_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[19] <= 1'h0;
-    else rdata_q[19] <= _12_;
+    else rdata_q[19] <= _27_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[1] <= 1'h0;
-    else rdata_q[1] <= _30_;
+    else rdata_q[1] <= _13_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[20] <= 1'h0;
-    else rdata_q[20] <= _11_;
+    else rdata_q[20] <= _26_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[21] <= 1'h0;
-    else rdata_q[21] <= _10_;
+    else rdata_q[21] <= _25_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[22] <= 1'h0;
-    else rdata_q[22] <= _09_;
+    else rdata_q[22] <= _24_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[23] <= 1'h0;
-    else rdata_q[23] <= _08_;
+    else rdata_q[23] <= _23_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[24] <= 1'h0;
-    else rdata_q[24] <= _07_;
+    else rdata_q[24] <= _22_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[25] <= 1'h0;
-    else rdata_q[25] <= _06_;
+    else rdata_q[25] <= _21_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[26] <= 1'h0;
-    else rdata_q[26] <= _05_;
+    else rdata_q[26] <= _20_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[27] <= 1'h0;
-    else rdata_q[27] <= _04_;
+    else rdata_q[27] <= _19_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[28] <= 1'h0;
-    else rdata_q[28] <= _03_;
+    else rdata_q[28] <= _18_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[29] <= 1'h0;
-    else rdata_q[29] <= _02_;
+    else rdata_q[29] <= _17_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[2] <= 1'h0;
-    else rdata_q[2] <= _29_;
+    else rdata_q[2] <= _12_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[30] <= 1'h0;
-    else rdata_q[30] <= _01_;
+    else rdata_q[30] <= _16_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[31] <= 1'h0;
-    else rdata_q[31] <= _00_;
+    else rdata_q[31] <= _15_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[3] <= 1'h0;
-    else rdata_q[3] <= _28_;
+    else rdata_q[3] <= _11_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[4] <= 1'h0;
-    else rdata_q[4] <= _27_;
+    else rdata_q[4] <= _10_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[5] <= 1'h0;
-    else rdata_q[5] <= _26_;
+    else rdata_q[5] <= _09_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[6] <= 1'h0;
-    else rdata_q[6] <= _25_;
+    else rdata_q[6] <= _08_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[7] <= 1'h0;
-    else rdata_q[7] <= _24_;
+    else rdata_q[7] <= _07_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[8] <= 1'h0;
-    else rdata_q[8] <= _23_;
+    else rdata_q[8] <= _06_;
   (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:29.9" *)
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n) rdata_q[9] <= 1'h0;
-    else rdata_q[9] <= _22_;
-  assign _00_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[31] : rdata_q[31];
-  assign _01_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[30] : rdata_q[30];
-  assign _02_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[29] : rdata_q[29];
-  assign _03_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[28] : rdata_q[28];
-  assign _04_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[27] : rdata_q[27];
-  assign _05_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[26] : rdata_q[26];
-  assign _06_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[25] : rdata_q[25];
-  assign _07_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[24] : rdata_q[24];
-  assign _08_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[23] : rdata_q[23];
-  assign _09_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[22] : rdata_q[22];
-  assign _10_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[21] : rdata_q[21];
-  assign _11_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[20] : rdata_q[20];
-  assign _12_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[19] : rdata_q[19];
-  assign _13_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[18] : rdata_q[18];
-  assign _14_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[17] : rdata_q[17];
-  assign _15_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[16] : rdata_q[16];
-  assign _16_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[15] : rdata_q[15];
-  assign _17_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[14] : rdata_q[14];
-  assign _18_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[13] : rdata_q[13];
-  assign _19_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[12] : rdata_q[12];
-  assign _20_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[11] : rdata_q[11];
-  assign _21_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[10] : rdata_q[10];
-  assign _22_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[9] : rdata_q[9];
-  assign _23_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[8] : rdata_q[8];
-  assign _24_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[7] : rdata_q[7];
-  assign _25_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[6] : rdata_q[6];
-  assign _26_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[5] : rdata_q[5];
-  assign _27_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[4] : rdata_q[4];
-  assign _28_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[3] : rdata_q[3];
-  assign _29_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[2] : rdata_q[2];
-  assign _30_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[1] : rdata_q[1];
-  assign _31_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[0] : rdata_q[0];
+    else rdata_q[9] <= _05_;
+  assign _00_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[14] : rdata_q[14];
+  assign _01_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[13] : rdata_q[13];
+  assign _02_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[12] : rdata_q[12];
+  assign _03_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[11] : rdata_q[11];
+  assign _04_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[10] : rdata_q[10];
+  assign _05_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[9] : rdata_q[9];
+  assign _06_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[8] : rdata_q[8];
+  assign _07_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[7] : rdata_q[7];
+  assign _08_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[6] : rdata_q[6];
+  assign _09_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[5] : rdata_q[5];
+  assign _10_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[4] : rdata_q[4];
+  assign _11_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[3] : rdata_q[3];
+  assign _12_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[2] : rdata_q[2];
+  assign _13_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[1] : rdata_q[1];
+  assign _14_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[0] : rdata_q[0];
+  assign _15_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[31] : rdata_q[31];
+  assign _16_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[30] : rdata_q[30];
+  assign _17_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[29] : rdata_q[29];
+  assign _18_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[28] : rdata_q[28];
+  assign _19_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[27] : rdata_q[27];
+  assign _20_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[26] : rdata_q[26];
+  assign _21_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[25] : rdata_q[25];
+  assign _22_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[24] : rdata_q[24];
+  assign _23_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[23] : rdata_q[23];
+  assign _24_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[22] : rdata_q[22];
+  assign _25_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[21] : rdata_q[21];
+  assign _26_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[20] : rdata_q[20];
+  assign _27_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[19] : rdata_q[19];
+  assign _28_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[18] : rdata_q[18];
+  assign _29_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[17] : rdata_q[17];
+  assign _30_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[16] : rdata_q[16];
+  assign _31_ = wr_en_i ? (* src = "ip/cv32e40x/rtl/cv32e40x_csr.sv:33.13-33.40|ip/cv32e40x/rtl/cv32e40x_csr.sv:32.20-34.14" *) wr_data_i[15] : rdata_q[15];
   assign rd_data_o = rdata_q;
 endmodule
 
@@ -32810,978 +29150,6 @@ module \dm_top$greyhound_soc.i_dm_top.i_dm_top (clk_i, rst_ni, testmode_i, debug
   assign ndmreset_o = ndmreset;
 endmodule
 
-(* src = "ip/riscv-dbg/src/dmi_cdc.sv:19.8" *)
-module \dmi_cdc$greyhound_soc.i_dmi_jtag.i_dmi_cdc (clk_i, rst_ni, tck_i, trst_ni, jtag_dmi_req_i, jtag_dmi_ready_o, jtag_dmi_valid_i, jtag_dmi_cdc_clear_i, jtag_dmi_resp_o, jtag_dmi_valid_o, jtag_dmi_ready_i, core_dmi_rst_no, core_dmi_req_o, core_dmi_valid_o, core_dmi_ready_i, core_dmi_resp_i, core_dmi_ready_o, core_dmi_valid_i);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:35.28" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:36.28" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "tck_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:21.28" *)
-  input tck_i;
-  wire tck_i;
-  (* hdlname = "trst_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:22.28" *)
-  input trst_ni;
-  wire trst_ni;
-  (* hdlname = "jtag_dmi_req_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:23.28" *)
-  input [40:0] jtag_dmi_req_i;
-  wire [40:0] jtag_dmi_req_i;
-  (* hdlname = "jtag_dmi_ready_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:24.28" *)
-  output jtag_dmi_ready_o;
-  wire jtag_dmi_ready_o;
-  (* hdlname = "jtag_dmi_valid_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:25.28" *)
-  input jtag_dmi_valid_i;
-  wire jtag_dmi_valid_i;
-  (* hdlname = "jtag_dmi_cdc_clear_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:26.28" *)
-  input jtag_dmi_cdc_clear_i;
-  wire jtag_dmi_cdc_clear_i;
-  (* hdlname = "jtag_dmi_resp_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:30.28" *)
-  output [33:0] jtag_dmi_resp_o;
-  wire [33:0] jtag_dmi_resp_o;
-  (* hdlname = "jtag_dmi_valid_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:31.28" *)
-  output jtag_dmi_valid_o;
-  wire jtag_dmi_valid_o;
-  (* hdlname = "jtag_dmi_ready_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:32.28" *)
-  input jtag_dmi_ready_i;
-  wire jtag_dmi_ready_i;
-  (* hdlname = "core_dmi_rst_no" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:38.28" *)
-  output core_dmi_rst_no;
-  wire core_dmi_rst_no;
-  (* hdlname = "core_dmi_req_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:39.28" *)
-  output [40:0] core_dmi_req_o;
-  wire [40:0] core_dmi_req_o;
-  (* hdlname = "core_dmi_valid_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:40.28" *)
-  output core_dmi_valid_o;
-  wire core_dmi_valid_o;
-  (* hdlname = "core_dmi_ready_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:41.28" *)
-  input core_dmi_ready_i;
-  wire core_dmi_ready_i;
-  (* hdlname = "core_dmi_resp_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:43.28" *)
-  input [33:0] core_dmi_resp_i;
-  wire [33:0] core_dmi_resp_i;
-  (* hdlname = "core_dmi_ready_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:44.28" *)
-  output core_dmi_ready_o;
-  wire core_dmi_ready_o;
-  (* hdlname = "core_dmi_valid_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:45.28" *)
-  input core_dmi_valid_i;
-  wire core_dmi_valid_i;
-  wire _0_;
-  wire _1_;
-  (* hdlname = "clear_pending_rise_edge_detect" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:98.28" *)
-  wire clear_pending_rise_edge_detect;
-  (* hdlname = "core_clear_pending" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:48.28" *)
-  wire core_clear_pending;
-  (* hdlname = "core_clear_pending_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:96.28" *)
-  reg core_clear_pending_q;
-  (* hdlname = "core_dmi_rst_nq" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:97.28" *)
-  reg core_dmi_rst_nq;
-  assign _0_ = ! (* src = "ip/riscv-dbg/src/dmi_cdc.sv:100.43-100.64" *) core_clear_pending_q;
-  assign clear_pending_rise_edge_detect = _0_ && (* src = "ip/riscv-dbg/src/dmi_cdc.sv:100.43-100.86" *) core_clear_pending;
-  assign _1_ = ~ (* src = "ip/riscv-dbg/src/dmi_cdc.sv:107.32-107.63" *) clear_pending_rise_edge_detect;
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:102.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) core_clear_pending_q <= 1'h0;
-    else core_clear_pending_q <= core_clear_pending;
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:102.3" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) core_dmi_rst_nq <= 1'h1;
-    else core_dmi_rst_nq <= _1_;
-  (* hdlname = "i_cdc_req" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:50.45" *)
-  \cdc_2phase_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req  i_cdc_req (
-    .dst_clear_i(1'h0),
-    .dst_clear_pending_o(core_clear_pending),
-    .dst_clk_i(clk_i),
-    .dst_data_o(core_dmi_req_o),
-    .dst_ready_i(core_dmi_ready_i),
-    .dst_rst_ni(rst_ni),
-    .dst_valid_o(core_dmi_valid_o),
-    .src_clear_i(jtag_dmi_cdc_clear_i),
-    .src_clk_i(tck_i),
-    .src_data_i(jtag_dmi_req_i),
-    .src_ready_o(jtag_dmi_ready_o),
-    .src_rst_ni(trst_ni),
-    .src_valid_i(jtag_dmi_valid_i)
-  );
-  (* hdlname = "i_cdc_resp" *)
-  (* src = "ip/riscv-dbg/src/dmi_cdc.sv:72.46" *)
-  \cdc_2phase_clearable$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp  i_cdc_resp (
-    .dst_clear_i(jtag_dmi_cdc_clear_i),
-    .dst_clk_i(tck_i),
-    .dst_data_o(jtag_dmi_resp_o),
-    .dst_ready_i(jtag_dmi_ready_i),
-    .dst_rst_ni(trst_ni),
-    .dst_valid_o(jtag_dmi_valid_o),
-    .src_clear_i(1'h0),
-    .src_clk_i(clk_i),
-    .src_data_i(core_dmi_resp_i),
-    .src_ready_o(core_dmi_ready_o),
-    .src_rst_ni(rst_ni),
-    .src_valid_i(core_dmi_valid_i)
-  );
-  assign core_dmi_rst_no = core_dmi_rst_nq;
-endmodule
-
-(* src = "ip/riscv-dbg/src/dmi_jtag.sv:19.8" *)
-module \dmi_jtag$greyhound_soc.i_dmi_jtag (clk_i, rst_ni, testmode_i, dmi_rst_no, dmi_req_o, dmi_req_valid_o, dmi_req_ready_i, dmi_resp_i, dmi_resp_ready_o, dmi_resp_valid_i, tck_i, tms_i, trst_ni, td_i, td_o, tdo_oe_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:22.24" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:23.24" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "testmode_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:24.24" *)
-  input testmode_i;
-  wire testmode_i;
-  (* hdlname = "dmi_rst_no" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:28.24" *)
-  output dmi_rst_no;
-  wire dmi_rst_no;
-  (* hdlname = "dmi_req_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:29.24" *)
-  output [40:0] dmi_req_o;
-  wire [40:0] dmi_req_o;
-  (* hdlname = "dmi_req_valid_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:30.24" *)
-  output dmi_req_valid_o;
-  wire dmi_req_valid_o;
-  (* hdlname = "dmi_req_ready_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:31.24" *)
-  input dmi_req_ready_i;
-  wire dmi_req_ready_i;
-  (* hdlname = "dmi_resp_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:33.24" *)
-  input [33:0] dmi_resp_i;
-  wire [33:0] dmi_resp_i;
-  (* hdlname = "dmi_resp_ready_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:34.24" *)
-  output dmi_resp_ready_o;
-  wire dmi_resp_ready_o;
-  (* hdlname = "dmi_resp_valid_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:35.24" *)
-  input dmi_resp_valid_i;
-  wire dmi_resp_valid_i;
-  (* hdlname = "tck_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:37.24" *)
-  input tck_i;
-  wire tck_i;
-  (* hdlname = "tms_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:38.24" *)
-  input tms_i;
-  wire tms_i;
-  (* hdlname = "trst_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:39.24" *)
-  input trst_ni;
-  wire trst_ni;
-  (* hdlname = "td_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:40.24" *)
-  input td_i;
-  wire td_i;
-  (* hdlname = "td_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:41.24" *)
-  output td_o;
-  wire td_o;
-  (* hdlname = "tdo_oe_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:42.24" *)
-  output tdo_oe_o;
-  wire tdo_oe_o;
-  wire _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  wire _012_;
-  wire _013_;
-  wire _014_;
-  wire _015_;
-  wire _016_;
-  wire _017_;
-  wire _018_;
-  wire _019_;
-  wire _020_;
-  wire _021_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14" *)
-  wire [6:0] _022_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-  wire [6:0] _023_;
-  wire _024_;
-  wire _025_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14" *)
-  wire [31:0] _026_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:182.13-197.20" *)
-  wire [31:0] _027_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *)
-  wire [31:0] _028_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-  wire [31:0] _029_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-  wire _030_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:271.20-273.14" *)
-  wire [40:0] _031_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:268.11-273.14" *)
-  wire [40:0] _032_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:267.9-274.12" *)
-  wire [40:0] _033_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:266.7-275.10" *)
-  wire [40:0] _034_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:278.9-280.12" *)
-  wire [40:0] _035_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:277.7-281.10" *)
-  wire [40:0] _036_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:73.7-84.10" *)
-  wire [31:0] _037_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:72.5-85.8" *)
-  wire [31:0] _038_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:88.7-88.61" *)
-  wire [31:0] _039_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:243.7-245.10" *)
-  wire [1:0] _040_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:247.7-249.10" *)
-  wire [1:0] _041_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:252.7-254.10" *)
-  wire [1:0] _042_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:182.13-197.20" *)
-  wire _043_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *)
-  wire _044_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-  wire _045_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:232.7-234.10" *)
-  wire _046_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:239.7-241.10" *)
-  wire _047_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:182.13-197.20" *)
-  wire _048_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *)
-  wire _049_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-  wire _050_;
-  wire _051_;
-  wire [2:0] _052_;
-  wire _053_;
-  wire _054_;
-  wire _055_;
-  wire _056_;
-  wire [2:0] _057_;
-  wire _058_;
-  wire [2:0] _059_;
-  wire [2:0] _060_;
-  wire [2:0] _061_;
-  wire [2:0] _062_;
-  wire [2:0] _063_;
-  wire _064_;
-  (* hdlname = "address_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:125.15" *)
-  wire [6:0] address_d;
-  (* hdlname = "address_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:125.26" *)
-  reg [6:0] address_q;
-  (* hdlname = "capture" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:56.9" *)
-  wire capture;
-  (* hdlname = "data_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:126.16" *)
-  wire [31:0] data_d;
-  (* hdlname = "data_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:126.24" *)
-  reg [31:0] data_q;
-  (* hdlname = "dmi" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:128.10" *)
-  wire [40:0] dmi;
-  (* hdlname = "dmi_clear" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:54.9" *)
-  wire dmi_clear;
-  (* hdlname = "dmi_req" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:107.18" *)
-  wire [40:0] dmi_req;
-  (* hdlname = "dmi_req_ready" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:108.18" *)
-  wire dmi_req_ready;
-  (* hdlname = "dmi_req_valid" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:109.18" *)
-  wire dmi_req_valid;
-  (* hdlname = "dmi_resp" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:111.18" *)
-  wire [33:0] dmi_resp;
-  (* hdlname = "dmi_resp_ready" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:113.18" *)
-  wire dmi_resp_ready;
-  (* hdlname = "dmi_resp_valid" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:112.18" *)
-  wire dmi_resp_valid;
-  (* hdlname = "dmi_select" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:104.16" *)
-  wire dmi_select;
-  (* hdlname = "dmi_tdo" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:105.16" *)
-  wire dmi_tdo;
-  (* hdlname = "dr_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:124.28" *)
-  wire [40:0] dr_d;
-  (* hdlname = "dr_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:124.34" *)
-  reg [40:0] dr_q;
-  (* hdlname = "dtmcs_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:62.15" *)
-  wire [31:0] dtmcs_d;
-  (* hdlname = "dtmcs_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:62.24" *)
-  reg [31:0] dtmcs_q;
-  (* hdlname = "dtmcs_select" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:60.9" *)
-  wire dtmcs_select;
-  (* hdlname = "error_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:49.15" *)
-  wire [1:0] error_d;
-  (* hdlname = "error_dmi_busy" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:136.9" *)
-  wire error_dmi_busy;
-  (* hdlname = "error_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:49.24" *)
-  reg [1:0] error_q;
-  (* hdlname = "jtag_dmi_clear" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:52.9" *)
-  wire jtag_dmi_clear;
-  (* hdlname = "shift" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:57.9" *)
-  wire shift;
-  (* hdlname = "state_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:122.11" *)
-  wire [2:0] state_d;
-  (* hdlname = "state_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:122.20" *)
-  reg [2:0] state_q;
-  (* hdlname = "tck" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:51.9" *)
-  wire tck;
-  (* hdlname = "tdi" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:58.9" *)
-  wire tdi;
-  (* hdlname = "update" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:55.9" *)
-  wire update;
-  assign _000_ = dtmcs_select && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:64.41-64.63" *) update;
-  assign _007_ = _000_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:64.41-64.87" *) dtmcs_q[17];
-  assign _001_ = state_q == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:132.26-132.42" *) 2'h3;
-  assign dmi_req[33:32] = _001_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:132.25-132.74" *) 2'h2 : 2'h1;
-  assign _002_ = dmi_select && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.15-159.35" *) update;
-  assign _003_ = ! (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.40-159.61" *) error_q;
-  assign _004_ = _002_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.15-159.62" *) _003_;
-  assign _005_ = dr_q[1:0] == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:163.17-163.54" *) 1'h1;
-  assign _006_ = dr_q[1:0] == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:165.26-165.64" *) 2'h2;
-  assign dmi_clear = jtag_dmi_clear || (* src = "ip/riscv-dbg/src/dmi_jtag.sv:64.22-64.88" *) _007_;
-  assign _008_ = | (* src = "ip/riscv-dbg/src/dmi_jtag.sv:232.21-232.36" *) state_q;
-  assign _009_ = update && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:232.11-232.36" *) _008_;
-  assign _010_ = state_q == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:239.22-239.58" *) 1'h1;
-  assign _011_ = state_q == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:239.22-239.58" *) 2'h2;
-  assign _012_ = | (* src = "ip/riscv-dbg/src/dmi_jtag.sv:239.22-239.58" *) { _011_, _010_ };
-  assign _013_ = capture && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:239.11-239.58" *) _012_;
-  assign _014_ = _047_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:243.11-243.50" *) _003_;
-  assign _015_ = _050_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:247.11-247.55" *) _003_;
-  assign _016_ = update && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:252.11-252.37" *) dtmcs_q[16];
-  assign _017_ = _016_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:252.11-252.53" *) dtmcs_select;
-  assign _018_ = ! (* src = "ip/riscv-dbg/src/dmi_jtag.sv:268.40-268.55" *) error_dmi_busy;
-  assign _019_ = _003_ && (* src = "ip/riscv-dbg/src/dmi_jtag.sv:268.15-268.55" *) _018_;
-  assign _020_ = error_q == (* src = "ip/riscv-dbg/src/dmi_jtag.sv:271.24-271.42" *) 2'h3;
-  assign _021_ = _020_ || (* src = "ip/riscv-dbg/src/dmi_jtag.sv:271.24-271.60" *) error_dmi_busy;
-  assign _024_ = | { _010_, _001_ };
-  assign _025_ = | { _053_, _011_ };
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:285.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) address_q <= 7'h00;
-    else address_q <= address_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:285.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) data_q <= 32'd0;
-    else data_q <= data_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:285.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dr_q <= 41'h00000000000;
-    else dr_q <= dr_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[9:4] <= 6'h00;
-    else dtmcs_q[9:4] <= dtmcs_d[9:4];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[17] <= 1'h0;
-    else dtmcs_q[17] <= dtmcs_d[17];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[16] <= 1'h0;
-    else dtmcs_q[16] <= dtmcs_d[16];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[11:10] <= 2'h0;
-    else dtmcs_q[11:10] <= dtmcs_d[11:10];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[14:12] <= 3'h0;
-    else dtmcs_q[14:12] <= dtmcs_d[14:12];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[3:0] <= 4'h0;
-    else dtmcs_q[3:0] <= dtmcs_d[3:0];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[15] <= 1'h0;
-    else dtmcs_q[15] <= dtmcs_d[15];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:92.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) dtmcs_q[31:18] <= 14'h0000;
-    else dtmcs_q[31:18] <= dtmcs_d[31:18];
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:285.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) error_q <= 2'h0;
-    else error_q <= error_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:285.3" *)
-  always_ff @(posedge tck, negedge trst_ni)
-    if (!trst_ni) state_q <= 3'h0;
-    else state_q <= state_d;
-  assign _042_ = _017_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:253.9-253.30|ip/riscv-dbg/src/dmi_jtag.sv:252.7-254.10" *) 2'h0 : _041_;
-  assign _041_ = _015_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:248.9-248.31|ip/riscv-dbg/src/dmi_jtag.sv:247.7-249.10" *) 2'h2 : _040_;
-  assign _040_ = _014_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:244.9-244.27|ip/riscv-dbg/src/dmi_jtag.sv:243.7-245.10" *) 2'h3 : error_q;
-  assign _051_ = _013_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:240.9-240.31|ip/riscv-dbg/src/dmi_jtag.sv:239.7-241.10" *) 1'h1 : _046_;
-  assign _047_ = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 1'hx : _051_;
-  assign _046_ = _009_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:233.9-233.31|ip/riscv-dbg/src/dmi_jtag.sv:232.7-234.10" *) 1'h1 : _045_;
-  assign _053_ = state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:212.11-219.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) 3'h4;
-  assign _054_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) state_q;
-  assign _048_ = _055_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:214.28-214.55|ip/riscv-dbg/src/dmi_jtag.sv:213.13-217.20" *) 1'h1 : 1'h0;
-  assign _055_ = dmi_resp[1:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:214.28-214.55|ip/riscv-dbg/src/dmi_jtag.sv:213.13-217.20" *) 2'h2;
-  assign _043_ = _056_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:215.29-215.51|ip/riscv-dbg/src/dmi_jtag.sv:213.13-217.20" *) 1'h1 : 1'h0;
-  assign _056_ = dmi_resp[1:0] == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:215.29-215.51|ip/riscv-dbg/src/dmi_jtag.sv:213.13-217.20" *) 2'h3;
-  assign _049_ = dmi_resp_valid ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:212.31-219.14|ip/riscv-dbg/src/dmi_jtag.sv:212.11-219.14" *) _048_ : 1'h0;
-  assign _057_ = dmi_req_ready ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:206.13-206.38|ip/riscv-dbg/src/dmi_jtag.sv:205.11-207.14" *) 3'h4 : state_q;
-  function [31:0] _118_;
-    input [31:0] a;
-    input [95:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/riscv-dbg/src/dmi_jtag.sv:190.29-193.18|ip/riscv-dbg/src/dmi_jtag.sv:182.13-197.20" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _118_ = b[31:0];
-      3'b?1?:
-        _118_ = b[63:32];
-      3'b1??:
-        _118_ = b[95:64];
-      default:
-        _118_ = a;
-    endcase
-  endfunction
-  assign _027_ = _118_(32'd3131949278, { dmi_resp[33:2], 64'hdeadbeefb051b051 }, { _058_, _055_, _056_ });
-  assign _058_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:184.17-184.40|ip/riscv-dbg/src/dmi_jtag.sv:182.13-197.20" *) dmi_resp[1:0];
-  assign _044_ = dmi_resp_valid ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.31-199.14|ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *) _043_ : 1'h0;
-  assign _028_ = dmi_resp_valid ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.31-199.14|ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *) _027_ : data_q;
-  assign _052_ = dmi_resp_valid ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.31-199.14|ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14" *) 3'h0 : state_q;
-  assign _059_ = dmi_req_ready ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:175.13-175.37|ip/riscv-dbg/src/dmi_jtag.sv:174.11-176.14" *) 3'h2 : state_q;
-  function [2:0] _124_;
-    input [2:0] a;
-    input [8:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/riscv-dbg/src/dmi_jtag.sv:212.11-219.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _124_ = b[2:0];
-      3'b?1?:
-        _124_ = b[5:3];
-      3'b1??:
-        _124_ = b[8:6];
-      default:
-        _124_ = a;
-    endcase
-  endfunction
-  assign _060_ = _124_(_052_, { _063_, _059_, _057_ }, { _054_, _010_, _001_ });
-  assign _061_ = _006_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:166.15-166.31|ip/riscv-dbg/src/dmi_jtag.sv:165.22-167.16" *) 3'h3 : state_q;
-  assign _062_ = _005_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:164.15-164.30|ip/riscv-dbg/src/dmi_jtag.sv:163.13-167.16" *) 3'h1 : _061_;
-  assign _026_ = _004_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.64-169.14|ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14" *) dr_q[33:2] : data_q;
-  assign _022_ = _004_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.64-169.14|ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14" *) dr_q[40:34] : address_q;
-  assign _063_ = _004_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.64-169.14|ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14" *) _062_ : state_q;
-  assign _064_ = _025_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:212.11-219.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) _049_ : 1'h0;
-  assign _050_ = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 1'hx : _064_;
-  assign _045_ = _025_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:212.11-219.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) _044_ : 1'h0;
-  function [31:0] _133_;
-    input [31:0] a;
-    input [63:0] b;
-    input [1:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/riscv-dbg/src/dmi_jtag.sv:181.11-199.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *)
-    (* parallel_case *)
-    casez (s)
-      2'b?1:
-        _133_ = b[31:0];
-      2'b1?:
-        _133_ = b[63:32];
-      default:
-        _133_ = a;
-    endcase
-  endfunction
-  assign _029_ = _133_(data_q, { _026_, _028_ }, { _054_, _011_ });
-  assign _023_ = _054_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:159.11-169.14|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) _022_ : address_q;
-  assign _030_ = _024_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:202.16-208.12|ip/riscv-dbg/src/dmi_jtag.sv:156.7-228.14" *) 1'h1 : 1'h0;
-  assign data_d = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 32'd0 : _029_;
-  assign address_d = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 7'h00 : _023_;
-  assign state_d = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 3'h0 : _060_;
-  assign error_d = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 2'h0 : _042_;
-  assign error_dmi_busy = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 1'h0 : _047_;
-  assign dmi_req_valid = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:150.20-155.8|ip/riscv-dbg/src/dmi_jtag.sv:150.5-255.8" *) 1'h0 : _030_;
-  assign _035_ = dmi_select ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:279.11-279.47|ip/riscv-dbg/src/dmi_jtag.sv:278.9-280.12" *) { tdi, dr_q[40:1] } : _034_;
-  assign _036_ = shift ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:278.9-280.12|ip/riscv-dbg/src/dmi_jtag.sv:277.7-281.10" *) _035_ : _034_;
-  assign _031_ = _021_ ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:272.13-272.49|ip/riscv-dbg/src/dmi_jtag.sv:271.20-273.14" *) { address_q, data_q, 2'h3 } : dr_q;
-  assign _032_ = _019_ ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:269.13-269.52|ip/riscv-dbg/src/dmi_jtag.sv:268.11-273.14" *) { address_q, data_q, 2'h0 } : _031_;
-  assign _033_ = dmi_select ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:268.11-273.14|ip/riscv-dbg/src/dmi_jtag.sv:267.9-274.12" *) _032_ : dr_q;
-  assign _034_ = capture ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:267.9-274.12|ip/riscv-dbg/src/dmi_jtag.sv:266.7-275.10" *) _033_ : dr_q;
-  assign dr_d = dmi_clear ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag.sv:264.7-264.17|ip/riscv-dbg/src/dmi_jtag.sv:263.5-282.8" *) 41'h00000000000 : _036_;
-  assign _039_ = dtmcs_select ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:88.25-88.61|ip/riscv-dbg/src/dmi_jtag.sv:88.7-88.61" *) { tdi, dtmcs_q[31:1] } : _038_;
-  assign dtmcs_d = shift ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:88.7-88.61|ip/riscv-dbg/src/dmi_jtag.sv:87.5-89.8" *) _039_ : _038_;
-  assign _037_ = dtmcs_select ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:74.9-83.23|ip/riscv-dbg/src/dmi_jtag.sv:73.7-84.10" *) { 20'h00001, error_q, 10'h071 } : dtmcs_q;
-  assign _038_ = capture ? (* src = "ip/riscv-dbg/src/dmi_jtag.sv:73.7-84.10|ip/riscv-dbg/src/dmi_jtag.sv:72.5-85.8" *) _037_ : dtmcs_q;
-  (* hdlname = "i_dmi_cdc" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:330.11" *)
-  \dmi_cdc$greyhound_soc.i_dmi_jtag.i_dmi_cdc  i_dmi_cdc (
-    .clk_i(clk_i),
-    .core_dmi_ready_i(dmi_req_ready_i),
-    .core_dmi_ready_o(dmi_resp_ready_o),
-    .core_dmi_req_o(dmi_req_o),
-    .core_dmi_resp_i(dmi_resp_i),
-    .core_dmi_rst_no(dmi_rst_no),
-    .core_dmi_valid_i(dmi_resp_valid_i),
-    .core_dmi_valid_o(dmi_req_valid_o),
-    .jtag_dmi_cdc_clear_i(dmi_clear),
-    .jtag_dmi_ready_i(1'h1),
-    .jtag_dmi_ready_o(dmi_req_ready),
-    .jtag_dmi_req_i({ address_q, dmi_req[33:32], data_q }),
-    .jtag_dmi_resp_o(dmi_resp),
-    .jtag_dmi_valid_i(dmi_req_valid),
-    .jtag_dmi_valid_o(dmi_resp_valid),
-    .rst_ni(rst_ni),
-    .tck_i(tck),
-    .trst_ni(trst_ni)
-  );
-  (* hdlname = "i_dmi_jtag_tap" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag.sv:307.5" *)
-  \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap  i_dmi_jtag_tap (
-    .capture_o(capture),
-    .dmi_clear_o(jtag_dmi_clear),
-    .dmi_select_o(dmi_select),
-    .dmi_tdo_i(dr_q[0]),
-    .dtmcs_select_o(dtmcs_select),
-    .dtmcs_tdo_i(dtmcs_q[0]),
-    .shift_o(shift),
-    .tck_i(tck_i),
-    .tck_o(tck),
-    .td_i(td_i),
-    .td_o(td_o),
-    .tdi_o(tdi),
-    .tdo_oe_o(tdo_oe_o),
-    .testmode_i(testmode_i),
-    .tms_i(tms_i),
-    .trst_ni(trst_ni),
-    .update_o(update)
-  );
-  assign dmi = dr_q;
-  assign { dmi_req[40:34], dmi_req[31:0] } = { address_q, data_q };
-  assign dmi_resp_ready = 1'h1;
-  assign dmi_tdo = dr_q[0];
-endmodule
-
-(* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:19.8" *)
-module \dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (testmode_i, tck_i, tms_i, trst_ni, td_i, td_o, tdo_oe_o, tck_o, dmi_clear_o, update_o, capture_o, shift_o, tdi_o, dtmcs_select_o, dtmcs_tdo_i, dmi_select_o, dmi_tdo_i);
-  (* hdlname = "testmode_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:34.23" *)
-  input testmode_i;
-  wire testmode_i;
-  (* hdlname = "tck_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:28.23" *)
-  input tck_i;
-  wire tck_i;
-  (* hdlname = "tms_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:29.23" *)
-  input tms_i;
-  wire tms_i;
-  (* hdlname = "trst_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:30.23" *)
-  input trst_ni;
-  wire trst_ni;
-  (* hdlname = "td_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:31.23" *)
-  input td_i;
-  wire td_i;
-  (* hdlname = "td_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:32.23" *)
-  output td_o;
-  reg td_o;
-  (* hdlname = "tdo_oe_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:33.23" *)
-  output tdo_oe_o;
-  reg tdo_oe_o;
-  (* hdlname = "tck_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:36.23" *)
-  output tck_o;
-  wire tck_o;
-  (* hdlname = "dmi_clear_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:38.23" *)
-  output dmi_clear_o;
-  wire dmi_clear_o;
-  (* hdlname = "update_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:39.23" *)
-  output update_o;
-  wire update_o;
-  (* hdlname = "capture_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:40.23" *)
-  output capture_o;
-  wire capture_o;
-  (* hdlname = "shift_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:41.23" *)
-  output shift_o;
-  wire shift_o;
-  (* hdlname = "tdi_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:42.23" *)
-  output tdi_o;
-  wire tdi_o;
-  (* hdlname = "dtmcs_select_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:43.23" *)
-  output dtmcs_select_o;
-  wire dtmcs_select_o;
-  (* hdlname = "dtmcs_tdo_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:44.23" *)
-  input dtmcs_tdo_i;
-  wire dtmcs_tdo_i;
-  (* hdlname = "dmi_select_o" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:46.23" *)
-  output dmi_select_o;
-  wire dmi_select_o;
-  (* hdlname = "dmi_tdo_i" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:47.23" *)
-  input dmi_tdo_i;
-  wire dmi_tdo_i;
-  wire _000_;
-  wire _001_;
-  wire [1:0] _002_;
-  wire [3:0] _003_;
-  wire _004_;
-  wire [3:0] _005_;
-  wire [3:0] _006_;
-  wire [3:0] _007_;
-  wire [2:0] _008_;
-  wire [1:0] _009_;
-  wire [2:0] _010_;
-  wire _011_;
-  wire _012_;
-  wire _013_;
-  wire _014_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:132.7-132.42" *)
-  wire _015_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *)
-  wire _016_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:137.7-137.43" *)
-  wire _017_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *)
-  wire _018_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *)
-  wire [31:0] _019_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *)
-  wire [31:0] _020_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:136.7-136.65" *)
-  wire [31:0] _021_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *)
-  wire [31:0] _022_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:93.5-95.8" *)
-  wire [4:0] _023_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:83.5-85.8" *)
-  wire [4:0] _024_;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:88.5-90.8" *)
-  wire [4:0] _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  (* hdlname = "bypass_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:124.16" *)
-  wire bypass_d;
-  (* hdlname = "bypass_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:124.26" *)
-  reg bypass_q;
-  (* hdlname = "capture_dr" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:58.30" *)
-  wire capture_dr;
-  (* hdlname = "capture_ir" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:76.9" *)
-  wire capture_ir;
-  (* hdlname = "idcode_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:120.16" *)
-  wire [31:0] idcode_d;
-  (* hdlname = "idcode_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:120.26" *)
-  reg [31:0] idcode_q;
-  (* hdlname = "idcode_select" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:121.16" *)
-  wire idcode_select;
-  (* hdlname = "jtag_ir_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:75.25" *)
-  wire [4:0] jtag_ir_d;
-  (* hdlname = "jtag_ir_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:75.36" *)
-  reg [4:0] jtag_ir_q;
-  (* hdlname = "jtag_ir_shift_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:73.25" *)
-  wire [4:0] jtag_ir_shift_d;
-  (* hdlname = "jtag_ir_shift_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:73.42" *)
-  reg [4:0] jtag_ir_shift_q;
-  (* hdlname = "shift_dr" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:58.20" *)
-  wire shift_dr;
-  (* hdlname = "shift_ir" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:76.21" *)
-  wire shift_ir;
-  (* hdlname = "tap_state_d" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:57.28" *)
-  wire [3:0] tap_state_d;
-  (* hdlname = "tap_state_q" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:57.15" *)
-  reg [3:0] tap_state_q;
-  (* hdlname = "tck_n" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:188.9" *)
-  wire tck_n;
-  (* hdlname = "tck_ni" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:188.16" *)
-  wire tck_ni;
-  (* hdlname = "tdo_mux" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:168.9" *)
-  wire tdo_mux;
-  (* hdlname = "test_logic_reset" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:76.42" *)
-  wire test_logic_reset;
-  (* hdlname = "update_dr" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:58.9" *)
-  wire update_dr;
-  (* hdlname = "update_ir" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:76.31" *)
-  wire update_ir;
-  assign _000_ = shift_ir | (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:209.20-209.39" *) shift_dr;
-  assign _001_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:231.23-231.61" *) 1'h0 : 1'h1;
-  assign _002_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:235.23-235.59" *) 2'h2 : 2'h1;
-  assign _003_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:239.23-239.57" *) 4'h9 : 4'h3;
-  assign _004_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:243.23-243.50" *) 1'h1 : 1'h0;
-  assign _005_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:250.23-250.51" *) 4'h8 : 4'h6;
-  assign _006_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:256.23-256.51" *) 4'h8 : 4'h4;
-  assign _007_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:264.23-264.59" *) 4'h0 : 4'ha;
-  assign _008_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:272.23-272.50" *) 3'h4 : 3'h3;
-  assign _009_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:283.23-283.51" *) 2'h3 : 2'h1;
-  assign _010_ = tms_i ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:290.23-290.51" *) 3'h7 : 3'h3;
-  assign _011_ = | { _029_, _028_, _027_ };
-  assign _012_ = | { _044_, _037_, _030_ };
-  assign _013_ = | { _035_, _034_ };
-  assign _014_ = | { _042_, _041_ };
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
-  always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) bypass_q <= 1'h0;
-    else bypass_q <= bypass_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
-  always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) idcode_q <= 32'd86335489;
-    else idcode_q <= idcode_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:104.3" *)
-  always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) jtag_ir_q <= 5'h01;
-    else jtag_ir_q <= jtag_ir_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:104.3" *)
-  always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) jtag_ir_shift_q <= 5'h00;
-    else jtag_ir_shift_q <= jtag_ir_shift_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:304.3" *)
-  always_ff @(posedge tck_i, negedge trst_ni)
-    if (!trst_ni) tap_state_q <= 4'h0;
-    else tap_state_q <= tap_state_d;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:203.3" *)
-  always_ff @(posedge tck_n, negedge trst_ni)
-    if (!trst_ni) td_o <= 1'h0;
-    else td_o <= tdo_mux;
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:203.3" *)
-  always_ff @(posedge tck_n, negedge trst_ni)
-    if (!trst_ni) tdo_oe_o <= 1'h0;
-    else tdo_oe_o <= _000_;
-  function [0:0] _068_;
-    input [0:0] a;
-    input [2:0] b;
-    input [2:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:179.25-179.45|ip/riscv-dbg/src/dmi_jtag_tap.sv:176.7-181.14" *)
-    (* parallel_case *)
-    casez (s)
-      3'b??1:
-        _068_ = b[0:0];
-      3'b?1?:
-        _068_ = b[1:1];
-      3'b1??:
-        _068_ = b[2:2];
-      default:
-        _068_ = a;
-    endcase
-  endfunction
-  assign _026_ = _068_(bypass_q, { idcode_q[0], dtmcs_tdo_i, dmi_tdo_i }, { _029_, _028_, _027_ });
-  assign _027_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:179.25-179.45|ip/riscv-dbg/src/dmi_jtag_tap.sv:176.7-181.14" *) 5'h11;
-  assign _028_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:178.25-178.47|ip/riscv-dbg/src/dmi_jtag_tap.sv:176.7-181.14" *) 5'h10;
-  assign _029_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:177.25-177.47|ip/riscv-dbg/src/dmi_jtag_tap.sv:176.7-181.14" *) 1'h1;
-  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:173.7-173.36|ip/riscv-dbg/src/dmi_jtag_tap.sv:172.5-182.8" *) jtag_ir_shift_q[0] : _026_;
-  assign idcode_select = _029_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:157.18-157.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
-  assign dmi_select_o = _027_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:159.18-159.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
-  assign dtmcs_select_o = _028_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:158.18-158.40|ip/riscv-dbg/src/dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
-  assign bypass_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 1'h0 : _018_;
-  assign idcode_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:140.27-144.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:140.5-144.8" *) 32'd86335489 : _022_;
-  assign _017_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:137.27-137.43|ip/riscv-dbg/src/dmi_jtag_tap.sv:137.7-137.43" *) _016_ : td_i;
-  assign _021_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:136.27-136.65|ip/riscv-dbg/src/dmi_jtag_tap.sv:136.7-136.65" *) { td_i, idcode_q[31:1] } : _020_;
-  assign _018_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _017_ : _016_;
-  assign _022_ = shift_dr ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:135.19-138.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:135.5-138.8" *) _021_ : _020_;
-  assign _015_ = _011_ ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:132.26-132.42|ip/riscv-dbg/src/dmi_jtag_tap.sv:132.7-132.42" *) bypass_q : 1'h0;
-  assign _019_ = idcode_select ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:131.26-131.49|ip/riscv-dbg/src/dmi_jtag_tap.sv:131.7-131.49" *) 32'd86335489 : idcode_q;
-  assign _016_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _015_ : bypass_q;
-  assign _020_ = capture_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:130.21-133.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:130.5-133.8" *) _019_ : idcode_q;
-  function [3:0] _086_;
-    input [3:0] a;
-    input [47:0] b;
-    input [11:0] s;
-    (* full_case = 32'd1 *)
-    (* parallel_case = 32'd1 *)
-    (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:296.17-299.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *)
-    (* parallel_case *)
-    casez (s)
-      12'b???????????1:
-        _086_ = b[3:0];
-      12'b??????????1?:
-        _086_ = b[7:4];
-      12'b?????????1??:
-        _086_ = b[11:8];
-      12'b????????1???:
-        _086_ = b[15:12];
-      12'b???????1????:
-        _086_ = b[19:16];
-      12'b??????1?????:
-        _086_ = b[23:20];
-      12'b?????1??????:
-        _086_ = b[27:24];
-      12'b????1???????:
-        _086_ = b[31:28];
-      12'b???1????????:
-        _086_ = b[35:32];
-      12'b??1?????????:
-        _086_ = b[39:36];
-      12'b?1??????????:
-        _086_ = b[43:40];
-      12'b1???????????:
-        _086_ = b[47:44];
-      default:
-        _086_ = a;
-    endcase
-  endfunction
-  assign tap_state_d = _086_(4'hx, { 3'h0, _001_, _003_, 3'h2, _004_, _005_, 3'h3, _004_, _006_, _007_, 1'h1, _008_, 2'h3, _009_, 2'h3, _002_, 1'h1, _010_, 2'h0, _002_ }, { _045_, _043_, _014_, _040_, _039_, _038_, _036_, _013_, _033_, _032_, _031_, _012_ });
-  assign _030_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:296.17-299.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'hf;
-  assign _031_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:290.9-290.52|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'he;
-  assign _032_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:287.9-287.51|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'hd;
-  assign _033_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:283.9-283.52|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'hc;
-  assign _034_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:278.16-281.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'hb;
-  assign _035_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:270.18-273.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'ha;
-  assign _036_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:264.9-264.60|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'h9;
-  assign _037_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:258.17-261.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 4'h8;
-  assign _038_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:256.9-256.52|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 3'h7;
-  assign _039_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:253.9-253.51|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 3'h6;
-  assign _040_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:250.9-250.52|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 3'h5;
-  assign _041_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:245.16-248.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 3'h4;
-  assign _042_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:241.18-244.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 2'h3;
-  assign _043_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:239.9-239.58|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 2'h2;
-  assign _044_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:235.9-235.60|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1;
-  assign _045_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:230.23-233.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) tap_state_q;
-  assign dmi_clear_o = _045_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:230.23-233.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign update_ir = _030_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:296.17-299.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign shift_ir = _034_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:278.16-281.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign capture_ir = _035_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:270.18-273.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign capture_o = _042_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:241.18-244.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign shift_dr = _041_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:245.16-248.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign update_o = _037_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:258.17-261.10|ip/riscv-dbg/src/dmi_jtag_tap.sv:229.5-301.12" *) 1'h1 : 1'h0;
-  assign jtag_ir_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:97.27-101.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:97.5-101.8" *) 5'h01 : _023_;
-  assign jtag_ir_shift_d = dmi_clear_o ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:97.27-101.8|ip/riscv-dbg/src/dmi_jtag_tap.sv:97.5-101.8" *) 5'h00 : _025_;
-  assign _023_ = update_ir ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:94.7-94.46|ip/riscv-dbg/src/dmi_jtag_tap.sv:93.5-95.8" *) jtag_ir_shift_q : jtag_ir_q;
-  assign _025_ = capture_ir ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:89.7-89.45|ip/riscv-dbg/src/dmi_jtag_tap.sv:88.5-90.8" *) 5'h05 : _024_;
-  assign _024_ = shift_ir ? (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:84.7-84.63|ip/riscv-dbg/src/dmi_jtag_tap.sv:83.5-85.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
-  (* hdlname = "i_dft_tck_mux" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:195.15" *)
-  \tc_clk_mux2$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_dft_tck_mux  i_dft_tck_mux (
-    .clk0_i(tck_ni),
-    .clk1_i(tck_i),
-    .clk_o(tck_n),
-    .clk_sel_i(testmode_i)
-  );
-  (* hdlname = "i_tck_inv" *)
-  (* src = "ip/riscv-dbg/src/dmi_jtag_tap.sv:190.19" *)
-  \tc_clk_inverter$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_tck_inv  i_tck_inv (
-    .clk_i(tck_i),
-    .clk_o(tck_ni)
-  );
-  assign capture_dr = capture_o;
-  assign shift_o = shift_dr;
-  assign tck_o = tck_i;
-  assign tdi_o = td_i;
-  assign test_logic_reset = dmi_clear_o;
-  assign update_dr = update_o;
-endmodule
-
 (* src = "ip/EF_IP_UTIL/hdl/ef_util_lib.v:158.8" *)
 module \ef_util_fifo$greyhound_soc.i_EF_UART_AHBL.instance_to_wrap.fifo_rx (clk, rst_n, wr, rd, wdata, rdata, flush, empty, full, level);
   (* hdlname = "clk" *)
@@ -34819,7 +30187,6 @@ module \fifo_v3$greyhound_soc.i_dm_top.i_dm_top.i_dm_csrs.i_fifo.i_fifo_v3 (clk_
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) write_pointer_q <= 1'h0;
     else write_pointer_q <= _22_;
-  assign _20_ = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:138.13-138.28|ip/common_cells/src/fifo_v3.sv:137.18-139.12" *) mem_n : mem_q;
   assign _21_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 2'h0 : status_cnt_n;
   assign _22_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : write_pointer_n;
   assign _23_ = flush_i ? (* full_case = 32'd1 *) (* src = "ip/common_cells/src/fifo_v3.sv:122.26-126.17|ip/common_cells/src/fifo_v3.sv:122.13-130.16" *) 1'h0 : read_pointer_n;
@@ -34828,6 +30195,7 @@ module \fifo_v3$greyhound_soc.i_dm_top.i_dm_top.i_dm_csrs.i_fifo.i_fifo_v3 (clk_
   assign read_pointer_n = _09_ ? (* src = "ip/common_cells/src/fifo_v3.sv:88.32-98.12|ip/common_cells/src/fifo_v3.sv:88.9-98.12" *) _10_ : read_pointer_q;
   assign _25_ = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _07_ : status_cnt_q;
   assign write_pointer_n = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:73.32-86.12|ip/common_cells/src/fifo_v3.sv:73.9-86.12" *) _06_ : write_pointer_q;
+  assign _20_ = _00_ ? (* src = "ip/common_cells/src/fifo_v3.sv:138.13-138.28|ip/common_cells/src/fifo_v3.sv:137.18-139.12" *) mem_n : mem_q;
   assign usage_o = status_cnt_q[0];
 endmodule
 
@@ -35143,7 +30511,7 @@ endmodule
 (* src = "src/soc/greyhound_soc.sv:7.8" *)
 module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_configured_i, bitstream_valid_o, bitstream_data_o, warmboot_boot_o, warmboot_slot_o, fabric_issue_ready_i, fabric_issue_accept_i, fabric_issue_valid_o, fabric_issue_instr_o, fabric_issue_op0_o, fabric_issue_op1_o, fabric_issue_id_o, fabric_result_valid_i, fabric_result_id_i, fabric_result_rd_i, fabric_result_i, fabric_gnt_i
 , fabric_req_o, fabric_rvalid_i, fabric_we_o, fabric_be_o, fabric_addr_o, fabric_wdata_o, fabric_rdata_i, bank_rdata_i, bank_word_addr_o, bank_be_o, bank_wdata_o, bank_req_o, bank_we_o, flash_sck, flash_ce_n, flash_din, flash_dout, flash_douten, psram_sck, psram_ce_n, psram_din
-, psram_dout, psram_douten, uart0_rx, uart0_tx, fetch_enable_i, core_sleep_o, jtag_tck_i, jtag_tdi_i, jtag_tdo_o, jtag_tms_i, jtag_trst_ni);
+, psram_dout, psram_douten, uart0_rx, uart0_tx, fetch_enable_i, core_sleep_o, jclk_i, jclk_rising_i, jclk_falling_i, jtag_tdi_i, jtag_tdo_o, jtag_tms_i, jtag_trst_n_sync_i, usercode_i);
   (* hdlname = "clk_i" *)
   (* src = "src/soc/greyhound_soc.sv:15.29" *)
   input clk_i;
@@ -35336,26 +30704,38 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   (* src = "src/soc/greyhound_soc.sv:88.29" *)
   output core_sleep_o;
   wire core_sleep_o;
-  (* hdlname = "jtag_tck_i" *)
-  (* src = "src/soc/greyhound_soc.sv:91.23" *)
-  input jtag_tck_i;
-  wire jtag_tck_i;
+  (* hdlname = "jclk_i" *)
+  (* src = "src/soc/greyhound_soc.sv:91.25" *)
+  input jclk_i;
+  wire jclk_i;
+  (* hdlname = "jclk_rising_i" *)
+  (* src = "src/soc/greyhound_soc.sv:92.25" *)
+  input jclk_rising_i;
+  wire jclk_rising_i;
+  (* hdlname = "jclk_falling_i" *)
+  (* src = "src/soc/greyhound_soc.sv:93.25" *)
+  input jclk_falling_i;
+  wire jclk_falling_i;
   (* hdlname = "jtag_tdi_i" *)
-  (* src = "src/soc/greyhound_soc.sv:92.23" *)
+  (* src = "src/soc/greyhound_soc.sv:94.25" *)
   input jtag_tdi_i;
   wire jtag_tdi_i;
   (* hdlname = "jtag_tdo_o" *)
-  (* src = "src/soc/greyhound_soc.sv:93.23" *)
+  (* src = "src/soc/greyhound_soc.sv:95.25" *)
   output jtag_tdo_o;
   wire jtag_tdo_o;
   (* hdlname = "jtag_tms_i" *)
-  (* src = "src/soc/greyhound_soc.sv:94.23" *)
+  (* src = "src/soc/greyhound_soc.sv:96.25" *)
   input jtag_tms_i;
   wire jtag_tms_i;
-  (* hdlname = "jtag_trst_ni" *)
-  (* src = "src/soc/greyhound_soc.sv:95.23" *)
-  input jtag_trst_ni;
-  wire jtag_trst_ni;
+  (* hdlname = "jtag_trst_n_sync_i" *)
+  (* src = "src/soc/greyhound_soc.sv:97.25" *)
+  input jtag_trst_n_sync_i;
+  wire jtag_trst_n_sync_i;
+  (* hdlname = "usercode_i" *)
+  (* src = "src/soc/greyhound_soc.sv:98.25" *)
+  input [31:0] usercode_i;
+  wire [31:0] usercode_i;
   wire [63:0] _000_;
   wire _001_;
   wire _002_;
@@ -35381,233 +30761,236 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   wire _022_;
   wire _023_;
   wire _024_;
-  (* src = "src/soc/greyhound_soc.sv:929.21-931.24" *)
-  wire [31:0] _025_;
-  (* src = "src/soc/greyhound_soc.sv:912.21-919.24" *)
+  wire _025_;
+  (* src = "src/soc/greyhound_soc.sv:933.21-935.24" *)
   wire [31:0] _026_;
-  (* src = "src/soc/greyhound_soc.sv:910.17-932.20" *)
+  (* src = "src/soc/greyhound_soc.sv:916.21-923.24" *)
   wire [31:0] _027_;
-  (* src = "src/soc/greyhound_soc.sv:905.13-933.16" *)
+  (* src = "src/soc/greyhound_soc.sv:914.17-940.20" *)
   wire [31:0] _028_;
-  (* src = "src/soc/greyhound_soc.sv:914.25-914.124" *)
-  wire [7:0] _029_;
-  (* src = "src/soc/greyhound_soc.sv:915.25-915.124" *)
+  (* src = "src/soc/greyhound_soc.sv:909.13-941.16" *)
+  wire [31:0] _029_;
+  (* src = "src/soc/greyhound_soc.sv:918.25-918.124" *)
   wire [7:0] _030_;
-  (* src = "src/soc/greyhound_soc.sv:916.25-916.124" *)
+  (* src = "src/soc/greyhound_soc.sv:919.25-919.124" *)
   wire [7:0] _031_;
-  (* src = "src/soc/greyhound_soc.sv:913.25-913.124" *)
+  (* src = "src/soc/greyhound_soc.sv:920.25-920.124" *)
   wire [7:0] _032_;
-  (* src = "src/soc/greyhound_soc.sv:912.21-919.24" *)
-  wire _033_;
-  (* src = "src/soc/greyhound_soc.sv:910.17-932.20" *)
+  (* src = "src/soc/greyhound_soc.sv:917.25-917.124" *)
+  wire [7:0] _033_;
+  (* src = "src/soc/greyhound_soc.sv:916.21-923.24" *)
   wire _034_;
-  (* src = "src/soc/greyhound_soc.sv:905.13-933.16" *)
+  (* src = "src/soc/greyhound_soc.sv:914.17-940.20" *)
   wire _035_;
-  (* src = "src/soc/greyhound_soc.sv:905.13-933.16" *)
+  (* src = "src/soc/greyhound_soc.sv:909.13-941.16" *)
   wire _036_;
-  (* src = "src/soc/greyhound_soc.sv:910.17-932.20" *)
-  wire [31:0] _037_;
-  (* src = "src/soc/greyhound_soc.sv:905.13-933.16" *)
+  (* src = "src/soc/greyhound_soc.sv:909.13-941.16" *)
+  wire _037_;
+  (* src = "src/soc/greyhound_soc.sv:937.21-939.24" *)
   wire [31:0] _038_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
-  wire [2:0] _039_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
-  wire [2:0] _040_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
+  (* src = "src/soc/greyhound_soc.sv:914.17-940.20" *)
+  wire [31:0] _039_;
+  (* src = "src/soc/greyhound_soc.sv:909.13-941.16" *)
+  wire [31:0] _040_;
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _041_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _042_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _043_;
-  (* src = "src/soc/greyhound_soc.sv:498.9-499.144" *)
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
   wire [2:0] _044_;
-  wire [3:0] _045_;
-  wire [3:0] _046_;
-  wire _047_;
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
+  wire [2:0] _045_;
+  (* src = "src/soc/greyhound_soc.sv:501.9-502.144" *)
+  wire [2:0] _046_;
+  wire [3:0] _047_;
   wire [3:0] _048_;
   wire _049_;
   wire [3:0] _050_;
   wire _051_;
+  wire [3:0] _052_;
+  wire _053_;
   (* hdlname = "all_periph_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:235.36" *)
-  (* unused_bits = "73 217 289 361 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 433 496 497 498 499 500 501 502 503 505" *)
+  (* src = "src/soc/greyhound_soc.sv:238.36" *)
+  (* unused_bits = "73 217 289 361 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 433 496 497 498 499 500 501 502 503 505" *)
   wire [575:0] all_periph_obi_req;
   (* hdlname = "all_periph_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:236.36" *)
+  (* src = "src/soc/greyhound_soc.sv:239.36" *)
   wire [295:0] all_periph_obi_rsp;
   (* hdlname = "bank_byte_addr" *)
-  (* src = "src/soc/greyhound_soc.sv:676.37" *)
+  (* src = "src/soc/greyhound_soc.sv:679.37" *)
   (* unused_bits = "0 1 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] bank_byte_addr;
   (* hdlname = "bank_gnt" *)
-  (* src = "src/soc/greyhound_soc.sv:675.11" *)
+  (* src = "src/soc/greyhound_soc.sv:678.11" *)
   wire bank_gnt;
   (* hdlname = "core_data_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:195.19" *)
+  (* src = "src/soc/greyhound_soc.sv:198.19" *)
   wire [71:0] core_data_obi_req;
   (* hdlname = "core_data_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:196.19" *)
+  (* src = "src/soc/greyhound_soc.sv:199.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] core_data_obi_rsp;
   (* hdlname = "core_instr_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:186.19" *)
+  (* src = "src/soc/greyhound_soc.sv:189.19" *)
   wire [71:0] core_instr_obi_req;
   (* hdlname = "core_instr_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:187.19" *)
+  (* src = "src/soc/greyhound_soc.sv:190.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] core_instr_obi_rsp;
   (* hdlname = "data_addr_o" *)
-  (* src = "src/soc/greyhound_soc.sv:308.36" *)
+  (* src = "src/soc/greyhound_soc.sv:311.36" *)
   wire [31:0] data_addr_o;
   (* hdlname = "data_be_o" *)
-  (* src = "src/soc/greyhound_soc.sv:309.36" *)
+  (* src = "src/soc/greyhound_soc.sv:312.36" *)
   wire [3:0] data_be_o;
   (* hdlname = "data_err_i" *)
-  (* src = "src/soc/greyhound_soc.sv:313.36" *)
+  (* src = "src/soc/greyhound_soc.sv:316.36" *)
   wire data_err_i;
   (* hdlname = "data_gnt_i" *)
-  (* src = "src/soc/greyhound_soc.sv:306.36" *)
+  (* src = "src/soc/greyhound_soc.sv:309.36" *)
   wire data_gnt_i;
   (* hdlname = "data_rdata_i" *)
-  (* src = "src/soc/greyhound_soc.sv:312.36" *)
+  (* src = "src/soc/greyhound_soc.sv:315.36" *)
   wire [31:0] data_rdata_i;
   (* hdlname = "data_req_o" *)
-  (* src = "src/soc/greyhound_soc.sv:305.36" *)
+  (* src = "src/soc/greyhound_soc.sv:308.36" *)
   wire data_req_o;
   (* hdlname = "data_rvalid_i" *)
-  (* src = "src/soc/greyhound_soc.sv:307.36" *)
+  (* src = "src/soc/greyhound_soc.sv:310.36" *)
   wire data_rvalid_i;
   (* hdlname = "data_wdata_o" *)
-  (* src = "src/soc/greyhound_soc.sv:311.36" *)
+  (* src = "src/soc/greyhound_soc.sv:314.36" *)
   wire [31:0] data_wdata_o;
   (* hdlname = "data_we_o" *)
-  (* src = "src/soc/greyhound_soc.sv:310.36" *)
+  (* src = "src/soc/greyhound_soc.sv:313.36" *)
   wire data_we_o;
   (* hdlname = "dbg_mem_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:267.19" *)
+  (* src = "src/soc/greyhound_soc.sv:270.19" *)
   (* unused_bits = "1" *)
   wire [71:0] dbg_mem_obi_req;
   (* hdlname = "dbg_mem_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:268.19" *)
+  (* src = "src/soc/greyhound_soc.sv:271.19" *)
   wire [36:0] dbg_mem_obi_rsp;
   (* hdlname = "dbg_req_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:201.19" *)
+  (* src = "src/soc/greyhound_soc.sv:204.19" *)
   wire [71:0] dbg_req_obi_req;
   (* hdlname = "dbg_req_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:202.19" *)
+  (* src = "src/soc/greyhound_soc.sv:205.19" *)
   (* unused_bits = "2 4" *)
   wire [36:0] dbg_req_obi_rsp;
   (* hdlname = "debug_fabric_a_optional" *)
-  (* src = "src/soc/greyhound_soc.sv:982.22" *)
+  (* src = "src/soc/greyhound_soc.sv:990.22" *)
   (* unused_bits = "0" *)
   wire debug_fabric_a_optional;
   (* hdlname = "debug_fabric_addr" *)
-  (* src = "src/soc/greyhound_soc.sv:977.22" *)
+  (* src = "src/soc/greyhound_soc.sv:985.22" *)
   (* unused_bits = "24 25 26 27 28 29 30 31" *)
   wire [31:0] debug_fabric_addr;
   (* hdlname = "debug_fabric_aid" *)
-  (* src = "src/soc/greyhound_soc.sv:981.22" *)
+  (* src = "src/soc/greyhound_soc.sv:989.22" *)
   wire debug_fabric_aid;
   (* hdlname = "debug_fabric_be" *)
-  (* src = "src/soc/greyhound_soc.sv:979.22" *)
+  (* src = "src/soc/greyhound_soc.sv:987.22" *)
   wire [3:0] debug_fabric_be;
   (* hdlname = "debug_fabric_config_a_optional" *)
-  (* src = "src/soc/greyhound_soc.sv:865.22" *)
+  (* src = "src/soc/greyhound_soc.sv:869.22" *)
   (* unused_bits = "0" *)
   wire debug_fabric_config_a_optional;
   (* hdlname = "debug_fabric_config_addr" *)
-  (* src = "src/soc/greyhound_soc.sv:860.22" *)
-  (* unused_bits = "4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  (* src = "src/soc/greyhound_soc.sv:864.22" *)
+  (* unused_bits = "5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
   wire [31:0] debug_fabric_config_addr;
   (* hdlname = "debug_fabric_config_aid" *)
-  (* src = "src/soc/greyhound_soc.sv:864.22" *)
+  (* src = "src/soc/greyhound_soc.sv:868.22" *)
   wire debug_fabric_config_aid;
   (* hdlname = "debug_fabric_config_be" *)
-  (* src = "src/soc/greyhound_soc.sv:862.22" *)
+  (* src = "src/soc/greyhound_soc.sv:866.22" *)
   wire [3:0] debug_fabric_config_be;
   (* hdlname = "debug_fabric_config_err" *)
-  (* src = "src/soc/greyhound_soc.sv:879.20" *)
+  (* src = "src/soc/greyhound_soc.sv:883.20" *)
   wire debug_fabric_config_err;
   (* hdlname = "debug_fabric_config_gnt" *)
-  (* src = "src/soc/greyhound_soc.sv:875.20" *)
+  (* src = "src/soc/greyhound_soc.sv:879.20" *)
   wire debug_fabric_config_gnt;
   (* hdlname = "debug_fabric_config_r_optional" *)
-  (* src = "src/soc/greyhound_soc.sv:880.20" *)
+  (* src = "src/soc/greyhound_soc.sv:884.20" *)
   wire debug_fabric_config_r_optional;
   (* hdlname = "debug_fabric_config_rdata" *)
-  (* src = "src/soc/greyhound_soc.sv:877.20" *)
+  (* src = "src/soc/greyhound_soc.sv:881.20" *)
   wire [31:0] debug_fabric_config_rdata;
   (* hdlname = "debug_fabric_config_req" *)
-  (* src = "src/soc/greyhound_soc.sv:859.22" *)
+  (* src = "src/soc/greyhound_soc.sv:863.22" *)
   wire [31:0] debug_fabric_config_req;
   (* hdlname = "debug_fabric_config_rid" *)
-  (* src = "src/soc/greyhound_soc.sv:878.20" *)
+  (* src = "src/soc/greyhound_soc.sv:882.20" *)
   wire debug_fabric_config_rid;
   (* hdlname = "debug_fabric_config_rvalid" *)
-  (* src = "src/soc/greyhound_soc.sv:876.20" *)
+  (* src = "src/soc/greyhound_soc.sv:880.20" *)
   wire debug_fabric_config_rvalid;
   (* hdlname = "debug_fabric_config_wdata" *)
-  (* src = "src/soc/greyhound_soc.sv:863.22" *)
+  (* src = "src/soc/greyhound_soc.sv:867.22" *)
   wire [31:0] debug_fabric_config_wdata;
   (* hdlname = "debug_fabric_config_we" *)
-  (* src = "src/soc/greyhound_soc.sv:861.22" *)
+  (* src = "src/soc/greyhound_soc.sv:865.22" *)
   wire debug_fabric_config_we;
   (* hdlname = "debug_fabric_err" *)
-  (* src = "src/soc/greyhound_soc.sv:996.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1004.20" *)
   wire debug_fabric_err;
   (* hdlname = "debug_fabric_gnt" *)
-  (* src = "src/soc/greyhound_soc.sv:992.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1000.20" *)
   wire debug_fabric_gnt;
   (* hdlname = "debug_fabric_r_optional" *)
-  (* src = "src/soc/greyhound_soc.sv:997.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1005.20" *)
   wire debug_fabric_r_optional;
   (* hdlname = "debug_fabric_rdata" *)
-  (* src = "src/soc/greyhound_soc.sv:994.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1002.20" *)
   wire [31:0] debug_fabric_rdata;
   (* hdlname = "debug_fabric_req" *)
-  (* src = "src/soc/greyhound_soc.sv:976.22" *)
+  (* src = "src/soc/greyhound_soc.sv:984.22" *)
   wire [31:0] debug_fabric_req;
   (* hdlname = "debug_fabric_rid" *)
-  (* src = "src/soc/greyhound_soc.sv:995.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1003.20" *)
   wire debug_fabric_rid;
   (* hdlname = "debug_fabric_rvalid" *)
-  (* src = "src/soc/greyhound_soc.sv:993.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1001.20" *)
   wire debug_fabric_rvalid;
   (* hdlname = "debug_fabric_wdata" *)
-  (* src = "src/soc/greyhound_soc.sv:980.22" *)
+  (* src = "src/soc/greyhound_soc.sv:988.22" *)
   wire [31:0] debug_fabric_wdata;
   (* hdlname = "debug_fabric_we" *)
-  (* src = "src/soc/greyhound_soc.sv:978.22" *)
+  (* src = "src/soc/greyhound_soc.sv:986.22" *)
   wire debug_fabric_we;
   (* hdlname = "debug_req" *)
-  (* src = "src/soc/greyhound_soc.sv:336.11" *)
+  (* src = "src/soc/greyhound_soc.sv:339.11" *)
   wire debug_req;
   (* hdlname = "dmi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:1010.17" *)
+  (* src = "src/soc/greyhound_soc.sv:1018.17" *)
   wire [40:0] dmi_req;
   (* hdlname = "dmi_req_ready" *)
-  (* src = "src/soc/greyhound_soc.sv:1009.35" *)
+  (* src = "src/soc/greyhound_soc.sv:1017.35" *)
   wire dmi_req_ready;
   (* hdlname = "dmi_req_valid" *)
-  (* src = "src/soc/greyhound_soc.sv:1009.20" *)
+  (* src = "src/soc/greyhound_soc.sv:1017.20" *)
   wire dmi_req_valid;
   (* hdlname = "dmi_resp" *)
-  (* src = "src/soc/greyhound_soc.sv:1011.18" *)
+  (* src = "src/soc/greyhound_soc.sv:1019.18" *)
   wire [33:0] dmi_resp;
   (* hdlname = "dmi_resp_ready" *)
-  (* src = "src/soc/greyhound_soc.sv:1009.66" *)
+  (* src = "src/soc/greyhound_soc.sv:1017.66" *)
   wire dmi_resp_ready;
   (* hdlname = "dmi_resp_valid" *)
-  (* src = "src/soc/greyhound_soc.sv:1009.50" *)
+  (* src = "src/soc/greyhound_soc.sv:1017.50" *)
   wire dmi_resp_valid;
   (* hdlname = "dmi_rst_n" *)
-  (* src = "src/soc/greyhound_soc.sv:1009.9" *)
+  (* src = "src/soc/greyhound_soc.sv:1017.9" *)
   wire dmi_rst_n;
   (* hdlname = "error_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:239.19" *)
+  (* src = "src/soc/greyhound_soc.sv:242.19" *)
   wire [71:0] error_obi_req;
   (* hdlname = "error_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:240.19" *)
+  (* src = "src/soc/greyhound_soc.sv:243.19" *)
   wire [36:0] error_obi_rsp;
   (* hdlname = "ext_if commit" *)
   (* src = "ip/cv32e40x/rtl/cv32e40x_if_xif.sv:134.23" *)
@@ -35667,294 +31050,296 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
   (* src = "ip/cv32e40x/rtl/cv32e40x_if_xif.sv:147.23" *)
   wire \ext_if.result_valid ;
   (* hdlname = "fabric_config_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:259.19" *)
-  (* unused_bits = "1 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71" *)
+  (* src = "src/soc/greyhound_soc.sv:262.19" *)
+  (* unused_bits = "1 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71" *)
   wire [71:0] fabric_config_obi_req;
   (* hdlname = "fabric_config_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:260.19" *)
+  (* src = "src/soc/greyhound_soc.sv:263.19" *)
   wire [36:0] fabric_config_obi_rsp;
   (* hdlname = "fabric_gnt_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:947.22" *)
+  (* src = "src/soc/greyhound_soc.sv:955.22" *)
   wire fabric_gnt_gated;
   (* hdlname = "fabric_issue_accept_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:123.18" *)
+  (* src = "src/soc/greyhound_soc.sv:126.18" *)
   wire fabric_issue_accept_gated;
   (* hdlname = "fabric_issue_ready_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:122.18" *)
+  (* src = "src/soc/greyhound_soc.sv:125.18" *)
   wire fabric_issue_ready_gated;
   (* hdlname = "fabric_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:263.19" *)
+  (* src = "src/soc/greyhound_soc.sv:266.19" *)
   (* unused_bits = "1 64 65 66 67 68 69 70 71" *)
   wire [71:0] fabric_obi_req;
   (* hdlname = "fabric_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:264.19" *)
+  (* src = "src/soc/greyhound_soc.sv:267.19" *)
   wire [36:0] fabric_obi_rsp;
   (* hdlname = "fabric_rdata_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:949.22" *)
+  (* src = "src/soc/greyhound_soc.sv:957.22" *)
   wire [31:0] fabric_rdata_gated;
   (* hdlname = "fabric_result_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:128.18" *)
+  (* src = "src/soc/greyhound_soc.sv:131.18" *)
   wire [31:0] fabric_result_gated;
   (* hdlname = "fabric_result_id_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:126.18" *)
+  (* src = "src/soc/greyhound_soc.sv:129.18" *)
   wire [3:0] fabric_result_id_gated;
   (* hdlname = "fabric_result_rd_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:127.18" *)
+  (* src = "src/soc/greyhound_soc.sv:130.18" *)
   wire [4:0] fabric_result_rd_gated;
   (* hdlname = "fabric_result_valid_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:125.18" *)
+  (* src = "src/soc/greyhound_soc.sv:128.18" *)
   wire fabric_result_valid_gated;
   (* hdlname = "fabric_rvalid_gated" *)
-  (* src = "src/soc/greyhound_soc.sv:948.22" *)
+  (* src = "src/soc/greyhound_soc.sv:956.22" *)
   wire fabric_rvalid_gated;
   (* hdlname = "flash_HADDR" *)
-  (* src = "src/soc/greyhound_soc.sv:544.26" *)
+  (* src = "src/soc/greyhound_soc.sv:547.26" *)
   wire [31:0] flash_HADDR;
   (* hdlname = "flash_HRDATA" *)
-  (* src = "src/soc/greyhound_soc.sv:549.26" *)
+  (* src = "src/soc/greyhound_soc.sv:552.26" *)
   wire [31:0] flash_HRDATA;
   (* hdlname = "flash_HREADY" *)
-  (* src = "src/soc/greyhound_soc.sv:547.26" *)
+  (* src = "src/soc/greyhound_soc.sv:550.26" *)
   wire flash_HREADY;
   (* hdlname = "flash_HREADYOUT" *)
-  (* src = "src/soc/greyhound_soc.sv:548.26" *)
+  (* src = "src/soc/greyhound_soc.sv:551.26" *)
   wire flash_HREADYOUT;
   (* hdlname = "flash_HSEL" *)
-  (* src = "src/soc/greyhound_soc.sv:543.26" *)
+  (* src = "src/soc/greyhound_soc.sv:546.26" *)
   wire flash_HSEL;
   (* hdlname = "flash_HTRANS" *)
-  (* src = "src/soc/greyhound_soc.sv:545.26" *)
+  (* src = "src/soc/greyhound_soc.sv:548.26" *)
   wire [1:0] flash_HTRANS;
   (* hdlname = "flash_HWRITE" *)
-  (* src = "src/soc/greyhound_soc.sv:546.26" *)
+  (* src = "src/soc/greyhound_soc.sv:549.26" *)
   wire flash_HWRITE;
   (* hdlname = "flash_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:243.19" *)
+  (* src = "src/soc/greyhound_soc.sv:246.19" *)
   (* unused_bits = "1" *)
   wire [71:0] flash_obi_req;
   (* hdlname = "flash_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:244.19" *)
+  (* src = "src/soc/greyhound_soc.sv:247.19" *)
   wire [36:0] flash_obi_rsp;
   (* hdlname = "instr_addr_o" *)
-  (* src = "src/soc/greyhound_soc.sv:300.36" *)
+  (* src = "src/soc/greyhound_soc.sv:303.36" *)
   wire [31:0] instr_addr_o;
   (* hdlname = "instr_err_i" *)
-  (* src = "src/soc/greyhound_soc.sv:302.36" *)
+  (* src = "src/soc/greyhound_soc.sv:305.36" *)
   wire instr_err_i;
   (* hdlname = "instr_gnt_i" *)
-  (* src = "src/soc/greyhound_soc.sv:298.36" *)
+  (* src = "src/soc/greyhound_soc.sv:301.36" *)
   wire instr_gnt_i;
   (* hdlname = "instr_rdata_i" *)
-  (* src = "src/soc/greyhound_soc.sv:301.36" *)
+  (* src = "src/soc/greyhound_soc.sv:304.36" *)
   wire [31:0] instr_rdata_i;
   (* hdlname = "instr_req_o" *)
-  (* src = "src/soc/greyhound_soc.sv:297.36" *)
+  (* src = "src/soc/greyhound_soc.sv:300.36" *)
   wire instr_req_o;
   (* hdlname = "instr_rvalid_i" *)
-  (* src = "src/soc/greyhound_soc.sv:299.36" *)
+  (* src = "src/soc/greyhound_soc.sv:302.36" *)
   wire instr_rvalid_i;
   (* hdlname = "irq" *)
-  (* src = "src/soc/greyhound_soc.sv:339.18" *)
+  (* src = "src/soc/greyhound_soc.sv:342.18" *)
   wire [31:0] irq;
   (* hdlname = "mgrs_mux_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:217.37" *)
+  (* src = "src/soc/greyhound_soc.sv:220.37" *)
   wire [215:0] mgrs_mux_obi_req;
   (* hdlname = "mgrs_mux_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:218.37" *)
+  (* src = "src/soc/greyhound_soc.sv:221.37" *)
   (* unused_bits = "2 4 39 41 76 78" *)
   wire [110:0] mgrs_mux_obi_rsp;
   (* hdlname = "mux_demux_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:210.19" *)
+  (* src = "src/soc/greyhound_soc.sv:213.19" *)
   wire [71:0] mux_demux_obi_req;
   (* hdlname = "mux_demux_obi_req_a_addr" *)
-  (* src = "src/soc/greyhound_soc.sv:503.16" *)
+  (* src = "src/soc/greyhound_soc.sv:506.16" *)
   wire [31:0] mux_demux_obi_req_a_addr;
   (* hdlname = "mux_demux_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:211.19" *)
+  (* src = "src/soc/greyhound_soc.sv:214.19" *)
   wire [36:0] mux_demux_obi_rsp;
   (* hdlname = "periph_idx" *)
-  (* src = "src/soc/greyhound_soc.sv:471.50" *)
+  (* src = "src/soc/greyhound_soc.sv:474.50" *)
   wire [2:0] periph_idx;
   (* hdlname = "psram_HADDR" *)
-  (* src = "src/soc/greyhound_soc.sv:705.26" *)
+  (* src = "src/soc/greyhound_soc.sv:708.26" *)
   wire [31:0] psram_HADDR;
   (* hdlname = "psram_HRDATA" *)
-  (* src = "src/soc/greyhound_soc.sv:712.26" *)
+  (* src = "src/soc/greyhound_soc.sv:715.26" *)
   wire [31:0] psram_HRDATA;
   (* hdlname = "psram_HREADY" *)
-  (* src = "src/soc/greyhound_soc.sv:710.26" *)
+  (* src = "src/soc/greyhound_soc.sv:713.26" *)
   wire psram_HREADY;
   (* hdlname = "psram_HREADYOUT" *)
-  (* src = "src/soc/greyhound_soc.sv:711.26" *)
+  (* src = "src/soc/greyhound_soc.sv:714.26" *)
   wire psram_HREADYOUT;
   (* hdlname = "psram_HSEL" *)
-  (* src = "src/soc/greyhound_soc.sv:704.26" *)
+  (* src = "src/soc/greyhound_soc.sv:707.26" *)
   wire psram_HSEL;
   (* hdlname = "psram_HSIZE" *)
-  (* src = "src/soc/greyhound_soc.sv:707.26" *)
+  (* src = "src/soc/greyhound_soc.sv:710.26" *)
   wire [2:0] psram_HSIZE;
   (* hdlname = "psram_HTRANS" *)
-  (* src = "src/soc/greyhound_soc.sv:706.26" *)
+  (* src = "src/soc/greyhound_soc.sv:709.26" *)
   wire [1:0] psram_HTRANS;
   (* hdlname = "psram_HWDATA" *)
-  (* src = "src/soc/greyhound_soc.sv:708.26" *)
+  (* src = "src/soc/greyhound_soc.sv:711.26" *)
   wire [31:0] psram_HWDATA;
   (* hdlname = "psram_HWRITE" *)
-  (* src = "src/soc/greyhound_soc.sv:709.26" *)
+  (* src = "src/soc/greyhound_soc.sv:712.26" *)
   wire psram_HWRITE;
   (* hdlname = "psram_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:251.19" *)
+  (* src = "src/soc/greyhound_soc.sv:254.19" *)
   (* unused_bits = "1" *)
   wire [71:0] psram_obi_req;
   (* hdlname = "psram_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:252.19" *)
+  (* src = "src/soc/greyhound_soc.sv:255.19" *)
   wire [36:0] psram_obi_rsp;
   (* hdlname = "sram_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:247.19" *)
+  (* src = "src/soc/greyhound_soc.sv:250.19" *)
   wire [71:0] sram_obi_req;
   (* hdlname = "sram_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:248.19" *)
+  (* src = "src/soc/greyhound_soc.sv:251.19" *)
   wire [36:0] sram_obi_rsp;
   (* hdlname = "time_counter" *)
-  (* src = "src/soc/greyhound_soc.sv:172.18" *)
+  (* src = "src/soc/greyhound_soc.sv:175.18" *)
   reg [63:0] time_counter;
   (* hdlname = "uart0_HADDR" *)
-  (* src = "src/soc/greyhound_soc.sv:782.26" *)
+  (* src = "src/soc/greyhound_soc.sv:785.26" *)
   wire [31:0] uart0_HADDR;
   (* hdlname = "uart0_HRDATA" *)
-  (* src = "src/soc/greyhound_soc.sv:789.26" *)
+  (* src = "src/soc/greyhound_soc.sv:792.26" *)
   wire [31:0] uart0_HRDATA;
   (* hdlname = "uart0_HREADY" *)
-  (* src = "src/soc/greyhound_soc.sv:787.26" *)
+  (* src = "src/soc/greyhound_soc.sv:790.26" *)
   wire uart0_HREADY;
   (* hdlname = "uart0_HREADYOUT" *)
-  (* src = "src/soc/greyhound_soc.sv:788.26" *)
+  (* src = "src/soc/greyhound_soc.sv:791.26" *)
   wire uart0_HREADYOUT;
   (* hdlname = "uart0_HSEL" *)
-  (* src = "src/soc/greyhound_soc.sv:781.26" *)
+  (* src = "src/soc/greyhound_soc.sv:784.26" *)
   wire uart0_HSEL;
   (* hdlname = "uart0_HSIZE" *)
-  (* src = "src/soc/greyhound_soc.sv:784.26" *)
+  (* src = "src/soc/greyhound_soc.sv:787.26" *)
   (* unused_bits = "0 1 2" *)
   wire [2:0] uart0_HSIZE;
   (* hdlname = "uart0_HTRANS" *)
-  (* src = "src/soc/greyhound_soc.sv:783.26" *)
+  (* src = "src/soc/greyhound_soc.sv:786.26" *)
   wire [1:0] uart0_HTRANS;
   (* hdlname = "uart0_HWDATA" *)
-  (* src = "src/soc/greyhound_soc.sv:785.26" *)
+  (* src = "src/soc/greyhound_soc.sv:788.26" *)
   wire [31:0] uart0_HWDATA;
   (* hdlname = "uart0_HWRITE" *)
-  (* src = "src/soc/greyhound_soc.sv:786.26" *)
+  (* src = "src/soc/greyhound_soc.sv:789.26" *)
   wire uart0_HWRITE;
   (* hdlname = "uart0_irq" *)
-  (* src = "src/soc/greyhound_soc.sv:340.11" *)
+  (* src = "src/soc/greyhound_soc.sv:343.11" *)
   wire uart0_irq;
   (* hdlname = "uart0_obi_req" *)
-  (* src = "src/soc/greyhound_soc.sv:255.19" *)
+  (* src = "src/soc/greyhound_soc.sv:258.19" *)
   (* unused_bits = "1" *)
   wire [71:0] uart0_obi_req;
   (* hdlname = "uart0_obi_rsp" *)
-  (* src = "src/soc/greyhound_soc.sv:256.19" *)
+  (* src = "src/soc/greyhound_soc.sv:259.19" *)
   wire [36:0] uart0_obi_rsp;
-  assign _000_ = time_counter + (* src = "src/soc/greyhound_soc.sv:177.29-177.45" *) 1'h1;
-  assign _001_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 31'h50000000;
-  assign _002_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 31'h51000000;
-  assign _003_ = _001_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _002_;
-  assign _004_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 31'h40000000;
-  assign _005_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 31'h40000100;
-  assign _006_ = _004_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _005_;
-  assign _007_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 30'h30000000;
-  assign _008_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 30'h30010000;
-  assign _009_ = _007_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _008_;
-  assign _010_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 30'h20000000;
-  assign _011_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 30'h21000000;
-  assign _012_ = _010_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _011_;
-  assign _013_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 29'h10000000;
-  assign _014_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 29'h10002000;
-  assign _015_ = _013_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _014_;
-  assign _016_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 1'h0;
-  assign _017_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 25'h1000000;
-  assign _018_ = _016_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _017_;
-  assign _019_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:498.14-498.71" *) 31'h60000000;
-  assign _020_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:499.11-499.65" *) 31'h60001000;
-  assign _021_ = _019_ && (* src = "src/soc/greyhound_soc.sv:498.13-499.106" *) _020_;
-  assign flash_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:585.25-585.50" *) 1'h1;
-  assign psram_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:748.25-748.50" *) 2'h3;
-  assign uart0_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:825.25-825.50" *) 3'h4;
-  assign _022_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:912.25-912.75" *) 4'h8;
-  assign _023_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:921.25-921.78" *) 4'hc;
-  assign _024_ = all_periph_obi_req[403:400] == (* src = "src/soc/greyhound_soc.sv:929.25-929.84" *) 3'h4;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+  assign _000_ = time_counter + (* src = "src/soc/greyhound_soc.sv:180.29-180.45" *) 1'h1;
+  assign _001_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h50000000;
+  assign _002_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h51000000;
+  assign _003_ = _001_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _002_;
+  assign _004_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h40000000;
+  assign _005_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h40000100;
+  assign _006_ = _004_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _005_;
+  assign _007_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 30'h30000000;
+  assign _008_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 30'h30010000;
+  assign _009_ = _007_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _008_;
+  assign _010_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 30'h20000000;
+  assign _011_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 30'h21000000;
+  assign _012_ = _010_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _011_;
+  assign _013_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 29'h10000000;
+  assign _014_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 29'h10002000;
+  assign _015_ = _013_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _014_;
+  assign _016_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 1'h0;
+  assign _017_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 25'h1000000;
+  assign _018_ = _016_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _017_;
+  assign _019_ = mux_demux_obi_req[71:40] >= (* src = "src/soc/greyhound_soc.sv:501.14-501.71" *) 31'h60000000;
+  assign _020_ = mux_demux_obi_req[71:40] < (* src = "src/soc/greyhound_soc.sv:502.11-502.65" *) 31'h60001000;
+  assign _021_ = _019_ && (* src = "src/soc/greyhound_soc.sv:501.13-502.106" *) _020_;
+  assign flash_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:588.25-588.50" *) 1'h1;
+  assign psram_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:751.25-751.50" *) 2'h3;
+  assign uart0_HSEL = periph_idx == (* src = "src/soc/greyhound_soc.sv:828.25-828.50" *) 3'h4;
+  assign _022_ = all_periph_obi_req[404:400] == (* src = "src/soc/greyhound_soc.sv:916.25-916.75" *) 4'h8;
+  assign _023_ = all_periph_obi_req[404:400] == (* src = "src/soc/greyhound_soc.sv:925.25-925.78" *) 4'hc;
+  assign _024_ = all_periph_obi_req[404:400] == (* src = "src/soc/greyhound_soc.sv:933.25-933.84" *) 3'h4;
+  assign _025_ = all_periph_obi_req[404:400] == (* src = "src/soc/greyhound_soc.sv:937.25-937.74" *) 5'h10;
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) bitstream_data_o <= 32'd0;
-    else bitstream_data_o <= _028_;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+    else bitstream_data_o <= _029_;
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) bitstream_valid_o <= 1'h0;
-    else bitstream_valid_o <= _035_;
-  reg [31:0] _082_;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+    else bitstream_valid_o <= _036_;
+  reg [31:0] _085_;
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) _082_ <= 32'd0;
-    else _082_ <= _038_;
-  assign fabric_config_obi_rsp[36:5] = _082_;
+    if (!rst_ni) _085_ <= 32'd0;
+    else _085_ <= _040_;
+  assign fabric_config_obi_rsp[36:5] = _085_;
   reg \fabric_config_obi_rsp_reg[0] ;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) \fabric_config_obi_rsp_reg[0]  <= 1'h0;
-    else \fabric_config_obi_rsp_reg[0]  <= _036_;
+    else \fabric_config_obi_rsp_reg[0]  <= _037_;
   assign fabric_config_obi_rsp[0] = \fabric_config_obi_rsp_reg[0] ;
-  (* src = "src/soc/greyhound_soc.sv:173.5" *)
+  (* src = "src/soc/greyhound_soc.sv:176.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) time_counter <= 64'h0000000000000000;
     else time_counter <= _000_;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) warmboot_boot_o <= 1'h0;
-    else warmboot_boot_o <= _051_;
-  (* src = "src/soc/greyhound_soc.sv:890.5" *)
+    else warmboot_boot_o <= _053_;
+  (* src = "src/soc/greyhound_soc.sv:894.5" *)
   always_ff @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) warmboot_slot_o <= 4'h0;
-    else warmboot_slot_o <= _050_;
-  assign _025_[0] = _024_ ? (* src = "src/soc/greyhound_soc.sv:930.25-930.88|src/soc/greyhound_soc.sv:929.21-931.24" *) fabric_config_busy_i : 1'h0;
-  assign _045_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:922.60-922.116|src/soc/greyhound_soc.sv:922.25-922.116" *) all_periph_obi_req[366:363] : warmboot_slot_o;
-  assign _046_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:921.80-925.24|src/soc/greyhound_soc.sv:921.21-925.24" *) _045_ : warmboot_slot_o;
-  assign _047_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:921.80-925.24|src/soc/greyhound_soc.sv:921.21-925.24" *) 1'h1 : 1'h0;
-  assign _031_ = all_periph_obi_req[398] ? (* src = "src/soc/greyhound_soc.sv:916.60-916.124|src/soc/greyhound_soc.sv:916.25-916.124" *) all_periph_obi_req[394:387] : bitstream_data_o[31:24];
-  assign _030_ = all_periph_obi_req[397] ? (* src = "src/soc/greyhound_soc.sv:915.60-915.124|src/soc/greyhound_soc.sv:915.25-915.124" *) all_periph_obi_req[386:379] : bitstream_data_o[23:16];
-  assign _029_ = all_periph_obi_req[396] ? (* src = "src/soc/greyhound_soc.sv:914.60-914.124|src/soc/greyhound_soc.sv:914.25-914.124" *) all_periph_obi_req[378:371] : bitstream_data_o[15:8];
-  assign _032_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:913.60-913.124|src/soc/greyhound_soc.sv:913.25-913.124" *) all_periph_obi_req[370:363] : bitstream_data_o[7:0];
-  assign _026_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:912.77-919.24|src/soc/greyhound_soc.sv:912.21-919.24" *) { _031_, _030_, _029_, _032_ } : bitstream_data_o;
-  assign _033_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:912.77-919.24|src/soc/greyhound_soc.sv:912.21-919.24" *) 1'h1 : 1'h0;
-  assign _037_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:910.49-927.20|src/soc/greyhound_soc.sv:910.17-932.20" *) fabric_config_obi_rsp[36:5] : { 31'h00000000, _025_[0] };
-  assign _048_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:910.49-927.20|src/soc/greyhound_soc.sv:910.17-932.20" *) _046_ : warmboot_slot_o;
-  assign _049_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:910.49-927.20|src/soc/greyhound_soc.sv:910.17-932.20" *) _047_ : 1'h0;
-  assign _027_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:910.49-927.20|src/soc/greyhound_soc.sv:910.17-932.20" *) _026_ : bitstream_data_o;
-  assign _034_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:910.49-927.20|src/soc/greyhound_soc.sv:910.17-932.20" *) _033_ : 1'h0;
-  assign _038_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) _037_ : fabric_config_obi_rsp[36:5];
-  assign _036_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) 1'h1 : 1'h0;
-  assign _050_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) _048_ : warmboot_slot_o;
-  assign _051_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) _049_ : 1'h0;
-  assign _028_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) _027_ : bitstream_data_o;
-  assign _035_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:905.44-933.16|src/soc/greyhound_soc.sv:905.13-933.16" *) _034_ : 1'h0;
-  assign periph_idx = _021_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h7 : _044_;
-  assign _044_ = _018_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h1 : _043_;
-  assign _043_ = _015_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h2 : _042_;
-  assign _042_ = _012_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h3 : _041_;
-  assign _041_ = _009_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h4 : _040_;
-  assign _040_ = _006_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h5 : _039_;
-  assign _039_ = _003_ ? (* src = "src/soc/greyhound_soc.sv:499.108-499.144|src/soc/greyhound_soc.sv:498.9-499.144" *) 3'h6 : 3'h0;
-  assign debug_fabric_rdata = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:955.34-959.12|src/soc/greyhound_soc.sv:955.9-959.12" *) fabric_rdata_i : 32'd0;
-  assign debug_fabric_rvalid = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:955.34-959.12|src/soc/greyhound_soc.sv:955.9-959.12" *) fabric_rvalid_i : 1'h0;
-  assign debug_fabric_gnt = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:955.34-959.12|src/soc/greyhound_soc.sv:955.9-959.12" *) fabric_gnt_i : 1'h0;
-  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_i : 32'd0;
-  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_rd_i : 5'h00;
-  assign fabric_result_id_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_id_i : 4'h0;
-  assign fabric_result_valid_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_result_valid_i : 1'h0;
-  assign fabric_issue_accept_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_accept_i : 1'h0;
-  assign fabric_issue_ready_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:138.34-146.12|src/soc/greyhound_soc.sv:138.9-146.12" *) fabric_issue_ready_i : 1'h1;
+    else warmboot_slot_o <= _052_;
+  assign _038_ = _025_ ? (* src = "src/soc/greyhound_soc.sv:938.25-938.69|src/soc/greyhound_soc.sv:937.21-939.24" *) usercode_i : { 31'h00000000, _026_[0] };
+  assign _026_[0] = _024_ ? (* src = "src/soc/greyhound_soc.sv:934.25-934.88|src/soc/greyhound_soc.sv:933.21-935.24" *) fabric_config_busy_i : 1'h0;
+  assign _047_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:926.60-926.116|src/soc/greyhound_soc.sv:926.25-926.116" *) all_periph_obi_req[366:363] : warmboot_slot_o;
+  assign _048_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:925.80-929.24|src/soc/greyhound_soc.sv:925.21-929.24" *) _047_ : warmboot_slot_o;
+  assign _049_ = _023_ ? (* src = "src/soc/greyhound_soc.sv:925.80-929.24|src/soc/greyhound_soc.sv:925.21-929.24" *) 1'h1 : 1'h0;
+  assign _032_ = all_periph_obi_req[398] ? (* src = "src/soc/greyhound_soc.sv:920.60-920.124|src/soc/greyhound_soc.sv:920.25-920.124" *) all_periph_obi_req[394:387] : bitstream_data_o[31:24];
+  assign _031_ = all_periph_obi_req[397] ? (* src = "src/soc/greyhound_soc.sv:919.60-919.124|src/soc/greyhound_soc.sv:919.25-919.124" *) all_periph_obi_req[386:379] : bitstream_data_o[23:16];
+  assign _030_ = all_periph_obi_req[396] ? (* src = "src/soc/greyhound_soc.sv:918.60-918.124|src/soc/greyhound_soc.sv:918.25-918.124" *) all_periph_obi_req[378:371] : bitstream_data_o[15:8];
+  assign _033_ = all_periph_obi_req[395] ? (* src = "src/soc/greyhound_soc.sv:917.60-917.124|src/soc/greyhound_soc.sv:917.25-917.124" *) all_periph_obi_req[370:363] : bitstream_data_o[7:0];
+  assign _027_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:916.77-923.24|src/soc/greyhound_soc.sv:916.21-923.24" *) { _032_, _031_, _030_, _033_ } : bitstream_data_o;
+  assign _034_ = _022_ ? (* src = "src/soc/greyhound_soc.sv:916.77-923.24|src/soc/greyhound_soc.sv:916.21-923.24" *) 1'h1 : 1'h0;
+  assign _039_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:914.49-931.20|src/soc/greyhound_soc.sv:914.17-940.20" *) fabric_config_obi_rsp[36:5] : _038_;
+  assign _050_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:914.49-931.20|src/soc/greyhound_soc.sv:914.17-940.20" *) _048_ : warmboot_slot_o;
+  assign _051_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:914.49-931.20|src/soc/greyhound_soc.sv:914.17-940.20" *) _049_ : 1'h0;
+  assign _028_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:914.49-931.20|src/soc/greyhound_soc.sv:914.17-940.20" *) _027_ : bitstream_data_o;
+  assign _035_ = all_periph_obi_req[399] ? (* full_case = 32'd1 *) (* src = "src/soc/greyhound_soc.sv:914.49-931.20|src/soc/greyhound_soc.sv:914.17-940.20" *) _034_ : 1'h0;
+  assign _040_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) _039_ : fabric_config_obi_rsp[36:5];
+  assign _037_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) 1'h1 : 1'h0;
+  assign _052_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) _050_ : warmboot_slot_o;
+  assign _053_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) _051_ : 1'h0;
+  assign _029_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) _028_ : bitstream_data_o;
+  assign _036_ = all_periph_obi_req[360] ? (* src = "src/soc/greyhound_soc.sv:909.44-941.16|src/soc/greyhound_soc.sv:909.13-941.16" *) _035_ : 1'h0;
+  assign periph_idx = _021_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h7 : _046_;
+  assign _046_ = _018_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h1 : _045_;
+  assign _045_ = _015_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h2 : _044_;
+  assign _044_ = _012_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h3 : _043_;
+  assign _043_ = _009_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h4 : _042_;
+  assign _042_ = _006_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h5 : _041_;
+  assign _041_ = _003_ ? (* src = "src/soc/greyhound_soc.sv:502.108-502.144|src/soc/greyhound_soc.sv:501.9-502.144" *) 3'h6 : 3'h0;
+  assign debug_fabric_rdata = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:963.34-967.12|src/soc/greyhound_soc.sv:963.9-967.12" *) fabric_rdata_i : 32'd0;
+  assign debug_fabric_rvalid = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:963.34-967.12|src/soc/greyhound_soc.sv:963.9-967.12" *) fabric_rvalid_i : 1'h0;
+  assign debug_fabric_gnt = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:963.34-967.12|src/soc/greyhound_soc.sv:963.9-967.12" *) fabric_gnt_i : 1'h0;
+  assign fabric_result_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_result_i : 32'd0;
+  assign fabric_result_rd_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_result_rd_i : 5'h00;
+  assign fabric_result_id_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_result_id_i : 4'h0;
+  assign fabric_result_valid_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_result_valid_i : 1'h0;
+  assign fabric_issue_accept_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_issue_accept_i : 1'h0;
+  assign fabric_issue_ready_gated = fabric_configured_i ? (* src = "src/soc/greyhound_soc.sv:141.34-149.12|src/soc/greyhound_soc.sv:141.9-149.12" *) fabric_issue_ready_i : 1'h1;
   (* hdlname = "cv32e40x_core" *)
-  (* src = "src/soc/greyhound_soc.sv:357.7" *)
+  (* src = "src/soc/greyhound_soc.sv:360.7" *)
   \cv32e40x_core$greyhound_soc.cv32e40x_core  cv32e40x_core (
     .boot_addr_i(32'd128),
     .clic_irq_i(1'h0),
@@ -36014,7 +31399,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .\xif_result_if.result_valid (\ext_if.result_valid )
   );
   (* hdlname = "fabric_extension" *)
-  (* src = "src/soc/greyhound_soc.sv:149.22" *)
+  (* src = "src/soc/greyhound_soc.sv:152.22" *)
   \fabric_extension$greyhound_soc.fabric_extension  fabric_extension (
     .fabric_issue_accept_i(fabric_issue_accept_gated),
     .fabric_issue_id_o(fabric_issue_id_o),
@@ -36048,7 +31433,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .\xif_result.result_valid (\ext_if.result_valid )
   );
   (* hdlname = "i_EF_PSRAM_CTRL_AHBL" *)
-  (* src = "src/soc/greyhound_soc.sv:755.24" *)
+  (* src = "src/soc/greyhound_soc.sv:758.24" *)
   \EF_PSRAM_CTRL_AHBL$greyhound_soc.i_EF_PSRAM_CTRL_AHBL  i_EF_PSRAM_CTRL_AHBL (
     .HADDR(psram_HADDR),
     .HCLK(clk_i),
@@ -36068,7 +31453,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .sck(psram_sck)
   );
   (* hdlname = "i_EF_QSPI_XIP_CTRL_AHBL" *)
-  (* src = "src/soc/greyhound_soc.sv:597.5" *)
+  (* src = "src/soc/greyhound_soc.sv:600.5" *)
   \EF_QSPI_XIP_CTRL_AHBL$greyhound_soc.i_EF_QSPI_XIP_CTRL_AHBL  i_EF_QSPI_XIP_CTRL_AHBL (
     .HADDR(flash_HADDR),
     .HCLK(clk_i),
@@ -36086,7 +31471,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .sck(flash_sck)
   );
   (* hdlname = "i_EF_UART_AHBL" *)
-  (* src = "src/soc/greyhound_soc.sv:831.18" *)
+  (* src = "src/soc/greyhound_soc.sv:834.18" *)
   \EF_UART_AHBL$greyhound_soc.i_EF_UART_AHBL  i_EF_UART_AHBL (
     .HADDR(uart0_HADDR),
     .HCLK(clk_i),
@@ -36103,7 +31488,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .tx(uart0_tx)
   );
   (* hdlname = "i_dm_top" *)
-  (* src = "src/soc/greyhound_soc.sv:1040.5" *)
+  (* src = "src/soc/greyhound_soc.sv:1048.5" *)
   \dm_obi_top$greyhound_soc.i_dm_top  i_dm_top (
     .clk_i(clk_i),
     .debug_req_o(debug_req),
@@ -36140,9 +31525,9 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .unavailable_i(1'h0)
   );
   (* hdlname = "i_dmi_jtag" *)
-  (* src = "src/soc/greyhound_soc.sv:1015.5" *)
-  \dmi_jtag$greyhound_soc.i_dmi_jtag  i_dmi_jtag (
-    .clk_i(clk_i),
+  (* src = "src/soc/greyhound_soc.sv:1023.5" *)
+  \soc_dmi_jtag$greyhound_soc.i_dmi_jtag  i_dmi_jtag (
+    .clk_i(jclk_i),
     .dmi_req_o(dmi_req),
     .dmi_req_ready_i(dmi_req_ready),
     .dmi_req_valid_o(dmi_req_valid),
@@ -36150,16 +31535,16 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .dmi_resp_ready_o(dmi_resp_ready),
     .dmi_resp_valid_i(dmi_resp_valid),
     .dmi_rst_no(dmi_rst_n),
+    .jclk_falling_i(jclk_falling_i),
+    .jclk_rising_i(jclk_rising_i),
+    .jtag_trst_n_sync_i(jtag_trst_n_sync_i),
     .rst_ni(rst_ni),
-    .tck_i(jtag_tck_i),
     .td_i(jtag_tdi_i),
     .td_o(jtag_tdo_o),
-    .testmode_i(1'h0),
-    .tms_i(jtag_tms_i),
-    .trst_ni(jtag_trst_ni)
+    .tms_i(jtag_tms_i)
   );
   (* hdlname = "i_obi2ahbm_adapter_flash" *)
-  (* src = "src/soc/greyhound_soc.sv:551.22" *)
+  (* src = "src/soc/greyhound_soc.sv:554.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_flash  i_obi2ahbm_adapter_flash (
     .data_addr_i(all_periph_obi_req[143:112]),
     .data_be_i(all_periph_obi_req[110:107]),
@@ -36182,7 +31567,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .priv_mode_i(1'h1)
   );
   (* hdlname = "i_obi2ahbm_adapter_psram" *)
-  (* src = "src/soc/greyhound_soc.sv:714.22" *)
+  (* src = "src/soc/greyhound_soc.sv:717.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_psram  i_obi2ahbm_adapter_psram (
     .data_addr_i(all_periph_obi_req[287:256]),
     .data_be_i(all_periph_obi_req[254:251]),
@@ -36207,7 +31592,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .priv_mode_i(1'h1)
   );
   (* hdlname = "i_obi2ahbm_adapter_uart0" *)
-  (* src = "src/soc/greyhound_soc.sv:791.22" *)
+  (* src = "src/soc/greyhound_soc.sv:794.22" *)
   \obi2ahbm_adapter$greyhound_soc.i_obi2ahbm_adapter_uart0  i_obi2ahbm_adapter_uart0 (
     .data_addr_i(all_periph_obi_req[359:328]),
     .data_be_i(all_periph_obi_req[326:323]),
@@ -36232,7 +31617,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .priv_mode_i(1'h1)
   );
   (* hdlname = "i_obi_demux" *)
-  (* src = "src/soc/greyhound_soc.sv:512.5" *)
+  (* src = "src/soc/greyhound_soc.sv:515.5" *)
   \obi_demux$greyhound_soc.i_obi_demux  i_obi_demux (
     .clk_i(clk_i),
     .mgr_ports_req_o(all_periph_obi_req),
@@ -36243,7 +31628,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .sbr_port_select_i(periph_idx)
   );
   (* hdlname = "i_obi_mux" *)
-  (* src = "src/soc/greyhound_soc.sv:454.5" *)
+  (* src = "src/soc/greyhound_soc.sv:457.5" *)
   \obi_mux$greyhound_soc.i_obi_mux  i_obi_mux (
     .clk_i(clk_i),
     .mgr_port_req_o(mux_demux_obi_req),
@@ -36254,7 +31639,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .testmode_i(1'h0)
   );
   (* hdlname = "i_periph_err" *)
-  (* src = "src/soc/greyhound_soc.sv:531.5" *)
+  (* src = "src/soc/greyhound_soc.sv:534.5" *)
   \obi_err_sbr$greyhound_soc.i_periph_err  i_periph_err (
     .clk_i(clk_i),
     .obi_req_i(all_periph_obi_req[71:0]),
@@ -36263,7 +31648,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .testmode_i(1'h0)
   );
   (* hdlname = "i_sram_shim" *)
-  (* src = "src/soc/greyhound_soc.sv:682.7" *)
+  (* src = "src/soc/greyhound_soc.sv:685.7" *)
   \obi_sram_shim$greyhound_soc.i_sram_shim  i_sram_shim (
     .addr_o(bank_byte_addr),
     .be_o(bank_be_o),
@@ -36277,7 +31662,7 @@ module greyhound_soc(clk_i, rst_ni, fabric_irq_i, fabric_config_busy_i, fabric_c
     .wdata_o(bank_wdata_o),
     .we_o(bank_we_o)
   );
-  assign _025_[31:1] = 31'h00000000;
+  assign _026_[31:1] = 31'h00000000;
   assign { all_periph_obi_rsp[262:261], all_periph_obi_rsp[258:185], all_periph_obi_rsp[152], all_periph_obi_rsp[150], all_periph_obi_rsp[115], all_periph_obi_rsp[113], all_periph_obi_rsp[110:74], all_periph_obi_rsp[41], all_periph_obi_rsp[39], all_periph_obi_rsp[36:0] } = { 2'h0, debug_fabric_rdata, all_periph_obi_req[434], 2'h0, debug_fabric_gnt, debug_fabric_rvalid, fabric_config_obi_rsp[36:5], all_periph_obi_req[362], 3'h1, fabric_config_obi_rsp[0], all_periph_obi_req[290], 1'h0, all_periph_obi_req[218], 1'h0, sram_obi_rsp, all_periph_obi_req[74], 1'h0, error_obi_rsp };
   assign bank_gnt = 1'h1;
   assign bank_word_addr_o = bank_byte_addr[12:2];
@@ -37851,412 +33236,834 @@ module \rr_arb_tree$greyhound_soc.i_obi_mux.i_rr_arb (clk_i, rst_ni, req_o, gnt_
   assign { \gen_arbiter.req_nodes [2], \gen_arbiter.req_nodes [0] } = { \gen_arbiter.req_d [2], req_o };
 endmodule
 
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
+(* src = "src/debug/soc_dmi_jtag.sv:20.8" *)
+module \soc_dmi_jtag$greyhound_soc.i_dmi_jtag (clk_i, rst_ni, jclk_rising_i, jclk_falling_i, jtag_trst_n_sync_i, dmi_rst_no, dmi_req_o, dmi_req_valid_o, dmi_req_ready_i, dmi_resp_i, dmi_resp_ready_o, dmi_resp_valid_i, tms_i, td_i, td_o, tdo_oe_o);
   (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:23.24" *)
   input clk_i;
   wire clk_i;
   (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:24.24" *)
   input rst_ni;
   wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
+  (* hdlname = "jclk_rising_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:37.24" *)
+  input jclk_rising_i;
+  wire jclk_rising_i;
+  (* hdlname = "jclk_falling_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:38.24" *)
+  input jclk_falling_i;
+  wire jclk_falling_i;
+  (* hdlname = "jtag_trst_n_sync_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:39.24" *)
+  input jtag_trst_n_sync_i;
+  wire jtag_trst_n_sync_i;
+  (* hdlname = "dmi_rst_no" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:28.24" *)
+  output dmi_rst_no;
+  reg dmi_rst_no;
+  (* hdlname = "dmi_req_o" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:29.24" *)
+  output [40:0] dmi_req_o;
+  wire [40:0] dmi_req_o;
+  (* hdlname = "dmi_req_valid_o" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:30.24" *)
+  output dmi_req_valid_o;
+  wire dmi_req_valid_o;
+  (* hdlname = "dmi_req_ready_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:31.24" *)
+  input dmi_req_ready_i;
+  wire dmi_req_ready_i;
+  (* hdlname = "dmi_resp_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:33.24" *)
+  input [33:0] dmi_resp_i;
+  wire [33:0] dmi_resp_i;
+  (* hdlname = "dmi_resp_ready_o" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:34.24" *)
+  output dmi_resp_ready_o;
+  wire dmi_resp_ready_o;
+  (* hdlname = "dmi_resp_valid_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:35.24" *)
+  input dmi_resp_valid_i;
+  wire dmi_resp_valid_i;
+  (* hdlname = "tms_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:40.24" *)
+  input tms_i;
+  wire tms_i;
+  (* hdlname = "td_i" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:41.24" *)
+  input td_i;
+  wire td_i;
+  (* hdlname = "td_o" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:42.24" *)
+  output td_o;
+  wire td_o;
+  (* hdlname = "tdo_oe_o" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:43.24" *)
+  output tdo_oe_o;
+  wire tdo_oe_o;
+  wire _000_;
+  wire _001_;
+  wire _002_;
+  wire _003_;
+  wire _004_;
+  wire _005_;
+  wire _006_;
+  wire _007_;
+  wire _008_;
+  wire _009_;
+  wire _010_;
+  wire _011_;
+  wire _012_;
+  wire _013_;
+  wire _014_;
+  wire _015_;
+  wire _016_;
+  wire _017_;
+  wire _018_;
+  wire _019_;
+  wire _020_;
+  wire _021_;
+  wire _022_;
+  wire _023_;
+  wire _024_;
+  wire _025_;
+  wire _026_;
+  wire _027_;
+  (* src = "src/debug/soc_dmi_jtag.sv:220.9-225.12" *)
+  wire [6:0] _028_;
+  (* src = "src/debug/soc_dmi_jtag.sv:217.5-264.12" *)
+  wire [6:0] _029_;
+  (* src = "src/debug/soc_dmi_jtag.sv:316.5-331.8" *)
+  wire [6:0] _030_;
+  wire _031_;
+  wire _032_;
+  (* src = "src/debug/soc_dmi_jtag.sv:220.9-225.12" *)
+  wire [31:0] _033_;
+  (* src = "src/debug/soc_dmi_jtag.sv:231.11-246.18" *)
+  wire [31:0] _034_;
+  (* src = "src/debug/soc_dmi_jtag.sv:230.9-247.12" *)
+  wire [31:0] _035_;
+  (* src = "src/debug/soc_dmi_jtag.sv:217.5-264.12" *)
+  wire [31:0] _036_;
+  (* src = "src/debug/soc_dmi_jtag.sv:316.5-331.8" *)
+  wire [31:0] _037_;
+  (* src = "src/debug/soc_dmi_jtag.sv:155.5-201.12" *)
+  wire _038_;
+  (* src = "src/debug/soc_dmi_jtag.sv:177.9-180.12" *)
+  wire _039_;
+  (* src = "src/debug/soc_dmi_jtag.sv:155.5-201.12" *)
+  wire _040_;
+  (* src = "src/debug/soc_dmi_jtag.sv:295.9-297.12" *)
+  wire [40:0] _041_;
+  (* src = "src/debug/soc_dmi_jtag.sv:299.9-302.12" *)
+  wire [40:0] _042_;
+  (* src = "src/debug/soc_dmi_jtag.sv:294.7-303.10" *)
+  wire [40:0] _043_;
+  (* src = "src/debug/soc_dmi_jtag.sv:305.7-307.10" *)
+  wire [40:0] _044_;
+  (* src = "src/debug/soc_dmi_jtag.sv:293.5-308.8" *)
+  wire [40:0] _045_;
+  (* src = "src/debug/soc_dmi_jtag.sv:316.5-331.8" *)
+  wire [40:0] _046_;
+  (* src = "src/debug/soc_dmi_jtag.sv:327.7-330.10" *)
+  wire [40:0] _047_;
+  (* src = "src/debug/soc_dmi_jtag.sv:73.7-84.10" *)
+  wire [31:0] _048_;
+  (* src = "src/debug/soc_dmi_jtag.sv:86.7-88.10" *)
+  wire [31:0] _049_;
+  (* src = "src/debug/soc_dmi_jtag.sv:95.14-97.8" *)
+  wire [31:0] _050_;
+  (* src = "src/debug/soc_dmi_jtag.sv:93.5-97.8" *)
+  wire [31:0] _051_;
+  (* src = "src/debug/soc_dmi_jtag.sv:132.5-134.8" *)
+  wire [1:0] _052_;
+  (* src = "src/debug/soc_dmi_jtag.sv:136.5-138.8" *)
+  wire [1:0] _053_;
+  (* src = "src/debug/soc_dmi_jtag.sv:141.5-143.8" *)
+  wire [1:0] _054_;
+  (* src = "src/debug/soc_dmi_jtag.sv:231.11-246.18" *)
+  wire _055_;
+  (* src = "src/debug/soc_dmi_jtag.sv:230.9-247.12" *)
+  wire _056_;
+  (* src = "src/debug/soc_dmi_jtag.sv:217.5-264.12" *)
+  wire _057_;
+  (* src = "src/debug/soc_dmi_jtag.sv:268.5-270.8" *)
+  wire _058_;
+  (* src = "src/debug/soc_dmi_jtag.sv:275.5-277.8" *)
+  wire _059_;
+  (* src = "src/debug/soc_dmi_jtag.sv:231.11-246.18" *)
+  wire _060_;
+  (* src = "src/debug/soc_dmi_jtag.sv:230.9-247.12" *)
+  wire _061_;
+  (* src = "src/debug/soc_dmi_jtag.sv:217.5-264.12" *)
+  wire _062_;
+  (* src = "src/debug/soc_dmi_jtag.sv:327.7-330.10" *)
+  wire [1:0] _063_;
+  (* src = "src/debug/soc_dmi_jtag.sv:316.5-331.8" *)
+  wire [1:0] _064_;
+  wire [2:0] _065_;
+  wire _066_;
+  wire _067_;
+  wire _068_;
+  wire [2:0] _069_;
+  wire [2:0] _070_;
+  wire [2:0] _071_;
+  wire [2:0] _072_;
+  wire [2:0] _073_;
+  wire [2:0] _074_;
+  wire [2:0] _075_;
+  (* hdlname = "address_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:117.15" *)
+  wire [6:0] address_d;
+  (* hdlname = "address_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:117.26" *)
+  reg [6:0] address_q;
+  (* hdlname = "capture" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:56.9" *)
+  wire capture;
+  (* hdlname = "data_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:118.16" *)
+  wire [31:0] data_d;
+  (* hdlname = "data_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:118.24" *)
+  reg [31:0] data_q;
+  (* hdlname = "dmi" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:120.10" *)
+  wire [40:0] dmi;
+  (* hdlname = "dmi_clear" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:54.9" *)
+  wire dmi_clear;
+  (* hdlname = "dmi_clear_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:365.9" *)
+  reg dmi_clear_q;
+  (* hdlname = "dmi_select" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:104.16" *)
+  wire dmi_select;
+  (* hdlname = "dmi_tdo" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:105.16" *)
+  wire dmi_tdo;
+  (* hdlname = "dr_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:116.28" *)
+  wire [40:0] dr_d;
+  (* hdlname = "dr_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:116.34" *)
+  reg [40:0] dr_q;
+  (* hdlname = "dtmcs_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:62.15" *)
+  wire [31:0] dtmcs_d;
+  (* hdlname = "dtmcs_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:62.24" *)
+  reg [31:0] dtmcs_q;
+  (* hdlname = "dtmcs_select" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:60.9" *)
+  wire dtmcs_select;
+  (* hdlname = "error_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:50.15" *)
+  wire [1:0] error_d;
+  (* hdlname = "error_dmi_busy" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:126.9" *)
+  wire error_dmi_busy;
+  (* hdlname = "error_dmi_op_failed" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:127.9" *)
+  wire error_dmi_op_failed;
+  (* hdlname = "error_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:50.24" *)
+  reg [1:0] error_q;
+  (* hdlname = "jtag_dmi_clear" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:52.9" *)
+  wire jtag_dmi_clear;
+  (* hdlname = "shift" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:57.9" *)
+  wire shift;
+  (* hdlname = "state_d" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:114.11" *)
+  wire [2:0] state_d;
+  (* hdlname = "state_q" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:114.20" *)
+  reg [2:0] state_q;
+  (* hdlname = "tdi" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:58.9" *)
+  wire tdi;
+  (* hdlname = "update" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:55.9" *)
+  wire update;
+  assign _000_ = dtmcs_select && (* src = "src/debug/soc_dmi_jtag.sv:64.41-64.63" *) update;
+  assign _007_ = _000_ && (* src = "src/debug/soc_dmi_jtag.sv:64.41-64.87" *) dtmcs_q[17];
+  assign _001_ = ! (* src = "src/debug/soc_dmi_jtag.sv:371.37-371.47" *) dmi_clear;
+  assign _002_ = dmi_clear_q || (* src = "src/debug/soc_dmi_jtag.sv:371.22-371.47" *) _001_;
+  assign _003_ = state_q == (* src = "src/debug/soc_dmi_jtag.sv:124.28-124.44" *) 2'h3;
+  assign dmi_req_o[33:32] = _003_ ? (* src = "src/debug/soc_dmi_jtag.sv:124.27-124.76" *) 2'h2 : 2'h1;
+  assign _004_ = ! (* src = "src/debug/soc_dmi_jtag.sv:132.27-132.48" *) error_q;
+  assign _005_ = error_dmi_busy && (* src = "src/debug/soc_dmi_jtag.sv:132.9-132.48" *) _004_;
+  assign _006_ = error_dmi_op_failed && (* src = "src/debug/soc_dmi_jtag.sv:136.9-136.53" *) _004_;
+  assign dmi_clear = jtag_dmi_clear || (* src = "src/debug/soc_dmi_jtag.sv:64.22-64.88" *) _007_;
+  assign _008_ = update && (* src = "src/debug/soc_dmi_jtag.sv:141.9-141.35" *) dtmcs_q[16];
+  assign _009_ = _008_ && (* src = "src/debug/soc_dmi_jtag.sv:141.9-141.51" *) dtmcs_select;
+  assign _010_ = dmi_select && (* src = "src/debug/soc_dmi_jtag.sv:157.13-157.33" *) update;
+  assign _011_ = _010_ && (* src = "src/debug/soc_dmi_jtag.sv:157.13-157.60" *) _004_;
+  assign _012_ = _011_ && (* src = "src/debug/soc_dmi_jtag.sv:157.13-157.77" *) jclk_rising_i;
+  assign _013_ = dr_q[1:0] == (* src = "src/debug/soc_dmi_jtag.sv:158.15-158.52" *) 1'h1;
+  assign _014_ = dr_q[1:0] == (* src = "src/debug/soc_dmi_jtag.sv:162.15-162.53" *) 2'h2;
+  assign _015_ = dmi_resp_valid_i && (* src = "src/debug/soc_dmi_jtag.sv:177.13-177.46" *) jclk_rising_i;
+  assign _016_ = dmi_resp_i[1:0] == (* src = "src/debug/soc_dmi_jtag.sv:253.15-253.45" *) 2'h2;
+  assign _017_ = dmi_resp_i[1:0] == (* src = "src/debug/soc_dmi_jtag.sv:257.15-257.46" *) 2'h3;
+  assign _018_ = | (* src = "src/debug/soc_dmi_jtag.sv:268.19-268.34" *) state_q;
+  assign _019_ = update && (* src = "src/debug/soc_dmi_jtag.sv:268.9-268.34" *) _018_;
+  assign _020_ = state_q == (* src = "src/debug/soc_dmi_jtag.sv:275.21-275.57" *) 1'h1;
+  assign _021_ = state_q == (* src = "src/debug/soc_dmi_jtag.sv:275.21-275.57" *) 2'h2;
+  assign _022_ = | (* src = "src/debug/soc_dmi_jtag.sv:275.21-275.57" *) { _021_, _020_ };
+  assign _023_ = capture && (* src = "src/debug/soc_dmi_jtag.sv:275.9-275.58" *) _022_;
+  assign _024_ = error_q == (* src = "src/debug/soc_dmi_jtag.sv:295.13-295.31" *) 2'h3;
+  assign _025_ = _024_ || (* src = "src/debug/soc_dmi_jtag.sv:295.13-295.49" *) error_dmi_busy;
+  assign _026_ = ! (* src = "src/debug/soc_dmi_jtag.sv:299.38-299.53" *) error_dmi_busy;
+  assign _027_ = _004_ && (* src = "src/debug/soc_dmi_jtag.sv:299.13-299.53" *) _026_;
+  assign _031_ = | { _020_, _003_ };
+  assign _032_ = | { _066_, _021_ };
+  (* src = "src/debug/soc_dmi_jtag.sv:315.3" *)
+  always_ff @(posedge clk_i)
+    address_q <= _030_;
+  (* src = "src/debug/soc_dmi_jtag.sv:315.3" *)
+  always_ff @(posedge clk_i)
+    data_q <= _037_;
+  (* src = "src/debug/soc_dmi_jtag.sv:366.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
+    if (!rst_ni) dmi_clear_q <= 1'h0;
+    else dmi_clear_q <= dmi_clear;
+  (* src = "src/debug/soc_dmi_jtag.sv:366.3" *)
   always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [2:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 3'h0;
-    else reg_q <= { reg_q[1:0], serial_i };
-  assign serial_o = reg_q[2];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_req.i_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [2:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 3'h0;
-    else reg_q <= { reg_q[1:0], serial_i };
-  assign serial_o = reg_q[2];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_a.i_state_transition_cdc_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_cdc_reset_ctrlr.i_cdc_reset_ctrlr_half_b.i_state_transition_cdc_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [1:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 2'h0;
-    else reg_q <= { reg_q[0], serial_i };
-  assign serial_o = reg_q[1];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_dst.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [2:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 3'h0;
-    else reg_q <= { reg_q[1:0], serial_i };
-  assign serial_o = reg_q[2];
-endmodule
-
-(* src = "ip/common_cells/src/sync.sv:13.8" *)
-module \sync$greyhound_soc.i_dmi_jtag.i_dmi_cdc.i_cdc_resp.i_src.i_sync (clk_i, rst_ni, serial_i, serial_o);
-  (* hdlname = "clk_i" *)
-  (* src = "ip/common_cells/src/sync.sv:17.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "rst_ni" *)
-  (* src = "ip/common_cells/src/sync.sv:18.18" *)
-  input rst_ni;
-  wire rst_ni;
-  (* hdlname = "serial_i" *)
-  (* src = "ip/common_cells/src/sync.sv:19.18" *)
-  input serial_i;
-  wire serial_i;
-  (* hdlname = "serial_o" *)
-  (* src = "ip/common_cells/src/sync.sv:20.18" *)
-  output serial_o;
-  wire serial_o;
-  (* async_reg = "true" *)
-  (* dont_touch = "true" *)
-  (* hdlname = "reg_q" *)
-  (* src = "ip/common_cells/src/sync.sv:25.23" *)
-  reg [2:0] reg_q;
-  (* src = "ip/common_cells/src/sync.sv:27.5" *)
-  always_ff @(posedge clk_i, negedge rst_ni)
-    if (!rst_ni) reg_q <= 3'h0;
-    else reg_q <= { reg_q[1:0], serial_i };
-  assign serial_o = reg_q[2];
-endmodule
-
-(* src = "src/debug/tc_clk_wrapper.sv:5.8" *)
-module \tc_clk_inverter$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_tck_inv (clk_i, clk_o);
-  (* hdlname = "clk_i" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:6.18" *)
-  input clk_i;
-  wire clk_i;
-  (* hdlname = "clk_o" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:7.18" *)
-  output clk_o;
-  wire clk_o;
-  (* dont_touch = "true" *)
-  (* hdlname = "i_inv" *)
-  (* keep = 1'h1 *)
-  (* src = "src/debug/tc_clk_wrapper.sv:10.16" *)
-  sg13g2_inv_1 i_inv (
-    .A(clk_i),
-    .Y(clk_o)
+    if (!rst_ni) dmi_rst_no <= 1'h1;
+    else dmi_rst_no <= _002_;
+  (* src = "src/debug/soc_dmi_jtag.sv:315.3" *)
+  always_ff @(posedge clk_i)
+    dr_q <= _046_;
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[9:4] <= _051_[9:4];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[17] <= _051_[17];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[16] <= _051_[16];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[11:10] <= _051_[11:10];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[14:12] <= _051_[14:12];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[3:0] <= _051_[3:0];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[15] <= _051_[15];
+  (* src = "src/debug/soc_dmi_jtag.sv:92.3" *)
+  always_ff @(posedge clk_i)
+    dtmcs_q[31:18] <= _051_[31:18];
+  (* src = "src/debug/soc_dmi_jtag.sv:315.3" *)
+  always_ff @(posedge clk_i)
+    error_q <= _064_;
+  (* src = "src/debug/soc_dmi_jtag.sv:315.3" *)
+  always_ff @(posedge clk_i)
+    state_q <= _065_;
+  assign _047_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag.sv:327.26-330.10|src/debug/soc_dmi_jtag.sv:327.7-330.10" *) dr_d : dr_q;
+  assign _063_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag.sv:327.26-330.10|src/debug/soc_dmi_jtag.sv:327.7-330.10" *) error_d : error_q;
+  assign _037_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:316.30-322.8|src/debug/soc_dmi_jtag.sv:316.5-331.8" *) data_d : 32'd0;
+  assign _030_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:316.30-322.8|src/debug/soc_dmi_jtag.sv:316.5-331.8" *) address_d : 7'h00;
+  assign _046_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:316.30-322.8|src/debug/soc_dmi_jtag.sv:316.5-331.8" *) _047_ : 41'h00000000000;
+  assign _065_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:316.30-322.8|src/debug/soc_dmi_jtag.sv:316.5-331.8" *) state_d : 3'h0;
+  assign _064_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:316.30-322.8|src/debug/soc_dmi_jtag.sv:316.5-331.8" *) _063_ : 2'h0;
+  assign dr_d = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:311.7-311.17|src/debug/soc_dmi_jtag.sv:310.5-312.8" *) 41'h00000000000 : _045_;
+  assign _044_ = shift ? (* src = "src/debug/soc_dmi_jtag.sv:306.9-306.45|src/debug/soc_dmi_jtag.sv:305.7-307.10" *) { tdi, dr_q[40:1] } : _043_;
+  assign _042_ = _027_ ? (* src = "src/debug/soc_dmi_jtag.sv:300.11-300.50|src/debug/soc_dmi_jtag.sv:299.9-302.12" *) { address_q, data_q, 2'h0 } : _041_;
+  assign _041_ = _025_ ? (* src = "src/debug/soc_dmi_jtag.sv:296.11-296.47|src/debug/soc_dmi_jtag.sv:295.9-297.12" *) { address_q, data_q, 2'h3 } : dr_q;
+  assign _043_ = capture ? (* src = "src/debug/soc_dmi_jtag.sv:294.20-303.10|src/debug/soc_dmi_jtag.sv:294.7-303.10" *) _042_ : dr_q;
+  assign _045_ = dmi_select ? (* src = "src/debug/soc_dmi_jtag.sv:293.21-308.8|src/debug/soc_dmi_jtag.sv:293.5-308.8" *) _044_ : dr_q;
+  assign error_dmi_op_failed = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:279.20-284.8|src/debug/soc_dmi_jtag.sv:279.5-284.8" *) 1'h0 : _062_;
+  assign error_dmi_busy = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:279.20-284.8|src/debug/soc_dmi_jtag.sv:279.5-284.8" *) 1'h0 : _059_;
+  assign data_d = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:279.20-284.8|src/debug/soc_dmi_jtag.sv:279.5-284.8" *) 32'd0 : _036_;
+  assign address_d = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:279.20-284.8|src/debug/soc_dmi_jtag.sv:279.5-284.8" *) 7'h00 : _029_;
+  assign _059_ = _023_ ? (* src = "src/debug/soc_dmi_jtag.sv:276.7-276.29|src/debug/soc_dmi_jtag.sv:275.5-277.8" *) 1'h1 : _058_;
+  assign _058_ = _019_ ? (* src = "src/debug/soc_dmi_jtag.sv:269.7-269.29|src/debug/soc_dmi_jtag.sv:268.5-270.8" *) 1'h1 : _057_;
+  assign _066_ = state_q == (* src = "src/debug/soc_dmi_jtag.sv:252.9-260.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *) 3'h4;
+  assign _056_ = dmi_resp_valid_i ? (* src = "src/debug/soc_dmi_jtag.sv:252.31-260.12|src/debug/soc_dmi_jtag.sv:252.9-260.12" *) _055_ : 1'h0;
+  function [31:0] _144_;
+    input [31:0] a;
+    input [95:0] b;
+    input [2:0] s;
+    (* full_case = 32'd1 *)
+    (* src = "src/debug/soc_dmi_jtag.sv:239.27-242.16|src/debug/soc_dmi_jtag.sv:231.11-246.18" *)
+    (* parallel_case *)
+    casez (s)
+      3'b??1:
+        _144_ = b[31:0];
+      3'b?1?:
+        _144_ = b[63:32];
+      3'b1??:
+        _144_ = b[95:64];
+      default:
+        _144_ = a;
+    endcase
+  endfunction
+  assign _034_ = _144_(32'd3131949278, { dmi_resp_i[33:2], 64'hdeadbeefb051b051 }, { _067_, _016_, _017_ });
+  assign _067_ = ! (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:233.15-233.40|src/debug/soc_dmi_jtag.sv:231.11-246.18" *) dmi_resp_i[1:0];
+  assign _060_ = _016_ ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:235.26-238.16|src/debug/soc_dmi_jtag.sv:231.11-246.18" *) 1'h1 : 1'h0;
+  assign _055_ = _017_ ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:239.27-242.16|src/debug/soc_dmi_jtag.sv:231.11-246.18" *) 1'h1 : 1'h0;
+  assign _061_ = dmi_resp_valid_i ? (* src = "src/debug/soc_dmi_jtag.sv:231.11-246.18|src/debug/soc_dmi_jtag.sv:230.9-247.12" *) _060_ : 1'h0;
+  assign _035_ = dmi_resp_valid_i ? (* src = "src/debug/soc_dmi_jtag.sv:231.11-246.18|src/debug/soc_dmi_jtag.sv:230.9-247.12" *) _034_ : data_q;
+  assign _033_ = _011_ ? (* src = "src/debug/soc_dmi_jtag.sv:220.62-225.12|src/debug/soc_dmi_jtag.sv:220.9-225.12" *) dr_q[33:2] : data_q;
+  assign _068_ = ! (* src = "src/debug/soc_dmi_jtag.sv:220.9-225.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *) state_q;
+  assign _028_ = _011_ ? (* src = "src/debug/soc_dmi_jtag.sv:220.62-225.12|src/debug/soc_dmi_jtag.sv:220.9-225.12" *) dr_q[40:34] : address_q;
+  assign _062_ = _032_ ? (* src = "src/debug/soc_dmi_jtag.sv:252.9-260.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *) _061_ : 1'h0;
+  assign _057_ = _032_ ? (* src = "src/debug/soc_dmi_jtag.sv:252.9-260.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *) _056_ : 1'h0;
+  function [31:0] _155_;
+    input [31:0] a;
+    input [63:0] b;
+    input [1:0] s;
+    (* src = "src/debug/soc_dmi_jtag.sv:230.9-247.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _155_ = b[31:0];
+      2'b1?:
+        _155_ = b[63:32];
+      default:
+        _155_ = a;
+    endcase
+  endfunction
+  assign _036_ = _155_(data_q, { _033_, _035_ }, { _068_, _021_ });
+  assign _029_ = _068_ ? (* src = "src/debug/soc_dmi_jtag.sv:220.9-225.12|src/debug/soc_dmi_jtag.sv:217.5-264.12" *) _028_ : address_q;
+  assign state_d = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:203.20-207.8|src/debug/soc_dmi_jtag.sv:203.5-207.8" *) 3'h0 : _072_;
+  assign dmi_resp_ready_o = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:203.20-207.8|src/debug/soc_dmi_jtag.sv:203.5-207.8" *) 1'h0 : _040_;
+  assign dmi_req_valid_o = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:203.20-207.8|src/debug/soc_dmi_jtag.sv:203.5-207.8" *) 1'h0 : _038_;
+  assign _069_ = _015_ ? (* src = "src/debug/soc_dmi_jtag.sv:192.48-195.12|src/debug/soc_dmi_jtag.sv:192.9-195.12" *) 3'h0 : state_q;
+  assign _039_ = _015_ ? (* src = "src/debug/soc_dmi_jtag.sv:192.48-195.12|src/debug/soc_dmi_jtag.sv:192.9-195.12" *) 1'h1 : 1'h0;
+  assign _070_ = dmi_req_ready_i ? (* src = "src/debug/soc_dmi_jtag.sv:187.11-187.36|src/debug/soc_dmi_jtag.sv:186.9-188.12" *) 3'h4 : state_q;
+  assign _071_ = dmi_req_ready_i ? (* src = "src/debug/soc_dmi_jtag.sv:172.11-172.35|src/debug/soc_dmi_jtag.sv:171.9-173.12" *) 3'h2 : state_q;
+  function [2:0] _164_;
+    input [2:0] a;
+    input [11:0] b;
+    input [3:0] s;
+    (* full_case = 32'd1 *)
+    (* src = "src/debug/soc_dmi_jtag.sv:192.9-195.12|src/debug/soc_dmi_jtag.sv:155.5-201.12" *)
+    (* parallel_case *)
+    casez (s)
+      4'b???1:
+        _164_ = b[2:0];
+      4'b??1?:
+        _164_ = b[5:3];
+      4'b?1??:
+        _164_ = b[8:6];
+      4'b1???:
+        _164_ = b[11:9];
+      default:
+        _164_ = a;
+    endcase
+  endfunction
+  assign _072_ = _164_(3'h0, { _075_, _071_, _070_, _069_ }, { _068_, _020_, _003_, _032_ });
+  assign _073_ = _014_ ? (* src = "src/debug/soc_dmi_jtag.sv:163.13-163.29|src/debug/soc_dmi_jtag.sv:162.11-164.14" *) 3'h3 : _074_;
+  assign _074_ = _013_ ? (* src = "src/debug/soc_dmi_jtag.sv:159.13-159.28|src/debug/soc_dmi_jtag.sv:158.11-160.14" *) 3'h1 : state_q;
+  assign _075_ = _012_ ? (* src = "src/debug/soc_dmi_jtag.sv:157.79-165.12|src/debug/soc_dmi_jtag.sv:157.9-165.12" *) _073_ : state_q;
+  assign _040_ = _032_ ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:192.9-195.12|src/debug/soc_dmi_jtag.sv:155.5-201.12" *) _039_ : 1'h0;
+  assign _038_ = _031_ ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:183.14-189.10|src/debug/soc_dmi_jtag.sv:155.5-201.12" *) 1'h1 : 1'h0;
+  assign error_d = dmi_clear ? (* src = "src/debug/soc_dmi_jtag.sv:146.7-146.28|src/debug/soc_dmi_jtag.sv:145.5-147.8" *) 2'h0 : _054_;
+  assign _054_ = _009_ ? (* src = "src/debug/soc_dmi_jtag.sv:142.7-142.28|src/debug/soc_dmi_jtag.sv:141.5-143.8" *) 2'h0 : _053_;
+  assign _053_ = _006_ ? (* src = "src/debug/soc_dmi_jtag.sv:137.7-137.29|src/debug/soc_dmi_jtag.sv:136.5-138.8" *) 2'h2 : _052_;
+  assign _052_ = _005_ ? (* src = "src/debug/soc_dmi_jtag.sv:133.7-133.25|src/debug/soc_dmi_jtag.sv:132.5-134.8" *) 2'h3 : error_q;
+  assign _050_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag.sv:96.7-96.26|src/debug/soc_dmi_jtag.sv:95.14-97.8" *) dtmcs_d : dtmcs_q;
+  assign _051_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag.sv:94.7-94.21|src/debug/soc_dmi_jtag.sv:93.5-97.8" *) _050_ : 32'd0;
+  assign _049_ = shift ? (* src = "src/debug/soc_dmi_jtag.sv:87.9-87.45|src/debug/soc_dmi_jtag.sv:86.7-88.10" *) { tdi, dtmcs_q[31:1] } : _048_;
+  assign _048_ = capture ? (* src = "src/debug/soc_dmi_jtag.sv:74.9-83.23|src/debug/soc_dmi_jtag.sv:73.7-84.10" *) { 20'h00001, error_q, 10'h071 } : dtmcs_q;
+  assign dtmcs_d = dtmcs_select ? (* src = "src/debug/soc_dmi_jtag.sv:72.23-89.8|src/debug/soc_dmi_jtag.sv:72.5-89.8" *) _049_ : dtmcs_q;
+  (* hdlname = "i_dmi_jtag_tap" *)
+  (* src = "src/debug/soc_dmi_jtag.sv:340.5" *)
+  \soc_dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap  i_dmi_jtag_tap (
+    .capture_o(capture),
+    .clk_i(clk_i),
+    .dmi_clear_o(jtag_dmi_clear),
+    .dmi_select_o(dmi_select),
+    .dmi_tdo_i(dr_q[0]),
+    .dtmcs_select_o(dtmcs_select),
+    .dtmcs_tdo_i(dtmcs_q[0]),
+    .jclk_falling_i(jclk_falling_i),
+    .jclk_rising_i(jclk_rising_i),
+    .jtag_trst_n_sync_i(jtag_trst_n_sync_i),
+    .shift_o(shift),
+    .td_i(td_i),
+    .td_o(td_o),
+    .tdi_o(tdi),
+    .tdo_oe_o(tdo_oe_o),
+    .tms_i(tms_i),
+    .update_o(update)
   );
+  assign dmi = dr_q;
+  assign { dmi_req_o[40:34], dmi_req_o[31:0] } = { address_q, data_q };
+  assign dmi_tdo = dr_q[0];
 endmodule
 
-(* src = "src/debug/tc_clk_wrapper.sv:17.8" *)
-module \tc_clk_mux2$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap.i_dft_tck_mux (clk_o, clk0_i, clk1_i, clk_sel_i);
-  (* hdlname = "clk_o" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:21.18" *)
-  output clk_o;
-  wire clk_o;
-  (* hdlname = "clk0_i" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:18.18" *)
-  input clk0_i;
-  wire clk0_i;
-  (* hdlname = "clk1_i" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:19.18" *)
-  input clk1_i;
-  wire clk1_i;
-  (* hdlname = "clk_sel_i" *)
-  (* src = "src/debug/tc_clk_wrapper.sv:20.18" *)
-  input clk_sel_i;
-  wire clk_sel_i;
-  (* dont_touch = "true" *)
-  (* hdlname = "i_mux" *)
-  (* keep = 1'h1 *)
-  (* src = "src/debug/tc_clk_wrapper.sv:24.17" *)
-  sg13g2_mux2_1 i_mux (
-    .A0(clk0_i),
-    .A1(clk1_i),
-    .S(clk_sel_i),
-    .X(clk_o)
-  );
+(* src = "src/debug/soc_dmi_jtag_tap.sv:20.8" *)
+module \soc_dmi_jtag_tap$greyhound_soc.i_dmi_jtag.i_dmi_jtag_tap (clk_i, jclk_rising_i, jclk_falling_i, jtag_trst_n_sync_i, tms_i, td_i, td_o, tdo_oe_o, dmi_clear_o, update_o, capture_o, shift_o, tdi_o, dtmcs_select_o, dtmcs_tdo_i, dmi_select_o, dmi_tdo_i);
+  (* hdlname = "clk_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:29.23" *)
+  input clk_i;
+  wire clk_i;
+  (* hdlname = "jclk_rising_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:30.23" *)
+  input jclk_rising_i;
+  wire jclk_rising_i;
+  (* hdlname = "jclk_falling_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:31.23" *)
+  input jclk_falling_i;
+  wire jclk_falling_i;
+  (* hdlname = "jtag_trst_n_sync_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:32.23" *)
+  input jtag_trst_n_sync_i;
+  wire jtag_trst_n_sync_i;
+  (* hdlname = "tms_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:33.23" *)
+  input tms_i;
+  wire tms_i;
+  (* hdlname = "td_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:34.23" *)
+  input td_i;
+  wire td_i;
+  (* hdlname = "td_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:35.23" *)
+  output td_o;
+  reg td_o;
+  (* hdlname = "tdo_oe_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:36.23" *)
+  output tdo_oe_o;
+  reg tdo_oe_o;
+  (* hdlname = "dmi_clear_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:38.23" *)
+  output dmi_clear_o;
+  wire dmi_clear_o;
+  (* hdlname = "update_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:39.23" *)
+  output update_o;
+  wire update_o;
+  (* hdlname = "capture_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:40.23" *)
+  output capture_o;
+  wire capture_o;
+  (* hdlname = "shift_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:41.23" *)
+  output shift_o;
+  wire shift_o;
+  (* hdlname = "tdi_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:42.23" *)
+  output tdi_o;
+  wire tdi_o;
+  (* hdlname = "dtmcs_select_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:43.23" *)
+  output dtmcs_select_o;
+  wire dtmcs_select_o;
+  (* hdlname = "dtmcs_tdo_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:44.23" *)
+  input dtmcs_tdo_i;
+  wire dtmcs_tdo_i;
+  (* hdlname = "dmi_select_o" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:46.23" *)
+  output dmi_select_o;
+  wire dmi_select_o;
+  (* hdlname = "dmi_tdo_i" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:47.23" *)
+  input dmi_tdo_i;
+  wire dmi_tdo_i;
+  wire _000_;
+  wire _001_;
+  wire [1:0] _002_;
+  wire [3:0] _003_;
+  wire _004_;
+  wire [3:0] _005_;
+  wire [3:0] _006_;
+  wire [3:0] _007_;
+  wire [2:0] _008_;
+  wire [1:0] _009_;
+  wire [2:0] _010_;
+  wire _011_;
+  wire _012_;
+  wire _013_;
+  wire _014_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:132.7-132.42" *)
+  wire _015_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:130.5-133.8" *)
+  wire _016_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:137.7-137.43" *)
+  wire _017_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:135.5-138.8" *)
+  wire _018_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:295.14-299.8" *)
+  wire _019_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:291.5-299.8" *)
+  wire _020_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:131.7-131.49" *)
+  wire [31:0] _021_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:130.5-133.8" *)
+  wire [31:0] _022_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:136.7-136.61" *)
+  wire [31:0] _023_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:135.5-138.8" *)
+  wire [31:0] _024_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:295.14-299.8" *)
+  wire [31:0] _025_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:291.5-299.8" *)
+  wire [31:0] _026_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:93.5-95.8" *)
+  wire [4:0] _027_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:105.5-111.8" *)
+  wire [4:0] _028_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:108.14-111.8" *)
+  wire [4:0] _029_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:83.5-85.8" *)
+  wire [4:0] _030_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:88.5-90.8" *)
+  wire [4:0] _031_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:105.5-111.8" *)
+  wire [4:0] _032_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:108.14-111.8" *)
+  wire [4:0] _033_;
+  wire [3:0] _034_;
+  wire [3:0] _035_;
+  wire _036_;
+  wire _037_;
+  wire _038_;
+  wire _039_;
+  wire _040_;
+  wire _041_;
+  wire _042_;
+  wire _043_;
+  wire _044_;
+  wire _045_;
+  wire _046_;
+  wire _047_;
+  wire _048_;
+  wire _049_;
+  wire _050_;
+  wire _051_;
+  wire _052_;
+  wire _053_;
+  wire _054_;
+  wire _055_;
+  wire _056_;
+  wire _057_;
+  wire _058_;
+  wire _059_;
+  (* hdlname = "bypass_d" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:124.16" *)
+  wire bypass_d;
+  (* hdlname = "bypass_q" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:124.26" *)
+  reg bypass_q;
+  (* hdlname = "capture_dr" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:58.30" *)
+  wire capture_dr;
+  (* hdlname = "capture_ir" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:76.9" *)
+  wire capture_ir;
+  (* hdlname = "idcode_d" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:120.16" *)
+  wire [31:0] idcode_d;
+  (* hdlname = "idcode_q" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:120.26" *)
+  reg [31:0] idcode_q;
+  (* hdlname = "idcode_select" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:121.16" *)
+  wire idcode_select;
+  (* hdlname = "jtag_ir_d" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:75.25" *)
+  wire [4:0] jtag_ir_d;
+  (* hdlname = "jtag_ir_q" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:75.36" *)
+  reg [4:0] jtag_ir_q;
+  (* hdlname = "jtag_ir_shift_d" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:73.25" *)
+  wire [4:0] jtag_ir_shift_d;
+  (* hdlname = "jtag_ir_shift_q" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:73.42" *)
+  reg [4:0] jtag_ir_shift_q;
+  (* hdlname = "shift_dr" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:58.20" *)
+  wire shift_dr;
+  (* hdlname = "shift_ir" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:76.21" *)
+  wire shift_ir;
+  (* hdlname = "tap_state_d" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:57.28" *)
+  wire [3:0] tap_state_d;
+  (* hdlname = "tap_state_q" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:57.15" *)
+  reg [3:0] tap_state_q;
+  (* hdlname = "tdo_mux" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:168.9" *)
+  wire tdo_mux;
+  (* hdlname = "test_logic_reset" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:76.42" *)
+  wire test_logic_reset;
+  (* hdlname = "update_dr" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:58.9" *)
+  wire update_dr;
+  (* hdlname = "update_ir" *)
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:76.31" *)
+  wire update_ir;
+  assign _000_ = shift_ir | (* src = "src/debug/soc_dmi_jtag_tap.sv:195.20-195.39" *) shift_dr;
+  assign _001_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:217.23-217.61" *) 1'h0 : 1'h1;
+  assign _002_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:221.23-221.59" *) 2'h2 : 2'h1;
+  assign _003_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:225.23-225.57" *) 4'h9 : 4'h3;
+  assign _004_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:229.23-229.50" *) 1'h1 : 1'h0;
+  assign _005_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:236.23-236.51" *) 4'h8 : 4'h6;
+  assign _006_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:242.23-242.51" *) 4'h8 : 4'h4;
+  assign _007_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:250.23-250.59" *) 4'h0 : 4'ha;
+  assign _008_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:258.23-258.50" *) 3'h4 : 3'h3;
+  assign _009_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:269.23-269.51" *) 2'h3 : 2'h1;
+  assign _010_ = tms_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:276.23-276.51" *) 3'h7 : 3'h3;
+  assign _011_ = | { _059_, _058_, _057_ };
+  assign _012_ = | { _050_, _043_, _036_ };
+  assign _013_ = | { _041_, _040_ };
+  assign _014_ = | { _048_, _047_ };
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:290.3" *)
+  always_ff @(posedge clk_i)
+    bypass_q <= _020_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:290.3" *)
+  always_ff @(posedge clk_i)
+    idcode_q <= _026_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:104.3" *)
+  always_ff @(posedge clk_i)
+    jtag_ir_q <= _028_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:104.3" *)
+  always_ff @(posedge clk_i)
+    jtag_ir_shift_q <= _032_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:290.3" *)
+  always_ff @(posedge clk_i)
+    tap_state_q <= _035_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:189.3" *)
+  always_ff @(posedge clk_i)
+    td_o <= _055_;
+  (* src = "src/debug/soc_dmi_jtag_tap.sv:189.3" *)
+  always_ff @(posedge clk_i)
+    tdo_oe_o <= _054_;
+  assign _019_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:295.33-299.8|src/debug/soc_dmi_jtag_tap.sv:295.14-299.8" *) bypass_d : bypass_q;
+  assign _025_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:295.33-299.8|src/debug/soc_dmi_jtag_tap.sv:295.14-299.8" *) idcode_d : idcode_q;
+  assign _034_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:295.33-299.8|src/debug/soc_dmi_jtag_tap.sv:295.14-299.8" *) tap_state_d : tap_state_q;
+  assign _020_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:291.30-295.8|src/debug/soc_dmi_jtag_tap.sv:291.5-299.8" *) _019_ : 1'h0;
+  assign _026_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:291.30-295.8|src/debug/soc_dmi_jtag_tap.sv:291.5-299.8" *) _025_ : 32'd86335489;
+  assign _035_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:291.30-295.8|src/debug/soc_dmi_jtag_tap.sv:291.5-299.8" *) _034_ : 4'h0;
+  function [3:0] _088_;
+    input [3:0] a;
+    input [47:0] b;
+    input [11:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "src/debug/soc_dmi_jtag_tap.sv:282.17-285.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *)
+    (* parallel_case *)
+    casez (s)
+      12'b???????????1:
+        _088_ = b[3:0];
+      12'b??????????1?:
+        _088_ = b[7:4];
+      12'b?????????1??:
+        _088_ = b[11:8];
+      12'b????????1???:
+        _088_ = b[15:12];
+      12'b???????1????:
+        _088_ = b[19:16];
+      12'b??????1?????:
+        _088_ = b[23:20];
+      12'b?????1??????:
+        _088_ = b[27:24];
+      12'b????1???????:
+        _088_ = b[31:28];
+      12'b???1????????:
+        _088_ = b[35:32];
+      12'b??1?????????:
+        _088_ = b[39:36];
+      12'b?1??????????:
+        _088_ = b[43:40];
+      12'b1???????????:
+        _088_ = b[47:44];
+      default:
+        _088_ = a;
+    endcase
+  endfunction
+  assign tap_state_d = _088_(4'hx, { 3'h0, _001_, _003_, 3'h2, _004_, _005_, 3'h3, _004_, _006_, _007_, 1'h1, _008_, 2'h3, _009_, 2'h3, _002_, 1'h1, _010_, 2'h0, _002_ }, { _051_, _049_, _014_, _046_, _045_, _044_, _042_, _013_, _039_, _038_, _037_, _012_ });
+  assign _036_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:282.17-285.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'hf;
+  assign _037_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:276.9-276.52|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'he;
+  assign _038_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:273.9-273.51|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'hd;
+  assign _039_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:269.9-269.52|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'hc;
+  assign _040_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:264.16-267.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'hb;
+  assign _041_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:256.18-259.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'ha;
+  assign _042_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:250.9-250.60|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'h9;
+  assign _043_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:244.17-247.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 4'h8;
+  assign _044_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:242.9-242.52|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 3'h7;
+  assign _045_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:239.9-239.51|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 3'h6;
+  assign _046_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:236.9-236.52|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 3'h5;
+  assign _047_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:231.16-234.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 3'h4;
+  assign _048_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:227.18-230.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 2'h3;
+  assign _049_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:225.9-225.58|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 2'h2;
+  assign _050_ = tap_state_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:221.9-221.60|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1;
+  assign _051_ = ! (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:216.23-219.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) tap_state_q;
+  assign dmi_clear_o = _051_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:216.23-219.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign update_ir = _036_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:282.17-285.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign shift_ir = _040_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:264.16-267.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign capture_ir = _041_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:256.18-259.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign capture_o = _048_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:227.18-230.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign shift_dr = _047_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:231.16-234.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign update_o = _043_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:244.17-247.10|src/debug/soc_dmi_jtag_tap.sv:215.5-287.12" *) 1'h1 : 1'h0;
+  assign _052_ = jclk_falling_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:193.34-196.8|src/debug/soc_dmi_jtag_tap.sv:193.14-196.8" *) _000_ : tdo_oe_o;
+  assign _053_ = jclk_falling_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:193.34-196.8|src/debug/soc_dmi_jtag_tap.sv:193.14-196.8" *) tdo_mux : td_o;
+  assign _054_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:190.30-193.8|src/debug/soc_dmi_jtag_tap.sv:190.5-196.8" *) _052_ : 1'h0;
+  assign _055_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:190.30-193.8|src/debug/soc_dmi_jtag_tap.sv:190.5-196.8" *) _053_ : 1'h0;
+  function [0:0] _116_;
+    input [0:0] a;
+    input [2:0] b;
+    input [2:0] s;
+    (* full_case = 32'd1 *)
+    (* parallel_case = 32'd1 *)
+    (* src = "src/debug/soc_dmi_jtag_tap.sv:179.25-179.45|src/debug/soc_dmi_jtag_tap.sv:176.7-181.14" *)
+    (* parallel_case *)
+    casez (s)
+      3'b??1:
+        _116_ = b[0:0];
+      3'b?1?:
+        _116_ = b[1:1];
+      3'b1??:
+        _116_ = b[2:2];
+      default:
+        _116_ = a;
+    endcase
+  endfunction
+  assign _056_ = _116_(bypass_q, { idcode_q[0], dtmcs_tdo_i, dmi_tdo_i }, { _059_, _058_, _057_ });
+  assign _057_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:179.25-179.45|src/debug/soc_dmi_jtag_tap.sv:176.7-181.14" *) 5'h11;
+  assign _058_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:178.25-178.47|src/debug/soc_dmi_jtag_tap.sv:176.7-181.14" *) 5'h10;
+  assign _059_ = jtag_ir_q == (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:177.25-177.47|src/debug/soc_dmi_jtag_tap.sv:176.7-181.14" *) 1'h1;
+  assign tdo_mux = shift_ir ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:173.7-173.36|src/debug/soc_dmi_jtag_tap.sv:172.5-182.8" *) jtag_ir_shift_q[0] : _056_;
+  assign idcode_select = _059_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:157.18-157.40|src/debug/soc_dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
+  assign dmi_select_o = _057_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:159.18-159.40|src/debug/soc_dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
+  assign dtmcs_select_o = _058_ ? (* full_case = 32'd1 *) (* parallel_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:158.18-158.40|src/debug/soc_dmi_jtag_tap.sv:155.5-162.12" *) 1'h1 : 1'h0;
+  assign bypass_d = dmi_clear_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:140.27-144.8|src/debug/soc_dmi_jtag_tap.sv:140.5-144.8" *) 1'h0 : _018_;
+  assign idcode_d = dmi_clear_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:140.27-144.8|src/debug/soc_dmi_jtag_tap.sv:140.5-144.8" *) 32'd86335489 : _024_;
+  assign _017_ = _011_ ? (* src = "src/debug/soc_dmi_jtag_tap.sv:137.27-137.43|src/debug/soc_dmi_jtag_tap.sv:137.7-137.43" *) _016_ : td_i;
+  assign _023_ = idcode_select ? (* src = "src/debug/soc_dmi_jtag_tap.sv:136.27-136.61|src/debug/soc_dmi_jtag_tap.sv:136.7-136.61" *) { td_i, idcode_q[31:1] } : _022_;
+  assign _018_ = shift_dr ? (* src = "src/debug/soc_dmi_jtag_tap.sv:135.19-138.8|src/debug/soc_dmi_jtag_tap.sv:135.5-138.8" *) _017_ : _016_;
+  assign _024_ = shift_dr ? (* src = "src/debug/soc_dmi_jtag_tap.sv:135.19-138.8|src/debug/soc_dmi_jtag_tap.sv:135.5-138.8" *) _023_ : _022_;
+  assign _015_ = _011_ ? (* src = "src/debug/soc_dmi_jtag_tap.sv:132.26-132.42|src/debug/soc_dmi_jtag_tap.sv:132.7-132.42" *) bypass_q : 1'h0;
+  assign _021_ = idcode_select ? (* src = "src/debug/soc_dmi_jtag_tap.sv:131.26-131.49|src/debug/soc_dmi_jtag_tap.sv:131.7-131.49" *) 32'd86335489 : idcode_q;
+  assign _016_ = capture_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:130.21-133.8|src/debug/soc_dmi_jtag_tap.sv:130.5-133.8" *) _015_ : bypass_q;
+  assign _022_ = capture_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:130.21-133.8|src/debug/soc_dmi_jtag_tap.sv:130.5-133.8" *) _021_ : idcode_q;
+  assign _029_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:108.33-111.8|src/debug/soc_dmi_jtag_tap.sv:108.14-111.8" *) jtag_ir_d : jtag_ir_q;
+  assign _033_ = jclk_rising_i ? (* src = "src/debug/soc_dmi_jtag_tap.sv:108.33-111.8|src/debug/soc_dmi_jtag_tap.sv:108.14-111.8" *) jtag_ir_shift_d : jtag_ir_shift_q;
+  assign _028_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:105.30-108.8|src/debug/soc_dmi_jtag_tap.sv:105.5-111.8" *) _029_ : 5'h01;
+  assign _032_ = jtag_trst_n_sync_i ? (* full_case = 32'd1 *) (* src = "src/debug/soc_dmi_jtag_tap.sv:105.30-108.8|src/debug/soc_dmi_jtag_tap.sv:105.5-111.8" *) _033_ : 5'h00;
+  assign jtag_ir_d = dmi_clear_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:97.27-101.8|src/debug/soc_dmi_jtag_tap.sv:97.5-101.8" *) 5'h01 : _027_;
+  assign jtag_ir_shift_d = dmi_clear_o ? (* src = "src/debug/soc_dmi_jtag_tap.sv:97.27-101.8|src/debug/soc_dmi_jtag_tap.sv:97.5-101.8" *) 5'h00 : _031_;
+  assign _027_ = update_ir ? (* src = "src/debug/soc_dmi_jtag_tap.sv:94.7-94.46|src/debug/soc_dmi_jtag_tap.sv:93.5-95.8" *) jtag_ir_shift_q : jtag_ir_q;
+  assign _031_ = capture_ir ? (* src = "src/debug/soc_dmi_jtag_tap.sv:89.7-89.45|src/debug/soc_dmi_jtag_tap.sv:88.5-90.8" *) 5'h05 : _030_;
+  assign _030_ = shift_ir ? (* src = "src/debug/soc_dmi_jtag_tap.sv:84.7-84.63|src/debug/soc_dmi_jtag_tap.sv:83.5-85.8" *) { td_i, jtag_ir_shift_q[4:1] } : jtag_ir_shift_q;
+  assign capture_dr = capture_o;
+  assign shift_o = shift_dr;
+  assign tdi_o = td_i;
+  assign test_logic_reset = dmi_clear_o;
+  assign update_dr = update_o;
 endmodule

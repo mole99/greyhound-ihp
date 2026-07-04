@@ -19,8 +19,9 @@ int main()
     *REG_BITSTREAM = fpga_all_ones_bitstream[i];
   }
 
-  // Wait for FPGA to finish configuration
-  while (*REG_FABRIC_CONFIG_BUSY) {;}
+  if (*REG_USERCODE != 0x1) {
+    return -1;
+  }
 
   // Do nothing for some time so tb can start to write over jtag
   for (uint16_t  i = 0; i < 0x400; i++) {
@@ -30,13 +31,18 @@ int main()
   // Wait for FPGA to finish configuration
   while (*REG_FABRIC_CONFIG_BUSY) {;}
 
+  if (*REG_USERCODE != 0x2) {
+    return -1;
+  }
+
   // Change bitstream version number only
   for (uint32_t i = 0; i < sizeof(fpga_all_ones_bitstream_alter)/sizeof(uint32_t); i++) {
     *REG_BITSTREAM = fpga_all_ones_bitstream_alter[i];
   }
 
-  // Wait for FPGA to finish configuration
-  while (*REG_FABRIC_CONFIG_BUSY) {;}
+  if (*REG_USERCODE != 0x3) {
+    return -1;
+  }
 
   return 0;
 }

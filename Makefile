@@ -14,7 +14,6 @@ CORE_FILES += src/soc/cf_math_pkg.sv
 CORE_FILES += ip/cv32e40x/rtl/include/cv32e40x_pkg.sv
 CORE_FILES += ip/obi/src/obi_pkg.sv
 CORE_FILES += ip/riscv-dbg/src/dm_pkg.sv
-CORE_FILES += ip/common_cells/src/cdc_reset_ctrlr_pkg.sv
 # RTL_OBI
 CORE_FILES += ip/obi/src/obi_intf.sv
 CORE_FILES += ip/obi/src/obi_mux.sv
@@ -26,12 +25,9 @@ CORE_FILES += ip/common_cells/src/fifo_v3.sv
 CORE_FILES += ip/common_cells/src/rr_arb_tree.sv
 CORE_FILES += ip/common_cells/src/delta_counter.sv
 CORE_FILES += ip/common_cells/src/lzc.sv
-CORE_FILES += ip/common_cells/src/cdc_2phase_clearable.sv
 CORE_FILES += ip/common_cells/src/deprecated/fifo_v2.sv
 CORE_FILES += ip/common_cells/src/fifo_v3.sv
-CORE_FILES += ip/common_cells/src/cdc_reset_ctrlr.sv
 CORE_FILES += ip/common_cells/src/sync.sv
-CORE_FILES += ip/common_cells/src/cdc_4phase.sv
 # Core and SoC
 CORE_FILES += ip/cv32e40x/rtl/*.sv
 CORE_FILES += src/soc/greyhound_soc.sv
@@ -52,9 +48,8 @@ CORE_FILES += ip/EF_UART/hdl/rtl/bus_wrappers/EF_UART_AHBL.v
 # Util
 CORE_FILES += ip/EF_IP_UTIL/hdl/ef_util_lib.v
 # Debug
-CORE_FILES += ip/riscv-dbg/src/dmi_jtag.sv
-CORE_FILES += ip/riscv-dbg/src/dmi_jtag_tap.sv
-CORE_FILES += ip/riscv-dbg/src/dmi_cdc.sv
+CORE_FILES += src/debug/soc_dmi_jtag.sv
+CORE_FILES += src/debug/soc_dmi_jtag_tap.sv
 CORE_FILES += ip/riscv-dbg/src/dm_obi_top.sv
 CORE_FILES += ip/riscv-dbg/src/dm_top.sv
 CORE_FILES += ip/riscv-dbg/src/dm_csrs.sv
@@ -63,19 +58,21 @@ CORE_FILES += ip/riscv-dbg/src/dm_mem.sv
 CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom.sv
 CORE_FILES += ip/riscv-dbg/debug_rom/debug_rom_one_scratch.sv
 CORE_FILES += src/debug/tc_clk_wrapper.sv
-CORE_FILES += src/debug/fpga_dm_jtag_tap.sv
-CORE_FILES += src/debug/fpga_dm.sv
-CORE_FILES += src/debug/fpga_boundary_cell_inout.sv
-CORE_FILES += src/debug/fpga_boundary_cell_output.sv
-CORE_FILES += src/debug/fpga_boundary_cell_input.sv
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
 CHIP_FILES += src/FMD_QNC_greyhound_ihp.v
 CHIP_FILES += src/greyhound_ihp.sv
+# Fabric Debug
+CHIP_FILES += src/debug/fpga_dm_jtag_tap.sv
+CHIP_FILES += src/debug/fpga_dm.sv
+CHIP_FILES += src/debug/fpga_boundary_cell_inout.sv
+CHIP_FILES += src/debug/fpga_boundary_cell_output.sv
+CHIP_FILES += src/debug/fpga_boundary_cell_input.sv
 # Fabric Wrapper
 CHIP_FILES += ip/fabric/rtl/fabric_wrapper.sv
 # Fabric Config
+CHIP_FILES += ip/fabric_config/controller_io_interface.sv
 CHIP_FILES += ip/fabric_config/fabric_config.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_controller.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_receiver.sv

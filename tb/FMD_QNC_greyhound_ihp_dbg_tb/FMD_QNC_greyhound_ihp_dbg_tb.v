@@ -85,7 +85,7 @@ module FMD_QNC_greyhound_ihp_dbg_tb;
     wire reset_SimJTAG;
 
     SimJTAG #(
-        .TICK_DELAY (1),
+        .TICK_DELAY (4), // 5MHz tclk
         .PORT(9999)
     ) i_sim_jtag (
         .clock                ( io_clock_PAD         ),

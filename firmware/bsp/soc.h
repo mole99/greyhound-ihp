@@ -14,6 +14,7 @@
 #define REG_FABRIC_CONFIG_BUSY  (volatile int*)(FABRIC_CONFIG_BASE + 4)
 #define REG_BITSTREAM           (volatile int*)(FABRIC_CONFIG_BASE + 8)
 #define REG_TRIGGER_SLOT        (volatile int*)(FABRIC_CONFIG_BASE + 12)
+#define REG_USERCODE            (volatile int*)(FABRIC_CONFIG_BASE + 16)
 
 #define FABRIC_BASE      0x50000000
 
