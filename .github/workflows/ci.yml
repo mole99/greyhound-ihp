@@ -36,7 +36,7 @@ jobs:
         tile_library: [classic]
     name: Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: 'true'
       - name: Setup Nix
@@ -53,7 +53,7 @@ jobs:
         run: |
           echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
       - name: Cache the tiles
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache
         with:
           path: ip/fabulous-tiles/tiles
@@ -71,7 +71,7 @@ jobs:
         tile_library: [classic]
     name: Extra Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: 'true'
       - name: Setup Nix
@@ -88,7 +88,7 @@ jobs:
         run: |
           echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Cache the tiles
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache
         with:
           path: ip/extra-tiles/tiles
@@ -107,7 +107,7 @@ jobs:
         fabric: [classic_fabric_greyhound]
     name: Fabric (${{ matrix.fabric }}/${{ matrix.pdk }})
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: 'true'
       - name: Setup Nix
@@ -126,19 +126,19 @@ jobs:
           echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
           echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Restore the tiles
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: ip/fabulous-tiles/tiles
           key: cache-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
           fail-on-cache-miss: true
       - name: Restore extra the tiles
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: ip/extra-tiles/tiles
           key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
           fail-on-cache-miss: true
       - name: Cache the Fabric
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache
         with:
           path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
