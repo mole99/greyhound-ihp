@@ -5,7 +5,7 @@ TOP = FMD_QNC_greyhound_ihp
 
 PDK_ROOT ?= $(MAKEFILE_DIR)/IHP-Open-PDK
 PDK ?= ihp-sg13g2
-PDK_COMMIT ?= c4b8b4e5e7a05f375cca3815d51b3a37721fbf5c
+PDK_COMMIT ?= 22f2a25f1734796de3debbbf29cf697cbbc54081
 
 CORE_FILES =
 # PACKAGES
@@ -108,35 +108,37 @@ $(FABRICS_COPY):
 
 # Implementation
 
+LIBRELANE_OPTS = --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
+
 all: librelane ## Build the project (runs LibreLane)
 .PHONY: all
 
 librelane: $(PDK_ROOT)/$(PDK) ## Run LibreLane to implement Greyhound
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/
 .PHONY: librelane
 
 librelane-nodrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC
 .PHONY: librelane-nodrc
 
 librelane-ci: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC --skip KLayout.Density --condensed
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC --skip KLayout.Density --condensed
 .PHONY: librelane-ci
 
 librelane-klayoutdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without magic DRC
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip Magic.DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip Magic.DRC
 .PHONY: librelane-klayoutdrc
 
 librelane-magicdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without KLayout DRC
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --save-views-to final/ --skip KLayout.DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC
 .PHONY: librelane-magicdrc
 
 librelane-openroad: $(PDK_ROOT)/$(PDK) ## Open the last run in OpenROAD
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInOpenROAD
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --last-run --flow OpenInOpenROAD
 .PHONY: librelane-openroad
 
 librelane-klayout: $(PDK_ROOT)/$(PDK) ## Open the last run in KLayout
-	librelane librelane/config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
 # Simulation
