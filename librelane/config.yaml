@@ -223,7 +223,7 @@ PDN_HWIDTH: 3.5
 # Because we have multiple power pads for one power domain
 MAGIC_EXT_UNIQUE: notopports
 
-PAD_SPACING_MULTIPLE: 2 # um
+#PAD_SPACING_MULTIPLE: 2 # um
 
 PAD_SOUTH: [
     # Clock and reset
