@@ -11,7 +11,7 @@
   inputs = {
     librelane.url = "github:librelane/librelane/dev";
     librelane_plugin_fabulous = {
-      url = "github:mole99/librelane_plugin_fabulous/1.13.0";
+      url = "github:mole99/librelane_plugin_fabulous/1.14.1";
       inputs.librelane.follows = "librelane";
     };
   };
