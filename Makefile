@@ -1,7 +1,7 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 RUN_TAG = $(shell ls runs/ -1 | tail -n 1)
-TOP = FMD_QNC_greyhound_ihp
+TOP = greyhound_ihp_top
 
 PDK_ROOT ?= $(MAKEFILE_DIR)/IHP-Open-PDK
 PDK ?= ihp-sg13g2
@@ -46,10 +46,10 @@ CORE_FILES += ip/EF_IP_UTIL/hdl/ef_util_lib.v
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
-CHIP_FILES += src/FMD_QNC_greyhound_ihp.v
-CHIP_FILES += src/greyhound_ihp.sv
+CHIP_FILES += src/greyhound_ihp_top.sv
+CHIP_FILES += src/greyhound_ihp_core.sv
 # Fabric Wrapper
-CHIP_FILES += ip/fabric/rtl/fabric_wrapper.sv
+CHIP_FILES += src/fabric/fabric_wrapper.sv
 # Fabric Config
 CHIP_FILES += ip/fabric_config/fabric_config.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_controller.sv
@@ -72,7 +72,7 @@ clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
 
 convert-slang:
 	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
+	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=$(TOP) OUTFILE=tb/$(TOP)_tb/$(TOP)_slang.sv yosys -m slang yosys.tcl
 .PHONY: convert-slang
 
 # Fabric

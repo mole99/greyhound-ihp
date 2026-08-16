@@ -190,7 +190,9 @@ Approximate times for configuration from simulation:
 
 Example programs are under the `firmware/` directory. These include programs to use the UART, load a bitstream, trigger a bitstream reconfiguration, use a custom instruction of the fabric or access a peripheral of the fabric.
 
-Instructions to compile a bitstream for the eFPGA can be found under `ip/fabric/user_designs/`.
+Instructions to compile the firmware can be found under `firmware/`.
+
+Instructions to compile a bitstream for the eFPGA can be found under `user_designs/`.
 
 ## Simulation and Verification
 

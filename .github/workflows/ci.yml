@@ -167,6 +167,33 @@ jobs:
         run: |
           PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb; python3 fabric_tb.py"
 
+  testbench:
+    runs-on: ubuntu-24.04
+    env:
+      pdk: ihp-sg13g2
+    needs: [fabrics]
+    name: Run the Simulations
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Compile the Firmware
+        run: |
+          cd firmware; nix develop --command make all
+      - name: Implement the User Designs
+        run: |
+          cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
+
   chip:
     runs-on: ubuntu-24.04
     env:
