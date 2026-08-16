@@ -25,3 +25,7 @@ drc_run_*
 IHP-Open-PDK/
 final/
 macro/
+
+# Slang-converted sources
+greyhound_ihp_top_slang.sv
+greyhound_soc_slang.sv

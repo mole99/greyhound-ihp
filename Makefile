@@ -71,8 +71,8 @@ clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
 .PHONY: clone-pdk
 
 convert-slang:
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=$(TOP) OUTFILE=tb/$(TOP)_tb/$(TOP)_slang.sv yosys -m slang yosys.tcl
+	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=src/soc/greyhound_soc_slang.sv yosys -m slang yosys.tcl
+	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=$(TOP) OUTFILE=src/$(TOP)_slang.sv yosys -m slang yosys.tcl
 .PHONY: convert-slang
 
 # Fabric
