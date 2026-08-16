@@ -6,11 +6,11 @@ import random
 import cocotb
 from pathlib import Path
 from cocotb.clock import Clock
+from cocotb.queue import Queue
 from cocotb.triggers import ClockCycles
-from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
+from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge, Event
 from cocotb.regression import TestFactory
 from cocotb_tools.runner import get_runner
-#from cocotbext.uart import UartSource, UartSink
 
 hello_world = {
     'firmware': '../../../firmware/hello_world/hello_world.hex'
@@ -20,7 +20,7 @@ custom_instruction = {
     'firmware': '../../../firmware/custom_instruction_dummy/custom_instruction_dummy.hex'
 }
 
-enabled = custom_instruction
+enabled = hello_world
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -43,13 +43,82 @@ async def start_up(dut):
     await start_clock(dut.clk_i)
     await reset(dut.rst_ni)
 
+class UartSource:
+    def __init__(self, tx_handle, baud=115200, bits=8):
+        self.tx_handle = tx_handle
+        self.baud = baud
+        self.bits = bits
+        self.tx_handle.value = 1 # idle
+        assert(self.bits == 8)
+    
+    async def write(self, data: bytearray):
+        for byte in data:
+            # Start bit
+            self.tx_handle.value = 0 # start
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+        
+            # LSB first
+            for i in range(self.bits):
+                self.tx_handle.value = (byte >> i) & 0x1
+                await Timer(round(1.0 / self.baud / 1e-9), "ns")
+            
+            # Stop bit
+            self.tx_handle.value = 1 # stop
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+
+class UartSink:
+    def __init__(self, rx_handle, baud=115200, bits=8):
+        self.rx_handle = rx_handle
+        self.baud = baud
+        self.bits = bits
+        assert(self.bits == 8)
+        
+        self.recv_data = Queue()
+        self.recv_wait = Event()
+        
+        self.coroutine = cocotb.start_soon(self.recv())
+    
+    async def recv(self):
+        while True:
+            await FallingEdge(self.rx_handle)
+            
+            # Shift by half a bit
+            await Timer(round(1.0 / self.baud / 1e-9) // 2, "ns")
+            
+            byte = 0
+            # LSB first
+            for i in range(self.bits):
+                await Timer(round(1.0 / self.baud / 1e-9), "ns")
+                byte = byte | (int(self.rx_handle.value) << i)
+            
+            # Check the stop bit
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+            assert(self.rx_handle.value == 1)
+            
+            self.recv_data.put_nowait(byte)
+            self.recv_wait.set()
+
+    def read_nowait(self, num_bytes=-1):
+        data = bytearray()
+        if num_bytes < 0:
+            num_bytes = self.recv_data.qsize()
+        for _ in range(num_bytes):
+            data.append(self.recv_data.get_nowait())
+        return data
+
+    async def read(self, num_bytes):
+        while self.recv_data.qsize() < num_bytes:
+            self.recv_wait.clear()
+            await self.recv_wait.wait()
+        return self.read_nowait(num_bytes)
+
 @cocotb.test(skip=enabled!=hello_world)
 async def test_hello_world(dut):
     """Run the "Hello World!" program"""
 
     # Setup UART
-    #uart_source = UartSource(dut.uart0_rx, baud=115200, bits=8)
-    #uart_sink = UartSink(dut.uart0_tx, baud=115200, bits=8)
+    uart_source = UartSource(dut.uart0_rx, baud=115200, bits=8)
+    uart_sink = UartSink(dut.uart0_tx, baud=115200, bits=8)
 
     # Start up
     await start_up(dut)
@@ -58,28 +127,28 @@ async def test_hello_world(dut):
     await ClockCycles(dut.clk_i, int(50000*1.0))
     
     # Send char
-    #await uart_source.write(b'A')
+    await uart_source.write(b'A')
     
     # Read char
-    #data = await uart_sink.read(1)
-    #print(data)
-    #assert data == b'A'
+    data = await uart_sink.read(1)
+    print(data)
+    assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.clk_i, int(50000*1.7))
+    await ClockCycles(dut.clk_i, int(50000*1.9))
     
     # Read message
-    #data = uart_sink.read_nowait(-1)
-    #print(data)
-    #assert data == b'Hello World!\n'
+    data = uart_sink.read_nowait(-1)
+    print(data)
+    assert data == b'Hello World!\n'
 
 @cocotb.test(skip=enabled!=custom_instruction)
 async def test_custom_instruction(dut):
     """Run the custom instruction program"""
 
     # Setup UART
-    #uart_source = UartSource(dut.uart0_rx, baud=115200, bits=8)
-    #uart_sink = UartSink(dut.uart0_tx, baud=115200, bits=8)
+    uart_source = UartSource(dut.uart0_rx, baud=115200, bits=8)
+    uart_sink = UartSink(dut.uart0_tx, baud=115200, bits=8)
 
     # Start up
     await start_up(dut)
@@ -88,9 +157,9 @@ async def test_custom_instruction(dut):
     await ClockCycles(dut.clk_i, int(50000*3))
     
     # Read message
-    #data = uart_sink.read_nowait(-1)
-    #print(data)
-    #assert data == b'0xDEADBEEF\n'
+    data = uart_sink.read_nowait(-1)
+    print(data)
+    assert data == b'0xDEADBEEF\n'
 
 if __name__ == "__main__":
 
@@ -112,10 +181,13 @@ if __name__ == "__main__":
     sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
     sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"sg13g2_udp.v" )
 
-    sources.append(testbench_path / 'greyhound_soc_slang.sv')
+    sources.append(testbench_path / '../../src/soc/greyhound_soc_slang.sv')
     sources.append(testbench_path / '../simlib.v')
     
     # Core files
+    
+    # For now, Icarus Verilog does not support all SV features required
+    # Therefore, convert the SV to a simpler form using yosys-slang
     
     """
     # PACKAGES

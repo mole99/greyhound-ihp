@@ -6,12 +6,11 @@ import random
 import cocotb
 from pathlib import Path
 from cocotb.clock import Clock
+from cocotb.queue import Queue
 from cocotb.triggers import ClockCycles
-from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge
+from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge, Event
 from cocotb.regression import TestFactory
 from cocotb_tools.runner import get_runner
-#from cocotb_tools.runner import get_runner
-#from cocotbext.uart import UartSource, UartSink
 
 from cocotbext.spi import SpiBus, SpiConfig, SpiMaster
 
@@ -109,7 +108,7 @@ fpga_blinky = {
     'dump_waveforms': False,
 }
 
-enabled = cpu_trigger_fpga
+enabled = hello_world
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -147,6 +146,75 @@ async def write_bitstream_spi(filename, spi_master):
 
             data = f.read(4)
 
+class UartSource:
+    def __init__(self, tx_handle, baud=115200, bits=8):
+        self.tx_handle = tx_handle
+        self.baud = baud
+        self.bits = bits
+        self.tx_handle.value = 1 # idle
+        assert(self.bits == 8)
+    
+    async def write(self, data: bytearray):
+        for byte in data:
+            # Start bit
+            self.tx_handle.value = 0 # start
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+        
+            # LSB first
+            for i in range(self.bits):
+                self.tx_handle.value = (byte >> i) & 0x1
+                await Timer(round(1.0 / self.baud / 1e-9), "ns")
+            
+            # Stop bit
+            self.tx_handle.value = 1 # stop
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+
+class UartSink:
+    def __init__(self, rx_handle, baud=115200, bits=8):
+        self.rx_handle = rx_handle
+        self.baud = baud
+        self.bits = bits
+        assert(self.bits == 8)
+        
+        self.recv_data = Queue()
+        self.recv_wait = Event()
+        
+        self.coroutine = cocotb.start_soon(self.recv())
+    
+    async def recv(self):
+        while True:
+            await FallingEdge(self.rx_handle)
+            
+            # Shift by half a bit
+            await Timer(round(1.0 / self.baud / 1e-9) // 2, "ns")
+            
+            byte = 0
+            # LSB first
+            for i in range(self.bits):
+                await Timer(round(1.0 / self.baud / 1e-9), "ns")
+                byte = byte | (int(self.rx_handle.value) << i)
+            
+            # Check the stop bit
+            await Timer(round(1.0 / self.baud / 1e-9), "ns")
+            assert(self.rx_handle.value == 1)
+            
+            self.recv_data.put_nowait(byte)
+            self.recv_wait.set()
+
+    def read_nowait(self, num_bytes=-1):
+        data = bytearray()
+        if num_bytes < 0:
+            num_bytes = self.recv_data.qsize()
+        for _ in range(num_bytes):
+            data.append(self.recv_data.get_nowait())
+        return data
+
+    async def read(self, num_bytes):
+        while self.recv_data.qsize() < num_bytes:
+            self.recv_wait.clear()
+            await self.recv_wait.wait()
+        return self.read_nowait(num_bytes)
+
 @cocotb.test(skip=enabled!=hello_world)
 async def test_hello_world(dut):
     """Run the "Hello World!" program"""
@@ -174,7 +242,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.io_clock_PAD, int(50000*1.8))
+    await ClockCycles(dut.io_clock_PAD, int(50000*1.9))
     
     # Read message
     data = uart_sink.read_nowait(-1)
@@ -440,7 +508,7 @@ if __name__ == "__main__":
         verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
         verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"sg13g2_udp.v" )
     
-        verilog_sources.append(testbench_path / f'{hdl_toplevel}_slang.sv')
+        verilog_sources.append(testbench_path / f'../../src/{hdl_toplevel}_slang.sv')
         verilog_sources.append(testbench_path / '../simlib.v')
         
         defines = {'RTL': True, 'FUNCTIONAL': True, 'UNIT_DELAY': '#0'}
