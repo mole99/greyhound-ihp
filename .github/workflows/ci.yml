@@ -171,6 +171,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       pdk: ihp-sg13g2
+      fabric: [classic_fabric_greyhound]
     needs: [fabrics]
     name: Run the Simulations
     steps:
@@ -190,9 +191,12 @@ jobs:
       - name: Compile the Firmware
         run: |
           cd firmware; nix develop --command make all
+      - name: Get the tile library
+        run: |
+          echo "TILE_LIBRARY=$(echo "${{ env.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
       - name: Implement the User Designs
         run: |
-          cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
+          cd user_designs; PDK=${{ env.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ env.fabric }} nix develop --command make all
 
   chip:
     runs-on: ubuntu-24.04
