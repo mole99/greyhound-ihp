@@ -28,7 +28,11 @@ EXTRA_PLIBS_PATH 	 = -extra-plib ../../../../ip/fabulous-tiles/primitives/FABULO
 			   -extra-plib ../../../../ip/fabulous-tiles/primitives/OBUF/yosys/primitives/OBUF.v \
 			   -extra-plib ../../../../ip/fabulous-tiles/primitives/TBUF/yosys/primitives/TBUF.v \
 			   -extra-plib ../../../../ip/fabulous-tiles/primitives/GBUF/yosys/primitives/GBUF.v \
-   			   -extra-plib ../../../../ip/fabulous-tiles/primitives/SYS_RESET/yosys/primitives/SYS_RESET.v
+   			   -extra-plib ../../../../ip/fabulous-tiles/primitives/SYS_RESET/yosys/primitives/SYS_RESET.v \
+      			   -extra-plib ../../../../ip/fabulous-tiles/primitives/WARMBOOT/yosys/primitives/WARMBOOT.v \
+   			   -extra-plib ../../../../ip/extra-tiles/primitives/OBI_PERIPHERAL/yosys/primitives/OBI_PERIPHERAL.v \
+   			   -extra-plib ../../../../ip/extra-tiles/primitives/CUSTOM_INSTRUCTION/yosys/primitives/CUSTOM_INSTRUCTION.v \
+   			   -extra-plib ../../../../ip/extra-tiles/primitives/CPU_IRQ/yosys/primitives/CPU_IRQ.v
 
 ifeq ($(TILE_LIBRARY),classic)
 EXTRA_PLIBS_PATH 	+= -extra-plib ../../../../ip/fabulous-tiles/primitives/RAM_32x4_2R_1W/yosys/primitives/RAM_32x4_2R_1W.v \
