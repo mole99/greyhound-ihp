@@ -141,18 +141,62 @@ librelane-klayout: $(PDK_ROOT)/$(PDK) ## Open the last run in KLayout
 	librelane librelane/config.yaml ${LIBRELANE_OPTS} --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
-# Simulation
+# Simulations
 
-sim: ## Run RTL simulation with cocotb
-	cd cocotb; PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 chip_top_tb.py
+sim-fabric: ## Run fabric RTL simulation with cocotb
+	cd tb/classic_fabric_greyhound; PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 fabric_tb.py
 .PHONY: sim
 
-sim-gl: $(PDK_ROOT)/$(PDK) ## Run gate-level simulation with cocotb
-	cd cocotb; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 chip_top_tb.py
+sim-fabric-gl: $(PDK_ROOT)/$(PDK) ## Run fabric gate-level simulation with cocotb
+	cd tb/classic_fabric_greyhound; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 fabric_tb.py
 .PHONY: sim-gl
 
-sim-view: ## View simulation waveforms in GTKWave
-	gtkwave cocotb/sim_build/chip_top.fst
+sim-fabric-view: ## View fabric simulation waveforms in GTKWave
+	gtkwave tb/classic_fabric_greyhound/sim_build/fabric_tb.fst
+.PHONY: sim-view
+
+
+sim-soc: ## Run SoC RTL simulation with cocotb
+	cd tb/greyhound_soc_tb; TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+	cd tb/greyhound_soc_tb; TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+.PHONY: sim
+
+sim-soc-gl: $(PDK_ROOT)/$(PDK) ## Run SoC gate-level simulation with cocotb
+	cd tb/greyhound_soc_tb; GL=1 TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+	cd tb/greyhound_soc_tb; GL=1 TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+.PHONY: sim-gl
+
+sim-soc-view: ## View SoC simulation waveforms in GTKWave
+	gtkwave tb/greyhound_soc_tb/sim_build/greyhound_soc_tb.fst
+.PHONY: sim-view
+
+
+sim-chip: ## Run chip RTL simulation with cocotb
+	cd tb/greyhound_ihp_top_tb; TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_all_ones PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_all_zeros PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=cpu_trigger_fpga PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_peripheral PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_peripheral_sram PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_irq PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_blinky PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+.PHONY: sim
+
+sim-chip-gl: $(PDK_ROOT)/$(PDK) ## Run chip gate-level simulation with cocotb
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_all_ones PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_all_zeros PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=cpu_trigger_fpga PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_peripheral PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_peripheral_sram PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_irq PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_blinky PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+.PHONY: sim-gl
+
+sim-chip-view: ## View chip simulation waveforms in GTKWave
+	gtkwave tb/greyhound_ihp_top_tb/sim_build/greyhound_ihp_top_tb.fst
 .PHONY: sim-view
 
 # Finishing

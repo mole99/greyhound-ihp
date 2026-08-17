@@ -162,17 +162,16 @@ jobs:
           cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
       - name: Simulate the Fabric (RTL Emulation)
         run: |
-          EMULATION=counter PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb; python3 fabric_tb.py"
+          EMULATION=counter PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb/classic_fabric_greyhound; python3 fabric_tb.py"
       - name: Simulate the Fabric (RTL Simulation)
         run: |
-          PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb; python3 fabric_tb.py"
+          PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb/classic_fabric_greyhound; python3 fabric_tb.py"
 
   testbench:
     runs-on: ubuntu-24.04
     env:
       pdk: ihp-sg13g2
-      fabric: [classic_fabric_greyhound]
-    needs: [fabrics]
+      fabric: classic_fabric_greyhound
     name: Run the Simulations
     steps:
       - uses: actions/checkout@v6
@@ -188,6 +187,9 @@ jobs:
         uses: ./.github/actions/build_nix
         with:
           nix_system: x86_64-linux
+      - name: Convert using Yosys-Slang
+        run: |
+          nix develop --command make convert-slang
       - name: Compile the Firmware
         run: |
           cd firmware; nix develop --command make all
@@ -197,6 +199,12 @@ jobs:
       - name: Implement the User Designs
         run: |
           cd user_designs; PDK=${{ env.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ env.fabric }} nix develop --command make all
+      - name: Run SoC RTL Simulation
+        run: |
+          nix develop --command make sim-soc
+      - name: Run chip RTL Simulation
+        run: |
+          nix develop --command make sim-chip
 
   chip:
     runs-on: ubuntu-24.04
