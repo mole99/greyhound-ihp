@@ -172,6 +172,7 @@ jobs:
     env:
       pdk: ihp-sg13g2
       fabric: classic_fabric_greyhound
+    needs: [fabrics]
     name: Run the Simulations
     steps:
       - uses: actions/checkout@v6
@@ -187,15 +188,24 @@ jobs:
         uses: ./.github/actions/build_nix
         with:
           nix_system: x86_64-linux
+      - name: Get the tile library
+        run: |
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Restore the Fabric classic_fabric_greyhound
+        uses: actions/cache/restore@v5
+        with:
+          path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
+          key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Copy the Fabric
+        run: |
+          make classic_fabric_greyhound-copy
       - name: Convert using Yosys-Slang
         run: |
           nix develop --command make convert-slang
       - name: Compile the Firmware
         run: |
           cd firmware; nix develop --command make all
-      - name: Get the tile library
-        run: |
-          echo "TILE_LIBRARY=$(echo "${{ env.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
       - name: Implement the User Designs
         run: |
           cd user_designs; PDK=${{ env.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ env.fabric }} nix develop --command make all
