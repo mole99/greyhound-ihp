@@ -12,15 +12,18 @@ from cocotb.triggers import Timer, Edge, RisingEdge, FallingEdge, Event
 from cocotb.regression import TestFactory
 from cocotb_tools.runner import get_runner
 
-hello_world = {
-    'firmware': '../../../firmware/hello_world/hello_world.hex'
+testcase = os.getenv("TESTCASE", "hello_world")
+
+testcases = {
+    "hello_world": {
+        'firmware': '../../../firmware/hello_world/hello_world.hex'
+    },
+    "custom_instruction": {
+        'firmware': '../../../firmware/custom_instruction_dummy/custom_instruction_dummy.hex'
+    },
 }
 
-custom_instruction = {
-    'firmware': '../../../firmware/custom_instruction_dummy/custom_instruction_dummy.hex'
-}
-
-enabled = hello_world
+enabled = testcases[testcase]
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
@@ -112,7 +115,7 @@ class UartSink:
             await self.recv_wait.wait()
         return self.read_nowait(num_bytes)
 
-@cocotb.test(skip=enabled!=hello_world)
+@cocotb.test(skip=testcase!="hello_world")
 async def test_hello_world(dut):
     """Run the "Hello World!" program"""
 
@@ -142,7 +145,7 @@ async def test_hello_world(dut):
     print(data)
     assert data == b'Hello World!\n'
 
-@cocotb.test(skip=enabled!=custom_instruction)
+@cocotb.test(skip=testcase!="custom_instruction")
 async def test_custom_instruction(dut):
     """Run the custom instruction program"""
 

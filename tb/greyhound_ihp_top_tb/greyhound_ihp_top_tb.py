@@ -27,93 +27,97 @@ fabric          = os.getenv("FABRIC", "classic_fabric_greyhound")
 hdl_toplevel = "greyhound_ihp_top"
 tb_toplevel = "greyhound_ihp_top_tb"
 
-hello_world = {
-    'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
-    'flash0_slot1': '',
-    'flash1_slot0': '',
-    'flash1_slot1': '',
-    'connect_flash1': False,
-    'dump_waveforms': True,
+testcase = os.getenv("TESTCASE", "hello_world")
+
+testcases = {
+    "hello_world": {
+        'flash0_slot0': '../../../firmware/hello_world/hello_world.hex',
+        'flash0_slot1': '',
+        'flash1_slot0': '',
+        'flash1_slot1': '',
+        'connect_flash1': False,
+        'dump_waveforms': True,
+    },
+
+    "fpga_all_ones": {
+        'flash0_slot0': '',
+        'flash0_slot1': '',
+        'flash1_slot0': '',
+        'flash1_slot1': '',
+        'connect_flash1': False,
+        'dump_waveforms': False,
+    },
+
+    "fpga_all_zeros": {
+        'flash0_slot0': '',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/all_zeros/all_zeros.hex',
+        'flash1_slot1': '',
+        'connect_flash1': True,
+        'dump_waveforms': False,
+    },
+
+    "cpu_trigger_fpga": {
+        'flash0_slot0': '../../../firmware/trigger_fpga/trigger_fpga.hex',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/all_zeros/all_zeros.hex',
+        'flash1_slot1': '../../../user_designs/designs/classic/all_ones/all_ones.hex',
+        'connect_flash1': True,
+        'dump_waveforms': False,
+    },
+
+    "custom_instruction": {
+        'flash0_slot0': '../../../firmware/custom_instruction/custom_instruction.hex',
+        'flash0_slot1': '../../../user_designs/designs/classic/custom_instruction/custom_instruction.hex',
+        'flash1_slot0': '',
+        'flash1_slot1': '',
+        'connect_flash1': False,
+        'dump_waveforms': False,
+    },
+
+    "fpga_peripheral": {
+        'flash0_slot0': '../../../firmware/access_peripheral/access_peripheral.hex',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/peripheral/peripheral.hex',
+        'flash1_slot1': '',
+        'connect_flash1': True,
+        'dump_waveforms': False,
+    },
+
+    "fpga_peripheral_sram": {
+        'flash0_slot0': '../../../firmware/access_peripheral_sram/access_peripheral_sram.hex',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/peripheral_sram/peripheral_sram.hex',
+        'flash1_slot1': '',
+        'connect_flash1': True,
+        'dump_waveforms': False,
+    },
+
+    "fpga_irq": {
+        'flash0_slot0': '../../../firmware/wait_for_irq/wait_for_irq.hex',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/trigger_irq/trigger_irq.hex',
+        'flash1_slot1': '',
+        'connect_flash1': True,
+        'dump_waveforms': True,
+    },
+
+    "fpga_blinky": {
+        'flash0_slot0': '',
+        'flash0_slot1': '',
+        'flash1_slot0': '../../../user_designs/designs/classic/trigger_slot1/trigger_slot1.hex',
+        'flash1_slot1': '../../../user_designs/designs/classic/trigger_slot0/trigger_slot0.hex',
+        'connect_flash1': True,
+        'dump_waveforms': False,
+    },
 }
 
-fpga_all_ones = {
-    'flash0_slot0': '',
-    'flash0_slot1': '',
-    'flash1_slot0': '',
-    'flash1_slot1': '',
-    'connect_flash1': False,
-    'dump_waveforms': False,
-}
-
-fpga_all_zeros = {
-    'flash0_slot0': '',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/all_zeros/all_zeros.hex',
-    'flash1_slot1': '',
-    'connect_flash1': True,
-    'dump_waveforms': False,
-}
-
-cpu_trigger_fpga = {
-    'flash0_slot0': '../../../firmware/trigger_fpga/trigger_fpga.hex',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/all_zeros/all_zeros.hex',
-    'flash1_slot1': '../../../ip/fabric/user_designs/all_ones/all_ones.hex',
-    'connect_flash1': True,
-    'dump_waveforms': False,
-}
-
-custom_instruction = {
-    'flash0_slot0': '../../../firmware/custom_instruction/custom_instruction.hex',
-    'flash0_slot1': '../../../ip/fabric/user_designs/custom_instruction/custom_instruction.hex',
-    'flash1_slot0': '',
-    'flash1_slot1': '',
-    'connect_flash1': False,
-    'dump_waveforms': False,
-}
-
-fpga_peripheral = {
-    'flash0_slot0': '../../../firmware/access_peripheral/access_peripheral.hex',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/peripheral/peripheral.hex',
-    'flash1_slot1': '',
-    'connect_flash1': True,
-    'dump_waveforms': False,
-}
-
-fpga_peripheral_sram = {
-    'flash0_slot0': '../../../firmware/access_peripheral_sram/access_peripheral_sram.hex',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/peripheral_sram/peripheral_sram.hex',
-    'flash1_slot1': '',
-    'connect_flash1': True,
-    'dump_waveforms': False,
-}
-
-fpga_irq = {
-    'flash0_slot0': '../../../firmware/wait_for_irq/wait_for_irq.hex',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/trigger_irq/trigger_irq.hex',
-    'flash1_slot1': '',
-    'connect_flash1': True,
-    'dump_waveforms': True,
-}
-
-fpga_blinky = {
-    'flash0_slot0': '',
-    'flash0_slot1': '',
-    'flash1_slot0': '../../../ip/fabric/user_designs/trigger_slot1/trigger_slot1.hex',
-    'flash1_slot1': '../../../ip/fabric/user_designs/trigger_slot0/trigger_slot0.hex',
-    'connect_flash1': True,
-    'dump_waveforms': False,
-}
-
-enabled = hello_world
+enabled = testcases[testcase]
 
 async def start_clock(clock, freq=50):
     """ Start the clock @ freq MHz """
     c = Clock(clock, 1/freq*1000, 'ns')
-    await cocotb.start(c.start())
+    cocotb.start_soon(c.start())
 
 async def reset(reset, active_low=True, time_ns=1000):
     """ Reset dut """
@@ -215,7 +219,7 @@ class UartSink:
             await self.recv_wait.wait()
         return self.read_nowait(num_bytes)
 
-@cocotb.test(skip=enabled!=hello_world)
+@cocotb.test(skip=testcase!="hello_world")
 async def test_hello_world(dut):
     """Run the "Hello World!" program"""
 
@@ -249,7 +253,7 @@ async def test_hello_world(dut):
     print(data)
     assert data == b'Hello World!\n'
 
-@cocotb.test(skip=enabled!=custom_instruction)
+@cocotb.test(skip=testcase!="custom_instruction")
 async def test_custom_instruction(dut):
     """Run the custom instruction program"""
 
@@ -280,7 +284,7 @@ async def test_custom_instruction(dut):
     # 0x0EED42E6 + 0x258AE222 = 0x34782508
     assert data == b'0x34782508\n'
 
-@cocotb.test(skip=enabled!=fpga_all_zeros)
+@cocotb.test(skip=testcase!="fpga_all_zeros")
 async def test_fpga_all_zeros(dut):
     """Run the all_zeros FPGA bitstream"""
 
@@ -302,7 +306,7 @@ async def test_fpga_all_zeros(dut):
     
     assert(dut.io_gpio_PAD.value == 0x00000000)
 
-@cocotb.test(skip=enabled!=fpga_all_ones)
+@cocotb.test(skip=testcase!="fpga_all_ones")
 async def test_fpga_all_ones(dut):
     """Run the all_ones FPGA bitstream"""
 
@@ -330,7 +334,7 @@ async def test_fpga_all_ones(dut):
     print("Writing bitstream via SPI!")
 
     # Configure FPGA via SPI
-    spi_coroutine = await cocotb.start(write_bitstream_spi('../../../ip/fabric/user_designs/all_ones/all_ones.bit', spi_master))
+    spi_coroutine = await cocotb.start(write_bitstream_spi('../../../user_designs/designs/classic/all_ones/all_ones.bit', spi_master))
 
     # Wait until FPGA is configured
     await spi_coroutine
@@ -342,7 +346,7 @@ async def test_fpga_all_ones(dut):
     assert(dut.io_config_busy_PAD.value == 0)
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
-@cocotb.test(skip=enabled!=cpu_trigger_fpga)
+@cocotb.test(skip=testcase!="cpu_trigger_fpga")
 async def test_cpu_trigger_fpga(dut):
     """Run the trigger_fpga program"""
 
@@ -363,7 +367,7 @@ async def test_cpu_trigger_fpga(dut):
     
     assert(dut.io_gpio_PAD.value == 0xFFFFFFFF)
 
-@cocotb.test(skip=enabled!=fpga_peripheral)
+@cocotb.test(skip=testcase!="fpga_peripheral")
 async def test_fpga_peripheral(dut):
     """Run the access_peripheral program"""
 
@@ -390,7 +394,7 @@ async def test_fpga_peripheral(dut):
     
     assert data == b'Ok!\n'
 
-@cocotb.test(skip=enabled!=fpga_peripheral_sram)
+@cocotb.test(skip=testcase!="fpga_peripheral_sram")
 async def test_fpga_peripheral_sram(dut):
     """Run the access_peripheral_sram program"""
 
@@ -417,7 +421,7 @@ async def test_fpga_peripheral_sram(dut):
     
     assert data == b'Ok!\n'
 
-@cocotb.test(skip=enabled!=fpga_irq)
+@cocotb.test(skip=testcase!="fpga_irq")
 async def test_fpga_irq(dut):
     """Run the wait_for_irq program"""
 
@@ -445,7 +449,7 @@ async def test_fpga_irq(dut):
     
     assert(dut.io_gpio_PAD.value == 0xCAFECAFE)
 
-@cocotb.test(skip=enabled!=fpga_blinky)
+@cocotb.test(skip=testcase!="fpga_blinky")
 async def test_fpga_blinky(dut):
     """Alternate between two bistreams in slot 0 and slot 1"""
 
@@ -490,30 +494,30 @@ if __name__ == "__main__":
     
     includes = [testbench_path / '../../rtl/include']
     
-    verilog_sources = []
+    sources = []
     defines = {}
 
     if gl:
         # SCL models
-        verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
+        sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
         
-        verilog_sources.append(testbench_path / f'../../final/nl/{hdl_toplevel}.nl.v')
-        #verilog_sources.append(testbench_path / f'../../final/pnl/{hdl_toplevel}.pnl.v')
+        sources.append(testbench_path / f'../../final/nl/{hdl_toplevel}.nl.v')
+        #sources.append(testbench_path / f'../../final/pnl/{hdl_toplevel}.pnl.v')
         
-        verilog_sources.append(testbench_path / '../../ip/bondpad_70x70/bondpad_70x70.v')
+        sources.append(testbench_path / '../../ip/bondpad_70x70/bondpad_70x70.v')
         
         defines = {'FUNCTIONAL': True, 'UNIT_DELAY': '#0'}
     else:
         # SCL models (for the clock gate)
-        verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
-        verilog_sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"sg13g2_udp.v" )
+        sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v" )
+        sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"sg13g2_udp.v" )
     
-        verilog_sources.append(testbench_path / f'../../src/{hdl_toplevel}_slang.sv')
-        verilog_sources.append(testbench_path / '../simlib.v')
+        sources.append(testbench_path / f'../../src/{hdl_toplevel}_slang.sv')
+        sources.append(testbench_path / '../simlib.v')
         
         defines = {'RTL': True, 'FUNCTIONAL': True, 'UNIT_DELAY': '#0'}
     
-    verilog_sources += [
+    sources += [
         testbench_path / f'{tb_toplevel}.v',
         testbench_path / 'spiflash.v',
         testbench_path / 'spiflash_powered.v',
@@ -547,17 +551,17 @@ if __name__ == "__main__":
     primitives_files += list(extra_primitives_path.glob('**/fabulous/*.v'))
     tile_files += list(extra_tile_library_path.glob(f'**/macro/{pdk}/fabulous/*.v'))
 
-    verilog_sources.extend(primitives_files)
-    verilog_sources.extend(tile_files)
+    sources.extend(primitives_files)
+    sources.extend(tile_files)
 
     # Add models pack
-    verilog_sources.append(tiles_path / "models_pack.v")
+    sources.append(tiles_path / "models_pack.v")
 
     # Add custom cells
-    verilog_sources.append(tiles_path / "custom.v")
+    sources.append(tiles_path / "custom.v")
 
     # Add FPGA fabric
-    verilog_sources.append(testbench_path / f'../../fabrics/classic_fabric_greyhound/macro/{pdk}/fabulous/classic_fabric_greyhound.v')
+    sources.append(testbench_path / f'../../fabrics/classic_fabric_greyhound/macro/{pdk}/fabulous/classic_fabric_greyhound.v')
 
 
     defines['USE_POWER_PINS'] = True
@@ -578,7 +582,7 @@ if __name__ == "__main__":
 
     runner = get_runner(sim)
     runner.build(
-        verilog_sources=verilog_sources,
+        sources=sources,
         hdl_toplevel=tb_toplevel,
         defines=defines,
         always=True,
