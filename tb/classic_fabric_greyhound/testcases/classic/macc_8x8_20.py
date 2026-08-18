@@ -18,7 +18,7 @@ proj_path = Path(__file__).resolve().parent
 async def test_macc_8x8_20(dut):
     """Load bitstream for macc_8x8_20"""
 
-    pcf = PCF(dut, proj_path / f"../../../fabrics/{fabric}/constraints.pcf")
+    pcf = PCF(dut, proj_path / f"../../../../fabrics/{fabric}/constraints.pcf")
     pcf.write_gtkw(f"{testname}.gtkw", ["clk1", "rst", "ena", "a", "b", "product"])
 
     # Reset
@@ -32,7 +32,7 @@ async def test_macc_8x8_20(dut):
     await Timer(10, unit="ns")
 
     # Upload the bitstream
-    await upload_bitstream(dut, proj_path / f'../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
+    await upload_bitstream(dut, proj_path / f'../../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
     await Timer(10, unit="ns")
     
     # Start a clock on clk1

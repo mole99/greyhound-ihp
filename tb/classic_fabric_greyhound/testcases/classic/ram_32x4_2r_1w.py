@@ -17,7 +17,7 @@ proj_path = Path(__file__).resolve().parent
 async def test_ram_32x4_2r_1w(dut):
     """Load bitstream for ram_32x4_2r_1w"""
 
-    pcf = PCF(dut, proj_path / f"../../../fabrics/{fabric}/constraints.pcf")
+    pcf = PCF(dut, proj_path / f"../../../../fabrics/{fabric}/constraints.pcf")
     pcf.write_gtkw(f"{testname}.gtkw", ["clk1", "clk2", "word_a", "addr_a", "addr_b", "addr_c", "word_b", "word_c"])
 
     # Reset
@@ -32,7 +32,7 @@ async def test_ram_32x4_2r_1w(dut):
     await Timer(10, unit="ns")
 
     # Upload the bitstream
-    await upload_bitstream(dut, proj_path / f'../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
+    await upload_bitstream(dut, proj_path / f'../../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
     await Timer(10, unit="ns")
     
     # Start a clock on clk1

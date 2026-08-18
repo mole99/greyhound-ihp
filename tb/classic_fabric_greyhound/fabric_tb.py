@@ -26,14 +26,14 @@ if __name__ == "__main__":
     emulation = os.getenv("EMULATION", False)
     tile_library = os.getenv("TILE_LIBRARY", "classic")
     
-    tiles_path = Path(proj_path / ".." / "ip" / "fabulous-tiles")
+    tiles_path = Path(proj_path / "../../ip/fabulous-tiles")
     primitives_path = Path(tiles_path) / "primitives"
     tile_library_path = Path(tiles_path) / "tiles" / tile_library
 
     primitives_files = list(primitives_path.glob('**/fabulous/*.v'))
     tile_files = list(tile_library_path.glob(f'**/macro/{pdk}/fabulous/*.v'))
     
-    extra_tiles_path = Path(proj_path / ".." / "ip" / "extra-tiles")
+    extra_tiles_path = Path(proj_path / "../../ip/extra-tiles")
     extra_primitives_path = Path(extra_tiles_path) / "primitives"
     extra_tile_library_path = Path(extra_tiles_path) / "tiles" / tile_library
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     test_filter = None
     
     if emulation:
-        sources.append(proj_path / f'../user_designs/designs/{tile_library}/{emulation}/{emulation}.vh')
+        sources.append(proj_path / f'../../user_designs/designs/{tile_library}/{emulation}/{emulation}.vh')
         defines = {"EMULATION": True}
         test_filter = "test_" + emulation
     
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     sources.append(tiles_path / "custom.v")
 
     # Add fabric netlist
-    sources.append(proj_path / f'../fabrics/{fabric}/macro/{pdk}/fabulous/{fabric}.v')
+    sources.append(proj_path / f'../../fabrics/{fabric}/macro/{pdk}/fabulous/{fabric}.v')
 
     hdl_toplevel = fabric
 

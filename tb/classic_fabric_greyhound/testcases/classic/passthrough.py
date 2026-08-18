@@ -18,7 +18,7 @@ proj_path = Path(__file__).resolve().parent
 async def test_passthrough(dut):
     """Load bitstream for passthrough"""
 
-    pcf = PCF(dut, proj_path / f"../../../fabrics/{fabric}/constraints.pcf")
+    pcf = PCF(dut, proj_path / f"../../../../fabrics/{fabric}/constraints.pcf")
     pcf.write_gtkw(f"{testname}.gtkw", ["a", "b"])
 
     # Zero all config bits
@@ -26,7 +26,7 @@ async def test_passthrough(dut):
     await Timer(10, unit="ns")
 
     # Upload the bitstream
-    await upload_bitstream(dut, proj_path / f'../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
+    await upload_bitstream(dut, proj_path / f'../../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
     await Timer(10, unit="ns")
     
     for i in range(32):

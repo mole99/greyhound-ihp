@@ -17,7 +17,7 @@ proj_path = Path(__file__).resolve().parent
 async def test_sys_reset(dut):
     """Load bitstream for sys_reset"""
 
-    pcf = PCF(dut, proj_path / f"../../../fabrics/{fabric}/constraints.pcf")
+    pcf = PCF(dut, proj_path / f"../../../../fabrics/{fabric}/constraints.pcf")
     pcf.write_gtkw(f"{testname}.gtkw", ["clk1", "a", "b"])
 
     # Find SYS_RESET.RESET
@@ -40,7 +40,7 @@ async def test_sys_reset(dut):
     cocotb.start_soon(Clock(clock1, 10, 'ns').start())
 
     # Upload the bitstream
-    await upload_bitstream(dut, proj_path / f'../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
+    await upload_bitstream(dut, proj_path / f'../../../../user_designs/designs/{tile_library}/{testname}/{testname}.bit')
     await Timer(10, unit="ns")
 
     pcf.set("a", LogicArray.from_unsigned(0x13, len(pcf.get("a"))))
