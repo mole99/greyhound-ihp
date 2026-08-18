@@ -200,6 +200,9 @@ jobs:
       - name: Copy the Fabric
         run: |
           make classic_fabric_greyhound-copy
+      - name: Enable the PDK
+        run: |
+          PDK=${{ env.pdk }} nix develop --command make clone-pdk
       - name: Convert using Yosys-Slang
         run: |
           nix develop --command make convert-slang
