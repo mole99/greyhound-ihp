@@ -21,21 +21,41 @@
           localSystem = system;
           crossSystem = {
             config = "riscv32-none-elf";
-            sdkArch = "rv32imac_zicntr_zicsr_zifencei_zihpm_zca_zcb_zcmp_zcmt_zba_zbb_zbc_zbs";
+            arch = "rv32imac_zicntr_zicsr_zifencei_zihpm_zca_zcb_zcmp_zcmt_zba_zbb_zbc_zbs";
+            libc = "newlib";
             gcc = {
               arch = "rv32imac_zicntr_zicsr_zifencei_zihpm_zca_zcb_zcmp_zcmt_zba_zbb_zbc_zbs";
               abi = "ilp32";
             };
           };
+          crossOverlays = [
+            (final: prev: {
+              newlib = prev.newlib.overrideAttrs {
+                # Disable all hardening
+                hardeningDisable = [ "all" ];
+
+                # We don't need frame pointers (no hardware support for debugging)
+                NIX_CFLAGS_COMPILE = (prev.newlib.NIX_CFLAGS_COMPILE or "") 
+                  + "-fomit-frame-pointer -momit-leaf-frame-pointer";
+              };
+            })
+          ];
         };
       in
       {
         devShells.default = pkgsCross.mkShell {
-          nativeBuildInputs = [
-            pkgsCross.buildPackages.stdenv.cc
-            pkgsCross.buildPackages.binutils
+          nativeBuildInputs = with pkgsCross; [
+            buildPackages.binutils
           ];
+
+          # Disable all hardening
+          hardeningDisable = [ "all" ];
+
+          # We don't need frame pointers (no hardware support for debugging)
+          NIX_CFLAGS_COMPILE = "-fomit-frame-pointer -momit-leaf-frame-pointer";
         };
+        
+        packages.newlib = pkgsCross.newlib;
       }
     );
 }

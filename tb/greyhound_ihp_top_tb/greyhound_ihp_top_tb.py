@@ -246,7 +246,7 @@ async def test_hello_world(dut):
     assert data == b'A'
 
     # Wait for message
-    await ClockCycles(dut.io_clock_PAD, int(50000*1.9))
+    await ClockCycles(dut.io_clock_PAD, int(50000*1.8))
     
     # Read message
     data = uart_sink.read_nowait(-1)
