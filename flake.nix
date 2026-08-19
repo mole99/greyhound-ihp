@@ -47,6 +47,7 @@
             in
             {
               cocotbext-spi = callPythonPackage ./nix/cocotbext-spi.nix { };
+              librelane-plugin-greyhound = callPythonPackage ./default.nix { };
             }
           ))
           ];
@@ -65,7 +66,10 @@
         in
         {
           default = pkgs.librelane-shell.override ({
-            librelane-plugins = ps: with ps; [librelane-plugin-fabulous];
+            librelane-plugins = ps: with ps; [
+              librelane-plugin-fabulous
+              librelane-plugin-greyhound
+            ];
             extra-packages = with pkgs; [
               # Utilities
               gnumake

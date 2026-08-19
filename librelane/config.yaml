@@ -24,6 +24,13 @@ meta:
     # Setup violations don't matter (for now)
     Checker.SetupViolations: null
 
+    # Insert the logo into the GDS
+    +KLayout.SealRing: KLayout.InsertLogo
+
+    # Render the layout after logo insertion
+    KLayout.Render: null
+    +KLayout.InsertLogo: KLayout.Render
+
     # Save time - we run filler generation afterwards
     #KLayout.Filler: null
     #KLayout.Density: null
@@ -35,6 +42,9 @@ meta:
 
     # Use Magic filler generation instead
     KLayout.Filler: Magic.Filler
+    
+    # Convert GDS to OASIS after filler
+    +Magic.Filler: KLayout.ConvertOASIS
 
 DESIGN_NAME: greyhound_ihp_top
 VERILOG_FILES:
@@ -161,7 +171,7 @@ GRT_ALLOW_CONGESTION: true
 # Clock
 CLOCK_PORT: io_clock_PAD
 CLOCK_NET: sg13g2_IOPad_io_clock/p2c
-CLOCK_PERIOD: 20
+CLOCK_PERIOD: 100 # TODO: 20
 CTS_OBSTRUCTION_AWARE: true
 
 CTS_SINK_CLUSTERING_ENABLE: True
@@ -320,6 +330,10 @@ FP_MACRO_VERTICAL_HALO: 5
 
 PL_RESIZER_HOLD_SLACK_MARGIN: 0.25
 GRT_RESIZER_HOLD_SLACK_MARGIN: 0.15
+
+# Insert the logo
+LOGO_PATH: dir::../logo/smooth/gds/greyhound_logo.gds
+LOGO_COORDS: [450, 450]
 
 MACROS:
   
@@ -558,3 +572,8 @@ INSERT_ECO_DIODES:
 - target: i_greyhound_ihp_core.fabric_wrapper.classic_fabric_greyhound/Tile_X0Y16_B_O_top
 
 # TODO CONFIGURED_TOP
+
+# Image render settings
+KLAYOUT_RENDER_RESOLUTION: 4096
+KLAYOUT_RENDER_OVERSAMPLING: 3
+KLAYOUT_PROPERTIES: dir::sg13g2_render.lyp

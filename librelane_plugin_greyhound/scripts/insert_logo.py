@@ -28,7 +28,11 @@ if __name__ == "__main__":
     parser.add_argument('input_gds')
     parser.add_argument('logo_gds')
     parser.add_argument('output_gds')
+    parser.add_argument('--x', type=int, default=450)
+    parser.add_argument('--y', type=int, default=450)
     
     args = parser.parse_args()
     
-    insert_logo(args.input_gds, args.logo_gds, args.output_gds, offset=(450, 450))
+    print(f"Inserting logo {args.logo_gds} into {args.input_gds} at {args.x},{args.y} output {args.output_gds}")
+    
+    insert_logo(args.input_gds, args.logo_gds, args.output_gds, offset=(args.x, args.y))

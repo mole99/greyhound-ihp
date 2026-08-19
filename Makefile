@@ -199,12 +199,5 @@ sim-chip-view: ## View chip simulation waveforms in GTKWave
 	gtkwave tb/greyhound_ihp_top_tb/sim_build/greyhound_ihp_top_tb.fst
 .PHONY: sim-view
 
-# Finishing
-
-oasis:
-	mkdir -p final/oas/
-	klayout -rd input_gds=final/gds_fill/${TOP}.gds.gz -rd output_oasis=final/oas/${TOP}.oas -r scripts/convert_oasis.py -zz
-.PHONY: oasis
-
-tapeout: librelane oasis
+tapeout: librelane
 .PHONY: tapeout
