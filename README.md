@@ -5,8 +5,8 @@ Greyhound's embedded FPGA can be used as a custom instruction extension, as a pe
 Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](https://github.com/IHP-GmbH/IHP-Open-PDK).
 
 <p align="center">
-  <a href="img/FMD_QNC_greyhound_ihp_white.png">
-    <img src="img/FMD_QNC_greyhound_ihp_white_small.png" alt="chip layout" width=35%>
+  <a href="img/greyhound_ihp_top.png">
+    <img src="img/greyhound_ihp_top_small.png" alt="chip layout" width=35%>
   </a>
 </p>
 
@@ -196,41 +196,24 @@ Instructions to compile a bitstream for the eFPGA can be found under `user_desig
 
 ## Simulation and Verification
 
-Testbenches are made with [cocotb](https://github.com/cocotb/cocotb). There are separate testbenches just for simulating the SoC or the full chip. To simulate the SoC, take a look at `tb/greyhound_soc_tb`. For the full chip simulation see `tb/greyhound_ihp_top`.
+Testbenches are made with [cocotb](https://github.com/cocotb/cocotb). There are separate testbenches for simulating the fabric, the SoC, or the full chip.
+You can find the different cocotb testbenches under `tb/`.
 
 To run an RTL simulation, first we need to convert the SystemVerilog into something that Icarus Verilog can read.
 Enable a Nix shell using `nix-shell` and run `make convert-slang`.
 
-Currently, Nix is not used for the testbench environment (sorry!), you need to create a virtual environment in Python and install the dependencies via:
+- Run the fabric simulation via: `sim-fabric`
+- Run the SoC simulation via: `sim-soc`
+- Run the chip simulation via: `sim-chip`
 
-```
-pip3 install -r requirements.txt
-```
+To open the waveforms, simply append `-view` to the make target. There are also make targets for gate-level simulation, though these are a bit spotty.
 
-To start the full chip simulation simply run:
-
-```
-python3 FMD_QNC_greyhound_ihp.py
-```
-
-To run a gate level simulation, simply set `GL`:
-
-```
-GL=1 python3 FMD_QNC_greyhound_ihp.py
-```
-
-To select a different test, open `FMD_QNC_greyhound_ihp.py` and set `enabled` to one of the available tests. This is unfortunately necessary since cocotb cannot restart the simulator between test runs. Maybe there is another way to reload the SPI flash.
+If you run the testbenches directly, set `TESTCASE` to select a different test case.
+This is unfortunately necessary since cocotb cannot restart the simulator between test runs. Maybe there is another way to reload the SPI flash.
 
 ## Building the Chip
 
-> [!NOTE]
-> Greyhound currently relies on forks of [LibreLane](https://github.com/mole99/librelane/tree/greyhound) and the [IHP Open PDK](https://github.com/mole99/IHP-Open-PDK/tree/leo/padring). I'm planning on upstreaming all changes to the upstream repositories soon.
-
-First enable a Nix shell using:
-
-```
-nix-shell
-```
+First, enable a Nix shell using `nix-shell`.
 
 Note: You need to export `PDK_ROOT` and `PDK` to the path of the IHP Open PDK and the name of the PDK.
 
@@ -250,17 +233,6 @@ Or you can view Greyhound in KLayout:
 
 ```console
 make librelane-klayout
-```
-
-The final steps:
-
-```
-make copy-final
-make insert-logo
-make create-image
-make fill
-make drc
-make zip
 ```
 
 And with this, Greyhound is ready for tapeout.
