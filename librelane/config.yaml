@@ -171,7 +171,7 @@ GRT_ALLOW_CONGESTION: true
 # Clock
 CLOCK_PORT: io_clock_PAD
 CLOCK_NET: sg13g2_IOPad_io_clock/p2c
-CLOCK_PERIOD: 100 # TODO: 20
+CLOCK_PERIOD: 20
 CTS_OBSTRUCTION_AWARE: true
 
 CTS_SINK_CLUSTERING_ENABLE: True
@@ -362,7 +362,7 @@ MACROS:
       i_greyhound_ihp_core.fabric_wrapper.classic_fabric_greyhound:
         # Width should be multiple of 0.48 (Metal2 pitch)
         # Height should be multiple of 0.42 (Metal3 pitch)
-        location: [expr::(444.96 - 10), expr::(1071 - 61)]
+        location: [expr::(906 * 0.48), expr::(2404 * 0.42)]
         orientation: N
     
   RM_IHPSG13_1P_1024x32_c2_bm_bist:
