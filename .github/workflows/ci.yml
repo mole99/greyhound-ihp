@@ -191,6 +191,20 @@ jobs:
       - name: Get the tile library
         run: |
           echo "TILE_LIBRARY=$(echo "${{ env.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
+          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Restore the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/fabulous-tiles/tiles
+          key: cache-tiles-${{ env.TILE_LIBRARY }}-${{ env.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Restore extra the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/extra-tiles/tiles
+          key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
       - name: Restore the Fabric classic_fabric_greyhound
         uses: actions/cache/restore@v5
         with:
