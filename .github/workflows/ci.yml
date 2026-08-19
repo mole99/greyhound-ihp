@@ -190,7 +190,7 @@ jobs:
           nix_system: x86_64-linux
       - name: Get the tile library
         run: |
-          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "TILE_LIBRARY=$(echo "${{ env.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
       - name: Restore the Fabric classic_fabric_greyhound
         uses: actions/cache/restore@v5
         with:
