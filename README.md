@@ -10,6 +10,14 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
   </a>
 </p>
 
+
+Previous tapeouts:
+
+- [Greyhound v1](https://github.com/mole99/greyhound-ihp-v1): 07 Apr 2025, SG13G2
+  - [Micrograph](http://infosecdj.net/map/ihp/mole99-greyhound/infosecdj_mz_nikpa40x/) © 2026 InfoSecDJ, CC BY-NC 4.0
+  - [Video in action](https://makertube.net/w/3rQ8a7WxTYcr1BQY9nCUat)
+- [Greyhound v2](https://github.com/mole99/greyhound-ihp-v2): 14 Sep 2025, SG13CMOS
+
 ## Feature Overview
 
 - SoC
@@ -239,11 +247,9 @@ And with this, Greyhound is ready for tapeout.
 
 ## Acknowledgements
 
-The first revision of Greyhound was created as part of my master's thesis at Graz University of Technology.
+The first revision of Greyhound was created as part of my [Master's thesis](https://repository.tugraz.at/publications/x1epy-e1w10) at Graz University of Technology. I would like to thank my supervisors, Tobias Scheipel and Meinhard Kissich, for their guidance throughout this work.
 
-I would like to thank my supervisors Tobias Scheipel and Meinhard Kissich.
-
-I would also like to thank the FABulous team for their support in the development of the fabric and NLnet for funding the work of the FABulous team.
+I would also like to thank the FABulous team for their support and NLnet for funding the work of the FABulous team.
 
 |   |   |
 |---|---|
