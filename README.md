@@ -10,7 +10,6 @@ Greyhound was designed with open source EDA tools and the [IHP Open Source PDK](
   </a>
 </p>
 
-
 Previous tapeouts:
 
 - [Greyhound v1](https://github.com/mole99/greyhound-ihp-v1): 07 Apr 2025, SG13G2
@@ -254,6 +253,11 @@ I would also like to thank the FABulous team for their support and NLnet for fun
 |   |   |
 |---|---|
 | ![NLnet](img/nlnet_banner.svg)  | ![NGI0 Entrust](img/NGI0Entrust_tag.svg)  |
+
+## Citation
+
+Please see the CITATION.cff file in the repository.
+There should be a link with the label "Cite this repository." in the right sidebar.
 
 ## License
 
