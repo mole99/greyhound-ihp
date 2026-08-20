@@ -1,0 +1,291 @@
+name: CI
+
+# Events that trigger the workflow
+on:
+  # Runs on all pushes to branches
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "**"
+  # Runs on all PRs
+  pull_request:
+  # Manual Dispatch
+  workflow_dispatch:
+
+concurrency:
+  # Behavior:
+  # - Group all pull requests: latest push cancels previous ones
+  # - Group all branches:
+  #   - If main/version- branches: run serially
+  #   - Else, latest push cancels previous ones
+  group: >
+    ${{
+      (github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number)) ||
+      (github.event_name == 'push' && format('branch-{0}', github.ref_name)) ||
+      ''
+    }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || !(startsWith(github.ref_name, 'version-') || github.ref_name == 'main' || github.ref_name == 'dev') }}
+
+jobs:
+  tiles:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        pdk: [ihp-sg13g2]
+        tile_library: [classic]
+    name: Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Get the tile library hash
+        run: |
+          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+      - name: Cache the tiles
+        uses: actions/cache@v6
+        id: cache
+        with:
+          path: ip/fabulous-tiles/tiles
+          key: cache-tiles-${{ matrix.tile_library }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+      - name: Implement the tiles
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          cd ip/fabulous-tiles/; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ matrix.tile_library }} nix develop --command make all
+
+  extra-tiles:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        pdk: [ihp-sg13g2]
+        tile_library: [classic]
+    name: Extra Tiles (${{ matrix.tile_library }}/${{ matrix.pdk }})
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Get the tile library hash
+        run: |
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Cache the tiles
+        uses: actions/cache@v6
+        id: cache
+        with:
+          path: ip/extra-tiles/tiles
+          key: cache-extra-tiles-${{ matrix.tile_library }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
+      - name: Implement the tiles
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          cd ip/extra-tiles/; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ matrix.tile_library }} nix develop --command make all
+
+  fabrics:
+    runs-on: ubuntu-24.04
+    needs: [tiles, extra-tiles]
+    strategy:
+      matrix:
+        pdk: [ihp-sg13g2]
+        fabric: [classic_fabric_greyhound]
+    name: Fabric (${{ matrix.fabric }}/${{ matrix.pdk }})
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Get the tile library
+        run: |
+          echo "TILE_LIBRARY=$(echo "${{ matrix.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
+          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Restore the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/fabulous-tiles/tiles
+          key: cache-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Restore extra the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/extra-tiles/tiles
+          key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Cache the Fabric
+        uses: actions/cache@v6
+        id: cache
+        with:
+          path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
+          key: cache-fabric-${{ matrix.fabric }}-${{ matrix.pdk }}-${{ env.REPO_SHORT_HASH }}
+      - name: Stitch the Fabric
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          PDK=${{ matrix.pdk }} nix develop --command make ${{ matrix.fabric }}
+      - name: Upload Macro Folder
+        if: success() || failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.fabric }}_${{ matrix.pdk }}
+          path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
+          include-hidden-files: true
+      - name: Copy the Fabric
+        run: |
+          make ${{ matrix.fabric }}-copy
+      - name: Implement the User Designs
+        run: |
+          cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
+      - name: Simulate the Fabric (RTL Emulation)
+        run: |
+          EMULATION=counter PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb/classic_fabric_greyhound; python3 fabric_tb.py"
+      - name: Simulate the Fabric (RTL Simulation)
+        run: |
+          PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command bash -c "cd tb/classic_fabric_greyhound; python3 fabric_tb.py"
+
+  testbench:
+    runs-on: ubuntu-24.04
+    env:
+      pdk: ihp-sg13g2
+      fabric: classic_fabric_greyhound
+    needs: [fabrics]
+    name: Run the Simulations
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Get the tile library
+        run: |
+          echo "TILE_LIBRARY=$(echo "${{ env.fabric }}" | cut -d'_' -f1)" >> $GITHUB_ENV
+          echo "TILE_LIBRARY_SHORT_HASH=$(git rev-parse --short HEAD:ip/fabulous-tiles)" >> $GITHUB_ENV
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Restore the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/fabulous-tiles/tiles
+          key: cache-tiles-${{ env.TILE_LIBRARY }}-${{ env.pdk }}-${{ env.TILE_LIBRARY_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Restore extra the tiles
+        uses: actions/cache/restore@v6
+        with:
+          path: ip/extra-tiles/tiles
+          key: cache-extra-tiles-${{ env.TILE_LIBRARY }}-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Restore the Fabric classic_fabric_greyhound
+        uses: actions/cache/restore@v5
+        with:
+          path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
+          key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Copy the Fabric
+        run: |
+          make classic_fabric_greyhound-copy
+      - name: Enable the PDK
+        run: |
+          PDK=${{ env.pdk }} nix develop --command make clone-pdk
+      - name: Convert using Yosys-Slang
+        run: |
+          nix develop --command make convert-slang
+      - name: Compile the Firmware
+        run: |
+          cd firmware; nix develop --command make all
+      - name: Implement the User Designs
+        run: |
+          cd user_designs; PDK=${{ env.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ env.fabric }} nix develop --command make all
+      - name: Run SoC RTL Simulation
+        run: |
+          nix develop --command make sim-soc
+      - name: Run chip RTL Simulation
+        run: |
+          nix develop --command make sim-chip
+
+  chip:
+    runs-on: ubuntu-24.04
+    env:
+      pdk: ihp-sg13g2
+    needs: [fabrics]
+    name: Build the Chip
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'true'
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_cache_domain: ${{ vars.NIX_CACHE }}
+          nix_public_key: ${{ vars.NIX_PUBLIC_KEY }}
+      - name: Build with Nix
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Get the tile library
+        run: |
+          echo "REPO_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Restore the Fabric classic_fabric_greyhound
+        uses: actions/cache/restore@v5
+        with:
+          path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
+          key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
+          fail-on-cache-miss: true
+      - name: Copy the Fabric
+        run: |
+          make classic_fabric_greyhound-copy
+      - name: Enable the PDK
+        run: |
+          PDK=${{ env.pdk }} nix develop --command make clone-pdk
+      - name: Build the Chip
+        run: |
+          PDK=${{ env.pdk }} nix develop --command make librelane-ci
+      - name: Create summary
+        if: success() || failure()
+        run: |
+          echo "# Manufacturability" >> $GITHUB_STEP_SUMMARY
+          cat librelane/runs/*/*-misc-reportmanufacturability/manufacturability.rpt >> $GITHUB_STEP_SUMMARY
+      - name: Upload GDS
+        if: success() || failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: greyhound_gds
+          path: final/gds/*
+      - name: Upload image
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: greyhound_image
+          path: |
+            final/render/*

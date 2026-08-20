@@ -1,0 +1,16 @@
+TILE,SW_IO_term,,,,,
+#direction,source_name,X-offset,Y-offset,destination_name,wires,
+SOUTH,NULL,0,1,S_GBUF_FEED_END,4,# feed global buffers
+WEST,NULL,-1,0,W_GBUF_FEED_END,4,# feed global buffers
+NORTH,N_GBUF_BEG,0,-1,NULL,4,# global buffers begin
+EAST,E_GBUF_BEG,1,0,NULL,4,# global buffers begin
+JUMP,NULL,0,0,GND,1,
+JUMP,NULL,0,0,VCC,1,
+BEL,../../../../fabulous-tiles/primitives/IOBUF/fabulous/IOBUF.v,A_,,,,
+BEL,../../../../fabulous-tiles/primitives/GBUF/fabulous/GBUF.v,GBUF_A_,,,,
+BEL,../../../../fabulous-tiles/primitives/GBUF/fabulous/GBUF.v,GBUF_B_,,,,
+BEL,../../../../fabulous-tiles/primitives/GBUF/fabulous/GBUF.v,GBUF_C_,,,,
+BEL,../../../../fabulous-tiles/primitives/GBUF/fabulous/GBUF.v,GBUF_D_,,,,
+BEL,../../../../fabulous-tiles/primitives/SYS_RESET/fabulous/SYS_RESET.v,SYS_RESET_,,,,
+MATRIX,./SW_IO_term_switch_matrix.list,,,,,
+EndTILE,,,,,,

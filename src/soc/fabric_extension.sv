@@ -5,9 +5,6 @@
 
 module fabric_extension import cv32e40x_pkg::*;
 (
-    input  logic              clk_i,
-    input  logic              rst_ni,
-
     cv32e40x_if_xif.coproc_compressed xif_compressed,
     cv32e40x_if_xif.coproc_issue      xif_issue,
     cv32e40x_if_xif.coproc_commit     xif_commit,

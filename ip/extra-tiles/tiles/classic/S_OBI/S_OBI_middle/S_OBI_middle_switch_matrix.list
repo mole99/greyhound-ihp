@@ -1,0 +1,69 @@
+# S_OBI_middle
+
+# These lines are used to feed the GBUFs in SW_term
+W_GBUF_FEED_BEG[0|1|2|3],W_GBUF_FEED_END[0|1|2|3]
+W_GBUF_FEED_BEG[0|1|2|3],S1END[1|2|3|0]
+W_GBUF_FEED_BEG[0|1|2|3],S2END[7|6|5|4]
+W_GBUF_FEED_BEG[0|1|2|3],S4END[1|2|3|0]
+
+# Global nets
+E_GBUF_BEG[0|1|2|3],E_GBUF_END[0|1|2|3]
+N_GBUF_BEG[0|1|2|3],E_GBUF_END[0|1|2|3]
+
+# single just go back, we swap bits in vector to get more twists into the graph
+N1BEG[0|1|2|3],S1END[3|2|1|0]
+
+# The MID are half way in so they get connected to the longest patch (S2BEG)
+# The END are longest so get on the cascading begin (S2BEGb)
+# on top we twist wire indexes for more entropy
+N2BEG[0|1|2|3|4|5|6|7],S2MID[7|6|5|4|3|2|1|0]
+N2BEGb[0|1|2|3|4|5|6|7],S2END[7|6|5|4|3|2|1|0]
+
+# We swap bits in vector to get more twists into the graph and this will automatically connect the longest input to the shortest output etc.
+N4BEG[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15],S4END[15|14|13|12|11|10|9|8|7|6|5|4|3|2|1|0]
+
+NN4BEG[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15],SS4END[15|14|13|12|11|10|9|8|7|6|5|4|3|2|1|0]
+
+Co0,GND0
+
+# Inputs
+
+[GNT|GNT|GNT|GNT],[GND0|VCC0|S2MID0|S2MID1]
+[GNT|GNT|GNT|GNT],S1END[3|2|1|0]
+
+[RVALID|RVALID|RVALID|RVALID],[GND0|VCC0|S2MID2|S2MID3]
+[RVALID|RVALID|RVALID|RVALID],S1END[3|2|1|0]
+
+RDATA[9|8|7|6|5|4|3|2|1|0],left2middle_RDATA[9|8|7|6|5|4|3|2|1|0]
+RDATA[19|18|17|16|15|14|13|12|11|10],right2middle_RDATA[9|8|7|6|5|4|3|2|1|0]
+
+RDATA[31|30|29|28|27|26|25|24|23|22|21|20],[GND0|GND0|GND0|GND0|GND0|GND0|GND0|GND0|GND0|GND0|GND0|GND0]
+RDATA[31|30|29|28|27|26|25|24|23|22|21|20],[VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0|VCC0]
+
+RDATA[31|30|29|28|27|26|25|24|23|22|21|20],S4END[11|10|9|8|7|6|5|4|3|2|1|0]
+RDATA[31|30|29|28|27|26|25|24|23|22|21|20],SS4END[11|10|9|8|7|6|5|4|3|2|1|0]
+
+#S2MID[7|6|5|4]
+#S2END[7|6|5|4|3|2|1|0]
+
+# Outputs
+
+N1BEG[3|2|1|0],[REQ|REQ|REQ|REQ]
+N1BEG[3|2|1|0],[WE|WE|WE|WE]
+N1BEG[3|2|1|0],BE[0|1|2|3]
+
+N2BEG[0|1|2|3|4|5|6|7],BE[0|1|2|3|0|1|2|3]
+
+middle2left_ADDR[9|8|7|6|5|4|3|2|1|0],ADDR[9|8|7|6|5|4|3|2|1|0]
+middle2right_ADDR[9|8|7|6|5|4|3|2|1|0],ADDR[19|18|17|16|15|14|13|12|11|10]
+
+N2BEGb[0|1|2|3|4|5|6|7],ADDR[23|22|21|20|23|22|21|20]
+
+N4BEG[0|1|2|3],ADDR[23|22|21|20]
+NN4BEG[0|1|2|3],ADDR[23|22|21|20]
+
+middle2left_WDATA[9|8|7|6|5|4|3|2|1|0],WDATA[9|8|7|6|5|4|3|2|1|0]
+middle2right_WDATA[9|8|7|6|5|4|3|2|1|0],WDATA[19|18|17|16|15|14|13|12|11|10]
+
+N4BEG[4|5|6|7|8|9|10|11|12|13|14|15],WDATA[31|30|29|28|27|26|25|24|23|22|21|20]
+NN4BEG[4|5|6|7|8|9|10|11|12|13|14|15],WDATA[31|30|29|28|27|26|25|24|23|22|21|20]
