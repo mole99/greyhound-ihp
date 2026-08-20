@@ -33,36 +33,37 @@ Previous tapeouts:
   - Fabric Config Peripheral
   - Fabric Peripheral
 - [FABulous](https://github.com/FPGA-Research/FABulous) eFPGA
-  - 32x I/Os
-  - 1024x LUT4 + FF
-    - w. carry chain
-  - 128x MUX
-    - Either 1xMUX8, 2xMUX4 or 4xMUX2
-  - 4x SRAM
-    - 32 bit-wide, 4kB deep
+  - 32x `IOBUF`
+  - 1024x `FABULOUS_LC`
+    - LUT4 + FF
+    - fast carry chain
+  - 4x `IHP_SRAM_1024x32_1RW`
+    - 32 bit-wide, 4kB size
     - individual bit-enable
-  - 4x BRAM
-    - 16 bit-wide, 4kB deep
+  - 4x `IHP_SRAM_1024x16_2RW`
+    - 16 bit-wide, 4kB size
     - individual bit-enable
     - two read-write ports
-  - 8x MAC
+  - 8x `MACC_8x8_20`
     - 8bit*8bit + 20bit
     - sign-extend
     - sync/async operands and/or ACC
-  - 16x Register file
+  - 16x `RAM_32x4_2R_1W`
     - 32x4bit each
     - 1w1r1r
     - sync/async output
-  - 1x Global clock network
-  - 1x WARMBOOT
+  - 4x `GBUF`
+    - clock network or high-fanout net
+  - 1x `WARMBOOT`
     - Trigger a reconfiguration from one of 16 slots
+  - 1x `SYS_RESET`
     - Provides a reset signal which is asserted during reconfiguration
-  - 1x CPU_IRQ
+  - 1x `CPU_IRQ`
     - 4x Interrupt request lines to the CPU
-  - 1x OBI_PERIPHERAL
+  - 1x `OBI_PERIPHERAL`
     - Interface to the SoC (Open Bus Interface)
-    - Custom peripheral
-  - 1x CUSTOM_INSTRUCTION
+    - Used for implementing custom peripherals
+  - 1x `CUSTOM_INSTRUCTION`
     - Interface to the CPU
     - Custom instruction extension
 
