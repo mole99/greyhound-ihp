@@ -3,16 +3,17 @@
     "ciel": {
       "inputs": {
         "nix-eda": [
+          "librelane_plugin_fabulous",
           "librelane",
           "nix-eda"
         ]
       },
       "locked": {
-        "lastModified": 1751196116,
-        "narHash": "sha256-y6w1MYMsgfSUPdJoKc+k+4xg0Zi1dUQtv+z71vyCLDU=",
+        "lastModified": 1764091696,
+        "narHash": "sha256-AWbkHL0zO3tD0mE3dZIcj8mVND7o3imTxOpEfOtlRDI=",
         "owner": "fossi-foundation",
         "repo": "ciel",
-        "rev": "1260b5f7d752e457d0bef3b1d9ab7fd044ad9c83",
+        "rev": "afcb23d368614ffa1e7e96584ed33f839c71c576",
         "type": "github"
       },
       "original": {
@@ -24,17 +25,18 @@
     "devshell": {
       "inputs": {
         "nixpkgs": [
+          "librelane_plugin_fabulous",
           "librelane",
           "nix-eda",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1741473158,
-        "narHash": "sha256-kWNaq6wQUbUMlPgw8Y+9/9wP0F8SHkjy24/mN3UAppg=",
+        "lastModified": 1768818222,
+        "narHash": "sha256-460jc0+CZfyaO8+w8JNtlClB2n4ui1RbHfPTLkpwhU8=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "7c9e793ebe66bcba8292989a68c0419b737a22a0",
+        "rev": "255a2b1725a20d060f566e4755dbf571bbbb5f76",
         "type": "github"
       },
       "original": {
@@ -57,48 +59,44 @@
         "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
-    "libparse": {
-      "inputs": {
-        "nixpkgs": [
-          "librelane",
-          "nix-eda",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713178934,
-        "narHash": "sha256-1w6HBBE2bWAD0GM98O8WZRmZDW9+EzD0KFvnnH2ho/k=",
-        "owner": "efabless",
-        "repo": "libparse-python",
-        "rev": "cec8b6dfd3d1c97bc5ccd1d0a41c44e51bc9c1eb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "efabless",
-        "repo": "libparse-python",
-        "type": "github"
-      }
-    },
     "librelane": {
       "inputs": {
         "ciel": "ciel",
         "devshell": "devshell",
         "flake-compat": "flake-compat",
-        "libparse": "libparse",
         "nix-eda": "nix-eda"
       },
       "locked": {
-        "lastModified": 1757493337,
-        "narHash": "sha256-Yya1WXbu7BLtxy8Nc9wvscp6zXYr+V8isH+TyZxSmmA=",
-        "owner": "mole99",
+        "lastModified": 1774453904,
+        "narHash": "sha256-BZmoneeMpnnQ2wUb5sorLFsFZsLaKclhAtCIiMsW8Qc=",
+        "owner": "librelane",
         "repo": "librelane",
-        "rev": "b358cd2faef43a1ed149e97d1b5cf107f90b209b",
+        "rev": "69b2067bd2b5eb89b84649b76e9edaa9e51e6735",
+        "type": "github"
+      },
+      "original": {
+        "owner": "librelane",
+        "ref": "3.0.0",
+        "repo": "librelane",
+        "type": "github"
+      }
+    },
+    "librelane_plugin_fabulous": {
+      "inputs": {
+        "librelane": "librelane"
+      },
+      "locked": {
+        "lastModified": 1786364064,
+        "narHash": "sha256-jr94ZizyUAeR8yUQ2U5P+z24jRFkKaQtTfFTZe43Vw4=",
+        "owner": "mole99",
+        "repo": "librelane_plugin_fabulous",
+        "rev": "47d941dd1a1edec7ddea818c169576c9f90d7cde",
         "type": "github"
       },
       "original": {
         "owner": "mole99",
-        "ref": "greyhound",
-        "repo": "librelane",
+        "ref": "1.14.1",
+        "repo": "librelane_plugin_fabulous",
         "type": "github"
       }
     },
@@ -107,39 +105,39 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1754134233,
-        "narHash": "sha256-RFApbuRqOG4ybeXg7TjUxtpaCGNAbU/8TqQ96Yxo/R0=",
+        "lastModified": 1773918136,
+        "narHash": "sha256-nSKBMGP8/ZC7qB3Lzd+FwM8REqOxlh8wpYDf2hlK6Gg=",
         "owner": "fossi-foundation",
         "repo": "nix-eda",
-        "rev": "5908d9dbe2c94486926787dfe33ddfdc21863b60",
+        "rev": "8f990fb77529c09e540e453cd836af9930ec58db",
         "type": "github"
       },
       "original": {
         "owner": "fossi-foundation",
-        "ref": "5.3.0",
+        "ref": "6.11.0",
         "repo": "nix-eda",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1750400657,
-        "narHash": "sha256-3vkjFnxCOP6vm5Pm13wC/Zy6/VYgei/I/2DWgW4RFeA=",
+        "lastModified": 1766201043,
+        "narHash": "sha256-eplAP+rorKKd0gNjV3rA6+0WMzb1X1i16F5m5pASnjA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b2485d56967598da068b5a6946dadda8bfcbcd37",
+        "rev": "b3aad468604d3e488d627c0b43984eb60e75e782",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "librelane": "librelane"
+        "librelane_plugin_fabulous": "librelane_plugin_fabulous"
       }
     }
   },

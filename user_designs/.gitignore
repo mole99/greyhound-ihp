@@ -1,0 +1,11 @@
+# User designs
+*.json
+*_out.json
+*.fasm
+*.hex
+*_log.txt
+*.bit
+*.csv
+*.vh
+*.vhd
+*.dot

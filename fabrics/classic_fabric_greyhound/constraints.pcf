@@ -1,0 +1,165 @@
+# SoC clock
+
+set_io sys_clk  X0Y17/A
+
+# All I/Os
+
+set_io all[0] X0Y1/A
+set_io all[1] X0Y1/B
+set_io all[2] X0Y2/A
+set_io all[3] X0Y2/B
+set_io all[4] X0Y3/A
+set_io all[5] X0Y3/B
+set_io all[6] X0Y4/A
+set_io all[7] X0Y4/B
+set_io all[8] X0Y5/A
+set_io all[9] X0Y5/B
+set_io all[10] X0Y6/A
+set_io all[11] X0Y6/B
+set_io all[12] X0Y7/A
+set_io all[13] X0Y7/B
+set_io all[14] X0Y8/A
+set_io all[15] X0Y8/B
+set_io all[16] X0Y9/A
+set_io all[17] X0Y9/B
+set_io all[18] X0Y10/A
+set_io all[19] X0Y10/B
+set_io all[20] X0Y11/A
+set_io all[21] X0Y11/B
+set_io all[22] X0Y12/A
+set_io all[23] X0Y12/B
+set_io all[24] X0Y13/A
+set_io all[25] X0Y13/B
+set_io all[26] X0Y14/A
+set_io all[27] X0Y14/B
+set_io all[28] X0Y15/A
+set_io all[29] X0Y15/B
+set_io all[30] X0Y16/A
+set_io all[31] X0Y16/B
+
+# For general tests
+
+set_io clk1 X0Y1/A
+set_io clk2 X0Y1/B
+set_io ena  X0Y2/A
+set_io rst  X0Y2/B
+
+set_io e[0] X0Y3/A
+set_io e[1] X0Y3/B
+set_io e[2] X0Y4/A
+set_io e[3] X0Y4/B
+
+set_io a[0] X0Y5/A
+set_io a[1] X0Y5/B
+set_io a[2] X0Y6/A
+set_io a[3] X0Y6/B
+set_io a[4] X0Y7/A
+set_io a[5] X0Y7/B
+
+set_io b[0] X0Y8/A
+set_io b[1] X0Y8/B
+set_io b[2] X0Y9/A
+set_io b[3] X0Y9/B
+set_io b[4] X0Y10/A
+set_io b[5] X0Y10/B
+
+set_io c[0] X0Y11/A
+set_io c[1] X0Y11/B
+set_io c[2] X0Y12/A
+set_io c[3] X0Y12/B
+set_io c[4] X0Y13/A
+set_io c[5] X0Y13/B
+set_io c[6] X0Y14/A
+set_io c[7] X0Y14/B
+set_io c[8] X0Y15/A
+set_io c[9] X0Y15/B
+set_io c[10] X0Y16/A
+set_io c[11] X0Y16/B
+
+# For the register_file test
+
+set_io addr_a[0] X0Y3/A
+set_io addr_a[1] X0Y3/B
+set_io addr_a[2] X0Y4/A
+set_io addr_a[3] X0Y4/B
+set_io addr_a[4] X0Y5/A
+
+set_io addr_b[0] X0Y5/B
+set_io addr_b[1] X0Y6/A
+set_io addr_b[2] X0Y6/B
+set_io addr_b[3] X0Y7/A
+set_io addr_b[4] X0Y7/B
+
+set_io addr_c[0] X0Y8/A
+set_io addr_c[1] X0Y8/B
+
+set_io word_a[0] X0Y9/A
+set_io word_a[1] X0Y9/B
+set_io word_a[2] X0Y10/A
+set_io word_a[3] X0Y10/B
+
+set_io word_b[0] X0Y11/A
+set_io word_b[1] X0Y11/B
+set_io word_b[2] X0Y12/A
+set_io word_b[3] X0Y12/B
+
+set_io word_c[0] X0Y13/A
+set_io word_c[1] X0Y13/B
+set_io word_c[2] X0Y14/A
+set_io word_c[3] X0Y14/B
+
+# For the macc_8x8_20 test
+
+set_io product[0] X0Y11/A
+set_io product[1] X0Y11/B
+set_io product[2] X0Y12/A
+set_io product[3] X0Y12/B
+set_io product[4] X0Y13/A
+set_io product[5] X0Y13/B
+set_io product[6] X0Y14/A
+set_io product[7] X0Y14/B
+set_io product[8] X0Y15/A
+set_io product[9] X0Y15/B
+set_io product[10] X0Y16/A
+set_io product[11] X0Y16/B
+
+# For the ihp_sram_1024x32_1rw test
+
+set_io ram_wen  X0Y1/B
+set_io ram_men  X0Y2/A
+set_io ram_ren  X0Y2/B
+
+set_io ram_byte_sel[0]   X0Y3/A
+set_io ram_byte_sel[1]   X0Y3/B
+set_io ram_addr[0] X0Y4/A
+set_io ram_addr[1] X0Y4/B
+
+set_io ram_addr[2] X0Y5/A
+set_io ram_addr[3] X0Y5/B
+set_io ram_addr[4] X0Y6/A
+set_io ram_addr[5] X0Y6/B
+
+set_io ram_addr[6] X0Y7/A
+set_io ram_addr[7] X0Y7/B
+set_io ram_addr[8] X0Y8/A
+set_io ram_addr[9] X0Y8/B
+
+set_io ram_din_byte[0] X0Y9/A
+set_io ram_din_byte[1] X0Y9/B
+set_io ram_din_byte[2] X0Y10/A
+set_io ram_din_byte[3] X0Y10/B
+
+set_io ram_din_byte[4] X0Y11/A
+set_io ram_din_byte[5] X0Y11/B
+set_io ram_din_byte[6] X0Y12/A
+set_io ram_din_byte[7] X0Y12/B
+
+set_io ram_dout_byte[0] X0Y13/A
+set_io ram_dout_byte[1] X0Y13/B
+set_io ram_dout_byte[2] X0Y14/A
+set_io ram_dout_byte[3] X0Y14/B
+
+set_io ram_dout_byte[4] X0Y15/A
+set_io ram_dout_byte[5] X0Y15/B
+set_io ram_dout_byte[6] X0Y16/A
+set_io ram_dout_byte[7] X0Y16/B

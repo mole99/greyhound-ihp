@@ -65,22 +65,22 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     output logic            bank_we_o,
   
     // QSPI - Flash
-    output  logic           flash_sck,
-    output  logic           flash_ce_n,
-    input   logic [3:0]     flash_din,
-    output  logic [3:0]     flash_dout,
-    output  logic [3:0]     flash_douten,
+    output logic           flash_sck,
+    output logic           flash_ce_n,
+    input  logic [3:0]     flash_din,
+    output logic [3:0]     flash_dout,
+    output logic [3:0]     flash_douten,
 
     // QSPI - PSRAM
-    output  logic           psram_sck,
-    output  logic           psram_ce_n,
-    input   logic [3:0]     psram_din,
-    output  logic [3:0]     psram_dout,
-    output  logic [3:0]     psram_douten,
+    output logic           psram_sck,
+    output logic           psram_ce_n,
+    input  logic [3:0]     psram_din,
+    output logic [3:0]     psram_dout,
+    output logic [3:0]     psram_douten,
     
     // UART0
-    	input	logic           uart0_rx,
-	output	logic           uart0_tx,
+    input  logic           uart0_rx,
+    output logic           uart0_tx,
 
     // CPU control signals
     input  logic            fetch_enable_i,
@@ -140,9 +140,6 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     fabric_extension fabric_extension
     (
-        .clk_i              (clk_i),
-        .rst_ni             (rst_ni),
-
         .xif_compressed     (ext_if.coproc_compressed),
         .xif_issue          (ext_if.coproc_issue),
         .xif_commit         (ext_if.coproc_commit),
@@ -308,7 +305,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign data_wdata_o       = core_data_obi_req.a.wdata;
     assign data_rdata_i       = core_data_obi_rsp.r.rdata;
     assign data_err_i         = core_data_obi_rsp.r.err;
-	`endif
+    `endif
 
     // Interrupt sources
     logic [31:0] irq;
@@ -565,7 +562,7 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     
     EF_QSPI_XIP_CTRL_AHBL 
     #(
-        .NUM_LINES      ( 16 ), 
+        .NUM_LINES      ( 8 ), 
         .LINE_SIZE      ( 32 ), 
         .RESET_CYCLES   ( 999 ) 
     )
@@ -629,9 +626,9 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     // 4kByte memory
     logic [31:0] rom [2**RomAddrWidth];
     
-    	initial begin
-		$readmemh("firmware/hello_world/hello_world.hex", rom);
-	end
+        initial begin
+        $readmemh("firmware/hello_world/hello_world.hex", rom);
+    end
     
     always @(posedge clk_i) begin
         if (rom_req) begin
@@ -977,6 +974,6 @@ module greyhound_soc import cv32e40x_pkg::*, soc_pkg::*;
     assign debug_fabric_rid        = fabric_obi_rsp.r.rid;
     assign debug_fabric_err        = fabric_obi_rsp.r.err;
     assign debug_fabric_r_optional = fabric_obi_rsp.r.r_optional;
-	`endif
+    `endif
 
 endmodule

@@ -1,0 +1,16 @@
+meta:
+  version: 2
+  flow: FABulousTile
+
+FABULOUS_TILE_DIR: dir::.
+
+# Basics
+DESIGN_NAME: SW_IO_term
+VERILOG_FILES:
+  - dir::../../../models_pack.v
+  - dir::../../../custom.v
+
+# Clock
+CLOCK_PERIOD: 20
+CLOCK_PORT: N_GBUF_END[0]
+FABULOUS_EXTERNAL_SIDE: S

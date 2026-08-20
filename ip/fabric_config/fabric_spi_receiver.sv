@@ -61,8 +61,7 @@ module fabric_spi_receiver (
         spi_sclk_delayed <= sclk_sync;
     end
     
-    logic spi_sclk_falling, spi_sclk_rising;
-    assign spi_sclk_rising = !spi_sclk_delayed && sclk_sync;
+    logic spi_sclk_falling;
     assign spi_sclk_falling = spi_sclk_delayed && !sclk_sync;
     
     always_ff @(posedge clk_i, negedge rst_ni) begin

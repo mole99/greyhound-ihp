@@ -1,14 +1,12 @@
-CV_SW_TOOLCHAIN  ?= /opt/riscv
-RISCV            ?= $(CV_SW_TOOLCHAIN)
-RISCV_EXE_PREFIX ?= $(RISCV)/bin/riscv32-unknown-elf-
+RISCV_EXE_PREFIX ?= riscv32-none-elf-
 RISCV_CC         ?= gcc
 RISCV_GCC = $(RISCV_EXE_PREFIX)$(RISCV_CC)
 RISCV_AR = $(RISCV_EXE_PREFIX)ar
-RISCV_MARCH ?= rv32ima_zicsr #rv32imc_zicsr
+RISCV_MARCH ?= rv32imac_zicntr_zicsr_zifencei_zihpm_zca_zcb_zcmp_zcmt_zba_zbb_zbc_zbs
 PYTHON ?= python3
 SRC = hello_world.c
 OBJ = hello_world.o
-CFLAGS ?= -Os -g -static -mabi=ilp32 -march=$(RISCV_MARCH) -Wall -pedantic $(RISCV_CFLAGS) -I ../bsp -I ../bsp/drivers/EF_UART
+CFLAGS ?= -Os -g -static -mabi=ilp32 -march=$(RISCV_MARCH) -Wall -pedantic $(RISCV_CFLAGS) -I ../bsp -I ../bsp/drivers/EF_UART -Wl,-z,relro
 
 TARGET = hello_world
 ELF_TARGET = $(TARGET).elf

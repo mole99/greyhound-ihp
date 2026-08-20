@@ -1,10 +1,11 @@
+MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 RUN_TAG = $(shell ls runs/ -1 | tail -n 1)
-TOP = FMD_QNC_greyhound_ihp
+TOP = greyhound_ihp_top
 
-$(echo $RUN_TAG)
-
-PDK_ROOT ?= ${HOME}/Repositories/IHP-Open-PDK
+PDK_ROOT ?= $(MAKEFILE_DIR)/IHP-Open-PDK
 PDK ?= ihp-sg13g2
+PDK_COMMIT ?= 22f2a25f1734796de3debbbf29cf697cbbc54081
 
 CORE_FILES =
 # PACKAGES
@@ -45,125 +46,158 @@ CORE_FILES += ip/EF_IP_UTIL/hdl/ef_util_lib.v
 
 CHIP_FILES = $(CORE_FILES)
 # Chip
-CHIP_FILES += src/FMD_QNC_greyhound_ihp.v
-CHIP_FILES += src/greyhound_ihp.sv
+CHIP_FILES += src/greyhound_ihp_top.sv
+CHIP_FILES += src/greyhound_ihp_core.sv
 # Fabric Wrapper
-CHIP_FILES += ip/fabric/rtl/fabric_wrapper.sv
+CHIP_FILES += src/fabric/fabric_wrapper.sv
 # Fabric Config
 CHIP_FILES += ip/fabric_config/fabric_config.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_controller.sv
 CHIP_FILES += ip/fabric_config/fabric_spi_receiver.sv
 
+.DEFAULT_GOAL := help
+
+$(PDK_ROOT)/$(PDK):
+	ciel enable $(PDK_COMMIT) --pdk-root $(PDK_ROOT) --pdk-family $(PDK)
+
+help: ## Show this help message
+	@echo 'Usage: make [target]'
+	@echo ''
+	@echo 'Available targets:'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-20s %s\n", $$1, $$2}'
+.PHONY: help
+
+clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the ihp-sg13g2 PDK variant via ciel
+.PHONY: clone-pdk
 
 convert-slang:
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=tb/greyhound_soc_tb/greyhound_soc_slang.sv yosys -m slang yosys.tcl
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=FMD_QNC_greyhound_ihp OUTFILE=tb/FMD_QNC_greyhound_ihp_tb/FMD_QNC_greyhound_ihp_slang.sv yosys -m slang yosys.tcl
+	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CORE_FILES)" TOP=greyhound_soc OUTFILE=src/soc/greyhound_soc_slang.sv yosys -m slang yosys.tcl
+	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) SLANG_FILES="$(CHIP_FILES)" TOP=$(TOP) OUTFILE=src/$(TOP)_slang.sv yosys -m slang yosys.tcl
 .PHONY: convert-slang
 
-librelane:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
+# Fabric
+
+# Get the fabric names
+FABRICS :=  $(patsubst fabrics/%,%,$(wildcard fabrics/*)) 
+
+FABRICS_OPENROAD := $(addsuffix -openroad,$(FABRICS))
+FABRICS_KLAYOUT := $(addsuffix -klayout,$(FABRICS))
+FABRICS_COPY := $(addsuffix -copy,$(FABRICS))
+
+all: $(FABRICS)
+.PHONY: all
+
+$(FABRICS):
+	librelane --pdk ${PDK} fabrics/$@/config.yaml --save-views-to fabrics/$@/macro/${PDK}/
+.PHONY: $(FABRICS)
+
+$(FABRICS_OPENROAD):
+	librelane --pdk ${PDK} fabrics/$(subst -openroad,,$@)/config.yaml --last-run --flow OpenInOpenROAD
+.PHONY: $(FABRICS_OPENROAD)
+
+$(FABRICS_KLAYOUT):
+	librelane --pdk ${PDK} fabrics/$(subst -klayout,,$@)/config.yaml --last-run --flow OpenInKLayout
+.PHONY: $(FABRICS_KLAYOUT)
+
+$(FABRICS_COPY):
+	# Copy fabric database
+	mkdir -p user_designs/fabrics/$(subst -copy,,$@)/macro/${PDK}/
+	cp -R fabrics/$(subst -copy,,$@)/macro/${PDK}/fabulous/ user_designs/fabrics/$(subst -copy,,$@)/macro/${PDK}/
+	cp fabrics/$(subst -copy,,$@)/constraints.pcf user_designs/fabrics/$(subst -copy,,$@)/constraints.pcf
+.PHONY: $(FABRICS_COPY)
+
+# Implementation
+
+LIBRELANE_OPTS = --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
+
+all: librelane ## Build the project (runs LibreLane)
+.PHONY: all
+
+librelane: $(PDK_ROOT)/$(PDK) ## Run LibreLane to implement Greyhound
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/
 .PHONY: librelane
 
-librelane-openroad:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInOpenROAD
+librelane-nodrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC
+.PHONY: librelane-nodrc
+
+librelane-ci: $(PDK_ROOT)/$(PDK) ## Run LibreLane without DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC --skip Magic.DRC --skip KLayout.Density --condensed
+.PHONY: librelane-ci
+
+librelane-klayoutdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without magic DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip Magic.DRC
+.PHONY: librelane-klayoutdrc
+
+librelane-magicdrc: $(PDK_ROOT)/$(PDK) ## Run LibreLane without KLayout DRC
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --save-views-to final/ --skip KLayout.DRC
+.PHONY: librelane-magicdrc
+
+librelane-openroad: $(PDK_ROOT)/$(PDK) ## Open the last run in OpenROAD
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --last-run --flow OpenInOpenROAD
 .PHONY: librelane-openroad
 
-librelane-klayout:
-	librelane config.yaml --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk --last-run --flow OpenInKLayout
+librelane-klayout: $(PDK_ROOT)/$(PDK) ## Open the last run in KLayout
+	librelane librelane/config.yaml ${LIBRELANE_OPTS} --last-run --flow OpenInKLayout
 .PHONY: librelane-klayout
 
-copy-final:
-	mkdir -p final/pnl/
-	mkdir -p final/spice/
-	mkdir -p final/nl/
-	mkdir -p final/gds/
-	mkdir -p final/odb/
-	mkdir -p final/def/
-	mkdir -p final/spef/nom/
+# Simulations
 
-	cp runs/${RUN_TAG}/final/pnl/${TOP}.pnl.v final/pnl/${TOP}.pnl.v
-	cp runs/${RUN_TAG}/final/spice/${TOP}.spice final/spice/${TOP}.spice
-	cp runs/${RUN_TAG}/final/nl/${TOP}.nl.v final/nl/${TOP}.nl.v
-	cp runs/${RUN_TAG}/final/gds/${TOP}.gds final/gds/${TOP}.gds
-	cp runs/${RUN_TAG}/final/odb/${TOP}.odb final/odb/${TOP}.odb
-	cp runs/${RUN_TAG}/final/def/${TOP}.def final/def/${TOP}.def
-	cp runs/${RUN_TAG}/final/spef/nom/${TOP}.nom.spef final/spef/nom/${TOP}.nom.spef
-	
-	gzip --force final/gds/${TOP}.gds
-	gzip --force final/odb/${TOP}.odb
-	
-.PHONY: copy-final
+sim-fabric: ## Run fabric RTL simulation with cocotb
+	cd tb/classic_fabric_greyhound; PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 fabric_tb.py
+.PHONY: sim
 
-insert-logo:
-	mkdir -p final/gds_logo/
-	python3 scripts/insert_logo.py final/gds/${TOP}.gds.gz logo/smooth/gds/greyhound_logo.gds final/gds_logo/${TOP}.gds.gz
-.PHONY: insert-logo
+sim-fabric-gl: $(PDK_ROOT)/$(PDK) ## Run fabric gate-level simulation with cocotb
+	cd tb/classic_fabric_greyhound; GL=1 PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 fabric_tb.py
+.PHONY: sim-gl
 
-create-image:
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) klayout -z -r scripts/klayout_image.py -rd input_gds=final/gds_logo/${TOP}.gds.gz -rd output_image=img/${TOP}.png
-	convert img/${TOP}.png -resize 25% img/${TOP}_small.png
-.PHONY: create-image
+sim-fabric-view: ## View fabric simulation waveforms in GTKWave
+	gtkwave tb/classic_fabric_greyhound/sim_build/fabric_tb.fst
+.PHONY: sim-view
 
-fill:
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) $(PDK_ROOT)/$(PDK)/libs.tech/magic/generate_fill.py final/gds_logo/${TOP}.gds.gz -dist
-	
-	# Move the fill pattern, it's saved under gds/ because of how generate_fill works...
-	mkdir -p final/gds_fill/
-	mv final/gds/${TOP}_fill_pattern.gds.gz final/gds_fill/${TOP}_fill_pattern.gds.gz
-	
-	# Merge layout with fill
-	python3 scripts/merge_fill.py final/gds_logo/${TOP}.gds.gz final/gds_fill/${TOP}_fill_pattern.gds.gz final/gds_fill/${TOP}.gds.gz
-.PHONY: fill
 
-density-check:
-	# Run density check
-	PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) $(PDK_ROOT)/$(PDK)/libs.tech/magic/check_density.py final/gds_fill/${TOP}.gds.gz
-.PHONY: density-check
+sim-soc: ## Run SoC RTL simulation with cocotb
+	cd tb/greyhound_soc_tb; TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+	cd tb/greyhound_soc_tb; TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+.PHONY: sim
 
-oasis:
-	mkdir -p final/oas/
-	klayout -rd input_gds=final/gds_fill/${TOP}.gds.gz -rd output_oasis=final/oas/${TOP}.oas -r scripts/convert_oasis.py -zz
-.PHONY: oasis
+sim-soc-gl: $(PDK_ROOT)/$(PDK) ## Run SoC gate-level simulation with cocotb
+	cd tb/greyhound_soc_tb; GL=1 TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+	cd tb/greyhound_soc_tb; GL=1 TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_soc_tb.py
+.PHONY: sim-gl
 
-lvs:
-	@echo "\
-	set circuit1 [readnet spice final/spice/${TOP}.spice]\n\
-	set circuit2 [readnet verilog /dev/null]\n\
-	readnet spice $(PDK_ROOT)/$(PDK)/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice \$$circuit2\n\
-	readnet spice $(PDK_ROOT)/$(PDK)/libs.ref/sg13g2_io/spice/sg13g2_io.spi \$$circuit2\n\
-	readnet verilog final/pnl/${TOP}.pnl.v \$$circuit2\n\
-	lvs \"\$$circuit1 ${TOP}\" \"\$$circuit2 ${TOP}\" $(PDK_ROOT)/$(PDK)/libs.tech/netgen/ihp-sg13g2_setup.tcl netgen_lvs.rpt -blackbox" > lvs_script.tcl
-	
-	netgen -batch source lvs_script.tcl
-.PHONY: lvs
+sim-soc-view: ## View SoC simulation waveforms in GTKWave
+	gtkwave tb/greyhound_soc_tb/sim_build/greyhound_soc_tb.fst
+.PHONY: sim-view
 
-drc:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_minimal.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_minimal.lyrdb -rd logfile="sg13g2_minimal.log" -rd threads=$(shell nproc)
-.PHONY: drc
 
-drc-full:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_maximal.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_maximal.lyrdb -rd logfile="sg13g2_maximal.log" -rd threads=$(shell nproc)
-.PHONY: drc-full
+sim-chip: ## Run chip RTL simulation with cocotb
+	cd tb/greyhound_ihp_top_tb; TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_all_ones PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_all_zeros PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=cpu_trigger_fpga PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_peripheral PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_peripheral_sram PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_irq PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; TESTCASE=fpga_blinky PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+.PHONY: sim
 
-drc-density:
-	klayout -b -r $(PDK_ROOT)/$(PDK)/libs.tech/klayout/tech/drc/sg13g2_density.lydrc -rd in_gds=final/gds_fill/${TOP}.gds.gz -rd cell=${TOP} -rd report_file=sg13g2_minimal.lyrdb -rd logfile="sg13g2_minimal.log" -rd threads=$(shell nproc)
-.PHONY: drc-density
+sim-chip-gl: $(PDK_ROOT)/$(PDK) ## Run chip gate-level simulation with cocotb
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=hello_world PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_all_ones PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_all_zeros PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=cpu_trigger_fpga PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=custom_instruction PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_peripheral PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_peripheral_sram PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_irq PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+	cd tb/greyhound_ihp_top_tb; GL=1 TESTCASE=fpga_blinky PDK_ROOT=${PDK_ROOT} PDK=${PDK} python3 greyhound_ihp_top_tb.py
+.PHONY: sim-gl
 
-drc-latest-nodensity:
-	python3 ${HOME}/Repositories/IHP-Open-PDK-latest/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py --path final/gds_fill/${TOP}.gds.gz --run_mode=deep --no_density --disable_extra_rules
-.PHONY: drc-latest-nodensity
+sim-chip-view: ## View chip simulation waveforms in GTKWave
+	gtkwave tb/greyhound_ihp_top_tb/sim_build/greyhound_ihp_top_tb.fst
+.PHONY: sim-view
 
-drc-latest:
-	python3 ${HOME}/Repositories/IHP-Open-PDK-latest/ihp-sg13g2/libs.tech/klayout/tech/drc/run_drc.py --path final/gds_fill/${TOP}.gds.gz --run_mode=deep --disable_extra_rules
-.PHONY: drc-latest
-
-zip:
-	mkdir -p final/gds_zipped/
-	gunzip final/gds_fill/${TOP}.gds.gz
-	#zip -r -s 50m final/gds_zipped/${TOP}.gds.zip final/gds_fill/${TOP}.gds
-	cd final/gds_fill/; zip -D -r ../gds_zipped/${TOP}.gds.zip ${TOP}.gds
-	gzip final/gds_fill/${TOP}.gds
-.PHONY: zip
-
-tapeout: librelane copy-final insert-logo create-image fill oasis
+tapeout: librelane
 .PHONY: tapeout
