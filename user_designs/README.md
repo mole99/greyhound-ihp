@@ -23,7 +23,7 @@ Before you build the user designs, you need to select for which tile library and
 The default is:
 
 ```
-export FABRIC=classic_fabric_10x10
+export FABRIC=classic_fabric_greyhound
 export TILE_LIBRARY=classic
 ```
 
