@@ -2,7 +2,7 @@
 PDK 			?= ihp-sg13g2
 FABRIC 			?= classic_fabric_greyhound
 TILE_LIBRARY		?= classic
-FABULOUS_ROOT 		?= $(abspath ../../../fabrics/$(FABRIC)/macro/$(PDK)/fabulous)
+FABULOUS_ROOT 		?= $(abspath ../../../../fabrics/$(FABRIC)/macro/$(PDK)/fabulous)
 PCF_CONSTRAINTS 		?= $(abspath $(FABULOUS_ROOT)/../../../constraints.pcf)
 TOP 			?= top_wrapper
 #CORNER			?= nom_typ_1p20V_25C
