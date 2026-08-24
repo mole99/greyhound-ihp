@@ -99,13 +99,6 @@ $(FABRICS_KLAYOUT):
 	librelane --pdk ${PDK} fabrics/$(subst -klayout,,$@)/config.yaml --last-run --flow OpenInKLayout
 .PHONY: $(FABRICS_KLAYOUT)
 
-$(FABRICS_COPY):
-	# Copy fabric database
-	mkdir -p user_designs/fabrics/$(subst -copy,,$@)/macro/${PDK}/
-	cp -R fabrics/$(subst -copy,,$@)/macro/${PDK}/fabulous/ user_designs/fabrics/$(subst -copy,,$@)/macro/${PDK}/
-	cp fabrics/$(subst -copy,,$@)/constraints.pcf user_designs/fabrics/$(subst -copy,,$@)/constraints.pcf
-.PHONY: $(FABRICS_COPY)
-
 # Implementation
 
 LIBRELANE_OPTS = --pdk ${PDK} --pdk-root ${PDK_ROOT} --manual-pdk
