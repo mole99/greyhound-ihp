@@ -154,9 +154,6 @@ jobs:
           name: ${{ matrix.fabric }}_${{ matrix.pdk }}
           path: fabrics/${{ matrix.fabric }}/macro/${{ matrix.pdk }}/
           include-hidden-files: true
-      - name: Copy the Fabric
-        run: |
-          make ${{ matrix.fabric }}-copy
       - name: Implement the User Designs
         run: |
           cd user_designs; PDK=${{ matrix.pdk }} TILE_LIBRARY=${{ env.TILE_LIBRARY }} FABRIC=${{ matrix.fabric }} nix develop --command make all
@@ -211,9 +208,6 @@ jobs:
           path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
           key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
           fail-on-cache-miss: true
-      - name: Copy the Fabric
-        run: |
-          make classic_fabric_greyhound-copy
       - name: Enable the PDK
         run: |
           PDK=${{ env.pdk }} nix develop --command make clone-pdk
@@ -262,9 +256,6 @@ jobs:
           path: fabrics/classic_fabric_greyhound/macro/${{ env.pdk }}/
           key: cache-fabric-classic_fabric_greyhound-${{ env.pdk }}-${{ env.REPO_SHORT_HASH }}
           fail-on-cache-miss: true
-      - name: Copy the Fabric
-        run: |
-          make classic_fabric_greyhound-copy
       - name: Enable the PDK
         run: |
           PDK=${{ env.pdk }} nix develop --command make clone-pdk
