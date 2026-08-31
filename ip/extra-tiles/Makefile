@@ -34,9 +34,16 @@ $(TILES_KLAYOUT):
 .PHONY: $(TILES_KLAYOUT)
 
 $(TILES_CLEAN):
+	# Normal tiles
 	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/$(subst -clean,,$@).v
 	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/$(subst -clean,,$@)_ConfigMem.csv
 	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/$(subst -clean,,$@)_ConfigMem.v
 	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/$(subst -clean,,$@)_switch_matrix.csv
 	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/$(subst -clean,,$@)_switch_matrix.v
+	# Supertiles
+	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/*/$(subst -clean,,$@)_*.v
+	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/*/$(subst -clean,,$@)_*_ConfigMem.csv
+	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/*/$(subst -clean,,$@)_*_ConfigMem.v
+	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/*/$(subst -clean,,$@)_*_switch_matrix.csv
+	rm -rf tiles/${TILE_LIBRARY}/$(subst -clean,,$@)/*/$(subst -clean,,$@)_*_switch_matrix.v
 .PHONY: $(TILES_CLEAN)

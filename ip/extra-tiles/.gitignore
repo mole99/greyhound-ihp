@@ -1,0 +1,29 @@
+# Sphinx build folder
+build
+all_tiles.md
+all_primitives.md
+
+# Virtual environment
+*.venv
+
+# Tiles
+*ConfigMem.csv
+*ConfigMem.v
+*switch_matrix.csv
+*switch_matrix.v
+tiles/**/*.v
+macro/
+runs/
+
+*.json
+*.png
+*.svg
+
+# Python
+*.egg-info/
+__pycache__/
+
+# LibreOffice
+.~lock.*
+
+IHP-Open-PDK/
